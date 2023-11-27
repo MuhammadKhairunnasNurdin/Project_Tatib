@@ -1,0 +1,22 @@
+# It can enable multiviews search so that the Apache server can find the
+# corresponding file based on the requested URL by the client. This allows
+# you to use simpler URLs without explicitly including the file extension.
+# For example, if you have a file named "style.css" in the "public" folder
+# and the -Multiviews option is enabled, the client can access the file
+# using the URL "http://example.com/style". The Apache server will search
+# for the appropriate file based on content preferences and extensions.
+Options -Multiviews
+
+# This directive enables the URL rewriting engine. this use in routing url
+# to accept string url that requested.
+RewriteEngine On
+# this 2 rewrite condition to avoid folder or file name that same with our
+# controller or method
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+# this create rule to write url: to create regex with=> to pick all
+# character one per one to all character pickup except enter line and
+# directed that to index.php file that send url with url value that save to
+# placeholder $1, also with flag [L] to check if there is rule that execute
+# don't execute other rule(this to avoid cyber attack to our rule)
+RewriteRule ^(.*)$ index.php?url=$1 [L]

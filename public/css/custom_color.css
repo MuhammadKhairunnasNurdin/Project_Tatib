@@ -1,0 +1,40 @@
+:root{
+    --warna-biru: #0D366B;
+    --warna-hijau: #127681;
+    --warna-putih: #fff;
+    --warna-hitam: #222;
+    --warna-background: #f4f6ff;
+}
+
+.biru{
+    color: var(--warna-biru);
+}
+
+.btn-hijau{
+    color: var(--warna-putih);
+    background-color: var(--warna-hijau);
+}
+
+.btn-hijau:hover{
+    background-color: #0f666f !important;
+}
+
+.bg-biru{
+    background-color: var(--warna-biru);
+}
+
+.form-default{
+    background-color: var(--warna-background);
+    color: var(--warna-hitam);
+}
+
+.form-default::placeholder{
+    background-color: var(--warna-background);
+}
+.form-default:focus{
+    background-color: var(--warna-background);
+}
+
+.label-hitam{
+    color: var(--warna-hitam);
+}
