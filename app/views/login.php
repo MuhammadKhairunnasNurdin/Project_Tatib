@@ -6,15 +6,18 @@
     <meta name="Kinata" content="Tatib">
     <title>Sistem Tata Tertib Polinema</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= BASEURL;?>\css\custom_color">
+    <link rel="stylesheet" href="assets/css/custom_color.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         @font-face {
             font-family: 'Tiro Bangla';
+            src: url('assets/font/TiroBangla-Regular.ttf') format('truetype');
         }
         body, html {
             height: 100%;
             margin: 0;
             overflow: hidden;
+            align-items:
         }
 
         .custom-label {
@@ -43,13 +46,19 @@
             background-color: #0D366B;
             border-bottom: 5px solid white;
         }
+
+        .white-line {
+            width: 2px;
+            height: 100%;
+            background-color: white;}
+        
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-biru bg-biru">
     <div class="container-fluid">
         <a class="navbar-brand" href="#" style="color: white; font-family: 'Tiro Bangla', sans-serif;">
-            <img src="<?=BASEURL?>/img/logo_polinema.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 1px; size: 10px"> Politeknik Negeri Malang
+            <img src="assets/img/logo_polinema.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 1px; size: 10px"> Politeknik Negeri Malang
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -71,14 +80,14 @@
 </nav>
 
 
-<section class="container-fluid text-center" style="height: 80vh;">
-    <div class="row" style="height: 80%">
-        <div class="col d-flex justify-content-center align-items-center" style="width:80%; height:vh; background-color: #0D366B; opacity: 1; background-image: url(<?=BASEURL?>/img/jti3.jpg);  background-size:100% 100%;">
-        </div>
-        <div class="col d-flex justify-content-center align-items-center" style="width:10%; height:100vh; background-color: #0D366B; opacity: 1;">
+    <section class="container-fluid text-center" style="height: 80vh;">
+        <div class="row" style="height: 80%">
+            <div class="col d-flex justify-content-center align-items-center" style="width:80%; height:vh; background-color: #0D366B; opacity: 1; background-image: url(assets/img/jti3.jpg);  background-size:100% 100%;">
+            </div>
+            <div class="col d-flex justify-content-center align-items-center" style="width:10%; height:100vh; background-color: #0D366B; opacity: 1;">
             <form id="loginForm" class="d-flex flex-column gap-3 w-75 px-3 py-2 bg-white rounded-4" method="post">
-                <div class="w-80 justify-content-center logo-text-container">
-                    <img src="<?=BASEURL?>/img/logo_jti_baru.png" style="width: 25%;" class="logo">
+                <div class="w-80 text-center logo-text-container">
+                    <img src="assets/img/logo_jti_baru.png" style="width: 25%;" class="logo">
                     <h1 class="h3 mb-5 fw-bolder">Sistem Tata Tertib JTI</h1>
                     <span class="e2_28" style="margin-top: 5px;">Selamat datang di sistem tata tertib Politeknik Negeri Malang untuk mahasiswa, civitas akademika </span>
                 </div>
@@ -91,20 +100,21 @@
                     <label for="floatingPassword" class="label-hitam">Password</label>
                 </div>
                 <div class="d-flex justify-content-between">
+                    <div class="form-check text-start mt-2">
+                        <a href="forgot_password.php" class="label-hitam" style="color: #0D366B">Lupa Password?</a>
+                    </div>
                     <button id="loginBtn" class="btn btn-custom-blue pt-2" type="submit" style="width: 35%;">Login</button>
                 </div>
             </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-e5jDEOfP6RVhK2VdDc3YOEBPQQJgMz1DQv5Lqfsh+rgD6oMmnZf+O1sbr7JSCK7F" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('loginBtn').addEventListener('click', function () {
-            this.classList.toggle('clicked');
-        });
-    });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-e5jDEOfP6RVhK2VdDc3YOEBPQQJgMz1DQv5Lqfsh+rgD6oMmnZf+O1sbr7JSCK7F" crossorigin="anonymous"></script>
+    <script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    </script>
 </body>
 </html>
