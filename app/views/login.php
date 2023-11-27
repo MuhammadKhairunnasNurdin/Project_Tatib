@@ -84,9 +84,9 @@
 
     <section class="container-fluid text-center" style="height: 80vh;">
         <div class="row" style="height: 80%">
-            <div class="col d-flex justify-content-center align-items-center" style="width:80%; height:vh; background-color: #0D366B; opacity: 1; background-image: url(assets/img/jti3.jpg);  background-size:100% 100%;">
+            <div class="col d-flex justify-content-center align-items-center" style="width:80%; height:vh; background-color: #0D366B; opacity: 1; background-image: url(assets/img/login3.jpeg); background-size:100% 100%;">
             </div>
-            <div class="col d-flex justify-content-center align-items-center" style="width:10%; height:100vh; background-color: #0D366B; opacity: 1; background-image: url(assets/img/login2.jpg);  background-size:100% 100%;">
+            <div class="col d-flex justify-content-center align-items-center" style="width:10%; height:100vh; background-color: #0D366B; opacity: 1; background-image: url(assets/img/jti3.jpg); background-size:100% 100%;">
             <form id="loginForm" class="d-flex flex-column gap-2 w-10 px-1 py-1 bg-white rounded-3" method="post">
                 <div class="text-center logo-text-container">
                     <img src="assets/img/logo_jti_baru.png" style="width: 15%;" class="logo">
