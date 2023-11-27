@@ -8,7 +8,8 @@ class Dosen extends Controller
 {
 	public function index()
 	{
-		$this->view("templates/header");
+		$data['title'] = "Dosen";
+		$this->view("templates/header", $data);
 		$this->view("dosen/index");
 		$this->view("templates/footer");
 	}

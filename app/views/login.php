@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Kinata" content="Tatib">
-    <title>Sistem Tata Tertib Polinema</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= BASEURL;?>\css\custom_color">
     <style>
         @font-face {
@@ -90,15 +82,13 @@
                     <input type="password" class="form-control form-default shadow bg-body-tetiary-rounded" id="floatingPassword" placeholder="Password" name="password" required>
                     <label for="floatingPassword" class="label-hitam">Password</label>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-center">
                     <button id="loginBtn" class="btn btn-custom-blue pt-2" type="submit" style="width: 35%;">Login</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-e5jDEOfP6RVhK2VdDc3YOEBPQQJgMz1DQv5Lqfsh+rgD6oMmnZf+O1sbr7JSCK7F" crossorigin="anonymous"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('loginBtn').addEventListener('click', function () {
@@ -106,5 +96,3 @@
         });
     });
 </script>
-</body>
-</html>
