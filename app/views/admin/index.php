@@ -9,4 +9,4 @@ if (!empty($_GET['page'])) {
     include 'template/home.php';
 }
 include 'template/footer.php';
-?>
+
