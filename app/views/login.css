@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Tiro Bangla';
+    src: url('assets/font/TiroBangla-Regular.ttf') format('truetype');
+}
+
+body,html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.custom-label {
+    background-color: #0D366B;
+}
+
+.btn-custom-blue {
+    background-color: #0D366B;
+    color: #ffffff;
+}
+
+.btn-custom-blue.clicked {
+    background-color: #ffffff;
+    color: #0D366B;
+}
+
+h2,h1,.e2_28,.label-hitam {
+    font-family: 'Tiro Bangla', sans-serif;
+}
+
+img.logo {
+    margin-bottom: 20px;
+}
+
+#loginForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+}
+
+  
+  
+  
+
