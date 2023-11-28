@@ -1,0 +1,340 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+ 
+ body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+ }
+/* header style */
+.container-header{
+    width: 100%;
+    height: 20%;
+}
+.header-container{
+    display: flex;
+    font-family:'Raleway';
+    background-color: #0D366B;
+    margin: auto;
+    padding: 20px 0px 20px 0px;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+}
+.header-content{
+    padding-left: 20px;
+}
+.profile{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+.header-title{
+    font-weight:bold;
+    color: white;
+    text-align: center; 
+}
+.profile-title{
+    color: white;
+}
+
+/* navbar style */
+.navbar{
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white !important;
+    width: 20%;
+    height: 100%;
+}
+.nav-title{
+    font-size: large;
+    display: flex;
+    padding: 10px;
+    color: #0D3278;
+    justify-content: center;
+    text-align: center;
+}
+.logo{
+    width: 200px;
+}
+ul{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    list-style-type: none;
+}
+li{
+    color : white;
+}
+a{
+    text-decoration: none;
+}
+.logo-dosen, .logo-mahasiswa, .logo-navigasi{
+    padding-right: 10px;
+}
+.dashboard-content:hover, .nav-dosen-content:hover, .nav-mhs-content:hover, .nav-validasi-content:hover{
+    background-color: #0D3278;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;    
+}
+.link-dashboard:hover, .link-dosen:hover, .link-mahasiswa:hover, .link-validasi:hover{
+    color: white !important;
+}
+/* .logo-dashboard:hover{
+    background-image: url("img/hover-dosen.svg");
+} */
+.link-dashboard:visited, .link-dosen:visited, .link-mahasiswa:visited, .link-validasi:visited{
+    color: #403737;
+}
+.nav-dashboard, .nav-dosen, .nav-mahasiswa, .nav-validasi{
+    margin: auto;
+    padding: 10px;
+    color: #403737;
+}
+
+
+/* dashboard style */
+.container-page{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+.main{
+    width:80%;
+    background-image: url("img/gedung-jti.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: auto;
+    margin: 0;
+}
+.dashboard-box{
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    color: #0D3278;
+    width: 90%;
+}
+.title-page{
+    margin-left: 20px;
+}
+.box-title{
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    justify-content: space-between;
+}
+.refresh-logo{
+    margin: 10px;
+    padding: 0;
+}
+.refresh{
+    background-color: white;
+    width: fit-content;
+    border: none;
+    color: #4C3737;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+
+}
+.button-refresh{
+    display: flex;
+    align-items: center;
+}
+.content{
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+}
+.box-content{
+    border-top: 5px solid #0D3278;
+    margin: 0;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
+
+.logo-dashboard-page{
+    margin-right: 10px;
+}
+.title-content{
+    color: #229FBB;
+    font-size:x-large;
+    font-weight: bold;
+}
+.desc-content{
+    font-size: medium;
+    color: #4E4E4E;
+    margin: 0;
+}
+.jurusan{
+    color: #3D55AB;
+    font-weight: bolder;
+    margin: 0;
+}
+.text-content{
+    margin-left: 20px;
+}
+.dosen-mahasiswa{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.box-dosen, .box-mahasiswa{
+    width: 30%;
+    display: flex;
+    background-color: #0D3278;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    padding-top: 0px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.button-kelola{
+    margin-top: 20px ;
+    color: #0D366B;
+}
+
+.kelola{
+    margin: 0 0 0 0;
+    height: 50%;
+    font-weight: bold;
+    color: #0D366B !important;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+.kelola:hover{
+    background-color: #959595;
+    font-weight: bold;
+}
+
+/* daftar-dosen style dan daftar-mahasiswa style*/
+.daftar-dosen-box, .daftar-mhs-box{
+    margin: auto;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    margin-top: 10px;
+}
+.box-title-daftar-dosen, .box-title-daftar-mhs{
+    width: 100%;
+    color: #0D366B;
+    display: flex;
+    justify-content: flex-start;
+}
+.title-page-daftar-dosen, .title-page-daftar-mhs{
+    display: flex;
+}
+.button-add{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.add{
+    background-color: #00FF1A;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white !important;
+    font-weight: bold;
+}
+.logo-dosen-title, .logo-mhs-title{
+    margin: 0px 20px 0px 20px;
+}.content{
+    width: 90%;
+    margin: auto;
+}
+.box-content-daftar-dosen, .box-content-daftar-mhs{
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+}
+.table-dosen, .table-mhs{
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: stretch;
+}
+.thead{
+    width: 100%;
+    background-color: white;
+    color: #0D366B;
+    display: flex;
+    border-top: 5px solid #0D366B;
+    border-bottom: 5px solid #0D366B;
+    border-radius: 5px 5px 0px 0px;
+}
+.tbody{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    border-bottom: 5px solid #0D366B;
+    border-radius: 0px 0px 5px 5px;
+}
+tbody{
+    width: 100%;
+}
+th{
+    border-color: #D9D9D9;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+}
+td{
+    border-color: #D9D9D9;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+}
+.nip{
+    border-left: 0px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container-page {
+        margin: 0;
+    }
+
+    .container-page .row {
+        width: 100%;
+    }
+
+    .main{
+        width: 100%;
+    }
+    
+    .daftar-dosen-box, .content{
+        width: 90%;
+    }
+    .box-content, .table-dosen{
+        width: 100%;
+    }
+    }
