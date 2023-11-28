@@ -111,7 +111,7 @@ a{
 }
 .main{
     width:80%;
-    background-image: url("localhost://Project_Tatib/public/img/gedung-jti.jpg");
+    background-image: url("http://localhost/Project_Tatib/public/img/gedung-jti.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     padding: auto;

@@ -1,18 +1,14 @@
-<?php
-
-?>
-
 <div class="container-page">
     <div class="row">
     <?php
-    include "template/menu.php";
+    include "../../template/menu.php";
     ?>
     <main class="main">
         <div class="daftar-mhs-box">
             <div class="box-title-daftar-mhs">
                 <div class="title-page-daftar-mhs">
-                    <img src="../../img/mahasiswa_logo.svg" class="logo-mhs-title" alt="">
-                    <h1 class="h2"><img class="logo-dashboard-page" src="img/mahasiswa_Logo.svg" alt="">Daftar Mahasiswa</h1>
+                    <img src="<?= BASEURL;?> /img/mahasiswa_logo.svg" class="logo-mhs-title" alt="">
+                    <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL;?> /img/mahasiswa_Logo.svg" alt="">Daftar Mahasiswa</h1>
                 </div>
                 <div class="button-add">
                      <a href="" class="add">ADD</a>
