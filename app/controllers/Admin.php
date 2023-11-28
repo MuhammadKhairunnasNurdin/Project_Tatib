@@ -6,7 +6,7 @@ use core\Controller;
 
 class Admin extends Controller
 {
-	public function index()
+	public function index(): void
 	{
 		$data['title'] = "Admin";
 		$this->view("templates/header", $data);

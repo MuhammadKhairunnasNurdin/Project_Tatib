@@ -8,12 +8,9 @@ class Login extends Controller
 {
     public function index()
     {
-		session_start();
-	    $data = [
-			"title" => "Login",
-	    ];
+	    $data["title"] = "Login";
 		$this->view("templates/header", $data);
-        $this->view("login");
+        $this->view("login", $data);
 		$this->view("templates/footer");
     }
 
@@ -27,15 +24,15 @@ class Login extends Controller
 			$loginLocation = $this->model("Login")->login($data["username"], $data["password"]);
 			unset($data);
 
+			$controller = $loginLocation["controller"];
+			$method = $loginLocation["method"];
+			/*if some error in login occur*/
 			if (count($loginLocation) === 3) {
 				$data["message"] = $loginLocation["errorMessage"];
+				header("Location: /$controller/$method" . urldecode($data["message"]));
 			}
-			$data["title"] = $loginLocation["title"];
 
-			$this->view("templates/header", $data);
-			$this->view($loginLocation["viewLocation"], $data);
-			$this->view("templates/footer");
-			exit();
+			header("Location: " . BASEURL . "/$controller/$method");
 		}
 	}
 }

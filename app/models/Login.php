@@ -38,9 +38,9 @@ class Login
 		/*when query is false because username is wrong*/
 		if (!$row) {
 			$this->fm->message("warning", "Username not Found");
-			$viewLocation = "login";
-			$titleView = "Login";
-			return ["viewLocation" => $viewLocation, "title" => $titleView, "errorMessage" => $this->fm->getFlashData("warning")];
+			$controller = "login";
+			$method = "Login";
+			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("warning")];
 		}
 
 		$salt = $row["salt"];
@@ -56,15 +56,17 @@ class Login
 		$userPassword = password_hash(($row["password"] . $salt ), PASSWORD_DEFAULT);;
 		if (!password_verify($inputPassword, $userPassword)) {
 			$this->fm->message("danger", "Password is Wrong");
-			$viewLocation = "login";
-			$titleView = "Login";
-			return ["viewLocation" => $viewLocation, "title" => $titleView, "errorMessage" => $this->fm->getFlashData("danger")];
+			$controller = "login";
+			$method = "Login";
+			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
 		}
 
+		session_start();
+		$_SESSION["username"] = $row["username"];
 		$_SESSION["level"] = $row["level"];
-		$viewLocation = $row["level"] . "/index";
-		$titleView = $row["level"];
-		return ["viewLocation" => $viewLocation, "title" => $titleView];
+		$controller = $row["level"];
+		$method = "index";
+		return ["controller" => $controller, "method" => $method];
 	}
 
 }
