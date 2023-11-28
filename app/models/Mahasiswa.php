@@ -4,7 +4,7 @@ namespace models;
 
 class Mahasiswa
 {
-	public function showHistoy()
+	public function showHistory()
 	{
 
 	}

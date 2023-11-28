@@ -11,7 +11,7 @@ const MARIADB_DSN = "mysql:host=" . MARIADB_CONFIG["host"] . ";dbname=" . MARIAD
 const SQLSERVER_CONFIG = [
     "host"=> "(local)",
     "user"=> "shadow",
-    "password"=> "",
+    "password"=> "kegelapankeseimbangan666",
     "database"=> "Project_Uas"
 ];
 const SQLSERVER_DSN = "sqlsrv:Server=" . SQLSERVER_CONFIG["host"] . ";Database=" . SQLSERVER_CONFIG["database"];
