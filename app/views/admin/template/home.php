@@ -8,11 +8,11 @@
             <div class="dashboard-box">
                 <div class="box-title">
                     <div class="title-page">
-                        <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dashboard_Logo.svg" alt="">Dashboard</h1>
+                        <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL?>/img/dashboard_Logo.svg" alt="">Dashboard</h1>
                     </div>
                     <div class="button-refresh">
                         <button class="refresh">
-                            <img class="refresh-logo" src="<?= BASEURL ?>/img/refresh-logo.svg" alt="">
+                            <img class="refresh-logo" src="<?= BASEURL?>/img/refresh-logo.svg" alt="">
                         </button>
                     </div>
                 </div>
