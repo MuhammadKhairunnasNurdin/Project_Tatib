@@ -4,6 +4,11 @@ namespace core;
 
 class  FlashMessage
 {
+	public function __construct()
+	{
+		session_start();
+	}
+
 	public function setFlashData(string $key = "", string $value = ""): bool
 	{
 		if (!empty($key) && !empty($value)) {
@@ -42,6 +47,9 @@ class  FlashMessage
 			$this->setFlashData("warning", "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
         <strong>Peringatan!</strong> {$message}
         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+		}
+		if (!empty($key)) {
+			unset($_SESSION["_flashData"][$key]);
 		}
 	}
 }
