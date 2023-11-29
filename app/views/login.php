@@ -27,18 +27,18 @@
                     <h1 class="h5 mb-3 fw-bolder" style="font-family: 'Tiro Bangla'; font-size: 25px;">Sistem Tata Tertib JTI</h1>
                     <span class="small" style="margin-top: 5%; margin:auto; font-family: 'Tiro Bangla'; font-size: 15px;">Selamat datang di sistem tata tertib Politeknik Negeri Malang untuk mahasiswa, civitas akademika</span>
                 </div>
-                <div class="form-floating" style="width:95%; height: 2%; left:13px;; font-family: 'Tiro Bangla';">
+                <div class="form-floating" style="width:95%; margin: auto; font-family: 'Tiro Bangla';">
                     <input type="username" class="form-control form-default shadow bg-body-tetiary-rounded" id="floatingInput" placeholder="Username" name="username" required>
                     <label for="floatingInput" class="small font-family: 'Tiro Bangla';">Username</label>
                 </div>
-                <div class="form-floating" style="width:95%; height: 2%; margin-top:50px; left:13px; font-family: 'Tiro Bangla';">
+                <div class="form-floating" style="width:95%; margin: auto; font-family: 'Tiro Bangla';">
                     <input type="password" class="form-control form-default shadow bg-body-tetiary-rounded" id="floatingPassword" placeholder="Password" name="password" required>
                     <label for="floatingPassword" class="small font-family: 'Tiro Bangla';">Password</label>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-center">
                     <div class="form-check text-start">
                     </div>
-                    <button id="loginBtn" class="btn btn-custom-blue pt-1" type="submit" style="width:25%; ">Login</button>
+                    <button id="loginBtn" class="btn btn-custom-blue pt-1" type="submit" style="width:25%; margin: 5px">Login</button>
                 </div>
             </form>
             </div>
