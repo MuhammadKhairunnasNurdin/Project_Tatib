@@ -1,5 +1,5 @@
-    <div class="navbar">
-        <nav class="nav-container">
+    <div class="navbar-navigasi">
+        <nav class="nav-container-menu">
             <div class="nav-title">
                 <h4 class="logo">POLITEKNIK NEGERI MALANG</h4>
             </div>
@@ -19,8 +19,8 @@
                     <div class="nav-dosen-content">
                         <a href="index.php?page=dosen" class="link-dosen" aria-current="page">
                         <img class="logo-dosen" src="img/dosen_logo.svg" alt="">
+                            Dosen
                         </a>
-                    Dosen
                     </div>
                 </li>
                 </div>

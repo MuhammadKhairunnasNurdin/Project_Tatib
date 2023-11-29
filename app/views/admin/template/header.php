@@ -7,10 +7,10 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link rel="stylesheet" href="<?=BASEURL;?> /css/admin.css">
 </head>
-<div class="container-header">
-    <div class="row">
-    <div class="header-container">
-        <div class="header-content">
+<div class="container-header-admin">
+    <div class="row-admin">
+    <div class="header-container-admin">
+        <div class="header-content-admin">
             <a class="header-title" href="#">POLITEKNIK NEGERI MALANG</a>
         </div>
         <div class="profile">

@@ -19,7 +19,7 @@ class Login
 	public function login(string $username, string $password): array
 	{
 		/*prepare our query syntax*/
-		$this->db->prepare("SELECT username, password, salt, level FROM [user] WHERE username =:username");
+		$this->db->prepare("SELECT username, password, salt, level FROM user WHERE username =:username");
 
 		/*to escape special character*/
 		$username = $this->db->antiDbInjection($username);
