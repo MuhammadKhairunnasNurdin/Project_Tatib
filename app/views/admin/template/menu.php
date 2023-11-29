@@ -18,12 +18,9 @@
                 <li>
                     <div class="nav-dosen-content">
                         <a href="index.php?page=dosen" class="link-dosen" aria-current="page">
-<<<<<<< HEAD
                             <img class="logo-dosen" src="img/dosen_logo.svg" alt="">
                             Dosen
-=======
                         <img class="logo-dosen" src="<?= BASEURL;?> /img/dosen_logo.svg" alt="">
->>>>>>> a3493a73a2b37b7ee874d360e7c8d394a12f6467
                         </a>
                     </div>
                 </li>

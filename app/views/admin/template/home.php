@@ -8,19 +8,17 @@
             <div class="dashboard-box">
                 <div class="box-title">
                     <div class="title-page">
-<<<<<<< HEAD
                         <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL?>/img/dashboard_Logo.svg" alt="">Dashboard</h1>
                     </div>
                     <div class="button-refresh">
                         <button class="refresh">
                             <img class="refresh-logo" src="<?= BASEURL?>/img/refresh-logo.svg" alt="">
-=======
+
                         <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?> /img/dashboard_Logo.svg" alt="">Dashboard</h1>
                     </div>
                     <div class="button-refresh">
                         <button class="refresh">
                             <img class="refresh-logo" src="<?= BASEURL ?> /img/refresh-logo.svg" alt="">
->>>>>>> a3493a73a2b37b7ee874d360e7c8d394a12f6467
                         </button>
                     </div>
                 </div>
