@@ -23,7 +23,7 @@ class Login
 			$username = $_COOKIE["username"];
 
 			/*prepare our query syntax*/
-			$this->db->prepare("SELECT username, password, salt, level FROM [user] WHERE id_user =:id_user");
+			$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE id_user =:id_user");
 
 			/*to bind param, so param not directly used in query and bound in separated way*/
 			$this->db->bind(':id_user', $id);
@@ -42,10 +42,10 @@ class Login
 		return [];
 	}
 
-	public function verify(string $username, string $password, $remember): array
+	public function verify(string $username, string $password, $remember = null): array
 	{
 		/*prepare our query syntax*/
-		$this->db->prepare("SELECT username, password, salt, level FROM user WHERE username =:username");
+		$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE username =:username");
 
 		/*to escape special character*/
 		$username = $this->db->antiDbInjection($username);
@@ -64,8 +64,8 @@ class Login
 		/*when query is false because username is wrong*/
 		if (!$row) {
 			$this->fm->message("warning", "Username not Found");
-			$controller = "login";
-			$method = "Login";
+			$controller = "Login";
+			$method = "login";
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("warning")];
 		}
 
@@ -82,8 +82,8 @@ class Login
 		$userPassword = password_hash(($row["password"] . $salt ), PASSWORD_DEFAULT);;
 		if (!password_verify($inputPassword, $userPassword)) {
 			$this->fm->message("danger", "Password is Wrong");
-			$controller = "login";
-			$method = "Login";
+			$controller = "Login";
+			$method = "login";
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
 		}
 
@@ -92,8 +92,8 @@ class Login
 		$_SESSION["level"] = $row["level"];
 
 		if ($remember) {
-			setcookie("id", $row["id_user"], time() + 300);
-			setcookie("username", hash("sha256", $username));
+			setcookie("id", $row["id_user"], time() + 300, "/");
+			setcookie("username", hash("sha256", $username), time()+300, "/");
 		}
 
 		$controller = $row["level"];

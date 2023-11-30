@@ -15,7 +15,7 @@ class Login extends Controller
 	    }
 	    $data["title"] = "Login";
 		$this->view("templates/header", $data);
-        $this->view("login", $data);
+        $this->view("login");
 		$this->view("templates/footer");
     }
 
