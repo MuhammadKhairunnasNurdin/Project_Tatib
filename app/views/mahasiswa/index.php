@@ -1,2 +1,2 @@
 <?php
-echo "anjing";
+echo "kek";

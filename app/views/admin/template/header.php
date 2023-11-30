@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="http://localhost/Project_Tatib/public/css/admin.css">
     <link rel="stylesheet" href="<?=BASEURL;?> /css/admin.css">
 </head>
-<div class="container-header">
-    <div class="row">
-    <div class="header-container">
-        <div class="header-content">
+<div class="container-header-admin">
+    <div class="row-admin">
+    <div class="header-container-admin">
+        <div class="header-content-admin">
             <a class="header-title" href="#">POLITEKNIK NEGERI MALANG</a>
         </div>
         <div class="profile">
