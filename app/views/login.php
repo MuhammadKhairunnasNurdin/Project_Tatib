@@ -37,7 +37,9 @@
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="form-check text-start">
-                            <input type="checkbox" name="remember" value="1">Remember Me
+                        <label>
+                            <input type="checkbox" name="remember" value="1">
+                        </label>Remember Me
                     </div>
                     <button id="loginBtn" class="btn btn-custom-blue pt-1" type="submit" style="width:25%; margin: 5px">Login</button>
                 </div>

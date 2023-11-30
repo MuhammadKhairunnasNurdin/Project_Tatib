@@ -19,7 +19,7 @@ class Login
 	public function login(string $username, string $password): array
 	{
 		/*prepare our query syntax*/
-		$this->db->prepare("SELECT username, password, salt, level FROM user WHERE username =:username");
+		$this->db->prepare("SELECT username, password, salt, level FROM [user] WHERE username =:username");
 
 		/*to escape special character*/
 		$username = $this->db->antiDbInjection($username);
@@ -38,8 +38,8 @@ class Login
 		/*when query is false because username is wrong*/
 		if (!$row) {
 			$this->fm->message("warning", "Username not Found");
-			$controller = "login";
-			$method = "Login";
+			$controller = "Login";
+			$method = "login";
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("warning")];
 		}
 
@@ -56,8 +56,8 @@ class Login
 		$userPassword = password_hash(($row["password"] . $salt ), PASSWORD_DEFAULT);;
 		if (!password_verify($inputPassword, $userPassword)) {
 			$this->fm->message("danger", "Password is Wrong");
-			$controller = "login";
-			$method = "Login";
+			$controller = "Login";
+			$method = "login";
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
 		}
 
