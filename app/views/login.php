@@ -23,7 +23,7 @@
             <div class="col d-flex justify-content-center align-items-center" style="width:10%; height:100vh; background-color: #0D366B; opacity: 1; background-image: url(<?= BASEURL?>/img/gedung_JTI.jpg); background-size:100% 100%;">
             <form action="<?= BASEURL?>/Login/loginVerify" id="loginForm" class="d-flex flex-column gap-2 w-10 px-1 py-1 bg-white rounded-3" style="height:60%; width:35%;" method="post">
                 <div class="text-center logo-text-container">
-                    <img src="<?= BASEURL?>/img/logo_jti_baru.png" style="width: 20%;" class="logo">
+                    <img src="<?= BASEURL?>/img/logo_jti_baru.png" style="width: 20%;" class="logo" alt="">
                     <h1 class="h5 mb-3 fw-bolder" style="font-family: 'Tiro Bangla'; font-size: 25px;">Sistem Tata Tertib JTI</h1>
                     <span class="small" style="margin-top: 5%; margin:auto; font-family: 'Tiro Bangla'; font-size: 15px;">Selamat datang di sistem tata tertib Politeknik Negeri Malang untuk mahasiswa, civitas akademika</span>
                 </div>
@@ -37,6 +37,7 @@
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="form-check text-start">
+                            <input type="checkbox" name="remember" value="1">Remember Me
                     </div>
                     <button id="loginBtn" class="btn btn-custom-blue pt-1" type="submit" style="width:25%; margin: 5px">Login</button>
                 </div>
