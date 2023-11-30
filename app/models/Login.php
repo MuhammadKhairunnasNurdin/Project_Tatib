@@ -16,7 +16,33 @@ class Login
 		$this->fm = new FlashMessage();
 	}
 
-	public function login(string $username, string $password): array
+	public function cookieVerify(): array
+	{
+		if (isset($_COOKIE["id"]) && isset($_COOKIE["username"])) {
+			$id = $_COOKIE["id"];
+			$username = $_COOKIE["username"];
+
+			/*prepare our query syntax*/
+			$this->db->prepare("SELECT username, password, salt, level FROM [user] WHERE id_user =:id_user");
+
+			/*to bind param, so param not directly used in query and bound in separated way*/
+			$this->db->bind(':id_user', $id);
+
+			/*execute query when safe*/
+			$row = $this->db->single();
+
+			if ($username !== hash("sha256", $row["username"])) {
+				return [];
+			}
+
+			$controller = $row["level"];
+			$method = "index";
+			return ["controller" => $controller, "method" => $method];
+		}
+		return [];
+	}
+
+	public function verify(string $username, string $password, $remember): array
 	{
 		/*prepare our query syntax*/
 		$this->db->prepare("SELECT username, password, salt, level FROM [user] WHERE username =:username");
@@ -64,6 +90,12 @@ class Login
 		session_start();
 		$_SESSION["username"] = $row["username"];
 		$_SESSION["level"] = $row["level"];
+
+		if ($remember) {
+			setcookie("id", $row["id_user"], time() + 300);
+			setcookie("username", hash("sha256", $username));
+		}
+
 		$controller = $row["level"];
 		$method = "index";
 		return ["controller" => $controller, "method" => $method];

@@ -8,6 +8,11 @@ class Login extends Controller
 {
     public function index()
     {
+	    $cookieResult = $this->model("Login")->cookieVerify();
+	    if ($cookieResult) {
+		    header("Location: " . BASEURL . "/" . $cookieResult["controller"] . "/" . $cookieResult["method"]);
+			return;
+	    }
 	    $data["title"] = "Login";
 		$this->view("templates/header", $data);
         $this->view("login", $data);
@@ -20,8 +25,12 @@ class Login extends Controller
 			$data = [
 				"username" => $_POST["username"],
 				"password" => $_POST["password"],
+				"remember" => ""
 			];
-			$loginLocation = $this->model("Login")->login($data["username"], $data["password"]);
+			if (isset($_POST["remember"])) {
+				$data["remember"] = $_POST["remember"];
+			}
+			$loginLocation = $this->model("Login")->verify($data["username"], $data["password"], $data["remember"]);
 			unset($data);
 
 			$controller = $loginLocation["controller"];
