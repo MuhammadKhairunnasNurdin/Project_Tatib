@@ -9,13 +9,13 @@ class  FlashMessage
 		session_start();
 	}
 
-	public function setFlashData(string $key = "", string $value = ""): bool
+	public function setFlashData(string $key = "", string $value = "")
 	{
 		if (!empty($key) && !empty($value)) {
 			$_SESSION["_flashData"][$key] = $value;
-			return true;
+//			return true;
 		}
-		return false;
+//		return false;
 	}
 
 	public function getFlashData(string $key = "")
@@ -52,9 +52,6 @@ class  FlashMessage
             <strong>Peringatan!</strong> {$message}
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
 				break;
-		}
-		if (!empty($key)) {
-			unset($_SESSION["_flashData"][$key]);
 		}
 	}
 }

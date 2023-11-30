@@ -3,6 +3,7 @@
 namespace controllers;
 
 use core\Controller;
+use http\Cookie;
 
 class Login extends Controller
 {
@@ -23,11 +24,6 @@ class Login extends Controller
 	{
 
 		if ($_SERVER["REQUEST_METHOD"] = "POST") {
-
-		if (isset($_POST['remember'])) {
-			setcookie('username', $_POST['username'], time() + 120, "/");
-			setcookie('password', $_POST['password'], time() + 120, "/");
-		}
 
 
 		var_dump($_SESSION);
@@ -52,5 +48,14 @@ class Login extends Controller
 
 			header("Location: " . BASEURL . "/$controller/$method");
 		}
+	}
+
+	public function logout() {
+		session_unset();
+		session_destroy();
+		setcookie("id", "", time(), "/");
+		setcookie("username", "", time(), "/");
+		header("Location: " . BASEURL);
+
 	}
 }

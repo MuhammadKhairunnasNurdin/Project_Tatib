@@ -27,6 +27,12 @@
                     <h1 class="h5 mb-3 fw-bolder" style="font-family: 'Tiro Bangla'; font-size: 25px;">Sistem Tata Tertib JTI</h1>
                     <span class="small" style="margin-top: 5%; margin:auto; font-family: 'Tiro Bangla'; font-size: 15px;">Selamat datang di sistem tata tertib Politeknik Negeri Malang untuk mahasiswa, civitas akademika</span>
                 </div>
+                <?php
+                if (isset($_SESSION['_flashData'])) {
+                    echo "<script>alert('haha') </script>";
+                    session_destroy();
+                }
+                ?>
                 <div class="form-floating" style="width:95%; margin: auto; font-family: 'Tiro Bangla';">
                     <input type="username" class="form-control form-default shadow bg-body-tetiary-rounded" id="floatingInput" placeholder="Username" name="username" required>
                     <label for="floatingInput" class="small font-family: 'Tiro Bangla';">Username</label>
