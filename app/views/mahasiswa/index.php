@@ -1,2 +1,2 @@
 <?php
-echo "kek";
+echo $_SESSION["anas"];

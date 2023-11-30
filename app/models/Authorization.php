@@ -5,7 +5,7 @@ namespace models;
 use core\Database;
 use core\FlashMessage;
 
-class Login
+class Authorization
 {
 	private Database $db;
 	private FlashMessage $fm;
@@ -82,8 +82,8 @@ class Login
 		$userPassword = password_hash(($row["password"] . $salt ), PASSWORD_DEFAULT);;
 		if (!password_verify($inputPassword, $userPassword)) {
 			$this->fm->message("danger", "Password is Wrong");
-			$controller = "Login";
-			$method = "login";
+			$controller = "Authorization";
+			$method = "index";
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
 		}
 
@@ -99,6 +99,11 @@ class Login
 		$controller = $row["level"];
 		$method = "index";
 		return ["controller" => $controller, "method" => $method];
+	}
+
+	public function logout()
+	{
+
 	}
 
 }

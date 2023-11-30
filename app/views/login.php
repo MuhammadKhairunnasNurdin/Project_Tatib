@@ -29,8 +29,7 @@
                 </div>
                 <?php
                 if (isset($_SESSION['_flashData'])) {
-                    echo "<script>alert('haha') </script>";
-                    session_destroy();
+                    echo $data["flashMessage"];
                 }
                 ?>
                 <div class="form-floating" style="width:95%; margin: auto; font-family: 'Tiro Bangla';">

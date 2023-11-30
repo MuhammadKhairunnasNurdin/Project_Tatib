@@ -13,9 +13,7 @@ class  FlashMessage
 	{
 		if (!empty($key) && !empty($value)) {
 			$_SESSION["_flashData"][$key] = $value;
-//			return true;
 		}
-//		return false;
 	}
 
 	public function getFlashData(string $key = "")

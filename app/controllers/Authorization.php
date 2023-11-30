@@ -5,18 +5,21 @@ namespace controllers;
 use core\Controller;
 use http\Cookie;
 
-class Login extends Controller
+class Authorization extends Controller
 {
-    public function index()
+    public function index($message = ""): void
     {
-	    $cookieResult = $this->model("Login")->cookieVerify();
-	    if ($cookieResult) {
+	    if (isset($_COOKIE["id"])) {
+	        $cookieResult = $this->model("Authorization")->cookieVerify();
 		    header("Location: " . BASEURL . "/" . $cookieResult["controller"] . "/" . $cookieResult["method"]);
 			return;
 	    }
-	    $data["title"] = "Login";
+	    $data = [
+			"title" => "Login",
+		    "flashMessage" => $message
+	    ];
 		$this->view("templates/header", $data);
-        $this->view("login");
+        $this->view("login", $data);
 		$this->view("templates/footer");
     }
 
@@ -24,9 +27,6 @@ class Login extends Controller
 	{
 
 		if ($_SERVER["REQUEST_METHOD"] = "POST") {
-
-
-		var_dump($_SESSION);
 			$data = [
 				"username" => $_POST["username"],
 				"password" => $_POST["password"],
@@ -35,7 +35,7 @@ class Login extends Controller
 			if (isset($_POST["remember"])) {
 				$data["remember"] = $_POST["remember"];
 			}
-			$loginLocation = $this->model("Login")->verify($data["username"], $data["password"], $data["remember"]);
+			$loginLocation = $this->model("Authorization")->verify($data["username"], $data["password"], $data["remember"]);
 			unset($data);
 
 			$controller = $loginLocation["controller"];
@@ -43,7 +43,7 @@ class Login extends Controller
 			/*if some error in login occur*/
 			if (count($loginLocation) === 3) {
 				$data["message"] = $loginLocation["errorMessage"];
-				header("Location: /$controller/$method" . $data["message"]);
+				header("Location: /$controller/$method/" . $data["message"]);
 			}
 
 			header("Location: " . BASEURL . "/$controller/$method");
@@ -58,4 +58,5 @@ class Login extends Controller
 		header("Location: " . BASEURL);
 
 	}
+
 }
