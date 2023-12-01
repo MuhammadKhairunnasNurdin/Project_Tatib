@@ -44,7 +44,7 @@
     <div class="row-admin">
     <div class="header-container-admin">
         <div class="header-content-admin">
-            <a class="header-title" href="#">POLITEKNIK NEGERI MALANG</a>
+            <a class="header-title">POLITEKNIK NEGERI MALANG</a>
         </div>
         <div class="profile">
             <a class="profile-title" onclick="toggleDropdown()">Admin 1</a>
