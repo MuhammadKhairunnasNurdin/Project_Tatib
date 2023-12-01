@@ -11,15 +11,11 @@
                         <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL?>/img/dashboard_Logo.svg" alt="">Dashboard</h1>
                     </div>
                     <div class="button-refresh">
-                        <button class="refresh">
-                            <img class="refresh-logo" src="<?= BASEURL?>/img/refresh-logo.svg" alt="">
-
-                        <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?> /img/dashboard_Logo.svg" alt="">Dashboard</h1>
-                    </div>
-                    <div class="button-refresh">
-                        <button class="refresh">
-                            <img class="refresh-logo" src="<?= BASEURL ?> /img/refresh-logo.svg" alt="">
-                        </button>
+                        <a href="index.php">
+                            <button class="refresh" data-bs-target="index.php">
+                                <img class="refresh-logo" src="<?= BASEURL?>/img/refresh-logo.svg" alt="">
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
