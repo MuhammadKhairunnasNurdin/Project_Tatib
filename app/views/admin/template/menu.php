@@ -4,46 +4,30 @@
                 <h4 class="logo">POLITEKNIK NEGERI MALANG</h4>
             </div>
             <ul>
-                <div class="nav-dashboard">
-                <li>
-                    <div class="dashboard-content">
-                        <a href="index.php" class="link-dashboard">
-                        <img class="logo-dashboard" src="img/dashboard_Logo.svg" alt="">
-                            Dashboard
-                        </a>
-                    </div>
+                <li class="nav-dashboard" >
+                    <a href="index.php" class="link-dashboard">
+                        <img class="logo-dashboard" src="<?= BASEURL?>/img/dashboard_Logo.svg" alt="">
+                        <p>Dashboard</p> 
+                    </a>
                 </li>
-                </div>
-                <div class="nav-dosen">
-                <li>
-                    <div class="nav-dosen-content">
-                        <a href="index.php?page=dosen" class="link-dosen" aria-current="page">
-                        <img class="logo-dosen" src="img/dosen_logo.svg" alt="">
-                            Dosen
-                        </a>
-                    </div>
+                <li class="nav-dosen">
+                    <a href="index.php?page=dosen" class="link-dosen">
+                        <img class="logo-dosen" src="<?= BASEURL?>/img/dosen_logo.svg" alt="">
+                        <p>Dosen</p>
+                    </a>
                 </li>
-                </div>
-                <div class="nav-mahasiswa">
-                <li>
-                    <div class="nav-mhs-content">
-                        <a href="index.php?page=mahasiswa" class="link-mahasiswa">
-                        <img  class="logo-mahasiswa" src="img/mahasiswa_logo.svg" alt="">
-                            Mahasiswa
-                        </a>
-                    </div>
+                <li class="nav-mahasiswa" >
+                    <a href="index.php?page=mahasiswa" class="link-mahasiswa">
+                        <img  class="logo-mahasiswa" src="<?= BASEURL?>/img/mahasiswa_logo.svg" alt="">
+                        <p>Mahasiswa</p>
+                    </a>
                 </li>
-                </div>
-                <div class="nav-validasi">
-                <li>
-                    <div class="nav-validasi-content">
-                        <a href="" class="link-validasi">
-                        <img class="logo-validasi" src="img/validasi_logo.svg" alt="">    
-                        Validasi
-                        </a>
-                    </div>
+                <li class="nav-validasi">
+                    <a href="index.php?page=validasi" class="link-validasi">
+                        <img class="logo-validasi" src="<?= BASEURL?>/img/validasi_logo.svg" alt="">    
+                        <p>Validasi</p>
+                    </a>
                 </li>    
-                </div>
             </ul>
         </nav>
     </div>

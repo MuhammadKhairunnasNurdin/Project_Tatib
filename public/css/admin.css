@@ -47,7 +47,7 @@ html {
 .navbar-navigasi{
     position: -webkit-sticky;
     position: sticky;
-    background-color: white !important;
+    background-color: white;
     width: 20%;
     height: 100%;
 }
@@ -67,33 +67,19 @@ ul{
     padding-bottom: 10px;
     list-style-type: none;
 }
-li{
-    color : white;
-}
 a{
     text-decoration: none;
 }
 .logo-dosen, .logo-mahasiswa, .logo-navigasi{
     padding-right: 10px;
 }
-.dashboard-content:hover, .nav-dosen-content:hover, .nav-mhs-content:hover, .nav-validasi-content:hover{
-    background-color: #0D3278;
-    color: white;
+
+.link-dashboard:hover .link-dosen:hover .link-mahasiswa:hover .link-validasi:hover{
+    background-color: #0D366B;
     padding: 10px;
     border-radius: 10px;
 }
-.link-dashboard:hover, .link-dosen:hover, .link-mahasiswa:hover, .link-validasi:hover{
-    color: white !important;
-}
-/* .logo-dashboard:hover{
-    background-image: url("img/hover-dosen.svg");
-} */
 .link-dashboard:visited, .link-dosen:visited, .link-mahasiswa:visited, .link-validasi:visited{
-    color: #403737;
-}
-.nav-dashboard, .nav-dosen, .nav-mahasiswa, .nav-validasi{
-    margin: auto;
-    padding: 10px;
     color: #403737;
 }
 

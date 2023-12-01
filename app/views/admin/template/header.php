@@ -6,7 +6,7 @@
     <title>Document</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link rel="stylesheet" href="http://localhost/Project_Tatib/public/css/admin.css">
-    <link rel="stylesheet" href="<?=BASEURL;?> /css/admin.css">
+    <link rel="stylesheet" href="<?= BASEURL?>/css/admin.css">
     <style>
         /* CSS untuk styling */
         .profile {
