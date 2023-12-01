@@ -3,11 +3,10 @@
 namespace controllers;
 
 use core\Controller;
-use http\Cookie;
 
 class Authorization extends Controller
 {
-    public function index($message = ""): void
+    public function index()
     {
 	    if (isset($_COOKIE["id"])) {
 	        $cookieResult = $this->model("Authorization")->cookieVerify();
@@ -16,7 +15,7 @@ class Authorization extends Controller
 	    }
 	    $data = [
 			"title" => "Login",
-		    "flashMessage" => $message
+//		    "flashMessage" => $message
 	    ];
 		$this->view("templates/header", $data);
         $this->view("login", $data);
@@ -25,8 +24,7 @@ class Authorization extends Controller
 
 	public function loginVerify(): void
 	{
-
-		if ($_SERVER["REQUEST_METHOD"] = "POST") {
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$data = [
 				"username" => $_POST["username"],
 				"password" => $_POST["password"],
@@ -43,7 +41,7 @@ class Authorization extends Controller
 			/*if some error in login occur*/
 			if (count($loginLocation) === 3) {
 				$data["message"] = $loginLocation["errorMessage"];
-				header("Location: /$controller/$method/" . $data["message"]);
+				header("Location: /$controller/$method?data=" . urlencode(json_encode($data)));
 			}
 
 			header("Location: " . BASEURL . "/$controller/$method");
