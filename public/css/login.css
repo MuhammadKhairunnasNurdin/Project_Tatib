@@ -1,6 +1,5 @@
 @font-face {
     font-family: 'Tiro Bangla';
-    src: url('assets/font/TiroBangla-Regular.ttf') format('truetype');
 }
 
 body,html {
@@ -23,8 +22,8 @@ body,html {
     color: #0D366B;
 }
 
-h2,h1,.e2_28,.label-hitam {
-    font-family: 'Tiro Bangla', sans-serif;
+h2,h1{
+    font-family: 'Tiro Bangla';
 }
 
 img.logo {
@@ -37,6 +36,10 @@ img.logo {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 50;
+}
+
+loginBtn {
+  padding-right: 100px;
 }
 
   

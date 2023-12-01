@@ -3,18 +3,17 @@ html {
     height: 100%;
     width: 100%;
  }
- 
+
  body {
     margin: 0px;
     min-height: 100%;
     width: 100%;
  }
 /* header style */
-.container-header{
+.container-header-admin{
     width: 100%;
-    height: 20%;
 }
-.header-container{
+.header-container-admin{
     display: flex;
     font-family:'Raleway';
     background-color: #0D366B;
@@ -24,8 +23,11 @@ html {
     width: 100%;
     height: 20%;
 }
-.header-content{
+.header-content-admin{
     padding-left: 20px;
+}
+.row-admin{
+    width: 100%;
 }
 .profile{
     display: flex;
@@ -35,14 +37,14 @@ html {
 .header-title{
     font-weight:bold;
     color: white;
-    text-align: center; 
+    text-align: center;
 }
 .profile-title{
     color: white;
 }
 
 /* navbar style */
-.navbar{
+.navbar-navigasi{
     position: -webkit-sticky;
     position: sticky;
     background-color: white !important;
@@ -78,7 +80,7 @@ a{
     background-color: #0D3278;
     color: white;
     padding: 10px;
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 .link-dashboard:hover, .link-dosen:hover, .link-mahasiswa:hover, .link-validasi:hover{
     color: white !important;
@@ -330,7 +332,7 @@ td{
     .main{
         width: 100%;
     }
-    
+
     .daftar-dosen-box, .content{
         width: 90%;
     }

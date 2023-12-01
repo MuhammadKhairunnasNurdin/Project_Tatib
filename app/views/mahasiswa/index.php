@@ -13,6 +13,7 @@ include 'template/footer.php';
 ?>
 
 <?php
+<<<<<<< HEAD
 // if (session_status() === PHP_SESSION_NONE)
 //     session_start();
 
@@ -28,3 +29,6 @@ include 'template/footer.php';
 //     }
 // }
 // ?>
+=======
+echo $_SESSION["anas"];
+>>>>>>> eef3c6f3b16e7c697d56b058ada33b287be26374

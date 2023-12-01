@@ -75,7 +75,7 @@ class Database
 			return $escapedData;
 	}
 
-    public function query($query): void
+    public function prepare($query): void
     {
         $this->statement = $this->databaseHandler->prepare($query);
     }

@@ -7,7 +7,7 @@ class App
 
     /*this three attribute to provide default controller, method, and data
     or params*/
-    protected mixed $controller = "Login";
+    protected mixed $controller = "Authorization";
     protected string $method = "index";
     protected array $params = [];
     public function __construct()
