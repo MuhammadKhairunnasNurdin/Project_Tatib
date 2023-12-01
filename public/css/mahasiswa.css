@@ -1,0 +1,481 @@
+.html {
+  margin: 0;
+  padding: 0;
+}
+/* Menu */
+.sidebar {
+  background-color: #fff;
+  height: 100vh;
+  width: 300px;
+  padding: 30px 20px;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.polinema-logo {
+  width: 69px; /* Set the width of your logo as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Adjust the margin as needed to create space between logo and text */
+}
+.logo-text {
+  flex-grow: 1; /* Allow the text to grow and fill the available space */
+  text-align: center; /* Center the text */
+  font-size: 19px;
+  color: #0d3278;
+  font-style: bold;
+}
+.navigation {
+  margin-top: 50px;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-list li a {
+  display: flex;
+  align-items: center;
+  color: #403737;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+.nav-list li a:hover {
+  color: white;
+}
+
+.nav-dashboard img {  
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.nav-history img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.nav-sanksi img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.nav-jenis img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Header */
+.container-header {
+  width: 100%;
+  height: 20%;
+}
+
+.header-container {
+  display: flex;
+  font-family: 'Raleway';
+  background-color: #0D366B;
+  margin: auto;
+  padding: 20px 0px 20px 0px;
+  justify-content: space-between;
+  width: 100%;
+  height: 20%;
+}
+
+.header-content {
+  padding-left: 20px;
+}
+
+.profile {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.header-title {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  /* Remove underline */
+}
+
+.profile-title {
+  color: white;
+}
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  
+}
+.main {
+  padding: 10px 0;
+}
+
+.dashboard-box {
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.box-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-page {
+  display: flex;
+  align-items: center;
+}
+
+.logo-dashboard-page {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+/* Home */
+.container-page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row {
+  display: flex;
+  height: 100%;
+}
+.main {
+  width: 100%;
+  background-image: url("img/Baackground.jpg");
+  background-image: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-wrap: wrap;
+  min-height: 200px;
+  padding: auto; /* Ganti dengan satuan yang lebih pasti, misalnya px atau em */
+  margin: 0; /* Ganti dengan satuan yang lebih pasti, misalnya px atau em */
+}
+
+.dashboard-box {
+  display: flex;
+  margin: auto;
+  padding: 2px 38px;
+  color: #0d3278;
+  width: 90%;
+}
+.title-page {
+  margin-left: 20px;
+}
+.box-title {
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  justify-content: space-between;
+}
+.refresh {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: #e3eaef;
+  border: none;
+  border-radius: 90px;
+  color: #0D366B;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 30px;
+  /* Adjusted padding */
+  transition: background-color 0.2s;
+  position: relative;
+  top: 6px;
+  right: 40px;
+  /* Add relative positioning */
+}
+
+.refresh img {
+  margin-right: 25px;
+  /* Adjusted margin to separate the image and text */
+}
+
+.refresh:hover {
+  background-color: #aab0b5;
+  border: 2px solid #3498db;
+  /* Add a border on hover */
+  border-radius: 80px;
+  /* Optional: Add border-radius for rounded corners */
+  margin-left: 2px;
+  padding: 15px 30px;
+}
+
+.link-dashboard-2 {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #0D366B;
+}
+
+/* Adjusted margin for the title */
+.title-page {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+/* Welcome box */
+
+/* General Body Styling */
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Adjust the background color as needed */
+}
+
+/* Welcome Box Styling */
+.welcome-box {
+  border-top: 5px solid #0d3278;
+  background-color: #ffffff; /* Set the background color */
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin: 40px;
+  text-align: left; /* Center the text */
+}
+
+.welcome-title {
+  color: #229fbb; /* Match the color to the image */
+  margin-bottom: 10px;
+}
+
+.welcome-subtitle {
+  color: #333333; /* A darker color for the subtitle */
+  margin-bottom: 10px;
+}
+
+/* Content Area Styling */
+.content {
+  display: flex;
+  justify-content: space-around; /* This will space out the cards evenly */
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  gap: 20px; /* Adds space between the cards */
+  margin: 20px;
+}
+
+/* Card Styling */
+.card {
+  border-top: 5px solid #0d3278;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  padding: 10px 15px;
+  text-align: left; /* Center the text */
+  flex-basis: 45%; /* Cards take up 45% of the container width */
+  margin-top: 15px;
+}
+
+.card h2,
+.card h3 {
+  color: #0d366b;
+}
+
+.card p {
+  color: #666666;
+}
+
+/* Buttons and Links */
+.rules-button {
+  background-color: #0d366b;
+  color: white;
+  padding: 20px 60px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  bottom: 10px;
+}
+.rules-button:hover {
+  background-color: #071b36;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+}
+/* Specific Card: Student Info */
+.student-info {
+  text-align: center; /* Aligns the text to the left */
+}
+
+.student-photo {
+  width: 150px; /* Adjust the width as necessary */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Makes the image round */
+  margin-bottom: 10px;
+}
+
+.status-active {
+  color: green; /* Or any color that indicates an active status */
+}
+.navigation {
+  list-style: none;
+  padding: 0;
+  margin: 1;
+}
+
+.nav-list {
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin-bottom: 20px;
+}
+
+.link-dashboard,
+.link-history,
+.link-sanksi,
+.link-jenis {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: border 0.3s ease, padding-right 0.3s ease;
+  /* Add transition for smooth effect */
+}
+
+.link-dashboard:hover,
+.link-history:hover,
+.link-sanksi:hover,
+.link-jenis:hover {
+  border: 2px solid #3498db;
+  /* Add a border on hover */
+  border-radius: 8px;
+  /* Optional: Add border-radius for rounded corners */
+  background-color: #0D366B;
+  margin-left: 2px;
+  padding: 0px 1px;
+  /* Adjust padding for a smaller height */
+}
+
+.logo-dashboard,
+.logo-history,
+.logo-sanksi,
+.logo-jenis {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Change color to white on hover */
+.link-history:hover .logo-history {
+  filter: brightness(0) invert(1);
+}
+
+.link-dashboard:hover .logo-dashboard {
+  filter: brightness(0) invert(1);
+}
+
+.link-sanksi:hover .logo-sanksi {
+  filter: brightness(0) invert(1);
+}
+
+.link-jenis:hover .logo-jenis {
+  filter: brightness(0) invert(1);
+}
+
+.logo-text-menu {
+  margin-left: 30px;
+}
+
+.logo-dashboard,
+.logo-history,
+.logo-jenis,
+.logo-sanksi {
+  margin-left: 30px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    margin: 0;
+  }
+
+  .sidebar,
+  .logo-container {
+    width: 100%;
+  }
+
+  .container-page {
+    margin: 0;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .row {
+    min-height: 150px;
+    width :100%;
+  }
+
+  .main {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dashboard-box {
+    width: 100%;
+  }
+}
+
+/* Jenis tata tertib */
+
+.container {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  margin-bottom: 10px;
+}
+
+.checked {
+  color: green;
+
+  font-size: 24px;
+}
+
+.unchecked {
+  color: red;
+
+  font-size: 24px;
+}
