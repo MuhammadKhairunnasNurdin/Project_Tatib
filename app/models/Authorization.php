@@ -12,8 +12,13 @@ class Authorization
 
 	public function __construct()
 	{
+
 		$this->db = new Database();
 		$this->fm = new FlashMessage();
+	}
+
+	public function __destruct() {
+		unset($this->db);
 	}
 
 	public function cookieVerify(): array
@@ -42,7 +47,7 @@ class Authorization
 		return [];
 	}
 
-	public function verify(string $username, string $password, $remember = null): array
+	public function verify(string $username, string $password, $remember = ""): array
 	{
 		/*prepare our query syntax*/
 		$this->db->prepare("SELECT id_user, username, password, salt, level FROM user WHERE username =:username");
@@ -66,8 +71,12 @@ class Authorization
 			$this->fm->message("warning", "Username not Found");
 			$controller = "Authorization";
 			$method = "index";
-			setcookie("usnSalah", "salah", time() + 10, "/");
-			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("warning")];
+			$message = $this->fm->getFlashData("warning");
+
+			/*just some testing flash message*/
+			setcookie("fm", $message, time() + 1, "/");
+
+			return ["controller" => $controller, "method" => $method, "errorMessage" => $message];
 		}
 
 		$salt = $row["salt"];
@@ -85,11 +94,9 @@ class Authorization
 			$this->fm->message("danger", "Password is Wrong");
 			$controller = "Authorization";
 			$method = "index";
-			setcookie("passSalah", "salah", time() + 10, "/");
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
 		}
 
-		session_start();
 		$_SESSION["username"] = $row["username"];
 		$_SESSION["level"] = $row["level"];
 

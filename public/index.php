@@ -5,6 +5,12 @@
  * 'require_once' syntax*/
 use core\App;
 
+/*with application running, we just start one session and this for avoid session
+ start multiple time, for session authentication we process in model Authorization*/
+if (!session_id()) {
+	session_start();
+}
+
 /* use require_once init.php to use value files that all imported inside
 init.php, this called bootstrapping, but this not imported namespace*/
 require_once("../app/init.php");

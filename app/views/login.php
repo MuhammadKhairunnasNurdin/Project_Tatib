@@ -28,12 +28,9 @@
                         <h5 class="small" style="margin-top: 5%; margin:auto; font-family: 'Tiro Bangla'; font-size: 15px;">Selamat datang di sistem tata tertib Politeknik<br> Negeri Malang untuk mahasiswa, civitas akademika</h5>
                     </div>
 			        <?php
-			        if (isset($_SESSION['_flashData'])) {
-				        setcookie("isiSession", $_SESSION['_flashData'], time() + 10, "/");
-				        echo $_GET['data'];
-				        setcookie("cek", "masuk", time() + 10, "/");
-			        }
-
+                        if (isset($data['message'])) {
+                            echo $data['message'];
+                        }
 			        ?>
                     <div class="form-floating" style="width:95%; margin: auto; font-family: 'Tiro Bangla';">
                         <input type="username" class="form-control form-default shadow bg-body-tetiary-rounded" id="floatingInput" placeholder="Username" name="username" required>
