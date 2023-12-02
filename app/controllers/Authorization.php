@@ -54,8 +54,6 @@ class Authorization extends Controller
 		session_destroy();
 		setcookie("id", "", time(), "/");
 		setcookie("username", "", time(), "/");
-		setcookie("fm", "", time(), "/");
-		setcookie("testingFM", $_SESSION['flashMessage'], time(), "/");
 		header("Location: " . BASEURL);
 
 	}
