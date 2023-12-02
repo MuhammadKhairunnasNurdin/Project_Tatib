@@ -38,50 +38,87 @@ html {
     font-weight:bold;
     color: white;
     text-align: center;
+    text-decoration: none;
+}
+.header-title:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color:white;
 }
 .profile-title{
     color: white;
 }
 
 /* navbar style */
-.navbar-navigasi{
-    position: -webkit-sticky;
-    position: sticky;
-    background-color: white;
-    width: 20%;
-    height: 100%;
-}
-.nav-title{
-    font-size: large;
-    display: flex;
-    padding: 10px;
-    color: #0D3278;
-    justify-content: center;
-    text-align: center;
-}
 .logo{
-    width: 200px;
+    width: 20%;
 }
 ul{
+    margin: 0px 20px 0px 20px;
     padding-left: 20px;
     padding-bottom: 10px;
     list-style-type: none;
 }
+li{
+    margin-top: 10px;
+}
 a{
     text-decoration: none;
 }
-.logo-dosen, .logo-mahasiswa, .logo-navigasi{
-    padding-right: 10px;
+
+.logo-dashboard, .logo-dosen, .logo-mahasiswa, .logo-validasi{
+    margin-left: 10%;
+}
+.text-dashboard, .text-dosen, .text-mahasiswa, .text-validasi{
+    align-items: center;
+    margin: auto;
+    color: #0D366B;
+}
+.text-dashboard{
+    margin-left: 20%;
+} .text-dosen{
+    margin-left: 13%;
+} .text-mahasiswa{
+    margin-left: 20%;
+} .text-validasi{
+    margin-left: 17%;
+}
+.link-dashboard,
+.link-dosen,
+.link-mahasiswa,
+.link-validasi{
+    padding: 0%;
+    border-radius: 10px;
 }
 
-.link-dashboard:hover .link-dosen:hover .link-mahasiswa:hover .link-validasi:hover{
+.link-dashboard:hover,
+.link-dosen:hover,
+.link-mahasiswa:hover,
+.link-validasi:hover{
     background-color: #0D366B;
     padding: 10px;
     border-radius: 10px;
+    text-decoration: none;
+    color: white;
 }
 .link-dashboard:visited, .link-dosen:visited, .link-mahasiswa:visited, .link-validasi:visited{
-    color: #403737;
+    color: #0D366B;
+    text-decoration: none;
 }
+.link-dosen:hover .logo-dosen, 
+.link-dashboard:hover .logo-dashboard,
+.link-mahasiswa:hover .logo-mahasiswa,
+.link-validasi:hover .logo-validasi {
+    filter: brightness(0) invert(1);
+}  
+
+.link-dosen:hover .text-dosen, 
+.link-dashboard:hover .text-dashboard,
+.link-mahasiswa:hover .text-mahasiswa,
+.link-validasi:hover .text-validasi{
+    color: white !important;
+}  
+
 
 
 /* dashboard style */
@@ -194,9 +231,12 @@ a{
     justify-content: space-between;
     align-items: flex-end;
 }
+.text-dosen-page, .text-mahasiswa-page{
+    margin-top: 10%;
+}
 
 .button-kelola{
-    margin-top: 20px ;
+    margin-top: 10% ;
     color: #0D366B;
 }
 
@@ -215,6 +255,7 @@ a{
 .kelola:hover{
     background-color: #959595;
     font-weight: bold;
+    text-decoration: none;
 }
 
 /* daftar-dosen style dan daftar-mahasiswa style*/
