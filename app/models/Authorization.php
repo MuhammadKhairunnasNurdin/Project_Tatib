@@ -72,10 +72,6 @@ class Authorization
 			$controller = "Authorization";
 			$method = "index";
 			$message = $this->fm->getFlashData("warning");
-
-			/*just some testing flash message*/
-			setcookie("fm", $message, time() + 1, "/");
-
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $message];
 		}
 

@@ -40,11 +40,8 @@ class Authorization extends Controller
 
 			/*if some error in login occur*/
 			if (count($loginLocation) === 3) {
-				$data["message"] = $loginLocation["errorMessage"];
-				$data["title"] = "Login";
-				$this->view("templates/header", $data);
-				$this->view("login", $data);
-				$this->view("templates/footer");
+				$_SESSION["flashMessage"] = $loginLocation["errorMessage"];
+				header("Location: " . BASEURL . "/$controller/$method");
 				return;
 			}
 
@@ -57,6 +54,8 @@ class Authorization extends Controller
 		session_destroy();
 		setcookie("id", "", time(), "/");
 		setcookie("username", "", time(), "/");
+		setcookie("fm", "", time(), "/");
+		setcookie("testingFM", $_SESSION['flashMessage'], time(), "/");
 		header("Location: " . BASEURL);
 
 	}
