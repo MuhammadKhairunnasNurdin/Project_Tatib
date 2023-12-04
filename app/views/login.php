@@ -11,7 +11,7 @@
                     <a class="nav-link" href="https://spmb.polinema.ac.id/info/hubungi" style="color: white; font-family: 'Tiro Bangla';">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://siakad.polinema.ac.id/login/index/err/6" style="color: white; font-family: 'Tiro Bangla';">Siakad</a>
+                    <a class="nav-link" href="http://siakad.polinema.ac.id/login/index/err/6" style="color: white; font-family: 'Tiro Bangla';">Siakad</a>
                 </li>
             </ul>
         </div>
