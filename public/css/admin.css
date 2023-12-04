@@ -87,6 +87,8 @@ a{
 .link-dosen,
 .link-mahasiswa,
 .link-validasi{
+    background-color: white;
+    width: 100%;
     padding: 0%;
     border-radius: 10px;
 }
@@ -100,6 +102,7 @@ a{
     border-radius: 10px;
     text-decoration: none;
     color: white;
+    width: 100%;
 }
 .link-dashboard:visited, .link-dosen:visited, .link-mahasiswa:visited, .link-validasi:visited{
     color: #0D366B;
@@ -275,6 +278,7 @@ a{
 }
 .title-page-daftar-dosen, .title-page-daftar-mhs{
     display: flex;
+    padding: 3%;
 }
 .button-add{
     display: flex;
@@ -345,6 +349,14 @@ td{
 }
 .nip{
     border-left: 0px;
+}
+
+.btn-dark-blue{
+    background-color: #0D366B !important;
+}
+
+.border-dark-blue{
+    border-color: #0D366B !important;
 }
 
 @media only screen and (max-width: 1024px) {
