@@ -6,14 +6,15 @@
 .sidebar {
   background-color: #fff;
   height: 100vh;
-  width: 300px;
-  padding: 30px 20px;
+  width: 400px;
+  padding: 30px 20px; 
   color: white;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  font-family: Arial, sans-serif;
 }
 
 .polinema-logo {
@@ -50,7 +51,7 @@
   color: white;
 }
 
-.nav-dashboard img {  
+.nav-dashboard img {
   width: 20px;
   height: 20px;
   margin-right: 10px;
@@ -82,8 +83,8 @@
 
 .header-container {
   display: flex;
-  font-family: 'Raleway';
-  background-color: #0D366B;
+  font-family: "Raleway";
+  background-color: #0d366b;
   margin: auto;
   padding: 20px 0px 20px 0px;
   justify-content: space-between;
@@ -112,14 +113,6 @@
 .profile-title {
   color: white;
 }
-body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
-  
-}
-.main {
-  padding: 10px 0;
-}
 
 .dashboard-box {
   border-radius: 10px;
@@ -128,6 +121,7 @@ body {
   background-color: white;
   padding: 10px;
   justify-content: space-between;
+
 }
 
 .box-title {
@@ -135,6 +129,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  
 }
 
 .title-page {
@@ -160,15 +155,17 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  min-height: 200px;
+  min-height: 400px;
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
 }
+
 .row {
   display: flex;
   height: 100%;
 }
+
 .main {
   width: 100%;
   background-image: url("img/Baackground.jpg");
@@ -177,8 +174,10 @@ body {
   background-repeat: no-repeat;
   flex-wrap: wrap;
   min-height: 200px;
-  padding: auto; /* Ganti dengan satuan yang lebih pasti, misalnya px atau em */
-  margin: 0; /* Ganti dengan satuan yang lebih pasti, misalnya px atau em */
+  padding: auto;
+  /* Ganti dengan satuan yang lebih pasti, misalnya px atau em */
+  margin: 0;
+  /* Ganti dengan satuan yang lebih pasti, misalnya px atau em */
 }
 
 .dashboard-box {
@@ -188,9 +187,11 @@ body {
   color: #0d3278;
   width: 90%;
 }
+
 .title-page {
   margin-left: 20px;
 }
+
 .box-title {
   border-radius: 10px;
   display: flex;
@@ -206,7 +207,7 @@ body {
   background-color: #e3eaef;
   border: none;
   border-radius: 90px;
-  color: #0D366B;
+  color: #0d366b;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -238,7 +239,7 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #0D366B;
+  color: #0d366b;
 }
 
 /* Adjusted margin for the title */
@@ -362,7 +363,6 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  transition: border 0.3s ease, padding-right 0.3s ease;
   /* Add transition for smooth effect */
 }
 
@@ -374,9 +374,9 @@ body {
   /* Add a border on hover */
   border-radius: 8px;
   /* Optional: Add border-radius for rounded corners */
-  background-color: #0D366B;
+  background-color: #0d366b;
   margin-left: 2px;
-  padding: 0px 1px;
+  padding: 0px 8px;
   /* Adjust padding for a smaller height */
 }
 
@@ -435,9 +435,9 @@ body {
     margin-right: auto;
   }
 
-  .row {
+  .row-home {
     min-height: 150px;
-    width :100%;
+    width: 100%;
   }
 
   .main {
@@ -452,30 +452,3 @@ body {
 }
 
 /* Jenis tata tertib */
-
-.container {
-  max-width: 600px;
-
-  margin: 0 auto;
-
-  padding: 20px;
-
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  margin-bottom: 10px;
-}
-
-.checked {
-  color: green;
-
-  font-size: 24px;
-}
-
-.unchecked {
-  color: red;
-
-  font-size: 24px;
-}

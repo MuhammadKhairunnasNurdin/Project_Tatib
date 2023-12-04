@@ -7,7 +7,7 @@
   <title>Dashboard Mahasiswa</title>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
   <link rel="stylesheet" href="<?=BASEURL?>/css/mahasiswa.css">
-
+  
 </head>
 
 
@@ -16,7 +16,7 @@
 
 
 <div class="container-header">
-  <div class="row">
+  <div class="row-header">
     <div class="header-container">
       <div class="header-content">
         <a class="header-title">POLITEKNIK NEGERI MALANG</a>
