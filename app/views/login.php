@@ -20,7 +20,7 @@
     <section class="container-fluid text-center">
         <div class="row">
             <div class="col d-flex justify-content-center align-items-center" style="width:10%; height:100vh; background-color: #0D366B; opacity: 20; background-image: url(<?= BASEURL;?>/img/gedung_JTI.jpg); background-size:100% 100%; ">
-                <form action="<?= BASEURL?>/Authorization/loginVerify" id="loginForm" class="d-flex flex-column gap-2 w-10 px-1 py-1 bg-white rounded-3" style="height:60%; width:35%;" method="post">
+                <form action="<?= BASEURL?>/Authorization/loginVerify" id="loginForm" class="d-flex flex-column gap-2 w-10 px-1 py-1 bg-white rounded-3" style="height:auto; width:35%;" method="post">
                     <div class="text-center logo-text-container">
                         <img src="<?= BASEURL?>/img/logo_jti_baru.png" style="width: 20%;" class="logo" alt="">
                         <h1 class="h5 mb-3 fw-bolder" style="font-family: 'Tiro Bangla'; font-size: 25px;">Sistem Tata Tertib JTI</h1>

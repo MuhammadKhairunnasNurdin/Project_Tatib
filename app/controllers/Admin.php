@@ -15,13 +15,14 @@ class Admin extends Controller
 	}
 	public function module(): void
 	{
-		if ($_SERVER["REQUIRE_METHOD"] == "POST") {
-			$data['modul'] = $_POST['modul'];
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$data['page'] = $_POST['page'];
 
-			$data['title'] = "Admin";
-			$this->view("templates/header", $data);
-			$this->view("admin/module/". $_POST['modul'] ."/index");
-			$this->view("templates/footer");
+			$data['title'] = "Admin/Dosen";
+			$this->view("admin/template/header", $data);
+			$this->view("admin/template/menu");
+			$this->view("admin/module/". $_POST['page'] ."/index");
+			$this->view("admin/template/footer");
 
 		}
 
