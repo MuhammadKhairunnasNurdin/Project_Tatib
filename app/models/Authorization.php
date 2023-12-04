@@ -12,8 +12,13 @@ class Authorization
 
 	public function __construct()
 	{
+
 		$this->db = new Database();
 		$this->fm = new FlashMessage();
+	}
+
+	public function __destruct() {
+		unset($this->db);
 	}
 
 	public function cookieVerify(): array
@@ -23,7 +28,7 @@ class Authorization
 			$username = $_COOKIE["username"];
 
 			/*prepare our query syntax*/
-			$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE id_user =:id_user");
+			$this->db->prepare("SELECT id_user, username, password, salt, level FROM user WHERE id_user =:id_user");
 
 			/*to bind param, so param not directly used in query and bound in separated way*/
 			$this->db->bind(':id_user', $id);
@@ -42,10 +47,10 @@ class Authorization
 		return [];
 	}
 
-	public function verify(string $username, string $password, $remember = null): array
+	public function verify(string $username, string $password, $remember = ""): array
 	{
 		/*prepare our query syntax*/
-		$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE username =:username");
+		$this->db->prepare("SELECT id_user, username, password, salt, level FROM user WHERE username =:username");
 
 		/*to escape special character*/
 		$username = $this->db->antiDbInjection($username);
@@ -64,9 +69,10 @@ class Authorization
 		/*when query is false because username is wrong*/
 		if (!$row) {
 			$this->fm->message("warning", "Username not Found");
-			$controller = "Login";
-			$method = "login";
-			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("warning")];
+			$controller = "Authorization";
+			$method = "index";
+			$message = $this->fm->getFlashData("warning");
+			return ["controller" => $controller, "method" => $method, "errorMessage" => $message];
 		}
 
 		$salt = $row["salt"];
@@ -87,7 +93,6 @@ class Authorization
 			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
 		}
 
-		session_start();
 		$_SESSION["username"] = $row["username"];
 		$_SESSION["level"] = $row["level"];
 

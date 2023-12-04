@@ -9,21 +9,21 @@ body,html {
 }
 
 .custom-label {
-    background-color: #0D366B;
+    background-color: dodgerblue;
 }
 
 .btn-custom-blue {
-    background-color: #0D366B;
-    color: #ffffff;
+    background-color: dodgerblue;
+    color: blue;
 }
 
 .btn-custom-blue.clicked {
-    background-color: #ffffff;
+    background-color: blue;
     color: #0D366B;
 }
 
 h2,h1{
-    font-family: 'Tiro Bangla';
+    font-family: 'Tiro Bangla', serif;
 }
 
 img.logo {
@@ -38,9 +38,7 @@ img.logo {
     z-index: 50;
 }
 
-loginBtn {
-  padding-right: 100px;
-}
+
 
   
   

@@ -4,15 +4,10 @@ namespace core;
 
 class  FlashMessage
 {
-	public function __construct()
-	{
-		session_start();
-	}
-
-	public function setFlashData(string $key = "", string $value = "")
+	public function setFlashData(string $key = "", string $value = ""): void
 	{
 		if (!empty($key) && !empty($value)) {
-			$_SESSION["_flashData"][$key] = $value;
+			$_SESSION['_flashData'][$key] = $value;
 		}
 	}
 

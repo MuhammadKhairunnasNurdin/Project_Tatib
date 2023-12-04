@@ -7,9 +7,10 @@ class App
 
     /*this three attribute to provide default controller, method, and data
     or params*/
-    protected mixed $controller = "Authorization";
-    protected string $method = "index";
-    protected array $params = [];
+    private mixed $controller = "Authorization";
+    private string $method = "index";
+    private array $params = [];
+
     public function __construct()
     {
         $url = $this->parseUrl();
@@ -55,7 +56,7 @@ class App
     method and search existing controller also this will provide some
     security to our url and parsing url to an array that specified by
     mainUrl(or development url)/controller/method/data in separating way*/
-    public function parseUrl(): ?array
+    private function parseUrl(): ?array
     {
         if (isset($_GET["url"])) {
             /*this to delete slash in reared url to avoid attack our url
