@@ -1,5 +1,5 @@
 <?php
-const BASEURL = "http://localhost:8080/Project_Tatib/public";
+const BASEURL = "http://localhost/Project_Tatib/public";
 const MARIADB_CONFIG = [
     "host" => "localhost",
     "user" => "root",
