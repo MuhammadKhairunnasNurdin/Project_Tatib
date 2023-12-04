@@ -1,9 +1,5 @@
-<div class="container-fluid">
-        <div class="row">
-            <?php 
-//            include "../../template/menu.php"
-            ?>
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(../../img/gedung-jti.jpg); background-repeat: no-repeat; background-size: cover; ">
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(<?=BASEURL?>/img/gedung-jti.jpg); background-repeat: no-repeat;
+                    background-size: cover; ">
                 <div class="d-flex bg-white rounded my-2">
                     <img src="" alt="">
                     <h1 class="h3 m-3" style="color:#0D366B">Validasi</h1>
@@ -39,14 +35,14 @@
                             <h1 class="h6">Mengotori atau mencoret-coret meja, kursi, tembok, dll</h1>
                             <h1 class="h6">Membersihkan meja, kursi, tembok yang telah dikotori</h1>
                             <h1 class="h6">21 Oktober 2023</h1>
-                            <a href="">Bersihin.png</a>
+                            <a href="">Bukti Kompen</a>
                             <div class="d-flex col mt-3">
                                 <div class="d-flex row justify-content-center">
                                     <div class="col">
-                                        <button class="btn bg-success">Validasi</button>
+                                        <button class="btn btn-success">Validasi</button>
                                     </div>
                                     <div class="col">
-                                        <button class="btn bg-danger">Tolak</button>
+                                        <button class="btn btn-danger">Tolak</button>
                                     </div>
                                 </div>
                             </div>

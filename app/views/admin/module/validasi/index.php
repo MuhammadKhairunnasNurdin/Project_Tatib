@@ -28,23 +28,26 @@
                             <tr class="" >
                                 <td class="col"><?= $no++; ?></td>
                                 <!-- nama -->
-                                <td class="col" >
+                                <td class="col" >Lukman
                                     <!-- <?=$row ['nama']?> -->
                                 </td>
                                 <!-- kelas -->
-                                <td class="col" >
+                                <td class="col" >TI 2E
                                     <!-- <?=$row ['kelas']?> -->
                                 </td>
-                                <td class="col" >
+                                <td class="col" >Tingkat 5
                                     <!-- <?=$row ['tingkat_pelanggaran']?> -->
                                 </td>
-                                <td class="col" >
+                                <td class="col" >2023-12-01
                                     <!-- <?=$row ['tanggal']?> -->
                                 </td>
                                 <td class="col">
-                                    <a href="detail-validasi/detail-validasi.php" class=" m-auto btn btn-dark-blue text-white">
-                                        CEK DETAIL
-                                    </a>
+                                    <form action="<?= BASEURL?>/Admin/module" method="POST">
+                                    <button class="btn btn-primary" name="page" value="validasi/detail-validasi">CEK DETAIL</button>
+                                    </form>
+<!--                                    <a href="detail-validasi/detail-validasi.php" class=" m-auto btn btn-dark-blue text-white">-->
+<!--                                        CEK DETAIL-->
+<!--                                    </a>-->
                                 </td>
                             </tr>
                             <!-- <?
