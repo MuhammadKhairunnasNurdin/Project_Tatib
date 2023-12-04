@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?=$data['title']?></title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link rel="stylesheet" href="http://localhost/Project_Tatib/public/css/admin.css">
     <link rel="stylesheet" href="<?= BASEURL?>/css/admin.css">

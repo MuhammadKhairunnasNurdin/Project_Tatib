@@ -1,9 +1,5 @@
-<div class="container-fluid">
-        <div class="row">
-        <?php 
-        include "../../template/menu.php"
-        ?>
-            <main  class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(../../img/gedung-jti.jpg); background-repeat: no-repeat; background-size: cover; ">
+
+            <main  class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(<?= BASEURL?>/img/gedung-jti.jpg); background-repeat: no-repeat; background-size: cover; ">
                 <div class="d-flex bg-white rounded my-2">
                     <img src="" alt="">
                     <h1 class="h3 mx-3 my-3" style="color:#0D366B">Validasi</h1>
@@ -32,23 +28,26 @@
                             <tr class="" >
                                 <td class="col"><?= $no++; ?></td>
                                 <!-- nama -->
-                                <td class="col" >
+                                <td class="col" >Lukman
                                     <!-- <?=$row ['nama']?> -->
                                 </td>
                                 <!-- kelas -->
-                                <td class="col" >
+                                <td class="col" >TI 2E
                                     <!-- <?=$row ['kelas']?> -->
                                 </td>
-                                <td class="col" >
+                                <td class="col" >Tingkat 5
                                     <!-- <?=$row ['tingkat_pelanggaran']?> -->
                                 </td>
-                                <td class="col" >
+                                <td class="col" >2023-12-01
                                     <!-- <?=$row ['tanggal']?> -->
                                 </td>
                                 <td class="col">
-                                    <a href="detail-validasi.php" class=" m-auto btn btn-dark-blue text-white">
-                                        CEK DETAIL
-                                    </a>
+                                    <form action="<?= BASEURL?>/Admin/module" method="POST">
+                                    <button class="btn btn-primary" name="page" value="validasi/detail-validasi">CEK DETAIL</button>
+                                    </form>
+<!--                                    <a href="detail-validasi/detail-validasi.php" class=" m-auto btn btn-dark-blue text-white">-->
+<!--                                        CEK DETAIL-->
+<!--                                    </a>-->
                                 </td>
                             </tr>
                             <!-- <?
@@ -58,5 +57,4 @@
                     </table>
                 </div>
             </main>
-        </div>
-    </div>
+       

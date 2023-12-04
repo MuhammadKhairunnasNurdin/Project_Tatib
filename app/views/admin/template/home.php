@@ -1,8 +1,8 @@
 <div class="container-page">
     <div class="row">
-    <?php
+     <?php
     include "menu.php";
-    ?>
+    ?> 
     <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <!-- Tampilan Dashboard  -->
             <div class="dashboard-box">
@@ -36,9 +36,11 @@
                                         <h3 class="dosen-title">Dosen</h3>
                                         <p class="dosen-count">Total Dosen : </p>
                                     </div>
-                                    <div class="button-kelola">
-                                        <a href="post?modul=dosen" method="post"  class="kelola">Kelola</a>
-                                    </div>
+                                    <form action="<?= BASEURL ?>/Admin/module" method="POST">
+                                        <div class="button-kelola">
+                                            <button class="kelola" type="submit" name="page" value="dosen">Kelola</button>
+                                        </div>
+                                    </form>
                                 </div>
                             
                             <!-- Kotak Mahasiswa -->
@@ -47,9 +49,11 @@
                                         <h3 class="mahasiswa-title">Mahasiswa</h3>
                                         <p class="mahasiswa-count">Total Mahasiswa : </p>
                                     </div>
-                                    <div class="button-kelola">
-                                        <a href="index.php?page=mahasiswa" class="kelola">Kelola</a>
-                                    </div>
+                                    <form action="<?= BASEURL ?>/Admin/module" method="POST">
+                                        <div class="button-kelola">
+                                            <button class="kelola" type="submit" name="page" value="mahasiswa">Kelola</button>
+                                        </div>
+                                    </form>
                                 </div>
                         </div>
                     </div>
