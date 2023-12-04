@@ -1,7 +1,7 @@
 <div class="container-page">
     <div class="row">
         <?php
-        require 'template/menu.php';
+        include 'mahasiswa\mahasiswa\template\menu.php';
         ?>
         <style>
             body {
@@ -67,4 +67,4 @@
             </div>
         </main>
     </div>
-</div>x
+</div>

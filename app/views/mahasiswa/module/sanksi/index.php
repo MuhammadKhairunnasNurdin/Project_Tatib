@@ -59,7 +59,7 @@
             }
         </style>
         <?php
-        include 'template/menu.php';
+        require 'mahasiswa\mahasiswa\template\menu.php';
         ?>
         <div class="main">
             <div class="logo-container">
@@ -86,8 +86,38 @@
                         <td>Area kampus</td>
                         <td>Tingkat 1</td>
                         <td>18 / Okt / 2023</td>
+                        <td><a href="sanksi_1.php">Cek Disini!</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bermain kartu, game online</td>
+                        <td>Area kampus</td>
+                        <td>Tingkat 2</td>
+                        <td>18 / Okt / 2023</td>
+                        <td><a href="#">Cek Disini!</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bermain kartu, game online</td>
+                        <td>Area kampus</td>
+                        <td>Tingkat 3</td>
+                        <td>18 / Okt / 2023</td>
+                        <td><a href="#">Cek Disini!</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Bermain kartu, game online</td>
+                        <td>Area kampus</td>
+                        <td>Tingkat 4</td>
+                        <td>18 / Okt / 2023</td>
+                        <td><a href="#">Cek Disini!</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Bermain kartu, game online</td>
+                        <td>Area kampus</td>
+                        <td>Tingkat 5</td>
+                        <td>18 / Okt / 2023</td>
                         <td><a href="#">Cek Disini!</a></td>
                     </tr>
                 </table>
-          
-            
