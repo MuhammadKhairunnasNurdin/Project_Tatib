@@ -1,8 +1,8 @@
 
-<div class="container-page">
-    <div class="row">
+<!--<div class="container-page">-->
+<!--    <div class="row">-->
     <?php
-    require "../../template/menu.php"
+//    require "http://localhost/Project_Tatib/app/views/admin/template/menu.php"
     ?>
     <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="daftar-dosen-box">

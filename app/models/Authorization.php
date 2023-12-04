@@ -28,7 +28,7 @@ class Authorization
 			$username = $_COOKIE["username"];
 
 			/*prepare our query syntax*/
-			$this->db->prepare("SELECT id_user, username, password, salt, level FROM user WHERE id_user =:id_user");
+			$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE id_user =:id_user");
 
 			/*to bind param, so param not directly used in query and bound in separated way*/
 			$this->db->bind(':id_user', $id);
@@ -50,7 +50,7 @@ class Authorization
 	public function verify(string $username, string $password, $remember = ""): array
 	{
 		/*prepare our query syntax*/
-		$this->db->prepare("SELECT id_user, username, password, salt, level FROM user WHERE username =:username");
+		$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE username =:username");
 
 		/*to escape special character*/
 		$username = $this->db->antiDbInjection($username);

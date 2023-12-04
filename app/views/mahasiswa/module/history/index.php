@@ -1,3 +1,3 @@
 <?php
-require 'template/menu.php';
+//require 'template/menu.php';
 ?>

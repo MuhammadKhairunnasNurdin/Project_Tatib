@@ -4,9 +4,11 @@
 
 include 'template/header.php';
 if (!empty($_GET['page'])) {
-    include 'module/' . $_GET['page'] . '/index.php';
+	setcookie('pageisi', 'isi',time() + 1, "/");
+	include 'module/' . $_GET['page'] . '/index.php';
 } else {
-    include 'template/home.php';
+	setcookie('page', 'ga isi',time() + 1, "/");
+	include 'template/home.php';
 }
 include 'template/footer.php';
 

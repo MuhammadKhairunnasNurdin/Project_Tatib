@@ -1,7 +1,7 @@
 <div class="container-fluid">
         <div class="row">
             <?php 
-            include "../../template/menu.php"
+//            include "../../template/menu.php"
             ?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(../../img/gedung-jti.jpg); background-repeat: no-repeat; background-size: cover; ">
                 <div class="d-flex bg-white rounded my-2">
