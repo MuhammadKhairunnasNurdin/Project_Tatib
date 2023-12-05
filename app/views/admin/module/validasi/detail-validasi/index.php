@@ -1,5 +1,4 @@
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(<?=BASEURL?>/img/gedung-jti.jpg); background-repeat: no-repeat;
-                    background-size: cover; ">
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(<?=BASEURL?>/img/gedung-jti.jpg); background-repeat: no-repeat; background-size: cover; ">
                 <div class="d-flex bg-white rounded my-2">
                     <img src="" alt="">
                     <h1 class="h3 m-3" style="color:#0D366B">Validasi</h1>
@@ -31,7 +30,7 @@
                             <h1 class="h6">Halur Muhammad Abiyyu</h1>
                             <h1 class="h6">2341720072</h1>
                             <h1 class="h6">TI 2E</h1>
-                            <h1 class="h6">TINGKAT 3</h1>
+                            <h1 class="h6">TINGKAT 5</h1>
                             <h1 class="h6">Mengotori atau mencoret-coret meja, kursi, tembok, dll</h1>
                             <h1 class="h6">Membersihkan meja, kursi, tembok yang telah dikotori</h1>
                             <h1 class="h6">21 Oktober 2023</h1>
