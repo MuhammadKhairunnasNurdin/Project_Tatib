@@ -5,7 +5,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.polinema.ac.id/" style="color: white; font-family: 'Tiro Bangla';">Home</a>
+                    <a class="nav-link" href="<?=BASEURL?>" style="color: white; font-family: 'Tiro Bangla';">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://spmb.polinema.ac.id/info/hubungi" style="color: white; font-family: 'Tiro Bangla';">Contact</a>
