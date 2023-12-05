@@ -49,13 +49,12 @@ class Authorization extends Controller
 		}
 	}
 
-	public function logout() {
+	public function logout(): void
+	{
 		session_unset();
 		session_destroy();
 		setcookie("id", "", time(), "/");
 		setcookie("username", "", time(), "/");
 		header("Location: " . BASEURL);
-
 	}
-
 }
