@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://localhost/Project_Tatib/public/css/admin.css">
     <link rel="stylesheet" href="<?= BASEURL?>/css/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <style>
         /* CSS untuk styling */
         .profile {
@@ -46,7 +47,7 @@
         }
     </style>
 </head>
-<div class="container-header-admin">
+<header class="container-header-admin">
     <div class="row-admin">
     <div class="header-container-admin">
         <div class="header-content-admin">
@@ -64,4 +65,4 @@
         </div>
     </div>
     </div>
-</div>
+</header>
