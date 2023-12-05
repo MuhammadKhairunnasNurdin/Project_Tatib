@@ -83,6 +83,7 @@ class Authorization
 		can't use password verify() method with default hash algorithm*/
 		$inputPassword = hash("sha256", $inputPassword, true);
 		if (!($userPassword === $inputPassword)) {
+			setcookie("passSalt", $salt, time() + 10, "/");
 			$this->fm->message("danger", "Password is Wrong");
 			$controller = "Authorization";
 			$method = "index";
