@@ -4,10 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Dashboard Mahasiswa</title>
+  <title><?=$data['title']?></title>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+<<<<<<< HEAD
   <link rel="stylesheet" href="<?= BASEURL ?>css/mahasiswa.css">
 
+=======
+  <link rel="stylesheet" href="<?=BASEURL?>/css/mahasiswa.css">
+  
+>>>>>>> c9f81bdea99aa1e950d4c1278c2d88c5728442f3
 </head>
 
 
@@ -27,3 +32,63 @@
     </div>
   </div>
 </div>
+<div class="container-page">
+    <div class="row">
+        <style>
+            .logo-container {
+                display: flex;
+                align-items: center;
+
+            }
+
+            .logo-jenis-sanksi {
+                width: 30px;
+                /* Sesuaikan ukuran logo sesuai kebutuhan */
+                height: auto;
+                margin-right: 40px;
+                font-size: 24px;
+                margin-left: 40px;
+                color: #363637;
+                /* Sesuaikan jarak antara logo dan teks */
+            }
+
+            .Text-judul-sanksi {
+                color: #403737;
+                text-align: center;
+                font-family: Anek Telugu;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin-top: 30px;
+                /* Sesuaikan ukuran font sesuai kebutuhan */
+            }
+
+            table {
+
+                width: 80%;
+
+                border-collapse: collapse;
+                margin: auto;
+            }
+
+
+            table,
+            th,
+            td {
+
+                border: 1px solid black;
+
+                padding: 8px;
+
+                text-align: left;
+                background-color: white;
+            }
+
+
+            th {
+
+                background-color: #0D366B;
+                color: white;
+            }
+        </style>
