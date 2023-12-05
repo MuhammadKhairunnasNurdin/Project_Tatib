@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://localhost/Project_Tatib/public/css/admin.css">
     <link rel="stylesheet" href="<?= BASEURL?>/css/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <style>
         /* CSS untuk styling */
         .profile {
@@ -27,7 +28,7 @@
         }
     </style>
 </head>
-<div class="container-header-admin">
+<header class="container-header-admin">
     <div class="row-admin">
     <div class="header-container-admin">
         <div class="header-content-admin">
@@ -37,21 +38,20 @@
             </a>
         </div>
         <div class="profile">
-<<<<<<< HEAD
+
             <button class="btn profile-title" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <?=$data['title']?>
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<?=BASEURL?>/Authorization/logout">Log Out</a></li>
             </ul>
-=======
+
             <a class="profile-title" onclick="toggleDropdown()">Admin 1</a>
             <div class="dropdown-content" id="myDropdown">
                 <a href="<?=BASEURL?>/Authorization/logout">Log out</a>
                 <!-- Tambahkan opsi dropdown sesuai kebutuhan -->
             </div>
->>>>>>> e99469bc776140e9f5911e60831cce3dac4c6d28
         </div>
     </div>
     </div>
-</div>
+</header>

@@ -154,9 +154,11 @@ a{
 }
 .title-page{
     margin-left: 20px;
+    margin-top: 20px;
 }
 .box-title{
     border-radius: 10px;
+    margin: auto;
     display: flex;
     width: 100%;
     background-color: white;
@@ -293,6 +295,14 @@ a{
     color: white !important;
     font-weight: bold;
 }
+.edit-dosen, .edit-mahasiswa{
+    color:white !important; 
+    font-weight: bold;
+}
+.delete-dosen, .delete-mahasiswa{
+    color: white !important;
+}
+
 .logo-dosen-title, .logo-mhs-title{
     margin: 0px 20px 0px 20px;
 }.content{
@@ -353,11 +363,24 @@ td{
 
 .btn-dark-blue{
     background-color: #0D366B !important;
+    color: white !important;
 }
 
-.border-dark-blue{
+/* validasi style */
+.bdr-dark-blue{
     border-color: #0D366B !important;
+    border: 5px 0px 5px 0px solid #0D366B !important;
 }
+.validasi-box{
+    width: 90%;
+    margin: auto;
+    padding: 1%;
+}
+.daftar-validasi{
+    width: 90%;
+    margin: auto;
+}
+
 
 @media only screen and (max-width: 1024px) {
     .container-page {
