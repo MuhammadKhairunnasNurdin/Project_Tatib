@@ -58,7 +58,7 @@
         <div class="profile">
             <a class="profile-title" onclick="toggleDropdown()">Admin 1</a>
             <div class="dropdown-content" id="myDropdown">
-                <a href="<?=BASEURL?>/Login/logout">Log out</a>
+                <a href="<?=BASEURL?>/Authorization/logout">Log out</a>
                 <!-- Tambahkan opsi dropdown sesuai kebutuhan -->
             </div>
         </div>
