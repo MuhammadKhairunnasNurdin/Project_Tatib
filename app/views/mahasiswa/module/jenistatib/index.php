@@ -1,9 +1,4 @@
-<div class="container-page">
-    <div class="row">
-        <?php
-        include 'template/menu.php';
-        ?>
-        <style>
+ <style>
             body {
                 font-family: Arial, sans-serif;
             }
@@ -13,13 +8,13 @@
                 flex-direction: column;
                 align-items: center;
                 width: 1029px;
-                height: 699px;
+                height: 659px;
                 padding: 10px;
                 margin: auto;
                 border-radius: 25px;
                 background: rgba(255, 255, 255, 0.80);
                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-                margin-top: 20px;
+                margin-top: 18px;
             }
 
             .box-tatib {
@@ -98,7 +93,7 @@
         </style>
         <main class="main">
             <div class="logo-container">
-                <img class="logo-jenis-tatib" src="img\jenis.svg" alt="Jenis Logo">
+                <img class="logo-jenis-tatib" src="<?=BASEURL?>/img/jenis.svg" alt="Jenis Logo">
                 <p class="Text-judul">Tata Tertib Mahasiswa</p>
             </div>
 
