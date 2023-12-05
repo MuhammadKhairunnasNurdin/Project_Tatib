@@ -1,20 +1,16 @@
-<div class="container-page">
-    <div class="row">
-        <?php 
-        include 'menu.php'; 
-        ?>
+<!--<div class="container-page">-->
+<!--    <div class="row">-->
 
         <!-- Tampilan Dashboard  -->
         <main class="main">
             <div class="dashboard-box">
                 <div class="box-title">
                     <div class="title-page">
-                        <h1 class="h2"><img class="logo-dashboard-page" src="img\dash.svg" alt="">Dashboard</h1>
+                        <h1 class="h2"><img class="logo-dashboard-page" src="<?=BASEURL?>/img/dash.svg" alt="">Dashboard</h1>
                     </div>
-
                     <a href="index.php" class="link-dashboard-2">
                         <div class="refresh">
-                            <img class="logo-refresh" src="img\reload_.svg" alt="Refresh">
+                            <img class="logo-refresh" src="<?=BASEURL?>/img/reload_.svg" alt="Refresh">
                             <p>
                                 Refresh
                             </p>
@@ -36,7 +32,7 @@
                     </a>
                 </div>
                 <div class="card student-info">
-                    <img src="img\Andy_Nugraha.jpeg" alt="User" class="student-photo">
+                    <img src="<?=BASEURL?>/img/Andy_Nugraha.jpeg" alt="User" class="student-photo">
                     <h3>Andy Nugraha Putra</h3>
                     <p class="student-id">2241720006</p>
                     <p class="student-location">Malang, Jawa Timur</p>
