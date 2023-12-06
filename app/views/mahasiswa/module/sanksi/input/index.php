@@ -58,9 +58,7 @@
                 color: white;
             }
         </style>
-        <?php
-        include 'mahasiswa\mahasiswa\template\menu.php';
-        ?>
+      
         <div class="main">
             <div class="logo-container">
                 <img class="logo-jenis-sanksi" src="img\sanksi.svg" alt="Jenis Logo">

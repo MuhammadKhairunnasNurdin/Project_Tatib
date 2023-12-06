@@ -1,0 +1,591 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    background-image: url(http://localhost/Project_Tatib/public//img/gedung_JTI.jpg);
+    background-size: 100%;
+}
+
+
+/* header style */
+
+.container-header-dosen {
+    width: 100%;
+}
+
+.header-container-dosen {
+    display: flex;
+    font-family: 'tirobangla';
+    background-color: #0D366B;
+    margin: auto;
+    padding: 20px 0px 20px 0px;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+}
+
+.header-content-dosen {
+    padding-left: 20px;
+}
+
+.row-dosen {
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.header-title {
+    font-family: 'tirobangla';
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header-title:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.profile-title {
+    color: white;
+}
+
+/* header style */
+
+
+/* nav menu style */
+.sidebar {
+    width: 100%;
+    height: 50%;
+    background-color: #0D3278;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: width 0.3s ease;
+    position: fixed;
+}
+
+.offcanvas-header {
+    background-color: #0D3278;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.offcanvas-header h4.logo {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.offcanvas-body {
+    padding: 0;
+}
+
+.ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    /* Adjusted padding */
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #0D366B;
+    width: 80%;
+    margin-left: 30px;
+}
+
+
+.nav-link img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    /* Adjusted margin */
+}
+
+.nav-link:hover img {
+    filter: brightness(0) invert(1);
+}
+
+
+
+
+/* Efek hover untuk kartu */
+
+.card.dosen-info {
+    width: 30%;
+    margin: 15px auto;
+    background-color: #0D3278;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Tiro Bangla';
+    font-size: 14px;
+    text-align: center;
+    /* Untuk menengahkan teks di dalam kartu */
+}
+
+.dosen-photo {
+    width: 50%;
+    /* Ukuran gambar dengan lebar 50% dari container */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    /* Membuat gambar menjadi blok untuk mengatur margin secara vertikal */
+    margin: 0 auto;
+    /* Menengahkan gambar secara horizontal */
+    border-radius: 10%;
+}
+
+.lapor-mahasiswa h2,
+.card h3 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* Efek hover untuk kartu */
+.card.dosen-info:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.dosen-id,
+.dosen-status {
+    font-size: 15px;
+    padding-bottom: 1pt;
+}
+
+.status-active {
+    color: green;
+    /* Or any color that indicates an active status */
+}
+
+.rules-button {
+    background-color: #0d366b;
+    color: white;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    bottom: 10px;
+}
+
+.rules-button:hover {
+    background-color: #071b36;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+}
+
+
+.text-dashboard,
+.text-tatib,
+.text-laporan,
+.text-history {
+    display: flex;
+    /* Menggunakan flexbox untuk sejajarkan gambar dan teks secara horizontal */
+    align-items: center;
+    /* Menggunakan align-items untuk sejajarkan vertikal */
+    margin-left: 20%;
+}
+
+.link-dashboard,
+.link-tatib,
+.link-laporan,
+.link-history {
+    padding: 0;
+    border-radius: 10px;
+    display: inline-flex;
+    /* Menjadikan elemen inline-flex agar gambar dan teks berada dalam satu baris */
+    align-items: center;
+    /* Menggunakan align-items untuk sejajarkan vertikal */
+    text-decoration: none;
+    color: #0D366B;
+}
+
+.link-dashboard:hover,
+.link-tatib:hover,
+.link-laporan:hover,
+.link-history:hover {
+    background-color: #0D366B;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.link-dashboard:visited,
+.link-tatib:visited,
+.link-laporan:visited,
+.link-history:visited {
+    color: #0D366B;
+    text-decoration: none;
+}
+
+/* Gambar pada tautan */
+.link-dashboard .logo-dashboard,
+.link-tatib .logo-tatib,
+.link-laporan .logo-laporan,
+.link-history .logo-history {
+    height: 20px;
+    /* Atur tinggi gambar sesuai dengan preferensi Anda */
+    margin-left: 30px;
+    /* Geser gambar ke kanan 5px */
+}
+
+
+/* Filter dan warna gambar pada hover */
+.link-dashboard:hover .logo-dashboard,
+.link-tatib:hover .logo-tatib,
+.link-laporan:hover .logo-laporan,
+.link-history:hover .logo-history {
+    filter: brightness(0) invert(1);
+    color: white;
+}
+
+
+
+
+/* dashboard style */
+
+.container-page {
+    position: fixed;
+    /* Mengatur posisi tetap */
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    background-image: url("http://localhost/Project_Tatib/public/img/jti3.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    /* Remove the transform property, as it's not needed for background images */
+}
+
+
+.dashboard-box {
+    display: flex;
+    margin: auto;
+    padding: 30px;
+    /* Mengurangi padding agar lebih kecil */
+    color: #0D3278;
+    width: 70%;
+    /* Mengurangi lebar */
+    height: 18%;
+    /* Mengurangi tinggi */
+}
+
+
+.title-page {
+    margin-left: 20px;
+}
+
+.box-title {
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.refresh-logo {
+    margin: 10px;
+    padding: 0;
+    width: 20px;
+}
+
+.refresh {
+    background-color: white;
+    width: fit-content;
+    border: none;
+    color: #4C3737;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+
+}
+
+.button-refresh {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    padding: 5px;
+    width: 80%;
+    margin: auto;
+    height: 50%;
+    /* Mengurangi panjang konten sesuai kebutuhan */
+}
+
+.box-content {
+    border-top: 3px solid #0D3278;
+    margin: 0;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+}
+
+.h2 {
+    display: flex;
+    /* Menggunakan display flex untuk mengatur konten secara horizontal */
+    align-items: center;
+    /* Menggunakan align-items: center untuk sejajarkan vertikal */
+}
+
+.logo-dashboard-page {
+    width: 25px;
+    /* Mengatur lebar gambar menjadi 50px */
+    height: auto;
+    /* Menggunakan "auto" untuk menjaga aspek rasio gambar */
+    margin-right: 10px;
+    /* Menambahkan margin kanan 10px jika diperlukan */
+}
+
+
+.title-content {
+    color: #229FBB;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'tirobangla';
+
+}
+
+.desc-content {
+    font-size: medium;
+    color: #4E4E4E;
+    margin: 0;
+    font-family: 'tirobangla';
+
+}
+
+.jurusan {
+    color: #3D55AB;
+    font-weight: bolder;
+    margin: 0;
+    font-family: 'tirobangla';
+
+}
+
+.text-content {
+    margin-left: 10px;
+}
+
+.lapor-mahasiswa {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    font-family: 'tirobangla';
+
+}
+
+.box-lapor,
+.box-history {
+    width: 30%;
+    display: flex;
+    background-color: #0D3278;
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    padding-top: 0px;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 15px;
+}
+
+.dosen-title,
+.history-title {
+    font-size: 25px;
+    /* Adjust the font size to your desired size */
+}
+
+
+.text-dosen-page,
+.text-history-page {
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+.button-history {
+    margin-top: 10%;
+    color: #0D366B;
+}
+
+.history {
+    margin: 0 0 0 0;
+    height: 50%;
+    font-weight: bold;
+    color: #0D366B !important;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.history:hover {
+    background-color: #959595;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* header style */
+.container-header-admin {
+    width: 100%;
+}
+
+.header-container-admin {
+    display: flex;
+    font-family: 'Raleway';
+    background-color: #0D366B;
+    margin: auto;
+    padding: auto 20px;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+}
+
+.header-content-admin {
+    padding-left: 20px;
+}
+
+.row-admin {
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-end;
+    /* padding-right: 0px; */
+    margin: auto 3%;
+}
+
+.header-title {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header-title:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.profile-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+.list-group-item {
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    font-family: 'tirobangla';
+}
+
+/* tatib */
+.container-tatib {
+    padding: 0.8%;
+    background-color: rgba(230, 230, 230, 0.8);
+    background-size: 50%;
+    border-radius: 8px;
+    max-width: 70%;
+    margin: 10% auto;
+    /* Margin disesuaikan untuk pemusat vertikal */
+    left: 50%;
+    margin-left: 20%;
+    /* Margin-left disesuaikan untuk menggeser ke kanan */
+    height: auto;
+    top: 20%;
+    /* Menyesuaikan top untuk menggeser ke atas */
+    transform: translateY(-30%);
+    /* Pusatkan secara vertikal menggunakan transform */
+}
+
+.accordion-button,
+.container-tatib {
+    font-family: 'tirobangla';
+    font-size: 20px;
+}
+
+.accordion-item {
+    margin: 5px auto;
+}
+
+.container-tatib h3 {
+    font-size: 20px;
+}
+
+/* Header styles (uncomment if needed) */
+/*
+.container-header-admin {
+    background-color: #007bff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header-title {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.header-title img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+*/
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        /* Pada layar lebih kecil, sidebar akan menempati seluruh lebar */
+    }
+
+    .main {
+        width: 100%;
+        /* Pada layar lebih kecil, konten utama akan menempati seluruh lebar */
+    }
+
+    /* Tambahan penyesuaian CSS untuk layar kecil lainnya */
+}
