@@ -20,9 +20,11 @@ class Dosen extends Controller
 			$data['page'] = $_POST['page'];
 
 			$data['title'] = "Dosen";
+			$data['tingkat'] =  $this->model("Pelanggaran")->getAllTingkatan();
+			$data['jenis'] = $this->model("Pelanggaran")->getAllJenisFromTingkatan($data['tingkat']);
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");
-			$this->view("dosen/module/". $_POST['page'] ."/index");
+			$this->view("dosen/module/". $_POST['page'] ."/index", $data);
 			$this->view("dosen/template/footer");
 
 		}
