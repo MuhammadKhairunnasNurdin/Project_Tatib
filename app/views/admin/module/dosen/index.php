@@ -27,18 +27,24 @@
                         <th class="aksi">AKSI</th>
                     </tr>
                     <tr class="tbody">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>10303459234534</td>
+                        <td>Elok Nur Hamdana, S.T., M.T.</td>
+                        <td>Lowokwaru, Malang</td>
+                        <td>085655104757</td>
+                        <td>TI - 3F</td>
+                        <td>
+                            <div class="button-UD">
+                                <form action="<?= BASEURL?>/Admin/module" method="POST">
+                                    <button name="page" value="dosen/edit" class="btn edit-dosen btn-dark-blue">EDIT</button>
+                                    <button class="btn delete-dosen bg-danger">DELETE</button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,6 +111,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    
 <!--        <br>-->
 </main>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">

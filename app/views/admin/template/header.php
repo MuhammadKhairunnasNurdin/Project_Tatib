@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://localhost/Project_Tatib/public/css/admin.css">
     <link rel="stylesheet" href="<?= BASEURL?>/css/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <style>
         /* CSS untuk styling */
         .profile {
@@ -15,8 +16,9 @@
             display: inline-block;
             margin-right: 100px;
         }
-
         .profile-title {
+            background: rgba(0, 0, 0, 0);
+            color: #FFFFFF;
             cursor: pointer;
             text-decoration: none;
         }
@@ -24,29 +26,9 @@
             text-decoration: none;
             color: white;
         }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #e1e1e1;
-        }
     </style>
 </head>
-<div class="container-header-admin">
+<header class="container-header-admin">
     <div class="row-admin">
     <div class="header-container-admin">
         <div class="header-content-admin">
@@ -56,12 +38,20 @@
             </a>
         </div>
         <div class="profile">
+
+            <button class="btn profile-title" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <?=$data['title']?>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<?=BASEURL?>/Authorization/logout">Log Out</a></li>
+            </ul>
+
             <a class="profile-title" onclick="toggleDropdown()">Admin 1</a>
             <div class="dropdown-content" id="myDropdown">
-                <a href="<?=BASEURL?>/Login/logout">Log out</a>
+                <a href="<?=BASEURL?>/Authorization/logout">Log out</a>
                 <!-- Tambahkan opsi dropdown sesuai kebutuhan -->
             </div>
         </div>
     </div>
     </div>
-</div>
+</header>

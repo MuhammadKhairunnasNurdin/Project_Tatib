@@ -168,8 +168,8 @@
 
 .main {
   width: 100%;
-  background-image: url("img/Baackground.jpg");
-  background-image: absolute;
+  background-image: url("http://localhost/Project_Tatib/public/img/gedung-jti.jpg");
+  /*background-image: ;*/
   background-size: cover;
   background-repeat: no-repeat;
   flex-wrap: wrap;
@@ -359,9 +359,10 @@ body {
 .link-sanksi,
 .link-jenis {
   text-decoration: none;
-  color: #000;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
+  border : none;
   position: relative;
   /* Add transition for smooth effect */
 }
@@ -375,6 +376,8 @@ body {
   border-radius: 8px;
   /* Optional: Add border-radius for rounded corners */
   background-color: #0d366b;
+  color : white;
+  width : 300px;
   margin-left: 2px;
   padding: 0px 8px;
   /* Adjust padding for a smaller height */

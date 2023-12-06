@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<?php
-//require 'template/menu.php';
-?>
-=======
-<div class="container-page">
-    <div class="row">
+
         <style>
             .logo-container {
                 display: flex;
@@ -63,12 +57,10 @@
                 color: white;
             }
         </style>
-        <?php
-        require 'mahasiswa\mahasiswa\template\menu.php';
-        ?>
+
         <div class="main">
             <div class="logo-container">
-                <img class="logo-jenis-sanksi" src="img\sanksi.svg" alt="Jenis Logo">
+                <img class="logo-jenis-sanksi" src="<?=BASEURL?>/img/sanksi.svg" alt="Jenis Logo">
                 <p class="Text-judul-sanksi">Sanksi</p>
             </div>
 
@@ -126,4 +118,4 @@
                         <td><a href="#">Cek Disini!</a></td>
                     </tr>
                 </table>
->>>>>>> 37adb4bfe106f44deb6a12038b84e9c860d2b912
+
