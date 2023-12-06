@@ -365,11 +365,14 @@ td{
     background-color: #0D366B !important;
     color: white !important;
 }
+.bg-dark-blue{
+    background-color: #0D366B !important;
+    color: white !important;
+}
 
 /* validasi style */
 .bdr-dark-blue{
     border-color: #0D366B !important;
-    border: 5px 0px 5px 0px solid #0D366B !important;
 }
 .validasi-box{
     width: 90%;
@@ -379,6 +382,13 @@ td{
 .daftar-validasi{
     width: 90%;
     margin: auto;
+}
+.form-mahasiswa{
+    width: 100%;
+    height: 100%;
+}
+.title-form-mahasiswa, .title-form-dosen{
+    border-top: 5px solid #0D366B;
 }
 
 
