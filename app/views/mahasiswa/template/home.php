@@ -1,5 +1,3 @@
-<!--<div class="container-page">-->
-<!--    <div class="row">-->
 
 <!-- Tampilan Dashboard  -->
 <main class="main">
@@ -42,6 +40,3 @@
 </main>
 </div>
 </div>
-</body>
-
-</html>
