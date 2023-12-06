@@ -16,31 +16,31 @@
                     <input type="hidden" value="<?php echo $row['user_id']; ?>" name="id">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="nip" class="form-control" value="<?= $row['nip']; ?>">
+                        <input type="text" name="nip" class="form-control" value="10303459234534">
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
-                        <input type="text" name="nama" class="form-control" value="<?= $row['nama']; ?>">
+                        <input type="text" name="nama" class="form-control" value="Elok Nur Hamdana, S.T., M.T.">
                     </div>
                     <div class="mb-2">
                         <label for="ttl" class="form-label">Tanggal Lahir:</label>
-                        <input type="text" name="ttl" class="form-control" value="<?= $row['nama']; ?>">
+                        <input type="date" name="ttl" class="form-control" value="">
                     </div>
                     <div class="mb-2">
                         <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" <?=($row['jenis_kelamin'] === "L") ? 'checked' : ''?>>
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="P" <?=($row['jenis_kelamin'] === "P") ? 'checked' : ''?>>
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="P" checked>
                             <label for="inlineRadio2" class="form-check-label">Perempuan</label>
                         </div>
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control"><?= $row['alamat']; ?></textarea>
+                        <textarea type="text" name="alamat" class="form-control"></textarea>
                     </div>
                     <div class="mb-2">
                         <label for="recipient-name" class="form-label">No Telepon</label>
