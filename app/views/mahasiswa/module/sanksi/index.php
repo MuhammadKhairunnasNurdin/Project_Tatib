@@ -70,7 +70,6 @@
         font-weight: 600;
         line-height: normal;
         margin: auto;
-
     }
 
     .popup-container {
@@ -104,15 +103,14 @@
         font-size: 20px;
     }
 </style>
+</head>
 
-
-<div class="main">
-    <div class="logo-container">
-        <img class="logo-jenis-sanksi" src="<?= BASEURL ?>/img/sanksi.svg" alt="Jenis Logo">
-        <p class="Text-judul-sanksi">Sanksi</p>
-    </div>
-
-    <body>
+<body>
+    <div class="main">
+        <div class="logo-container">
+            <img class="logo-jenis-sanksi" src="<?= BASEURL ?>/img/sanksi.svg" alt="Jenis Logo">
+            <p class="Text-judul-sanksi">Sanksi</p>
+        </div>
 
         <table>
 
@@ -129,12 +127,13 @@
                 <td>Bermain kartu, game online</td>
                 <td>Tingkat 1</td>
                 <td>18 / Okt / 2023</td>
-                <td><button class="box-sanksi" onclick="openPopup(1)">
+                <td>
+                    <button class="box-sanksi" onclick="openPopup(1)">
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
                             </a>
-
+                        </p>
                     </button>
                 </td>
             </tr>
@@ -143,12 +142,13 @@
                 <td>Bermain kartu, game online</td>
                 <td>Tingkat 2</td>
                 <td>18 / Okt / 2023</td>
-                <td><button class="box-sanksi" onclick="openPopup(1)">
+                <td>
+                    <button class="box-sanksi" onclick="openPopup(2)">
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
                             </a>
-
+                        </p>
                     </button>
                 </td>
             </tr>
@@ -157,12 +157,13 @@
                 <td>Bermain kartu, game online</td>
                 <td>Tingkat 3</td>
                 <td>18 / Okt / 2023</td>
-                <td><button class="box-sanksi" onclick="openPopup(1)">
+                <td>
+                    <button class="box-sanksi" onclick="openPopup(3)">
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
                             </a>
-
+                        </p>
                     </button>
                 </td>
             </tr>
@@ -171,12 +172,13 @@
                 <td>Bermain kartu, game online</td>
                 <td>Tingkat 4</td>
                 <td>18 / Okt / 2023</td>
-                <td><button class="box-sanksi" onclick="openPopup(1)">
+                <td>
+                    <button class="box-sanksi" onclick="openPopup(4)">
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
                             </a>
-
+                        </p>
                     </button>
                 </td>
             </tr>
@@ -185,29 +187,27 @@
                 <td>Bermain kartu, game online</td>
                 <td>Tingkat 5</td>
                 <td>18 / Okt / 2023</td>
-                <td><button class="box-sanksi" onclick="openPopup(1)">
+                <td>
+                    <button class="box-sanksi" onclick="openPopup(5)">
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
                             </a>
-
+                        </p>
                     </button>
                 </td>
             </tr>
 
         </table>
-</div>
-<div class="popup-container" id="popupContainer">
-    <div class="popup-box">
-        <span class="close-popup" onclick="closePopup()">X</span>
-        <div class="text">
-            <p>
-                
-            </p>
+    </div>
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-box">
+            <span class="close-popup" onclick="closePopup()">X</span>
+            <div class="text">
+                <p id="popupContent"></p>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="test.js"></script>
-
+    <script src="test.js"></script>
 </body>
