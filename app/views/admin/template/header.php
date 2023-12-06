@@ -38,14 +38,6 @@
             </a>
         </div>
         <div class="profile">
-
-            <button class="btn profile-title" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <?=$data['title']?>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="<?=BASEURL?>/Authorization/logout">Log Out</a></li>
-            </ul>
-
             <a class="profile-title" onclick="toggleDropdown()">Admin 1</a>
             <div class="dropdown-content" id="myDropdown">
                 <a href="<?=BASEURL?>/Authorization/logout">Log out</a>
