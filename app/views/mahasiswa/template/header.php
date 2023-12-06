@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title><?= $data['title'] ?></title>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-  <link rel="stylesheet" href="<?= BASEURL ?>/css/mahasiswa.css">
+  <link rel="stylesheet" href="<?= BASEURL ?> /css/mahasiswa.css">
 
   <style>
     .logo-container {
