@@ -107,7 +107,7 @@
                  </h1>
              </button>
 
-             <button name="page" value="jenistatib/look" type="submit" class="box-tatib">
+             <button name="page" value="jenistatib/looks" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
                      Pelanggaran 2
