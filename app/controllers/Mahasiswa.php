@@ -18,7 +18,7 @@ class Mahasiswa extends Controller
 	public function module(): void
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$data['page'] = $_POST['page'];
+			// $data['page'] = $_POST['page'];
 
 			$data['title'] = "Mahasiswa";
 			$this->view("Mahasiswa/template/header", $data);

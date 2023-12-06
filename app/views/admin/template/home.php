@@ -1,8 +1,3 @@
-<div class="container-page">
-    <div class="row">
-     <?php
-    include "menu.php";
-    ?> 
     <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <!-- Tampilan Dashboard  -->
             <div class="dashboard-box">

@@ -6,7 +6,7 @@ use core\Controller;
 
 class Authorization extends Controller
 {
-    public function index()
+    public function index(): void
     {
 	    if (isset($_COOKIE["id"])) {
 	        $cookieResult = $this->model("Authorization")->cookieVerify();
