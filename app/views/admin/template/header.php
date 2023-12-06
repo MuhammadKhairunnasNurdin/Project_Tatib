@@ -26,6 +26,25 @@
             text-decoration: none;
             color: white;
         }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e1e1e1;
+        }
     </style>
 </head>
 <header class="container-header-admin">
@@ -38,14 +57,6 @@
             </a>
         </div>
         <div class="profile">
-
-            <button class="btn profile-title" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <?=$data['title']?>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="<?=BASEURL?>/Authorization/logout">Log Out</a></li>
-            </ul>
-
             <a class="profile-title" onclick="toggleDropdown()">Admin 1</a>
             <div class="dropdown-content" id="myDropdown">
                 <a href="<?=BASEURL?>/Authorization/logout">Log out</a>
