@@ -7,7 +7,7 @@ class App
 
     /*this three attribute to provide default controller, method, and data
     or params*/
-    private mixed $controller = "Landing";
+    private mixed $controller = "LandingPage";
     private string $method = "index";
     private array $params = [];
 
