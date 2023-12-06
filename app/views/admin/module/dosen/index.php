@@ -35,11 +35,11 @@
                         <td>085655104757</td>
                         <td>TI - 3F</td>
                         <td>
-                            <div class="button-UD">
+                            <div class="button-UD d-flex">
                                 <form action="<?= BASEURL?>/Admin/module" method="POST">
                                     <button name="page" value="dosen/edit" class="btn edit-dosen btn-dark-blue">EDIT</button>
-                                    <button class="btn delete-dosen bg-danger">DELETE</button>
                                 </form>
+                                <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data Jabatan ?');">DELETE</button>
                             </div>
                         </td>
                     </tr>

@@ -34,11 +34,11 @@
                             <td>0892345212</td>
                             <td>Laki-laki</td>
                             <td>
-                            <div class="button-UD">
+                            <div class="button-UD d-flex">
                                 <form action="<?= BASEURL?>/Admin/module" method="POST">
                                     <button name="page" value="mahasiswa/edit" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
-                                    <button class="btn delete-mahasiswa bg-danger">DELETE</button>
                                 </form>
+                                <button class="btn ms-1 delete-mahasiswa bg-danger" onclick="javascript:return confirm('Hapus Data Jabatan ?');">DELETE</button>
                             </div>
                         </td>
                         </tr>
