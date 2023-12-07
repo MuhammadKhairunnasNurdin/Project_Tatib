@@ -18,12 +18,26 @@ class Mahasiswa extends Controller
 	public function module(): void
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			// $data['page'] = $_POST['page'];
-
+			$data['tingkat'] =  $this->model("Pelanggaran")->getAllTingkatan();
+			$data['jenis'] = $this->model("Pelanggaran")->getAllJenisFromTingkatan($data['tingkat']);
 			$data['title'] = "Mahasiswa";
 			$this->view("Mahasiswa/template/header", $data);
 			$this->view("Mahasiswa/template/menu");
-			$this->view("Mahasiswa/module/". $_POST['page'] ."/index");
+			$this->view("Mahasiswa/module/". $_POST['page'] ."/index", $data);
+			$this->view("Mahasiswa/template/footer");
+
+		}
+	}
+	public function tingkat(): void
+	{
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$data['tingkatan'] =  $this->model("Pelanggaran")->getTingkatan($_POST['page']);
+			$tingkatan = "Tingkatan " . $_POST['page'];
+			$data['jenis'] = $this->model("Pelanggaran")->getAllJenisTingkatan($data['tingkatan']);
+			$data['title'] = "Mahasiswa";
+			$this->view("Mahasiswa/template/header", $data);
+			$this->view("Mahasiswa/template/menu");
+			$this->view("Mahasiswa/module/jenistatib/looks/index", $data, $tingkatan);
 			$this->view("Mahasiswa/template/footer");
 
 		}

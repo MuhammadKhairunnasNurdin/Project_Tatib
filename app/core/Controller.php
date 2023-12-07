@@ -4,7 +4,7 @@ namespace core;
 
 class Controller
 {
-    protected function view($view, $data = []): void
+    protected function view($view, $data = [], $data1 = ""): void
     {
         require_once("../app/views/" . $view . ".php");
     }

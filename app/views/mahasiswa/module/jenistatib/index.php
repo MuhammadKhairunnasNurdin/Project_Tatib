@@ -8,7 +8,7 @@
          flex-direction: column;
          align-items: center;
          width: 1029px;
-         height: 619px;
+         height: 610px;
          padding: 10px;
          margin: auto;
          border-radius: 25px;
@@ -99,35 +99,35 @@
 
 
      <div class="border-tatib">
-         <form action="<?= BASEURL ?>/mahasiswa/module" method="POST">
-             <button name="page" value="jenistatib/looks" type="submit" class="box-tatib">
+         <form action="<?= BASEURL ?>/mahasiswa/tingkat" method="POST">
+             <button name="page" value="1" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
                      Pelanggaran 1
                  </h1>
              </button>
 
-             <button name="page" value="jenistatib/looks" type="submit" class="box-tatib">
+             <button name="page" value="2" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
                      Pelanggaran 2
                  </h1>
              </button>
 
-              <button name="page" value="jenistatib/look" type="submit" class="box-tatib">
+              <button name="page" value="3" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
                      Pelanggaran 3
                  </h1>
                  </button>
 
-                 <button name="page" value="jenistatib/look" type="submit" class="box-tatib">
+                 <button name="page" value="4" type="submit" class="box-tatib">
                      <p>
                      <h1 class="text-tatib">
                          Pelanggaran 4
                      </h1>
                  </button>
-                 <button name="page" value="jenistatib/look" type="submit" class="box-tatib">
+                 <button name="page" value="5" type="submit" class="box-tatib">
                      <p>
                      <h1 class="text-tatib">
                          Pelanggaran 5  

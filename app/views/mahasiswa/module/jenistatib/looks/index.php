@@ -16,13 +16,12 @@
         flex-direction: column;
         align-items: center;
         width: 1029px;
-        height: 699px;
+        height: 628px;
         padding: 10px;
         margin: auto;
         border-radius: 25px;
         background: rgba(255, 255, 255, 0.80);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        margin-top: 2x0px;
     }
 
     .box-tatib {
@@ -90,25 +89,16 @@
     </div>
     <div class="border-tatib">
         <h1 class="text-tatib">
-            Pelanggaran 1
+            <?=$data1?>
         </h1>
         </a>
         <div class="pelanggaran">
+	        <?php $id = 1;
+	        foreach ($data['jenis'] as $elm) :?>
             <li>
-                
+	            <?=$elm['jenis']?>
             </li>
-            <li>
-                
-            </li>
-            <li>
-                
-            </li>
-            <li>
-                
-            </li>
-            <li>
-                
-            </li>
+	        <?php $id++; endforeach;?>
         </div>
     </div>
 </main>
