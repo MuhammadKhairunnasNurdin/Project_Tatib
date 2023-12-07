@@ -1,15 +1,17 @@
 html {
-    margin: 0px;
+    margin: 0;
     height: 100%;
     width: 100%;
 }
 
 body {
-    margin: 0px;
-    min-height: 100%;
-    width: 100%;
     background-image: url(http://localhost/Project_Tatib/public//img/gedung_JTI.jpg);
-    background-size: 100%;
+    /*min-height: 100%;*/
+    /*width: 100%;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 
@@ -68,7 +70,7 @@ body {
 /* nav menu style */
 .sidebar {
     width: 100%;
-    height: 50%;
+    height: 100%;
     background-color: #0D3278;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     color: white;
@@ -529,15 +531,16 @@ body {
     background-size: 50%;
     border-radius: 8px;
     max-width: 70%;
-    margin: 10% auto;
+    margin: 5% auto;
     /* Margin disesuaikan untuk pemusat vertikal */
-    left: 50%;
+    /*left: 50%;*/
     margin-left: 20%;
     /* Margin-left disesuaikan untuk menggeser ke kanan */
-    height: auto;
+    /*height: auto;*/
     top: 20%;
+    overflow-y: auto;
     /* Menyesuaikan top untuk menggeser ke atas */
-    transform: translateY(-30%);
+    /*transform: translateY(30%);*/
     /* Pusatkan secara vertikal menggunakan transform */
 }
 

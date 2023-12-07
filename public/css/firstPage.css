@@ -1,5 +1,5 @@
 html {
-    margin: 0px;
+    margin: 0;
     height: 100%;
     width: 100%;
 }
@@ -11,7 +11,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     backdrop-filter: blur(100%);
-    padding: 0%;
+    padding: 0;
 }
 main {
     background-color: #F5F5F5;
