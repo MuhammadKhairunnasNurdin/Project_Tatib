@@ -6,6 +6,12 @@
                 <img src="<?= BASEURL?>/img/dosen_logo.svg" class="logo-dosen-title" alt="">
                 <h1 class="h2">Daftar Dosen</h1>
             </div>
+            <?php
+                if (isset($_SESSION["flashMessage"])) {
+                    echo($_SESSION["flashMessage"]);
+                    unset($_SESSION["flashMessage"]);
+                }
+            ?>
             <div class="button-add">
                 <form action="<?= BASEURL?>/Admin/Module" method="POST">
                     <button name="page" value="dosen/add" type="submit" class="btn btn-success">

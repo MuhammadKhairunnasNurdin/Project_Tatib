@@ -94,9 +94,9 @@ class Database
         $this->statement->bindValue($param, $value, $type);
     }
 
-    public function execute(): void
+    public function execute()
     {
-        $this->statement->execute();
+        return $this->statement->execute();
     }
 
     public function resultSet()
@@ -110,4 +110,9 @@ class Database
         $this->execute();
 	    return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
+
+	public function lastInsertId(): bool|string
+	{
+		return $this->databaseHandler->lastInsertId();
+	}
 }

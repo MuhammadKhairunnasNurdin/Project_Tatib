@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="fungsi/edit.php?anggota=edit" method="POST">
+    <form action="<?=BASEURL;?> /Admin/add" method="POST">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
@@ -25,7 +25,7 @@
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin">
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
