@@ -32,12 +32,12 @@ class Mahasiswa extends Controller
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$data['tingkatan'] =  $this->model("Pelanggaran")->getTingkatan($_POST['page']);
-			$tingkatan = "Tingkatan " . $_POST['page'];
 			$data['jenis'] = $this->model("Pelanggaran")->getAllJenisTingkatan($data['tingkatan']);
 			$data['title'] = "Mahasiswa";
+			$data['tingkatan'] = "Tingkatan " . $_POST['page'];
 			$this->view("Mahasiswa/template/header", $data);
 			$this->view("Mahasiswa/template/menu");
-			$this->view("Mahasiswa/module/jenistatib/looks/index", $data, $tingkatan);
+			$this->view("Mahasiswa/module/jenistatib/looks/index", $data);
 			$this->view("Mahasiswa/template/footer");
 
 		}

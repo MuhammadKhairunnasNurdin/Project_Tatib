@@ -43,18 +43,27 @@
                             </div>
                         </td>
                     </tr>
+
+                    <?php foreach ($data['user'] as $dosen) :?>
+                    <tr class="tbody">
+                        <td><?=$dosen['NIP']?></td>
+                        <td><?=$dosen['nama']?></td>
+                        <td><?=$dosen['alamat']?></td>
+                        <td><?=$dosen['no_telp']?></td>
+                        <td>TI - 3F</td>
+                        <td>
+                            <div class="button-UD d-flex">
+                                <form action="<?= BASEURL?>/Admin/module" method="POST">
+                                    <button name="page" value="dosen/edit" class="btn edit-dosen btn-dark-blue">EDIT</button>
+                                </form>
+                                <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data Jabatan ?');">DELETE</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
-    
-<!--        <br>-->
 </main>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script>
-    $( function() {
-        $( "#datepicker").datepicker();
-    } );
-</script>
+

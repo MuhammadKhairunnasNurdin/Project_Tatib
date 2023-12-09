@@ -103,34 +103,34 @@
              <button name="page" value="1" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
-                     Pelanggaran 1
+                     Pelanggaran Tingkat 1
                  </h1>
              </button>
 
              <button name="page" value="2" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
-                     Pelanggaran 2
+                     Pelanggaran Tingkat 2
                  </h1>
              </button>
 
               <button name="page" value="3" type="submit" class="box-tatib">
                  <p>
                  <h1 class="text-tatib">
-                     Pelanggaran 3
+                     Pelanggaran Tingkat 3
                  </h1>
                  </button>
 
                  <button name="page" value="4" type="submit" class="box-tatib">
                      <p>
                      <h1 class="text-tatib">
-                         Pelanggaran 4
+                         Pelanggaran Tingkat 4
                      </h1>
                  </button>
                  <button name="page" value="5" type="submit" class="box-tatib">
                      <p>
                      <h1 class="text-tatib">
-                         Pelanggaran 5  
+                         Pelanggaran Tingkat 5
                      </h1>
                  </button>
          </form>
