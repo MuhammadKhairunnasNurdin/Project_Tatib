@@ -87,7 +87,7 @@ class Admin
 
 	public function delete()
 	{
-
+		// tes
 	}
 
 	public function verification()
