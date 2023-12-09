@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="fungsi/edit.php?anggota=edit" method="POST">
+    <form action="<?=BASEURL;?> /Admin/add" method="POST">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
@@ -12,20 +12,20 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="nip" class="form-control">
+                        <input type="text" name="nip" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama:</label>
-                        <input type="text" name="nama" class="form-control">
+                        <input type="text" name="nama" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="ttl" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="ttl" class="form-control">
+                        <input type="date" name="ttl" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin">
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -35,11 +35,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control"></textarea>
+                        <textarea type="text" name="alamat" class="form-control" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="form-label">No Telepon</label>
-                        <input type="number" name="no_telp" class="form-control">
+                        <input type="number" name="no_telp" class="form-control" required>
                     </div>
                 </div>
             </div>
@@ -52,17 +52,17 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="mb-3" style="text-align: center;">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Submit
                             </button>
-                            <button class="btn btn-danger"><i class="fa fa-times"></i>
+                            <button class="btn btn-danger" type="button"><i class="fa fa-times"></i>
                                 Batal
                             </button>
                         </div>

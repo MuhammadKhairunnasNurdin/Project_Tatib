@@ -6,6 +6,12 @@
                 <img src="<?= BASEURL?>/img/dosen_logo.svg" class="logo-dosen-title" alt="">
                 <h1 class="h2">Daftar Dosen</h1>
             </div>
+            <?php
+                if (isset($_SESSION["flashMessage"])) {
+                    echo($_SESSION["flashMessage"]);
+                    unset($_SESSION["flashMessage"]);
+                }
+            ?>
             <div class="button-add">
                 <form action="<?= BASEURL?>/Admin/Module" method="POST">
                     <button name="page" value="dosen/add" type="submit" class="btn btn-success">
@@ -44,19 +50,27 @@
                         </td>
                     </tr>
 
-                    <?php foreach ($data['user'] as $dosen) :?>
+                <?php foreach ($data['user'] as $dosen) :?>
                     <tr class="tbody">
                         <td><?=$dosen['NIP']?></td>
                         <td><?=$dosen['nama']?></td>
                         <td><?=$dosen['alamat']?></td>
                         <td><?=$dosen['no_telp']?></td>
-                        <td>TI - 3F</td>
+                        <td>
+                            <?php if (!isset($dosen['kelas']))
+                            {
+                                echo "bukan DPA";
+                            } else {
+                            echo $dosen['kelas'];
+                            }
+                            ?>
+                        </td>
                         <td>
                             <div class="button-UD d-flex">
                                 <form action="<?= BASEURL?>/Admin/module" method="POST">
                                     <button name="page" value="dosen/edit" class="btn edit-dosen btn-dark-blue">EDIT</button>
                                 </form>
-                                <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data Jabatan ?');">DELETE</button>
+                                <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data Dosen?');">DELETE</button>
                             </div>
                         </td>
                     </tr>
