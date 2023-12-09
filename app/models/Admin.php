@@ -36,7 +36,7 @@ class Admin
 		$password = str_replace("'", "", $password);
 
 		/*insert into user table first to make user_id fk to table dosen*/
-		$this->db->prepare("INSERT INTO user(username, password, level) VALUES ('$username', '$password', 'dosen')");
+		$this->db->prepare("INSERT INTO user(username, password, level) VALUES ('$username', CONVERT(varbinary(256), '$password'), 'dosen')");
 
 		$this->db->execute();
 
