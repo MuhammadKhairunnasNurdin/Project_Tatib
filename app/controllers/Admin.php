@@ -18,6 +18,7 @@ class Admin extends Controller
 	{
 		$data['dosen'] = $this->model("Admin")->getDosen();
 		$data['mahasiswa'] = $this->model("Admin")->getMahasiswa();
+		$data['kelas'] = $this->model("Admin")->getAllKelas();
 
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if ($_POST['page'] == "dosen")
@@ -30,6 +31,7 @@ class Admin extends Controller
 			{
 //				$data['user'] = $this->model("Admin")->getMahasiswa();
 				$data['user'] = $data['mahasiswa'];
+//				$data['kelas'] = $this->model("Admin")->getAllKelas();
 			}
 
 			$data['title'] = "Admin";
@@ -64,22 +66,56 @@ class Admin extends Controller
 
 	}
 
-	public function add()
+	public function addDosen(): void
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$data = [
-				"username" => $_POST["username"],
-				"password" => $_POST["password"],
-				"nip" => $_POST["nip"],
+				"NIP" => $_POST["nip"],
 				"nama" => $_POST["nama"],
-				"ttl" => $_POST["ttl"],
+				"tgl_lahir" => $_POST["tgl_lahir"],
 				"jenis_kelamin" => $_POST["jenis_kelamin"],
 				"alamat" => $_POST["alamat"],
 				"no_telp" => $_POST["no_telp"]
 			];
 
-			$_SESSION["flashMessage"] = $this->model("Admin")->add($data);
+			$fkData = [
+				"user" => [
+						"username" => $_POST["username"],
+						"password" => $_POST["password"],
+						"level" => "dosen"
+				],
+			];
+
+			$_SESSION["flashMessage"] = $this->model("Admin")->add("dosen", $data, $fkData);
 			$_SESSION["moduleName"] = "dosen";
+			unset($data);
+			header("Location: " .  BASEURL . "/Admin/module");
+		}
+	}
+
+	public function addMahasiswa(): void
+	{
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$data = [
+				"NIM" => $_POST["nim"],
+				"nama" => $_POST["nama"],
+				"tgl_lahir" => $_POST["tgl_lahir"],
+				"jenis_kelamin" => $_POST["jenis_kelamin"],
+				"alamat" => $_POST["alamat"],
+				"no_telp" => $_POST["no_telp"],
+				"kelas_id" => $_POST["kelas_id"]
+			];
+
+			$fkData = [
+				"user" => [
+					"username" => $_POST["username"],
+					"password" => $_POST["password"],
+					"level" => "mahasiswa"
+				],
+			];
+
+			$_SESSION["flashMessage"] = $this->model("Admin")->add("mahasiswa", $data, $fkData);
+			$_SESSION["moduleName"] = "mahasiswa";
 			unset($data);
 			header("Location: " .  BASEURL . "/Admin/module");
 		}

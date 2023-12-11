@@ -23,14 +23,17 @@
                     </div>
                     <div class="mb-2">
                         <label for="kelas" class="form-label">Kelas:</label>
-                        <input type="text" name="ttl" class="form-control" value="TI 2E">
+                        <select name="kelas" id="kelas">
+                            <option value="" selected></option>
+                            <option value=""></option>
+                        </select>
                     </div>
                     <div class="mb-2">
-                        <label for="ttl" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="ttl" class="form-control" value="05/07/2003">
+                        <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
+                        <input type="date" name="tgl_lahir" class="form-control" value="05/07/2003">
                     </div>
                     <div class="mb-2">
-                        <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
+                        <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" checked>
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
@@ -45,7 +48,7 @@
                         <textarea type="text" name="alamat" class="form-control" value="Lowokwaru, Malang"></textarea>
                     </div>
                     <div class="mb-2">
-                        <label for="recipient-name" class="form-label">No Telepon</label>
+                        <label for="no_telp" class="form-label">No Telepon</label>
                         <input type="number" name="no_telp" class="form-control" value="0892345212">
                     </div>
                 </div>
