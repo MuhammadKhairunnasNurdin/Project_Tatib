@@ -11,11 +11,12 @@ class Dosen
 
 	public function classHistory()
 	{
+		// tes push in branch frontend
 		// test push 2 from brach anas
 	}
 
 	public function report()
 	{
-
+		// tes second push
 	}
 }

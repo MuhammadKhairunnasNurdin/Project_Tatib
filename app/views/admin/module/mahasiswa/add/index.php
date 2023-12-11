@@ -11,23 +11,29 @@
                     </div>
                 <div class="card-body">
                     <div class="mb-2">
-                        <label for="nip" class="form-label">NIM:</label>
-                        <input type="text" name="nip" class="form-control">
+                        <label for="nim" class="form-label">NIM:</label>
+                        <input type="text" name="nim" class="form-control" required >
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
-                        <input type="text" name="nama" class="form-control">
+                        <input type="text" name="nama" class="form-control" required>
                     </div>
                     <div class="mb-2">
-                        <label for="nama" class="form-label">Kelas:</label>
-                        <input type="text" name="nama" class="form-control">
+                        <label for="kelas" class="form-label">Kelas:</label>
+                        <select name="kelas" id="kelas" required>
+                            <option value="" selected>Pilih Kelas</option>
+                            <?php
+                            // QUERY DATABASE
+                            ?>
+                            <option value="">TI 2F</option>
+                        </select>
                     </div>
                     <div class="mb-2">
-                        <label for="ttl" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="ttl" class="form-control">
+                        <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
+                        <input type="date" name="tgl_lahir" class="form-control"  required>
                     </div>
                     <div class="mb-2">
-                        <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
+                        <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="jenis_kelamin">
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
@@ -39,11 +45,11 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control"></textarea>
+                        <textarea type="text" name="alamat" class="form-control" required></textarea>
                     </div>
                     <div class="mb-2">
-                        <label for="recipient-name" class="form-label">No Telepon</label>
-                        <input type="number" name="no_telp" class="form-control">
+                        <label for="no_telp" class="form-label">No Telepon</label>
+                        <input type="number" name="no_telp" class="form-control" required>
                     </div>
                 </div>
             </div>
@@ -56,11 +62,11 @@
                     <div class="card-body">
                         <div class="mb-2">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control" required>
                         </div>
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="mb-2" style="text-align: center;">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
