@@ -1,68 +1,74 @@
-<!-- <div class="container-page">
-    <div class="row"> -->
-        <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<style>
+    .content-laporan {
+        font-family: 'tirobangla';
+    }
 
-            <!-- Tampilan Dashboard  -->
-            <div class="dashboard-box">
-                <div class="box-title">
-                    <div class="title-page">
-                        <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL?>/img/dosen/dash_dosen.png" alt="">Dashboard</h1>
+    .box-title {
+        font-size: 12px;
+        width: 500px; /* Atur lebar box-title menjadi 300px */
+        height: 70px; /* Atur tinggi box-title menjadi 100px */
+        margin: 0 auto; /* Geser box-title ke tengah */
+        margin-left: 30%; /* Ganti nilai 20% sesuai kebutuhan */
+    }
+
+
+</style>
+
+    <div class="container-flex">
+        <div class="content-laporan">
+        <div class="dashboard-box">
+            <div class="box-title">
+                <div class="title-page">
+                    <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dosen/lapor_dosen.png" alt="">Laporan</h1>
                     </div>
                     <div class="button-refresh">
                         <a href="index.php">
                             <button class="refresh" data-bs-target="index.php">
-                                <img class="refresh-logo" src="<?= BASEURL?>/img/refresh-logo.svg" alt="">
+                            <img class="refresh-logo" src="<?= BASEURL ?>/img/refresh-logo.svg" alt="">
                             </button>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="content">
-                <div class="box-content">
-                    <div class="">
-                        <div class="text-content">
-                            <!-- Kalimat Selamat Datang Dashboard -->
-                            <h3 class="title-content">Selamat Datang, Kinata Dewa Ariandi St.Mt</h3>
-                            <p class="desc-content">Selamat Datang di Website Tata Tertib Mahasiswa Jurusan</p>
-                            <p class="jurusan">Teknologi Informasi</p>
+        <div>
+        <div class="content mt-5">
+            <div class="box-content" style="width: 700px; margin: 0 auto; justify-content: center;">
+            <form action="">
+                <div class="mb-3 row">
+                    <label for="kelas" class="form-label col-md-3 text-left">Kelas  :</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="kelas" required style="width: 100%;">
                         </div>
-
-                        <!-- Profile Dosen -->
-                        <div class="card dosen-info";">
-                        <img class="dosen-photo" src="<?= BASEURL?>/img/kinata.jpg" alt="">
-                            <h3>Kinata Dewa Ariandi</h3>
-                            <p class="dosen-id">2241720087</p>
-                            <p class="dosen-status">Status : <span class="status-active">Dosen DPA</span></p>
-                        </div>
-
-                        <!-- Lapor -->
-                        <div class="lapor-mahasiswa">
-                            <!-- Kotak lapor -->
-                                <div class="box-lapor">
-                                    <div class="text-dosen-page">
-                                        <h3 class="dosen-title">Lapor Mahasiswa</h3>                                    
-                                    </div>
-                                    <div class="button-kelola">
-                                        <a href="post?modul=dosen" method="post" class="history">Lapor</a>
-                                    </div>
-                                </div>
-                            
-                            <!-- Kotak History -->
-                                <div class="box-history">
-                                    <div class="text-history-page">
-                                        <h3 class="history-title">History</h3>
-                                    </div>
-                                    <div class="button-history">
-                                        <a href="index.php?page=history" class="history">Lihat Disini</a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
                 </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="form-label col-md-3 text-left">Nama  :</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="kelas" required style="width: 100%;">
+                        </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="kelas" class="form-label col-md-3 text-left">Nim  :</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="kelas" required style="width: 100%;">
+                        </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="kelas" class="form-label col-md-3 text-left">Pelanggaran  :</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="kelas" required style="width: 100%;">
+                        </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="bukti" class="form-label col-md-3 text-left">Bukti  :</label>
+                        <div class="col-md-9">
+                            <input type="file" class="form-control" id="bukti" required style="width: 100%;">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="button-buku">Simpan</button>
+                </div>
+            </form>
             </div>
-            <div>
-                <br>
-            </div>
-        </main>
+        </div>
     </div>
-</div>
+    </div>
