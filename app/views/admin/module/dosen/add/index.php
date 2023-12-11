@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="<?=BASEURL;?> /Admin/add" method="POST">
+    <form action="<?=BASEURL;?> /Admin/add" method="POST"> 
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
