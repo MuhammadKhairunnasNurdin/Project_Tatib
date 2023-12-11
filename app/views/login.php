@@ -41,13 +41,6 @@
                         <label for="floatingPassword" class="small font-family: 'Tiro Bangla';">Password</label>
                     </div>
                     <div class="text-center">
-                        <div class="d-flex justify-content">
-                            <div class="form-check">
-                                <label>
-                                    <input type="checkbox" name="remember" value="1">
-                                </label>Remember Me
-                            </div>
-                        </div>
                         <button id="loginBtn" class="btn btn-primary" type="submit" style="width:25%;">Login</button>
                     </div>
                 </form>
