@@ -68,9 +68,7 @@ class Admin extends Controller
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$data = [
-				"username" => $_POST["username"],
-				"password" => $_POST["password"],
-				"nip" => $_POST["nip"],
+				"NIP" => $_POST["nip"],
 				"nama" => $_POST["nama"],
 				"tgl_lahir" => $_POST["tgl_lahir"],
 				"jenis_kelamin" => $_POST["jenis_kelamin"],
@@ -78,7 +76,15 @@ class Admin extends Controller
 				"no_telp" => $_POST["no_telp"]
 			];
 
-			$_SESSION["flashMessage"] = $this->model("Admin")->add($data);
+			$fkData = [
+				"user" => [
+						"username" => $_POST["username"],
+						"password" => $_POST["password"],
+						"level" => "dosen"
+				],
+			];
+
+			$_SESSION["flashMessage"] = $this->model("Admin")->add("dosen", $data, $fkData);
 			$_SESSION["moduleName"] = "dosen";
 			unset($data);
 			header("Location: " .  BASEURL . "/Admin/module");

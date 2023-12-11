@@ -10,7 +10,9 @@ class Database
     private PDO $databaseHandler;
     private mixed $statement;
 
-    public function __construct()
+	public string $dbType;
+
+	public function __construct()
     {
         $option = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -18,6 +20,7 @@ class Database
 
         try {
             $this->databaseHandler = new PDO(MARIADB_DSN, MARIADB_CONFIG["user"], MARIADB_CONFIG["password"], $option);
+	        $this->dbType = "MARIADB";
         } catch (PDOException $e) {
             die("connection failed: " . $e->getMessage());
         }
@@ -72,7 +75,7 @@ class Database
 			/*return null when error occurred during escaping because database driver is not compatible*/
 			return $data;
 		else
-			return $escapedData;
+			return str_replace("'", "", $escapedData);
 	}
 
     public function prepare($query): void
@@ -114,5 +117,20 @@ class Database
 	public function lastInsertId(): bool|string
 	{
 		return $this->databaseHandler->lastInsertId();
+	}
+
+	public function insert($tableName, $insertData = [])
+	{
+		$columns = implode(', ', array_keys($insertData));
+		$placeholder = ':' . implode(', :', array_keys($insertData));
+
+		$this->prepare("INSERT INTO $tableName($columns) VALUES($placeholder)");
+
+		foreach ($insertData as $column => $val) {
+			$val = $this->antiDbInjection($val);
+			$this->bind(":$column", $val);
+		}
+
+		return $this->execute();
 	}
 }
