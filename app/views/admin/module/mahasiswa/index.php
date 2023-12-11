@@ -27,21 +27,23 @@
                             <th class="dpa" >JENIS KELAMIN</th>
                             <th class="aksi" >AKSI</th>
                         </tr>
-                        <tr class="tbody">
-                            <td>2341720072</td>
-                            <td>Halur Muhammad Abiyyu</td>
-                            <td>TI 2E</td>
-                            <td>0892345212</td>
-                            <td>Laki-laki</td>
-                            <td>
-                            <div class="button-UD d-flex">
-                                <form action="<?= BASEURL?>/Admin/module" method="POST">
-                                    <button name="page" value="mahasiswa/edit" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
-                                </form>
-                                <button class="btn ms-1 delete-mahasiswa bg-danger" onclick="javascript:return confirm('Hapus Data Jabatan ?');">DELETE</button>
-                            </div>
-                        </td>
-                        </tr>
+                        <?php foreach ($data['user'] as $mhs) :?>
+                            <tr class="tbody">
+                                <td><?= $mhs['NIM']?></td>
+                                <td><?= $mhs['nama']?></td>
+                                <td><?= $mhs['kelas']?></td>
+                                <td><?= $mhs['no_telp']?></td>
+                                <td><?= $mhs['jenis_kelamin']?></td>
+                                <td>
+                                    <div class="button-UD d-flex">
+                                        <form action="<?= BASEURL?>/Admin/module" method="POST">
+                                            <button name="page" value="mahasiswa/edit" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
+                                        </form>
+                                        <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data mahasiswa?');">DELETE</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
