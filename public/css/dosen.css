@@ -75,7 +75,6 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     color: white;
     transition: width 0.3s ease;
-    position: fixed;
 }
 
 .offcanvas-header {
@@ -114,7 +113,7 @@ body {
 }
 
 .nav-link:hover {
-    background-color: #0D366B;
+    background-color: black;
     width: 80%;
     margin-left: 30px;
 }

@@ -22,8 +22,8 @@
                         </button>
                     </li>
                     <li class="nav-laporan nav-item">
-                        <button name="page" value="laporan" type="submit" class="link-laporan nav-link d-flex align-items-center gap2 active">
-                            <img  class="logo-laporan" src="<?= BASEURL?>/img/dosen/lapor_dosen.png" alt="">
+                        <button class="link-laporan nav-link d-flex align-items-center gap2 active" name="page" value="laporan" type="submit">
+                            <img class="logo-laporan" src="<?= BASEURL?>/img/dosen/lapor_dosen.png" alt="">
                             <p class="text-laporan">Laporan</p>
                         </button>
                     </li>
