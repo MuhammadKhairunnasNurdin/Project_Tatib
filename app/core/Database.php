@@ -20,7 +20,6 @@ class Database
 
         try {
             $this->databaseHandler = new PDO(MARIADB_DSN, MARIADB_CONFIG["user"], MARIADB_CONFIG["password"], $option);
-	        $this->dbType = "MARIADB";
         } catch (PDOException $e) {
             die("connection failed: " . $e->getMessage());
         }

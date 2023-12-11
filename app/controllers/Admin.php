@@ -14,21 +14,9 @@ class Admin extends Controller
 		$this->view("admin/index");
 		$this->view("admin/template/footer");
 	}
-//	public function module(): void
-//	{
-//		$data['dosen'] = $this->model("Admin")->getAllDosen();
-//		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
-//		$data['page'] = $_POST['page'];
-//
-//		$data['title'] = "Admin";
-//		$this->view("admin/template/header", $data);
-//		$this->view("admin/template/menu");
-//		$this->view("admin/module/". $data['page'] ."/index", $data);
-//		$this->view("admin/template/footer");
-//	}
 
 	/*Page Dosen*/
-	public function pageDosen()
+	public function pageDosen(): void
 	{
 		$data['dosen'] = $this->model("Admin")->getAllDosen();
 		$data['title'] = "Admin";
@@ -38,7 +26,7 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function pageAddDosen()
+	public function pageAddDosen(): void
 	{
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
@@ -70,11 +58,11 @@ class Admin extends Controller
 			$_SESSION["flashMessage"] = $this->model("Admin")->add("dosen", $data, $fkData);
 			$_SESSION["moduleName"] = "dosen";
 			unset($data);
-			header("Location: " .  BASEURL . "/Admin/pageDosen");
+			header("Location: " . BASEURL . "/Admin/pageDosen");
 		}
 	}
 
-	public function editDosenPage()
+	public function editDosenPage(): void
 	{
 		$NIP = $_POST['NIP'];
 		$data['dosen'] = $this->model("Admin")->getDosen($NIP);
@@ -137,7 +125,7 @@ class Admin extends Controller
 			$_SESSION["flashMessage"] = $this->model("Admin")->add("mahasiswa", $data, $fkData);
 			$_SESSION["moduleName"] = "mahasiswa";
 			unset($data);
-			header("Location: " .  BASEURL . "/Admin/pageMahasiswa");
+			header("Location: " . BASEURL . "/Admin/pageMahasiswa");
 		}
 	}
 

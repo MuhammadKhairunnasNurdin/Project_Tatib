@@ -23,8 +23,8 @@
                         <select name="kelas_id" id="kelas" required>
                             <option value="" selected>Pilih Kelas</option>
                             <?php foreach ($data['kelas'] as $kls) :?>
-<!--                                --><?php //$kelas_id = $kls['id_kelas']?>
-                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
+                                <?php $kelas_id = $kls['id_kelas']?>
+                                <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
