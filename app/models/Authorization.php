@@ -21,32 +21,6 @@ class Authorization
 		unset($this->db);
 	}
 
-	public function cookieVerify(): array
-	{
-		if (isset($_COOKIE["id"]) && isset($_COOKIE["username"])) {
-			$id = $_COOKIE["id"];
-			$username = $_COOKIE["username"];
-
-			/*prepare our query syntax*/
-			$this->db->prepare("SELECT id_user, username, password, salt, level FROM [user] WHERE id_user =:id_user");
-
-			/*to bind param, so param not directly used in query and bound in separated way*/
-			$this->db->bind(':id_user', $id);
-
-			/*execute query when safe*/
-			$row = $this->db->single();
-
-			if ($username !== hash("sha256", $row["username"])) {
-				return [];
-			}
-
-			$controller = $row["level"];
-			$method = "index";
-			return ["controller" => $controller, "method" => $method];
-		}
-		return [];
-	}
-
 	public function verify(string $username, string $password, $remember = ""): array
 	{
 		/*prepare our query syntax*/
@@ -90,11 +64,6 @@ class Authorization
 		}
 
 		$_SESSION["username"] = $row["username"];
-
-		if ($remember) {
-			setcookie("id", $row["id_user"], time() + 300, "/");
-			setcookie("username", hash("sha256", $username), time()+300, "/");
-		}
 
 		$controller = $row["level"];
 		$method = "index";

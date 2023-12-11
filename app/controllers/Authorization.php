@@ -8,11 +8,6 @@ class Authorization extends Controller
 {
     public function index(): void
     {
-	    if (isset($_COOKIE["id"])) {
-	        $cookieResult = $this->model("Authorization")->cookieVerify();
-		    header("Location: " . BASEURL . "/" . $cookieResult["controller"] . "/" . $cookieResult["method"]);
-			return;
-	    }
 	    $data = [
 			"title" => "Login",
 	    ];
@@ -53,8 +48,6 @@ class Authorization extends Controller
 	{
 		session_unset();
 		session_destroy();
-		setcookie("id", "", time(), "/");
-		setcookie("username", "", time(), "/");
 		header("Location: " . BASEURL);
 	}
 }
