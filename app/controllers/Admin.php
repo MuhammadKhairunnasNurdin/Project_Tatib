@@ -72,7 +72,7 @@ class Admin extends Controller
 				"password" => $_POST["password"],
 				"nip" => $_POST["nip"],
 				"nama" => $_POST["nama"],
-				"ttl" => $_POST["ttl"],
+				"tgl_lahir" => $_POST["tgl_lahir"],
 				"jenis_kelamin" => $_POST["jenis_kelamin"],
 				"alamat" => $_POST["alamat"],
 				"no_telp" => $_POST["no_telp"]

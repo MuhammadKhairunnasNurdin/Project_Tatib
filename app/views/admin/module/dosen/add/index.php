@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="<?=BASEURL;?> /Admin/add" method="POST">
+    <form action="<?=BASEURL;?> /Admin/add" method="POST"> 
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
@@ -19,13 +19,13 @@
                         <input type="text" name="nama" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="ttl" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="ttl" class="form-control" required>
+                        <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
+                        <input type="date" name="tgl_lahir" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
+                        <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -38,7 +38,7 @@
                         <textarea type="text" name="alamat" class="form-control" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="recipient-name" class="form-label">No Telepon</label>
+                        <label for="no_telp" class="form-label">No Telepon</label>
                         <input type="number" name="no_telp" class="form-control" required>
                     </div>
                 </div>
