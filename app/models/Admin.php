@@ -41,6 +41,7 @@ class Admin
 					$this->db->insert($elm, $value);
 				}
 			}
+			$addData['user_id'] = intval($this->db->lastInsertId());
 		}
 		$isInsertSuccess = $this->db->insert($tableName, $addData);
 		$message = null;
