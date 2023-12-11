@@ -23,18 +23,18 @@
                         <input type="text" name="nama" class="form-control" value="Elok Nur Hamdana, S.T., M.T.">
                     </div>
                     <div class="mb-2">
-                        <label for="ttl" class="form-label">Tanggal Lahir:</label>
+                        <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
                         <input type="date" name="ttl" class="form-control" value="">
                     </div>
                     <div class="mb-2">
-                        <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
+                        <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <br>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="P" checked>
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="P">
                             <label for="inlineRadio2" class="form-check-label">Perempuan</label>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <textarea type="text" name="alamat" class="form-control"></textarea>
                     </div>
                     <div class="mb-2">
-                        <label for="recipient-name" class="form-label">No Telepon</label>
+                        <label for="no_telp" class="form-label">No Telepon</label>
                         <input type="number" name="no_telp" class="form-control" value="085655104757">
                     </div>
                 </div>
