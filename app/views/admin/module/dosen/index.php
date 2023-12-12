@@ -7,9 +7,9 @@
                 <h1 class="h2">Daftar Dosen</h1>
             </div>
             <?php
-                if (isset($_SESSION["flashMessage"])) {
-                    echo($_SESSION["flashMessage"]);
-                    unset($_SESSION["flashMessage"]);
+                if (isset($_SESSION["flashMessage"]["dosen"])) {
+                    echo($_SESSION["flashMessage"]["dosen"]);
+                    unset($_SESSION["flashMessage"]["dosen"]);
                 }
             ?>
             <div class="button-add">

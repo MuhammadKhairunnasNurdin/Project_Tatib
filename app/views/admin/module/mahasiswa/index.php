@@ -6,13 +6,13 @@
                     <h1 class="h2">Daftar Mahasiswa</h1>
                 </div>
 	            <?php
-                    if (isset($_SESSION["flashMessage"])) {
-                        echo($_SESSION["flashMessage"]);
-                        unset($_SESSION["flashMessage"]);
+                    if (isset($_SESSION["flashMessage"]["mahasiswa"])) {
+                        echo($_SESSION["flashMessage"]["mahasiswa"]);
+                        unset($_SESSION["flashMessage"]["mahasiswa"]);
                     }
 	            ?>
                 <div class="button-add">
-                        <a href="<?=BASEURL?>/Admin/pageAddMahasiswa" type="submit" name="page" value="mahasiswa/add" class="btn btn-success">
+                        <a href="<?=BASEURL?>/Admin/pageAddMahasiswa" type="submit" class="btn btn-success">
                             <i class="fa fa-plus"></i>ADD
                         </a>
                 </div>
