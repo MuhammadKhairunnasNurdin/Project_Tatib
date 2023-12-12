@@ -28,9 +28,12 @@ class Admin
 	public function add($tableName, $addData = [], $fkData = [])
 	{
 		if (isset($fkData)) {
-			foreach ($fkData as $elm => $value) {
-				$this->db->inserts($elm, $value);
-			}
+			$userData = $fkData['user'];
+			$username = $this->db->antiDbInjection($userData['username']);
+			$password = $this->db->antiDbInjection($userData['password']);
+			$level = $this->db->antiDbInjection($userData['level']);
+			$this->db->prepare("INSERT INTO [user](username, password, level) VALUES ('$username', CONVERT(varbinary(256), '$password'), '$level')");
+			$this->db->execute();
 			$addData['user_id'] = intval($this->db->lastInsertId());
 		}
 		$isInsertSuccess = $this->db->inserts($tableName, $addData);
