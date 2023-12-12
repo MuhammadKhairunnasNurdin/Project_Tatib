@@ -35,10 +35,9 @@
                                 <td>
                                     <div class="button-UD d-flex">
                                         <form action="<?= BASEURL?>/Admin/editMahasiswaPage" method="POST">
-<!--                                            <input type="hidden" name="NIM" value="--><?//=$mhs['NIM']?><!--">-->
                                             <button type="submit" name="NIM" value="<?=$mhs['NIM']?>" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
                                         </form>
-                                        <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data mahasiswa?');">DELETE</button>
+                                        <button class="btn ms-1 delete-dosen bg-danger" onclick="confirm('Hapus Data mahasiswa?');">DELETE</button>
                                     </div>
                                 </td>
                             </tr>
