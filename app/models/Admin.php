@@ -64,11 +64,9 @@ class Admin
 		$isInsertSuccess = null;
 		if (isset($fkData)) {
 			foreach ($fkData as $elm => $value) {
-				$this->db->insert($elm, $value);
+				$this->db->inserts($elm, $value);
 			}
-			$addData['user_id'] = intval($this->db->lastInsertId());
 		}
-		$isInsertSuccess = $this->db->insert($tableName, $addData);
 
 		if ($isInsertFkSuccess) {
 			$addData['user_id'] = intval($this->db->lastInsertId());

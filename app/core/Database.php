@@ -118,7 +118,7 @@ class Database
 		return $this->databaseHandler->lastInsertId();
 	}
 
-	public function insert($tableName, $insertData = [])
+	public function inserts($tableName, $insertData = [])
 	{
 		$columns = implode(', ', array_keys($insertData));
 		$placeholder = ':' . implode(', :', array_keys($insertData));
