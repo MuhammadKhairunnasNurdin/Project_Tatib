@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="<?=BASEURL;?> /Admin/addDosen" method="POST">
+    <form action="<?=BASEURL;?> /Admin/addUser" method="POST">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="nip" class="form-control" required>
+                        <input type="text" name="NIP" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama:</label>
@@ -59,6 +59,7 @@
                             <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="mb-3" style="text-align: center;">
+                            <input type="hidden" name="userLevel" value="dosen">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Submit
                             </button>

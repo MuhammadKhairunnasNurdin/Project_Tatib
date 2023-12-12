@@ -19,9 +19,7 @@ class Database
         ];
 
         try {
-
             $this->databaseHandler = new PDO(SQLSERVER_DSN, SQLSERVER_CONFIG["user"], SQLSERVER_CONFIG["password"], $option);
-	        $this->dbType = "SQLSERVER";
         } catch (PDOException $e) {
             die("connection failed: " . $e->getMessage());
         }
@@ -120,18 +118,29 @@ class Database
 		return $this->databaseHandler->lastInsertId();
 	}
 
-	public function insert($tableName, $insertData = [])
+	public function inserts($tableName, array $insertData)
 	{
 		$columns = implode(', ', array_keys($insertData));
 		$placeholder = ':' . implode(', :', array_keys($insertData));
 
 		$this->prepare("INSERT INTO $tableName($columns) VALUES($placeholder)");
 
-		foreach ($insertData as $column => $val) {
-			$val = $this->antiDbInjection($val);
-			$this->bind(":$column", $val);
+		foreach ($insertData as $column => $value) {
+			$value = $this->antiDbInjection($value);
+			$this->bind(":$column", $value);
 		}
 
+		return $this->execute();
+	}
+
+	public function updates($tableName, array $updateData, $condition)
+	{
+		$this->prepare("UPDATE $tableName SET " . implode(" =:? , ", array_keys($updateData)) . " =:? " . " WHERE $condition");
+
+		foreach ($updateData as $column => $value) {
+			$value = $this->antiDbInjection($value);
+			$this->bind(":?", $value);
+		}
 		return $this->execute();
 	}
 }

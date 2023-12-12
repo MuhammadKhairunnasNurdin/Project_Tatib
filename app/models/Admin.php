@@ -28,28 +28,18 @@ class Admin
 	public function add($tableName, $addData = [], $fkData = [])
 	{
 		if (isset($fkData)) {
-			/*is sql server we cannot bindValue() to varbinary*/
-			if ($this->db->dbType === "SQLSERVER" && array_key_exists("user", $fkData)) {
-				$userData = $fkData['user'];
-				$username = $this->db->antiDbInjection($userData['username']);
-				$password = $this->db->antiDbInjection($userData['password']);
-				$level = $this->db->antiDbInjection($userData['level']);
-				$this->db->prepare("INSERT INTO [user](username, password, level) VALUES ('$username', CONVERT(varbinary(256), '$password'), '$level')");
-				$this->db->execute();
-			} else {
-				foreach ($fkData as $elm => $value) {
-					$this->db->insert($elm, $value);
-				}
+			foreach ($fkData as $elm => $value) {
+				$this->db->inserts($elm, $value);
 			}
 			$addData['user_id'] = intval($this->db->lastInsertId());
 		}
-		$isInsertSuccess = $this->db->insert($tableName, $addData);
+		$isInsertSuccess = $this->db->inserts($tableName, $addData);
 		$message = null;
 		if ($isInsertSuccess) {
-			$this->fm->message("success", "adding data dosen is success");
+			$this->fm->message("success", "adding data $tableName");
 			$message = $this->fm->getFlashData("success");
 		} else {
-			$this->fm->message("warning", "error occur in adding data dosen");
+			$this->fm->message("warning", "error occur in adding data $tableName");
 			$message =  $this->fm->getFlashData("warning");
 		}
 		return $message;
@@ -71,7 +61,7 @@ class Admin
 		return $this->db->resultSet();
 	}
 
-	public function getALlMahasiswa(): array
+	public function getAllMahasiswa(): array
 	{
 		$this->db->prepare("SELECT m.NIM, m.nama, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
 		return $this->db->resultSet();

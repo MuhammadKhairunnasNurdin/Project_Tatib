@@ -5,6 +5,12 @@
                     <img src="<?= BASEURL?> /img/mahasiswa_logo.svg" class="logo-mhs-title" alt="">
                     <h1 class="h2">Daftar Mahasiswa</h1>
                 </div>
+                <?php
+                    if (isset($_SESSION["flashMessage"]["mahasiswa"])) {
+                        echo($_SESSION["flashMessage"]["mahasiswa"]);
+                        unset($_SESSION["flashMessage"]["mahasiswa"]);
+                    }
+                ?>
                 <div class="button-add">
                         <a href="<?=BASEURL?>/Admin/pageAddMahasiswa" type="submit" name="page" value="mahasiswa/add" class="btn btn-success">
                             <i class="fa fa-plus"></i>ADD
@@ -35,10 +41,9 @@
                                 <td>
                                     <div class="button-UD d-flex">
                                         <form action="<?= BASEURL?>/Admin/editMahasiswaPage" method="POST">
-<!--                                            <input type="hidden" name="NIM" value="--><?//=$mhs['NIM']?><!--">-->
                                             <button type="submit" name="NIM" value="<?=$mhs['NIM']?>" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
                                         </form>
-                                        <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data mahasiswa?');">DELETE</button>
+                                        <button class="btn ms-1 delete-dosen bg-danger" onclick="confirm('Hapus Data mahasiswa?');">DELETE</button>
                                     </div>
                                 </td>
                             </tr>

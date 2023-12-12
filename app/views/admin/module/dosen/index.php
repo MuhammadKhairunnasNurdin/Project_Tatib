@@ -7,9 +7,9 @@
                 <h1 class="h2">Daftar Dosen</h1>
             </div>
             <?php
-                if (isset($_SESSION["flashMessage"])) {
-                    echo($_SESSION["flashMessage"]);
-                    unset($_SESSION["flashMessage"]);
+                if (isset($_SESSION["flashMessage"]["dosen"])) {
+                    echo($_SESSION["flashMessage"]["dosen"]);
+                    unset($_SESSION["flashMessage"]["dosen"]);
                 }
             ?>
             <div class="button-add">
@@ -40,18 +40,18 @@
                         <td><?=$dosen['alamat']?></td>
                         <td><?=$dosen['no_telp']?></td>
                         <td>
-                            <?php if (!isset($dosen['kelas']))
-                            {
-                                echo "bukan DPA";
-                            } else {
-                            echo $dosen['kelas'];
-                            }
+                            <?php
+                                if (!isset($dosen['kelas']))
+                                {
+                                    echo "bukan DPA";
+                                } else {
+                                    echo $dosen['kelas'];
+                                }
                             ?>
                         </td>
                         <td>
                             <div class="button-UD d-flex">
                                 <form action="<?= BASEURL?>/Admin/editDosenPage" method="POST">
-<!--                                    <input type="hidden" name="NIP" value="--><?//=$dosen['NIP']?><!--">-->
                                     <button type="submit" name="NIP" value="<?=$dosen['NIP']?>" class="btn edit-dosen btn-dark-blue">EDIT</button>
                                 </form>
                                 <button class="btn ms-1 delete-dosen bg-danger" onclick="confirm('Hapus Data Dosen?');">DELETE</button>

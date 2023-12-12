@@ -14,7 +14,6 @@
                         Form Edit Dosen
                     </div>
                 <div class="card-body">
-<!--                    <input type="hidden" value="--><?php //echo $row['user_id']; ?><!--" name="id">-->
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
                         <input type="text" name="nip" class="form-control" value="<?=$dosen['NIP']?>" required>
@@ -41,7 +40,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control"></textarea>
+                        <input type="text" name="alamat" class="form-control" value "<?=$dosen['alamat']?>">
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>

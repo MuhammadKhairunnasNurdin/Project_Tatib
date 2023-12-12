@@ -13,7 +13,6 @@
                         Form Edit Mahasiswa
                     </div>
                 <div class="card-body">
-<!--                    <input type="hidden" value="--><?php //echo $row['user_id']; ?><!--" name="id">-->
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIM:</label>
                         <input type="text" name="nip" class="form-control" value="<?=$mhs['NIM']?>">
