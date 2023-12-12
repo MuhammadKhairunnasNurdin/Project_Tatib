@@ -89,4 +89,11 @@ class Admin
 		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();
 	}
+
+	public function getAdmin($username)
+	{
+		$this->db->prepare("SELECT * FROM admin a JOIN user u ON a.user_id = u.id_user WHERE u.username=:username");
+		$this->db->bind(":username", $username);
+		return $this->db->resultSet();
+	}
 }

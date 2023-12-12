@@ -10,6 +10,7 @@ class Authorization extends Controller
     {
 	    $data = [
 			"title" => "Login",
+		    "style" => "login"
 	    ];
 		$this->view("templates/header", $data);
         $this->view("login", $data);

@@ -9,6 +9,7 @@ class LandingPage extends Controller
 	public function index(): void
 	 {
 		 $data['title'] = "Home";
+		 $data['style'] = "firstpage";
 		 $data['tingkat'] =  $this->model("Pelanggaran")->getAllTingkatan();
 		 $data['jenis'] = $this->model("Pelanggaran")->getAllJenisFromTingkatan($data['tingkat']);
 		 $this->view("templates/header", $data);

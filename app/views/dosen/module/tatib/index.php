@@ -1,5 +1,5 @@
 <!--<link rel="stylesheet" href="--><?//= BASEURL?><!--/css/tatib_dosen.css">-->
-<div class= "">
+<div class= "container-page">
     <div class="container-tatib">
         <h3>TINGKAT PELANGGARAN</h3>
         <div class="accordion accordion-flush" id="accordionFlushExample">
