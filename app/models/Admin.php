@@ -64,7 +64,7 @@ class Admin
 		$isInsertSuccess = null;
 		if (isset($fkData)) {
 			foreach ($fkData as $elm => $value) {
-				$this->db->inserts($elm, $value);
+				$isInsertFkSuccess =  $this->db->inserts($elm, $value);
 			}
 		}
 
