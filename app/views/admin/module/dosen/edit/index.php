@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" value "<?=$dosen['alamat']?>">
+                        <textarea type="text" name="alamat" class="form-control"></textarea>
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>
