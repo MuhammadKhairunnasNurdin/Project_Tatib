@@ -51,7 +51,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>"></textarea>
+                        <input type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>">
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>
