@@ -32,17 +32,17 @@ class  FlashMessage
 				break;
 			case "success":
 				$this->setFlashData("success", "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-            <strong>Berhasil!</strong> {$message}
+            <strong>Success!</strong> {$message}
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
 				break;
 			case "danger":
 				$this->setFlashData("danger", "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            <strong>Gagal!</strong> {$message}
+            <strong>Failed!</strong> {$message}
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
 				break;
 			case "warning":
 				$this->setFlashData("warning", "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-            <strong>Peringatan!</strong> {$message}
+            <strong>Warning!</strong> {$message}
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
 				break;
 		}

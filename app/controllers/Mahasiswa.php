@@ -28,6 +28,36 @@ class Mahasiswa extends Controller
 
 		}
 	}
+
+	public function pageHistory()
+	{
+			$data['title'] = "Mahasiswa";
+			$this->view("mahasiswa/template/header", $data);
+			$this->view("mahasiswa/template/menu");
+			$this->view("mahasiswa/module/history/index", $data);
+			$this->view("mahasiswa/template/footer");
+	}
+
+	public function pageJenisTatib()
+	{
+			$data['title'] = "Mahasiswa";
+			$this->view("mahasiswa/template/header", $data);
+			$this->view("mahasiswa/template/menu");
+			$this->view("mahasiswa/module/jenistatib/index", $data);
+			$this->view("mahasiswa/template/footer");
+	}
+
+	public function pageSanksi()
+	{
+			$data['title'] = "Mahasiswa";
+			$this->view("mahasiswa/template/header", $data);
+			$this->view("mahasiswa/template/menu");
+			$this->view("mahasiswa/module/sanksi/index", $data);
+			$this->view("mahasiswa/template/footer");
+	}
+
+
+
 	public function tingkat(): void
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
