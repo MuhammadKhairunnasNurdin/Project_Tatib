@@ -37,7 +37,7 @@ class Admin
 						unset($value['conditionEdit']);
 					}
 				}
-				$isUpdateFkSuccess =  $this->db->updates("[$column]", $value, $conditionEdit);
+				$isUpdateFkSuccess =  $this->db->updates("$column", $value, $conditionEdit);
 			}
 		}
 

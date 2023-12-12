@@ -131,7 +131,7 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function editMahasiswaPage(): void
+	public function editMahasiswaPage()
 	{
 		$NIM = $_POST['NIM'];
 		$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
