@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #0D366B;">
         <div class="container-fluid">
-        <a style="color: white; font-family: 'Tiro Bangla'; font-size: 20px;">
-        <img src="<?= BASEURL; ?>/img/logo_polinema.png" alt="Logo" style="width: 60px; height: 60px; margin-right: 1px; size: 5px"> Politeknik Negeri Malang</a>
+        <a class="header-title">
+        <img src="<?= BASEURL; ?>/img/logo_polinema.png" alt="Logo" style="width: 45px;"> Politeknik Negeri Malang</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">

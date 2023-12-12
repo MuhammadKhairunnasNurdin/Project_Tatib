@@ -5,7 +5,8 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="fungsi/edit.php?anggota=edit" method="POST">
+    <form action="<?=BASEURL?>/Admin/editDosen" method="POST">
+        <?php foreach ($data['dosen'] AS $dosen): ?>
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
@@ -13,24 +14,24 @@
                         Form Edit Dosen
                     </div>
                 <div class="card-body">
-                    <input type="hidden" value="<?php echo $row['user_id']; ?>" name="id">
+<!--                    <input type="hidden" value="--><?php //echo $row['user_id']; ?><!--" name="id">-->
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="nip" class="form-control" value="10303459234534">
+                        <input type="text" name="nip" class="form-control" value="<?=$dosen['NIP']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
-                        <input type="text" name="nama" class="form-control" value="Elok Nur Hamdana, S.T., M.T.">
+                        <input type="text" name="nama" class="form-control" value="<?=$dosen['nama']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="ttl" class="form-control" value="">
+                        <input type="date" name="ttl" class="form-control" value="<?=$dosen['tgl_lahir']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -44,7 +45,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>
-                        <input type="number" name="no_telp" class="form-control" value="085655104757">
+                        <input type="number" name="no_telp" class="form-control" value="<?=$dosen['no_telp']?>">
                     </div>
                 </div>
             </div>
@@ -57,7 +58,7 @@
                     <div class="card-body ">
                         <div class="mb-2">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value=" ">
+                            <input type="text" name="username" class="form-control" value="<?=$dosen['username']?>">
                         </div>
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>
@@ -78,5 +79,6 @@
                 </div>
             </div>
         </div>
+        <?php endforeach; ?>
     </form>
 </main>

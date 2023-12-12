@@ -6,11 +6,9 @@
                     <h1 class="h2">Daftar Mahasiswa</h1>
                 </div>
                 <div class="button-add">
-                    <form action="<?= BASEURL?>/Admin/module" method="POST">
-                        <button type="submit" name="page" value="mahasiswa/add" class="btn btn-success">
+                        <a href="<?=BASEURL?>/Admin/pageAddMahasiswa" type="submit" name="page" value="mahasiswa/add" class="btn btn-success">
                             <i class="fa fa-plus"></i>ADD
-                        </button>
-                    </form>
+                        </a>
                 </div>
             </div>
         </div>
@@ -27,7 +25,7 @@
                             <th class="dpa" >JENIS KELAMIN</th>
                             <th class="aksi" >AKSI</th>
                         </tr>
-                        <?php foreach ($data['user'] as $mhs) :?>
+                        <?php foreach ($data['mahasiswa'] as $mhs) :?>
                             <tr class="tbody">
                                 <td><?= $mhs['NIM']?></td>
                                 <td><?= $mhs['nama']?></td>
@@ -36,8 +34,9 @@
                                 <td><?= $mhs['jenis_kelamin']?></td>
                                 <td>
                                     <div class="button-UD d-flex">
-                                        <form action="<?= BASEURL?>/Admin/module" method="POST">
-                                            <button name="page" value="mahasiswa/edit" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
+                                        <form action="<?= BASEURL?>/Admin/editMahasiswaPage" method="POST">
+<!--                                            <input type="hidden" name="NIM" value="--><?//=$mhs['NIM']?><!--">-->
+                                            <button type="submit" name="NIM" value="<?=$mhs['NIM']?>" class="btn edit-mahasiswa btn-dark-blue">EDIT</button>
                                         </form>
                                         <button class="btn ms-1 delete-dosen bg-danger" onclick="javascript:return confirm('Hapus Data mahasiswa?');">DELETE</button>
                                     </div>

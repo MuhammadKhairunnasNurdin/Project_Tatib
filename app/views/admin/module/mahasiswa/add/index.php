@@ -23,8 +23,8 @@
                         <select name="kelas_id" id="kelas" required>
                             <option value="" selected>Pilih Kelas</option>
                             <?php foreach ($data['kelas'] as $kls) :?>
-                                <?php $kelas_id = $kls['id_kelas']?>
-                                <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
+<!--                                --><?php //$kelas_id = $kls['id_kelas']?>
+                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -72,9 +72,9 @@
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Submit
                             </button>
-                            <button class="btn btn-danger"><i class="fa fa-times"></i>
+                            <a href="<?=BASEURL?>/Admin/pageMahasiswa" class="btn btn-danger"><i class="fa fa-times"></i>
                                 Batal
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

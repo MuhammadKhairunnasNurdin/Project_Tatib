@@ -14,56 +14,37 @@ class Admin extends Controller
 		$this->view("admin/index");
 		$this->view("admin/template/footer");
 	}
-	public function module(): void
+//	public function module(): void
+//	{
+//		$data['dosen'] = $this->model("Admin")->getAllDosen();
+//		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+//		$data['page'] = $_POST['page'];
+//
+//		$data['title'] = "Admin";
+//		$this->view("admin/template/header", $data);
+//		$this->view("admin/template/menu");
+//		$this->view("admin/module/". $data['page'] ."/index", $data);
+//		$this->view("admin/template/footer");
+//	}
+
+	/*Page Dosen*/
+	public function pageDosen()
 	{
-		$data['dosen'] = $this->model("Admin")->getDosen();
-		$data['mahasiswa'] = $this->model("Admin")->getMahasiswa();
-		$data['kelas'] = $this->model("Admin")->getAllKelas();
+		$data['dosen'] = $this->model("Admin")->getAllDosen();
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/dosen/index", $data);
+		$this->view("admin/template/footer");
+	}
 
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			if ($_POST['page'] == "dosen")
-			{
-//				$data['user'] = $this->model("Admin")->getDosen();
-				$data['user'] = $data['dosen'];
-			}
-
-			if ($_POST['page'] == "mahasiswa")
-			{
-//				$data['user'] = $this->model("Admin")->getMahasiswa();
-				$data['user'] = $data['mahasiswa'];
-//				$data['kelas'] = $this->model("Admin")->getAllKelas();
-			}
-
-			$data['title'] = "Admin";
-			$this->view("admin/template/header", $data);
-			$this->view("admin/template/menu");
-			$this->view("admin/module/". $_POST['page'] ."/index", $data);
-			$this->view("admin/template/footer");
-			return;
-		}
-
-		if (isset($_SESSION["moduleName"])) {
-			$moduleName = $_SESSION['moduleName'];
-			if ($moduleName == "dosen")
-			{
-//				$data['user'] = $this->model("Admin")->getDosen();
-				$data['user'] = $data['dosen'];
-			}
-
-			if ($moduleName == "mahasiswa")
-			{
-//				$data['user'] = $this->model("Admin")->getMahasiswa();
-				$data['user'] = $data['mahasiswa'];
-			}
-			$data['title'] = "Admin";
-			$this->view("admin/template/header", $data);
-			$this->view("admin/template/menu");
-			$this->view("admin/module/". $moduleName ."/index", $data);
-			$this->view("admin/template/footer");
-			return;
-		}
-
-
+	public function pageAddDosen()
+	{
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/dosen/add/index", $data);
+		$this->view("admin/template/footer");
 	}
 
 	public function addDosen(): void
@@ -80,17 +61,56 @@ class Admin extends Controller
 
 			$fkData = [
 				"user" => [
-						"username" => $_POST["username"],
-						"password" => $_POST["password"],
-						"level" => "dosen"
+					"username" => $_POST["username"],
+					"password" => $_POST["password"],
+					"level" => "dosen"
 				],
 			];
 
 			$_SESSION["flashMessage"] = $this->model("Admin")->add("dosen", $data, $fkData);
 			$_SESSION["moduleName"] = "dosen";
 			unset($data);
-			header("Location: " .  BASEURL . "/Admin/module");
+			header("Location: " .  BASEURL . "/Admin/pageDosen");
 		}
+	}
+
+	public function editDosenPage()
+	{
+		$NIP = $_POST['NIP'];
+		$data['dosen'] = $this->model("Admin")->getDosen($NIP);
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/dosen/edit/index", $data);
+		$this->view("admin/template/footer");
+	}
+
+	public function editDosen()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageDosen");
+	}
+
+
+	/*Page Mahasiswa*/
+	public function pageMahasiswa()
+	{
+		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/mahasiswa/index", $data);
+		$this->view("admin/template/footer");
+	}
+
+	public function pageAddMahasiswa()
+	{
+		$data['kelas'] = $this->model("Admin")->getAllKelas();
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/mahasiswa/add/index", $data);
+		$this->view("admin/template/footer");
 	}
 
 	public function addMahasiswa(): void
@@ -117,7 +137,44 @@ class Admin extends Controller
 			$_SESSION["flashMessage"] = $this->model("Admin")->add("mahasiswa", $data, $fkData);
 			$_SESSION["moduleName"] = "mahasiswa";
 			unset($data);
-			header("Location: " .  BASEURL . "/Admin/module");
+			header("Location: " .  BASEURL . "/Admin/pageMahasiswa");
 		}
+	}
+
+	public function editMahasiswaPage()
+	{
+		$NIM = $_POST['NIM'];
+		$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
+		$data['kelas'] = $this->model("Admin")->getAllKelas();
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/mahasiswa/edit/index", $data);
+		$this->view("admin/template/footer");
+	}
+
+	public function editMahasiswa()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageMahasiswa");
+	}
+
+	/*Page Validasi*/
+	public function pageValidasi()
+	{
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/validasi/index", $data);
+		$this->view("admin/template/footer");
+	}
+
+	public function pageDetailValidasi()
+	{
+		$data['title'] = "Admin";
+		$this->view("admin/template/header", $data);
+		$this->view("admin/template/menu");
+		$this->view("admin/module/validasi/detail-validasi/index", $data);
+		$this->view("admin/template/footer");
 	}
 }

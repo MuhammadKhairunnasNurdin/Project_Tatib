@@ -65,21 +65,38 @@ class Admin
 
 	}
 
-	public function getDosen(): array
+	public function getAllDosen(): array
 	{
 		$this->db->prepare("SELECT d.NIP AS NIP, d.nama AS nama, alamat, no_telp, k.nama AS kelas FROM dosen d LEFT OUTER JOIN kelas k ON d.NIP = k.NIP");
 		return $this->db->resultSet();
 	}
 
-	public function getMahasiswa(): array
+	public function getALlMahasiswa(): array
 	{
-		$this->db->prepare("SELECT m.NIM, m.nama, k.nama AS 'kelas', m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
+		$this->db->prepare("SELECT m.NIM, m.nama, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
 		return $this->db->resultSet();
 	}
 
 	public function getAllKelas(): array
 	{
 		$this->db->prepare("SELECT * FROM kelas");
+		return $this->db->resultSet();
+	}
+
+	public function getDosen($NIP)
+	{
+		$this->db->prepare("SELECT NIP, d.nama AS nama, tgl_lahir, alamat, no_telp, username FROM dosen d 
+    LEFT OUTER JOIN user u ON d.user_id = u.id_user WHERE NIP=:NIP");
+		$this->db->bind(":NIP", $NIP);
+		return $this->db->resultSet();
+	}
+
+	public function getMahasiswa($NIM)
+	{
+		$this->db->prepare("SELECT NIM, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, username, id_kelas, kelas_id FROM mahasiswa m 
+	    LEFT OUTER JOIN user u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
+		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
+		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();
 	}
 }

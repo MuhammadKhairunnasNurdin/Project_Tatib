@@ -7,34 +7,34 @@
                     <button class="btn-close" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebarAdmin" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3">
-                    <form action="<?= BASEURL?>/Admin/module" method="POST">
+<!--                    <form action="--><?//= BASEURL?><!--/Admin/module" method="POST">-->
                         <ul class="ul nav flex-column" >
                             <li class="nav-dashboard nav-item" >
-                                <button class="link-dosen nav-link d-flex align-items-center gap2 active" name="page" value=".." type="submit">
+                                <a href="<?=BASEURL?>/Admin/index" class="link-dosen nav-link d-flex align-items-center gap2 active" name="page" value=".." type="submit">
                                     <img class="logo-dosen" src="<?= BASEURL?>/img/dashboard_logo.svg" alt="">
                                     <p class="text-dosen" >Dashboard</p>
-                                </button>
+                                </a>
                             </li>
                             <li class="nav-dosen nav-item">
-                                <button class="link-dosen nav-link d-flex align-items-center gap2 active" name="page" value="dosen" type="submit">
+                                <a href="<?=BASEURL?>/Admin/pageDosen" class="link-dosen nav-link d-flex align-items-center gap2 active" name="page" value="dosen" type="submit">
                                     <img class="logo-dosen" src="<?= BASEURL?>/img/dosen_logo.svg" alt="">
                                     <p class="text-dosen" >Dosen</p>
-                                </button>
+                                </a>
                             </li>
                             <li class="nav-mahasiswa nav-item">
-                                <button class="link-mahasiswa nav-link d-flex align-items-center gap2 active" name="page" value="mahasiswa" type="submit">
+                                <a href="<?=BASEURL?>/Admin/pageMahasiswa" class="link-mahasiswa nav-link d-flex align-items-center gap2 active" name="page" value="mahasiswa" type="submit">
                                     <img  class="logo-mahasiswa" src="<?= BASEURL?>/img/mahasiswa_logo.svg" alt="">
                                     <p class="text-mahasiswa">Mahasiswa</p>
-                                </button>
+                                </a>
                             </li>
                             <li class="nav-validasi nav-item">
-                                <button class="link-validasi nav-link d-flex align-items-center gap2 active" name="page" value="validasi" type="submit">
+                                <a href="<?=BASEURL?>/Admin/pageValidasi" class="link-validasi nav-link d-flex align-items-center gap2 active" name="page" value="validasi" type="submit">
                                     <img class="logo-validasi" src="<?= BASEURL?>/img/validasi_logo.svg" alt="">    
                                     <p class="text-validasi" >Validasi</p>
-                                </button>
+                                </a>
                             </li>    
                         </ul>
-                    </form>
+<!--                    </form>-->
                 </div>
             </div>
         </div>
