@@ -1,21 +1,12 @@
-<body>
-<div class="container-header-admin">
-	<div class="row-admin">
-		<div class="header-container-admin">
-			<div class="header-content-admin">
-				<a class="header-title">
-					<img src="<?=BASEURL?>/img/logo_polinema.png" width="70px" alt="">
-					POLITEKNIK NEGERI MALANG
-				</a>
-			</div>
-			<div class="profile">
-                    <button type="button" class="btn">
-                        <a href="<?=BASEURL?>/Authorization/index" class="profile-title">Log In</a>
-                    </button>
-			</div>
-		</div>
-	</div>
-</div>
+<header>
+    <nav>
+        <a class="header-title">
+            <img src="<?= BASEURL?>/img/logo_polinema.png" alt="logo polinema" width="35px">
+            POLITEKNIK NEGERI MALANG
+        </a>
+            <a href="<?=BASEURL?>/Authorization/index" style="color: white; margin-right: 2rem">Log In</a>
+    </nav>
+</header>
 
 <div class="container">
 	<h3>TINGKAT PELANGGARAN</h3>
