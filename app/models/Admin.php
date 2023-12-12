@@ -86,7 +86,7 @@ class Admin
 	public function getDosen($NIP)
 	{
 		$this->db->prepare("SELECT NIP, d.nama AS nama, tgl_lahir, alamat, no_telp, username FROM dosen d 
-    LEFT OUTER JOIN user u ON d.user_id = u.id_user WHERE NIP=:NIP");
+    LEFT OUTER JOIN [user] u ON d.user_id = u.id_user WHERE NIP=:NIP");
 		$this->db->bind(":NIP", $NIP);
 		return $this->db->resultSet();
 	}
@@ -94,7 +94,7 @@ class Admin
 	public function getMahasiswa($NIM)
 	{
 		$this->db->prepare("SELECT NIM, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, username, id_kelas, kelas_id FROM mahasiswa m 
-	    LEFT OUTER JOIN user u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
+	    LEFT OUTER JOIN [user] u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
 		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
 		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();
