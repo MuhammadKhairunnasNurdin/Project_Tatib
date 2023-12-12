@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Dosen</h1>
     </div>                
-    <form action="<?=BASEURL?>/Admin/editDosen" method="POST">
+    <form action="<?=BASEURL?>/Admin/editUser" method="POST">
         <?php foreach ($data['dosen'] AS $dosen): ?>
         <div class="row">
             <div class="col-sm-6">
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="nip" class="form-control" value="<?=$dosen['NIP']?>" required>
+                        <input type="text" name="NIP" class="form-control" value="<?=$dosen['NIP']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="ttl" class="form-control" value="<?=$dosen['tgl_lahir']?>" required>
+                        <input type="date" name="tgl_lahir" class="form-control" value="<?=$dosen['tgl_lahir']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
@@ -67,6 +67,9 @@
                             </div>
                         </div>
                         <div class="mb-2" style="text-align: center;">
+                            <input type="hidden" name="userLevel" value="dosen">
+                            <input type="hidden" name="condition" value="<?=$dosen['nama']?>">
+                            <input type="hidden" name="conditionFk" value="<?=$dosen['user_id']?>">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>
