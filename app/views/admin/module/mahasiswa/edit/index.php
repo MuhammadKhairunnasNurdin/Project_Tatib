@@ -4,7 +4,8 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Mahasiswa</h1>
     </div>                
-    <form action="fungsi/edit.php?anggota=edit" method="POST">
+    <form action="<?=BASEURL?>/Admin/editMahasiswa" method="POST">
+	    <?php foreach ($data['mahasiswa'] AS $mhs): ?>
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" style="border: none;">
@@ -12,30 +13,36 @@
                         Form Edit Mahasiswa
                     </div>
                 <div class="card-body">
-                    <input type="hidden" value="<?php echo $row['user_id']; ?>" name="id">
+<!--                    <input type="hidden" value="--><?php //echo $row['user_id']; ?><!--" name="id">-->
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIM:</label>
-                        <input type="text" name="nip" class="form-control" value="2341720072">
+                        <input type="text" name="nip" class="form-control" value="<?=$mhs['NIM']?>">
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
-                        <input type="text" name="nama" class="form-control" value="Halur Muhammad Abiyyu">
+                        <input type="text" name="nama" class="form-control" value="<?=$mhs['nama']?>">
                     </div>
                     <div class="mb-2">
                         <label for="kelas" class="form-label">Kelas:</label>
-                        <select name="kelas" id="kelas">
-                            <option value="" selected></option>
-                            <option value=""></option>
+                        <select name="kelas_id" id="kelas" required>
+                            <option value=<?=$mhs['kelas_id']?> selected><?=$mhs['kelas']?></option>
+		                    <?php foreach ($data['kelas'] as $kls) :?>
+                                <?php if ($kls['id_kelas'] == $mhs['kelas_id']) {
+                                    continue;
+                                } else { ?>
+                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
+                                <?php } ?>
+		                    <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="mb-2">
                         <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="tgl_lahir" class="form-control" value="05/07/2003">
+                        <input type="date" name="tgl_lahir" class="form-control" value="<?=$mhs['tgl_lahir']?>">
                     </div>
                     <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" checked>
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -45,11 +52,11 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control" value="Lowokwaru, Malang"></textarea>
+                        <textarea type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>"></textarea>
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>
-                        <input type="number" name="no_telp" class="form-control" value="0892345212">
+                        <input type="number" name="no_telp" class="form-control" value="<?=$mhs['no_telp']?>">
                     </div>
                 </div>
             </div>
@@ -62,7 +69,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
@@ -75,13 +82,14 @@
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>
-                            <button class="btn btn-danger"><i class="fa fa-times"></i>
+                            <a href="<?=BASEURL?>/Admin/pageMahasiswa" class="btn btn-danger"><i class="fa fa-times"></i>
                                 Batal
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <?php endforeach; ?>
     </form>
 </main>

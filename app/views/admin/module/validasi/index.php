@@ -1,4 +1,3 @@
-
             <main  class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(<?= BASEURL?>/img/gedung-jti.jpg); background-repeat: no-repeat; background-size: cover; ">
                 <div class="validasi-box d-flex bg-white rounded my-2">
                         <img class="ms-2 ps-2" src="<?= BASEURL?>/img/validasi_logo.svg" alt="">    
@@ -43,17 +42,9 @@
                                     <!-- <?=$row ['tanggal']?> -->
                                 </td>
                                 <td class="col-2">
-                                    <form action="<?= BASEURL?>/Admin/module" method="POST">
-                                    <button class="btn btn-dark-blue" name="page" value="validasi/detail-validasi">CEK DETAIL</button>
-                                    </form>
-<!--                                    <a href="detail-validasi/detail-validasi.php" class=" m-auto btn btn-dark-blue text-white">-->
-<!--                                        CEK DETAIL-->
-<!--                                    </a>-->
+                                    <a href="<?=BASEURL?>/Admin/pageDetailValidasi" class="btn btn-dark-blue" name="page" value="validasi/detail-validasi">CEK DETAIL</a>
                                 </td>
                             </tr>
-                            <!-- <?
-                            // }
-                            ?> -->
                         </tbody>
                     </table>
                 </div>

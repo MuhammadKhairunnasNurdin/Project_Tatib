@@ -62,9 +62,9 @@
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Submit
                             </button>
-                            <button class="btn btn-danger" type="button"><i class="fa fa-times"></i>
+                            <a href="<?=BASEURL?>/Admin/pageDosen" class="btn btn-danger" type="button"><i class="fa fa-times"></i>
                                 Batal
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
