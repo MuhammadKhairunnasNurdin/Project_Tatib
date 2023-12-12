@@ -137,6 +137,11 @@ class Database
 	{
 		$setClause = '';
 		foreach ($updateData as $column => $value) {
+			if ($column == "password") {
+				$value = $this->antiDbInjection($value);
+				$setClause .= "password = CONVERT(varbinary(256), '$value'), ";
+				continue;
+			}
 			$setClause .= "$column = :$column, ";
 		}
 		$setClause = rtrim($setClause, ', ');
@@ -144,6 +149,9 @@ class Database
 		$this->prepare("UPDATE $tableName SET $setClause WHERE $condition");
 
 		foreach ($updateData as $column => $value) {
+			if ($column == "password") {
+				continue;
+			}
 			$value = $this->antiDbInjection($value);
 			$this->bind(":$column", $value);
 		}
