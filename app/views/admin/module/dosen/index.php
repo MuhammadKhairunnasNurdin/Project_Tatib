@@ -50,11 +50,16 @@
                         </td>
                         <td>
                             <div class="button-UD d-flex">
-                                <form action="<?= BASEURL?>/Admin/editDosenPage" method="POST">
-<!--                                    <input type="hidden" name="NIP" value="--><?//=$dosen['NIP']?><!--">-->
-                                    <button type="submit" name="NIP" value="<?=$dosen['NIP']?>" class="btn edit-dosen btn-dark-blue">EDIT</button>
+                                <form action="<?= BASEURL ?>/Admin/editDosenPage" method="POST">
+                                    <button type="submit" name="NIP" value="<?= $dosen['NIP'] ?>"
+                                            class="btn edit-dosen btn-dark-blue">EDIT
+                                    </button>
                                 </form>
-                                <button class="btn ms-1 delete-dosen bg-danger" onclick="confirm('Hapus Data Dosen?');">DELETE</button>
+                                <form action="<?= BASEURL ?>/Admin/pageDosen" method="post">
+                                    <button class="btn ms-1 delete-dosen bg-danger"
+                                            onclick="confirm('Hapus Data Dosen?');">DELETE
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

@@ -13,7 +13,6 @@
                         Form Edit Mahasiswa
                     </div>
                 <div class="card-body">
-<!--                    <input type="hidden" value="--><?php //echo $row['user_id']; ?><!--" name="id">-->
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIM:</label>
                         <input type="text" name="nip" class="form-control" value="<?=$mhs['NIM']?>">
@@ -52,7 +51,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>"></textarea>
+                        <input type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>">
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>

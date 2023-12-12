@@ -8,10 +8,12 @@ class Admin extends Controller
 {
 	public function index(): void
 	{
+		$data['totalDosen'] = count($this->model("Admin")->getAllDosen());
+		$data['totalMahasiswa'] = count($this->model("Admin")->getAllMahasiswa());
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
-		$this->view("admin/index");
+		$this->view("admin/index", $data);
 		$this->view("admin/template/footer");
 	}
 

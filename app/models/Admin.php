@@ -36,10 +36,10 @@ class Admin
 		$isInsertSuccess = $this->db->insert($tableName, $addData);
 		$message = null;
 		if ($isInsertSuccess) {
-			$this->fm->message("success", "adding data dosen is success");
+			$this->fm->message("success", "adding data $tableName");
 			$message = $this->fm->getFlashData("success");
 		} else {
-			$this->fm->message("warning", "error occur in adding data dosen");
+			$this->fm->message("warning", "error occur in adding data $tableName");
 			$message =  $this->fm->getFlashData("warning");
 		}
 		return $message;
