@@ -128,7 +128,7 @@
                 <td>Tingkat 1</td>
                 <td>18 / Okt / 2023</td>
                 <td>
-                    <button class="box-sanksi" onclick="openPopup(1)">
+                    <button class="box-sanksi" >
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
@@ -143,7 +143,7 @@
                 <td>Tingkat 2</td>
                 <td>18 / Okt / 2023</td>
                 <td>
-                    <button class="box-sanksi" onclick="openPopup(2)">
+                    <button class="box-sanksi" >
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
@@ -158,7 +158,7 @@
                 <td>Tingkat 3</td>
                 <td>18 / Okt / 2023</td>
                 <td>
-                    <button class="box-sanksi" onclick="openPopup(3)">
+                    <button class="box-sanksi">
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
@@ -173,7 +173,7 @@
                 <td>Tingkat 4</td>
                 <td>18 / Okt / 2023</td>
                 <td>
-                    <button class="box-sanksi" onclick="openPopup(4)">
+                    <button class="box-sanksi" >
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
@@ -188,7 +188,7 @@
                 <td>Tingkat 5</td>
                 <td>18 / Okt / 2023</td>
                 <td>
-                    <button class="box-sanksi" onclick="openPopup(5)">
+                    <button class="box-sanksi" >
                         <p>
                             <a class="text-sanksi">
                                 Cek Disini!
@@ -200,14 +200,7 @@
 
         </table>
     </div>
-    <div class="popup-container" id="popupContainer">
-        <div class="popup-box">
-            <span class="close-popup" onclick="closePopup()">X</span>
-            <div class="text">
-                <p id="popupContent"></p>
-            </div>
-        </div>
-    </div>
+   
 
     <script src="test.js"></script>
 
