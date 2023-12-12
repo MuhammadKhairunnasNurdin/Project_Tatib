@@ -13,7 +13,7 @@
                 }
             ?>
             <div class="button-add">
-                <a href="<?=BASEURL?>/Admin/pageAddDosen" name="page" value="dosen/add" type="submit" class="btn btn-success">
+                <a href="<?=BASEURL?>/Admin/pageAddDosen" type="submit" class="btn btn-success">
                     <i class="fa fa-plus"></i>ADD
                 </a>
             </div>
