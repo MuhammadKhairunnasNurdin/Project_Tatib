@@ -12,7 +12,7 @@
                     }
                 ?>
                 <div class="button-add">
-                        <a href="<?=BASEURL?>/Admin/pageAddMahasiswa" type="submit" name="page" value="mahasiswa/add" class="btn btn-success">
+                        <a href="<?=BASEURL?>/Admin/pageAddMahasiswa" type="submit" class="btn btn-success">
                             <i class="fa fa-plus"></i>ADD
                         </a>
                 </div>
