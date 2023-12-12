@@ -1,0 +1,15 @@
+# This directive enables the URL rewriting engine. this use in routing url
+# to accept string url that requested, and with base rewritting
+RewriteEngine On
+RewriteBase /Project_Tatib/
+
+# this 2 rewrite condition to avoid folder or file name that same with our
+# controller or method
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# adding this rule to redirectly in index.php localhost/Project_Tatib, without public
+RewriteRule ^$ public/index.php [L]
+
+# adding this rul to redirectyly file or folder that hadn't availiable in index.php? to url=... in core/app function parseUrl()
+RewriteRule ^(.*)$ public/index.php?url=$1 [L]
