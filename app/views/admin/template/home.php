@@ -32,7 +32,7 @@
                             <p class="dosen-count">Total Dosen : <?=$data['totalDosen']?></p>
                         </div>
                         <div class="button-kelola">
-                            <a href="<?=BASEURL?>/Admin/pageMahasiswa" type="submit" class="kelola">Kelola</a>
+                            <a href="<?=BASEURL?>/Admin/pageDosen" type="submit" class="kelola">Kelola</a>
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@
                             <p class="mahasiswa-count">Total Mahasiswa : <?=$data['totalMahasiswa']?></p>
                         </div>
                         <div class="button-kelola">
-                            <a href="<?=BASEURL?>/Admin/pageDosen" type="submit" class="kelola">Kelola</a>
+                            <a href="<?=BASEURL?>/Admin/pageMahasiswa" type="submit" class="kelola">Kelola</a>
                         </div>
                     </div>
                 </div>

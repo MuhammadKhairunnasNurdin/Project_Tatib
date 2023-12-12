@@ -132,4 +132,22 @@ class Database
 
 		return $this->execute();
 	}
+
+	public function updates($tableName, array $updateData, $condition)
+	{
+		$setClause = '';
+		foreach ($updateData as $column => $value) {
+			$setClause .= "$column = :$column, ";
+		}
+		$setClause = rtrim($setClause, ', ');
+
+		$this->prepare("UPDATE $tableName SET $setClause WHERE $condition");
+
+		foreach ($updateData as $column => $value) {
+			$value = $this->antiDbInjection($value);
+			$this->bind(":$column", $value);
+		}
+
+		return $this->execute();
+	}
 }
