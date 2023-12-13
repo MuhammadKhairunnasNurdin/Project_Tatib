@@ -124,17 +124,21 @@
                     <div class="box-pilihan">
                         <br>
                         <div class="container-flex">
+                            <form action="<?=BASEURL?>/Dosen/pageTerlapor" method="post">
                             <button class="box-mhs">
                                 <div class="text-mhs">
                                     <h3 class="mhs-title">Mahasiswa Terlapor</h3>
                                 </div>
                             </button>
+                            </form>
                             <br>
+                            <form action="<?=BASEURL?>/Dosen/pageMahasiswa" method="post">
                             <button class="box-mhskelas">
                                 <div class="text-mhskelas">
                                     <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
                                 </div>
                             </button>
+                            </form>
                         </div>
                     </div>
                 </div>
