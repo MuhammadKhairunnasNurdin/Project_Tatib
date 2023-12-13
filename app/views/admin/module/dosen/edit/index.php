@@ -53,6 +53,18 @@
                         <label for="no_telp" class="form-label">No Telepon</label>
                         <input type="number" name="no_telp" class="form-control" value="<?=$dosen['no_telp']?>">
                     </div>
+                    <div class="mt-1">
+                        <label for="dpa" class="form-label">DPA Kelas:
+                            <select class="ms-2 btn btn-light dropdown-toggle border" name="kelas_id" id="kelas">
+                                <option value="" selected>Pilih Kelas</option>
+                                <?php foreach ($data['kelas'] as $kls) :?>
+                                    <?php $kelas_id = $kls['id_kelas']?>
+                                    <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </label>
+                        
+                    </div>
                 </div>
             </div>
         </div>
