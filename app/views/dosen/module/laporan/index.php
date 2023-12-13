@@ -114,8 +114,8 @@
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Pelanggaran  :</label>
-                            <select name="NIM" class="mahasiswa">
+                            <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran  :</label>
+                            <select id="tingkat" name="tingkat" class="mahasiswa">
                                 <option value="" selected>Pilih Tingkat Pelanggaran</option>
 		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
                                     <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
@@ -126,7 +126,24 @@
                         <div class="mb-3 row">
                             <label for="kelas" class="form-label col-md-3 text-left">Sanksi  :</label>
                             <select name="NIM" class="mahasiswa">
-                                <option value="" selected>Pilih Tingkat Pelanggaran</option>
+<!--	                            --><?php
+//	                            if (isset($_POST['tingkat']) && $_POST['tingkat']) {
+//		                            $selectedTingkat = $_POST['tingkat'];
+////                                    $sanksiOptions = $data['sanksi'];
+//		                            $sanksiOptions = [
+//			                            "Tingkat 1" => ["Sanksi 1A", "Sanksi 1B", "Sanksi 1C"],
+//			                            "Tingkat 2" => ["Sanksi 2A", "Sanksi 2B", "Sanksi 2C"],
+////			                             Tambahkan opsi untuk tingkatan pelanggaran lainnya
+//		                            ];
+//
+//		                            foreach ($sanksiOptions[$selectedTingkat] as $sanksi) {
+//			                            echo "<option value='$sanksi'>$sanksi</option>";
+//		                            }
+//	                            } else {
+//		                            echo "<option value='' selected>Pilih Sanksi Pelanggaran</option>";
+//	                            }
+//	                            ?>
+                                <option value="" selected>Pilih Sanksi Pelanggaran</option>
 		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
                                     <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
 		                        <?php endforeach; ?>
