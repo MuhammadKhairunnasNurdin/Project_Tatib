@@ -49,11 +49,11 @@ class Pelanggaran
 		return $this->db->resultSet();
 	}
 
-	public function getAllSanksi($data = []): array
+	public function getAllSanksi(): array
 	{
-		$data = $data['tingkatan'];
-		$this->db->prepare("SELECT sanksi FROM sanksi_pelanggaran WHERE tingkatan =:tingkatan ");
-		$this->db->bind(":tingkatan", $data);
+//		$data = $data['tingkatan'];
+		$this->db->prepare("SELECT sanksi FROM sanksi_pelanggaran");
+//		$this->db->bind(":tingkatan", $data);
 		return $this->db->resultSet();
 	}
 }
