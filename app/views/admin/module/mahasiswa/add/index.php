@@ -19,14 +19,15 @@
                         <input type="text" name="nama" class="form-control" required>
                     </div>
                     <div class="mb-2">
-                        <label for="kelas" class="form-label">Kelas:</label>
-                        <select name="kelas_id" id="kelas" required>
-                            <option value="" selected>Pilih Kelas</option>
-                            <?php foreach ($data['kelas'] as $kls) :?>
-                                <?php $kelas_id = $kls['id_kelas']?>
-                                <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="kelas" class="form-label">Kelas:
+                            <select name="kelas_id" class="ms-2 btn btn-light dropdown-toggle border" id="kelas" required>
+                                <option value="" selected>Pilih Kelas</option>
+                                <?php foreach ($data['kelas'] as $kls) :?>
+                                    <?php $kelas_id = $kls['id_kelas']?>
+                                    <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </label>
                     </div>
                     <div class="mb-2">
                         <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>

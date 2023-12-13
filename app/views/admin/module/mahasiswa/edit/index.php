@@ -19,15 +19,15 @@
                         <label for="nama" class="form-label">Nama:</label>
                         <input type="text" name="nama" class="form-control" value="<?=$mhs['nama']?>">
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-2 dropdown-menu">
                         <label for="kelas" class="form-label">Kelas:</label>
-                        <select name="kelas_id" id="kelas" required>
-                            <option value=<?=$mhs['kelas_id']?> selected><?=$mhs['kelas']?></option>
+                        <select name="kelas_id" class="dropdown-menu ms-2 btn btn-light dropdown-toggle border" id="kelas" required>
+                            <option class="dropdown-item" value=<?=$mhs['kelas_id']?> selected><?=$mhs['kelas']?></option>
 		                    <?php foreach ($data['kelas'] as $kls) :?>
                                 <?php if ($kls['id_kelas'] == $mhs['kelas_id']) {
                                     continue;
                                 } else { ?>
-                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
+                                <option class="dropdown-item" value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
                                 <?php } ?>
 		                    <?php endforeach; ?>
                         </select>

@@ -98,11 +98,9 @@ a{
 .link-mahasiswa:hover,
 .link-validasi:hover{
     background-color: #0D366B;
-    padding: 10px;
-    border-radius: 10px;
     text-decoration: none;
+    border-radius: 10px;
     color: white;
-    width: 100%;
 }
 .link-dashboard:visited, .link-dosen:visited, .link-mahasiswa:visited, .link-validasi:visited{
     color: #0D366B;
