@@ -10,6 +10,7 @@ class Admin extends Controller
 	{
 		$data['totalDosen'] = count($this->model("Admin")->getAllDosen());
 		$data['totalMahasiswa'] = count($this->model("Admin")->getAllMahasiswa());
+		$data['admin'] = $this->model("Admin")->getAdmin($_SESSION['username']);
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -49,7 +50,7 @@ class Admin extends Controller
 					"username" => $_POST["username"],
 					"password" => $_POST["password"],
 					"level" => strtolower($userLevel)
-				],
+				]
 			];
 			unset($_POST["userLevel"]);
 			unset($_POST['username']);
@@ -77,7 +78,7 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function editUser(): void
+	public function editUser()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$data = [];
@@ -99,14 +100,13 @@ class Admin extends Controller
 
 
 			foreach ($_POST as $column => $value) {
-					$data[$column] = $value;
+				$data[$column] = $value;
 			}
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
 			unset($data);
 			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
-
 	}
 
 

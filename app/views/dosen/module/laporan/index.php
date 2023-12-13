@@ -14,7 +14,7 @@
 
 </style>
 
-    <div class="container-flex">
+    <div class="container-page">
         <div class="content-laporan">
         <div class="dashboard-box">
             <div class="box-title">

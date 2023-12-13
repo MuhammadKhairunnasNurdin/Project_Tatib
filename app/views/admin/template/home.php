@@ -19,9 +19,11 @@
             <div class="">
                 <div class="text-content">
                     <!-- Kalimat Selamat Datang Dashboard -->
-                    <h3 class="title-content">Selamat Datang, Admin 1</h3>
+	                <?php foreach ($data['admin'] AS $admin): ?>
+                    <h3 class="title-content">Selamat Datang, <?=$admin['nama']?></h3>
                     <p class="desc-content">Selamat Datang di Website Tata Tertib Mahasiswa Jurusan</p>
                     <p class="jurusan">Teknologi Informasi</p>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="dosen-mahasiswa">

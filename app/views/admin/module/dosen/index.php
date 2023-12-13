@@ -1,5 +1,5 @@
 
-<main class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main class="main col-md-9 ms-sm-auto col-lg-10 px-md-auto">
     <div class="daftar-dosen-box">
         <div class="box-title-daftar-dosen">
             <div class="title-page-daftar-dosen">
@@ -13,7 +13,7 @@
                 }
             ?>
             <div class="button-add">
-                <a href="<?=BASEURL?>/Admin/pageAddDosen" name="page" value="dosen/add" type="submit" class="btn btn-success">
+                <a href="<?=BASEURL?>/Admin/pageAddDosen" type="submit" class="btn btn-success">
                     <i class="fa fa-plus"></i>ADD
                 </a>
             </div>
