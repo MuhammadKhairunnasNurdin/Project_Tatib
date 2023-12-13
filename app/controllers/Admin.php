@@ -10,6 +10,7 @@ class Admin extends Controller
 	{
 		$data['totalDosen'] = count($this->model("Admin")->getAllDosen());
 		$data['totalMahasiswa'] = count($this->model("Admin")->getAllMahasiswa());
+		$data['admin'] = $this->model("Admin")->getAdmin($_SESSION['username']);
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");

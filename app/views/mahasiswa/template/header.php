@@ -164,6 +164,56 @@
         background-color: #0D366B;
         color: white;
         }
+
+        /* Style Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            align-items: center;
+            margin: 0 1rem;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        /* Style Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+        }
+
+        /* Style Dropdown Links */
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* Change color on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            opacity: 1;
+        }
+
+        .btn-logout {
+            color: white;
+            font-size: 1.1rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 
 </head>
@@ -175,8 +225,13 @@
       <div class="header-content">
         <a class="header-title">POLITEKNIK NEGERI MALANG</a>
       </div>
-        <div class="profile">
-            <a class="profile-title" href="<?=BASEURL?>/Login/logout">Log Out</a>
+        <div class="dropdown">
+            <?php foreach ($data['mahasiswa'] as $mhs): ?>
+            <button class="btn-logout"><?=$mhs['nama']?></button>
+            <?php endforeach; ?>
+            <div class="dropdown-content">
+                <a class="profile-title" href="<?=BASEURL?>/Login/logout">Log Out</a>
+            </div>
         </div>
     </div>
   </div>

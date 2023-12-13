@@ -40,7 +40,7 @@
                                         <h3 class="dosen-title">Lapor Mahasiswa</h3>                                    
                                     </div>
                                     <div class="button-kelola">
-                                        <a href="post?modul=dosen" method="post" class="history">Lapor</a>
+                                        <a href="<?=BASEURL?>/Dosen/pageLaporan" method="post" class="history">Lapor</a>
                                     </div>
                                 </div>
                             
@@ -50,7 +50,7 @@
                                         <h3 class="history-title">History</h3>
                                     </div>
                                     <div class="button-history">
-                                        <a href="index.php?page=history" class="history">Lihat Disini</a>
+                                        <a href="<?=BASEURL?>/Dosen/pageHistory" class="history">Lihat Disini</a>
                                     </div>
                                 </div>
                         </div>
