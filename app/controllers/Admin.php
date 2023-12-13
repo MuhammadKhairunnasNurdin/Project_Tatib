@@ -69,14 +69,16 @@ class Admin extends Controller
 
 	public function editDosenPage(): void
 	{
-		$NIP = $_POST['NIP'];
-		$data['dosen'] = $this->model("Admin")->getDosen($NIP);
-		$data['kelas'] = $this->model("Admin")->getAllKelas();
-		$data['title'] = "Admin";
-		$this->view("admin/template/header", $data);
-		$this->view("admin/template/menu");
-		$this->view("admin/module/dosen/edit/index", $data);
-		$this->view("admin/template/footer");
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$NIP = $_POST['NIP'];
+			$data['dosen'] = $this->model("Admin")->getDosen($NIP);
+			$data['kelas'] = $this->model("Admin")->getAllKelas();
+			$data['title'] = "Admin";
+			$this->view("admin/template/header", $data);
+			$this->view("admin/template/menu");
+			$this->view("admin/module/dosen/edit/index", $data);
+			$this->view("admin/template/footer");
+		}
 	}
 
 	public function editDosen()
@@ -139,14 +141,16 @@ class Admin extends Controller
 
 	public function editMahasiswaPage()
 	{
-		$NIM = $_POST['NIM'];
-		$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
-		$data['kelas'] = $this->model("Admin")->getAllKelas();
-		$data['title'] = "Admin";
-		$this->view("admin/template/header", $data);
-		$this->view("admin/template/menu");
-		$this->view("admin/module/mahasiswa/edit/index", $data);
-		$this->view("admin/template/footer");
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$NIM = $_POST['NIM'];
+			$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
+			$data['kelas'] = $this->model("Admin")->getAllKelas();
+			$data['title'] = "Admin";
+			$this->view("admin/template/header", $data);
+			$this->view("admin/template/menu");
+			$this->view("admin/module/mahasiswa/edit/index", $data);
+			$this->view("admin/template/footer");
+		}
 	}
 
 	public function editMahasiswa()
