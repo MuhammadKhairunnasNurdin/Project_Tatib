@@ -5,15 +5,14 @@ html {
 }
 
 body {
-    background-image: url(http://localhost/Project_Tatib/public//img/gedung_JTI.jpg);
+    /*background-image: url(http://localhost/Project_Tatib/public//img/gedung_JTI.jpg);*/
     /*min-height: 100%;*/
     /*width: 100%;*/
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 
 /* header style */
 
@@ -287,14 +286,14 @@ body {
 }
 
 .main {
-    width: 100%;
+    /*width: 100%;*/
     background-image: url("http://localhost/Project_Tatib/public/img/jti3.jpg");
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
     padding: 20px;
+    overflow-y: auto;
     /* Remove the transform property, as it's not needed for background images */
 }
-
 
 .dashboard-box {
     display: flex;
