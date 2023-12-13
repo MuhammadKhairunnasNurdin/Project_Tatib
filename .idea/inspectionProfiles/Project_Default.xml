@@ -3,6 +3,7 @@
     <option name="myName" value="Project Default" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -19,6 +20,13 @@
 >>>>>>> 0165420f07ad6dfc6dc8d0646a9612e8ccdde9fd
 =======
 >>>>>>> ceb128b236a156318c4a8218f260f10ce5671d31
+=======
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="11" name="HTML" />
+      </Languages>
+    </inspection_tool>
+>>>>>>> 1b1aede0bb290405068c10539b41b41f6aa57a59
     <inspection_tool class="HttpUrlsUsage" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="ignoredUrls">
         <list>

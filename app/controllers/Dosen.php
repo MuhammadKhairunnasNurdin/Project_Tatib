@@ -29,6 +29,7 @@ class Dosen extends Controller
 			$data['title'] = "Dosen";
 			$data['kelas'] = $this->model("Admin")->getAllKelas();
 			$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+			$data['tingkat'] = $this->model("Pelanggaran")->getAllTingkatan();
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");
 			$this->view("dosen/module/laporan/index", $data);
@@ -53,5 +54,23 @@ class Dosen extends Controller
 
 			header("location: " . BASEURL . "/Dosen/index");
 		}
+	}
+
+	public function pageTerlapor()
+	{
+		$data['title'] = "Dosen";
+		$this->view("dosen/template/header", $data);
+		$this->view("dosen/template/menu");
+		$this->view("dosen/module/history/terlapor/index", $data);
+		$this->view("dosen/template/footer");
+	}
+
+	public function pageMahasiswa()
+	{
+		$data['title'] = "Dosen";
+		$this->view("dosen/template/header", $data);
+		$this->view("dosen/template/menu");
+		$this->view("dosen/module/history/mahasiswa/index", $data);
+		$this->view("dosen/template/footer");
 	}
 }

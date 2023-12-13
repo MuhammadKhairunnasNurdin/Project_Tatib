@@ -30,10 +30,6 @@ class Authorization
 		$username = $this->db->antiDbInjection($username);
 		$password = $this->db->antiDbInjection($password);
 
-		/*replace quoted string("''") to regular string(""), because we're using that value to bind function*/
-		$username = str_replace("'", "", $username);
-		$password = str_replace("'", "", $password);
-
 		/*to bind param, so param not directly used in query and bound in separated way*/
 		$this->db->bind(':username', $username);
 
@@ -70,9 +66,11 @@ class Authorization
 		return ["controller" => $controller, "method" => $method];
 	}
 
-	public function logout()
+	public function logout(): string
 	{
-
+		session_unset();
+		session_destroy();
+		return BASEURL;
 	}
 
 }
