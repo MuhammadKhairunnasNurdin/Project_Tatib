@@ -58,9 +58,52 @@
                 color: white;
             }
         </style>
-      
+
         <div class="main">
             <div class="logo-container">
                 <img class="logo-jenis-sanksi" src="img\sanksi.svg" alt="Jenis Logo">
                 <p class="Text-judul-sanksi">Sanksi</p>
             </div>
+
+            <!-- Tingkat 1 -->
+            <!-- <div class="container-contents">
+            <div class="box-isi">
+                <p>
+                <h1 class="text-sanksi" style="margin-bottom: 15px;">
+                    <b style="color: black">Pelanggaran Tingkat 1</b>
+                </h1>
+            </div>
+            <div class="box-isi">
+                <a class="bold" style="margin-right: 60px;">Jenis Pelanggaran</a>:
+                <a class="text">Bermain kartu dan game online di area kampus</a>
+
+            </div>
+            <div class="box-isi">
+                <a class="bold" style="margin-right: 40px;">Tingkat Pelanggaran </a>:
+                <a>Tingkat 3</a>
+
+            </div>
+            <div class="box-isi">
+                <a class="bold" style="margin-right: 49px;">Sanksi Pelanggaran</a>:
+                <a>Kayang 100x</a>
+            </div>
+
+            <div class="box-isi">
+                <a class="bold" style="margin-right: 40px;">Tanggal Pelanggaran</a>:
+                <a>18 / Okt / 2023</a>
+            </div>
+
+            <div class="box-isi">
+                <a class="bold" style="margin-right: 45px; ">Bukti Pelanggaran * </a>:
+                <div class="box-pelanggaran" >
+                    Content for proof of violation -->
+            <!-- </div>
+            </div>
+
+
+            </a>
+        </div>
+        </p>
+    </div>
+    </div>
+</body> -->

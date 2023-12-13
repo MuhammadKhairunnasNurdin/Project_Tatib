@@ -10,19 +10,19 @@
                         Form Add Dosen
                     </div>
                 <div class="card-body">
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
                         <input type="text" name="NIP" class="form-control" required >
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
                         <input type="text" name="nama" class="form-control" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
                         <input type="date" name="tgl_lahir" class="form-control" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
@@ -33,11 +33,11 @@
                             <label for="inlineRadio2" class="form-check-label">Perempuan</label>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
                         <input type="text" name="alamat" class="form-control" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>
                         <input type="number" name="no_telp" class="form-control" required>
                     </div>
