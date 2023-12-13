@@ -29,9 +29,10 @@ class Dosen extends Controller
 			$data['title'] = "Dosen";
 			$data['kelas'] = $this->model("Admin")->getAllKelas();
 			$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+			$data['tingkat'] = $this->model("Pelanggaran")->getAllTingkatan();
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");
-			$this->view("dosen/module/terlapor/index", $data);
+			$this->view("dosen/module/laporan/index", $data);
 			$this->view("dosen/template/footer");
 	}
 
