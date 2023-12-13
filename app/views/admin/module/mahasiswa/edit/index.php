@@ -1,10 +1,8 @@
-<?php
-?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-image: url(<?= BASEURL?>/img/gedung-jti.jpg); background-repeat: no-repeat; background-size:cover;">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Mahasiswa</h1>
     </div>                
-    <form action="<?=BASEURL?>/Admin/editUser" method="POST">
+    <form action="<?=BASEURL?>/Admin/editMahasiswa" method="POST">
 	    <?php foreach ($data['mahasiswa'] AS $mhs): ?>
         <div class="row">
             <div class="col-sm-6">
@@ -15,7 +13,7 @@
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIM:</label>
-                        <input type="text" name="NIM" class="form-control" value="<?=$mhs['NIM']?>">
+                        <input type="text" name="NIM" class="form-control" value="<?=$mhs['NIM']?>" readonly>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
@@ -40,14 +38,25 @@
                     </div>
                     <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
-                            <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="P">
-                            <label for="inlineRadio2" class="form-check-label">Perempuan</label>
-                        </div>
+	                    <?php if ($mhs['jenis_kelamin'] == 'L') { ?>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required checked>
+                                <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="jenis_kelamin" value="P">
+                                <label for="inlineRadio2" class="form-check-label">Perempuan</label>
+                            </div>
+	                    <?php } else { ?>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
+                                <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="jenis_kelamin" value="P" checked>
+                                <label for="inlineRadio2" class="form-check-label">Perempuan</label>
+                            </div>
+	                    <?php } ?>
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
@@ -68,7 +77,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>">
+                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
@@ -78,9 +87,6 @@
                             </div>
                         </div>
                         <div class="mb-2" style="text-align: center;">
-                            <input type="hidden" name="userLevel" value="mahasiswa">
-                            <input type="hidden" name="condition" value="<?=$mhs['nama']?>">
-                            <input type="hidden" name="conditionFk" value="<?=$mhs['user_id']?>">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>

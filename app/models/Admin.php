@@ -20,7 +20,7 @@ class Admin
 		$this->fm = new FlashMessage();
 	}
 
-	public function edit($tableName, $editData, $fkData = [])
+	public function edit()
 	{
 		$isUpdateFkSuccess = null;
 		$isUpdateSuccess = null;
@@ -41,21 +41,6 @@ class Admin
 			}
 		}
 
-		if ($isUpdateFkSuccess) {
-			$conditionEdit = "nama = '" . $editData['condition'] . "'";
-			unset($editData['condition']);
-			$isUpdateSuccess = $this->db->updates($tableName, $editData, $conditionEdit);
-		}
-
-		$message = null;
-		if ($isUpdateSuccess) {
-			$this->fm->message("success", "update data $tableName");
-			$message = $this->fm->getFlashData("success");
-		} else {
-			$this->fm->message("warning", "error occur in update data $tableName");
-			$message =  $this->fm->getFlashData("warning");
-		}
-		return $message;
 	}
 
 	public function add($tableName, $addData = [], $fkData = [])
@@ -67,6 +52,7 @@ class Admin
 				$isInsertFkSuccess =  $this->db->inserts($elm, $value);
 			}
 		}
+
 
 		if ($isInsertFkSuccess) {
 			$addData['user_id'] = intval($this->db->lastInsertId());
@@ -114,18 +100,25 @@ class Admin
 
 	public function getDosen($NIP)
 	{
-		$this->db->prepare("SELECT NIP, user_id, d.nama AS nama, tgl_lahir, alamat, no_telp, username FROM dosen d 
-    LEFT OUTER JOIN [user] u ON d.user_id = u.id_user WHERE NIP=:NIP");
+		$this->db->prepare("SELECT NIP, user_id, d.nama AS nama, tgl_lahir, alamat, no_telp, jenis_kelamin, username FROM dosen d 
+    	LEFT OUTER JOIN user u ON d.user_id = u.id_user WHERE NIP=:NIP");
 		$this->db->bind(":NIP", $NIP);
 		return $this->db->resultSet();
 	}
 
 	public function getMahasiswa($NIM)
 	{
-		$this->db->prepare("SELECT NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, username, id_kelas, kelas_id FROM mahasiswa m 
-	    LEFT OUTER JOIN [user] u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
+		$this->db->prepare("SELECT NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, jenis_kelamin, username, id_kelas, kelas_id FROM mahasiswa m 
+	    LEFT OUTER JOIN user u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
 		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
 		$this->db->bind(":NIM", $NIM);
+		return $this->db->resultSet();
+	}
+
+	public function getAdmin($username)
+	{
+		$this->db->prepare("SELECT * FROM admin a JOIN user u ON a.user_id = u.id_user WHERE u.username=:username");
+		$this->db->bind(":username", $username);
 		return $this->db->resultSet();
 	}
 }

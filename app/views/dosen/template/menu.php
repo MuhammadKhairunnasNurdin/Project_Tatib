@@ -7,34 +7,32 @@
                 <button class="btn-close" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebardosen" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3">
-            <form action="<?= BASEURL?>/Dosen/module" method="POST">
                 <ul class="ul nav flex-column" >
                     <li class="nav-dashboard nav-item" >
-                        <button name="page" value=".." type="submit" class="link-dashboard nav-link d-flex align-items-center gap2 active">
+                        <a href="<?=BASEURL?>/Dosen/index" class="link-dashboard nav-link d-flex align-items-center gap2 active">
                             <img class="logo-dashboard" src="<?= BASEURL?>/img/dosen/dash_dosen.png" alt="">
                             <p class="text-dashboard">Dashboard</p> 
-                        </button>
+                        </a>
                     </li>
                     <li class="nav-tatib nav-item">
-                        <button class="link-tatib nav-link d-flex align-items-center gap2 active" name="page" value="tatib" type="submit">
+                        <a href="<?=BASEURL?>/Dosen/pageTatib" class="link-tatib nav-link d-flex align-items-center gap2 active">
                         <img class="logo-tatib" src="<?= BASEURL?>/img/dosen/tata_dosen.png" alt="">
                         <p class="text-tatib">Tata Tertib</p>
-                        </button>
+                        </a>
                     </li>
                     <li class="nav-laporan nav-item">
-                        <button class="link-laporan nav-link d-flex align-items-center gap2 active" name="page" value="laporan" type="submit">
+                        <a href="<?=BASEURL?>/Dosen/pageLaporan" class="link-laporan nav-link d-flex align-items-center gap2 active">
                             <img class="logo-laporan" src="<?= BASEURL?>/img/dosen/lapor_dosen.png" alt="">
                             <p class="text-laporan">Laporan</p>
-                        </button>
+                        </a>
                     </li>
                     <li class="nav-history nav-item">
-                        <button name="page" value="history" type="submit" class="link-history nav-link d-flex align-items-center gap2 active">
+                        <a href="<?=BASEURL?>/Dosen/pageHistory" class="link-history nav-link d-flex align-items-center gap2 active">
                             <img class="logo-history" src="<?= BASEURL?>/img/dosen/history_dosen.png" alt="">
                             <p class="text-history" >History</p>
-                        </button>
+                        </a>
                     </li>    
                 </ul>
-            </form>
             </div>
         </div>
     </div>
