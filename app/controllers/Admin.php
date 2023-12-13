@@ -71,6 +71,7 @@ class Admin extends Controller
 	{
 		$NIP = $_POST['NIP'];
 		$data['dosen'] = $this->model("Admin")->getDosen($NIP);
+		$data['kelas'] = $this->model("Admin")->getAllKelas();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
