@@ -20,7 +20,7 @@ class Admin
 		$this->fm = new FlashMessage();
 	}
 
-	public function edit()
+	public function edit($tableName, $editData, $fkData = [])
 	{
 		$isUpdateFkSuccess = null;
 		$isUpdateSuccess = null;
@@ -40,6 +40,22 @@ class Admin
 				$isUpdateFkSuccess =  $this->db->updates("$column", $value, $conditionEdit);
 			}
 		}
+
+		if ($isUpdateFkSuccess) {
+			$conditionEdit = "nama = '" . $editData['condition'] . "'";
+			unset($editData['condition']);
+			$isUpdateSuccess = $this->db->updates($tableName, $editData, $conditionEdit);
+		}
+
+		$message = null;
+		if ($isUpdateSuccess) {
+			$this->fm->message("success", "update data $tableName");
+			$message = $this->fm->getFlashData("success");
+		} else {
+			$this->fm->message("warning", "error occur in update data $tableName");
+			$message =  $this->fm->getFlashData("warning");
+		}
+		return $message;
 
 	}
 
