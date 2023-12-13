@@ -33,7 +33,7 @@ class Mahasiswa
 
 	public function getMahasiswa($username)
 	{
-		$this->db->prepare("SELECT * FROM mahasiswa m JOIN user u ON m.user_id = u.id_user WHERE u.username=:username");
+		$this->db->prepare("SELECT * FROM mahasiswa m JOIN [user] u ON m.user_id = u.id_user WHERE u.username=:username");
 		$this->db->bind(":username", $username);
 		return $this->db->resultSet();
 	}
