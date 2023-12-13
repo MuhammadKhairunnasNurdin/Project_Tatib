@@ -46,21 +46,21 @@
         }
     </style>
 </head>
-    <div class="container-header-dosen">
-        <div class="row-dosen">
-            <div class="header-container-dosen">
-                <div class="header-content-dosen">
-                    <a class="header-title">
-                        <img src="<?= BASEURL?>/img/logo_polinema.png" alt="logo polinema" width="35px">
-                        POLITEKNIK NEGERI MALANG
-                    </a>
-                </div>
-                <div class="profile">
-                    <a class="profile-title" onclick="toggleDropdown()">Log Out</a>
-                    <div class="dropdown-content" id="myDropdown">
-                        <a href="<?=BASEURL?>/Login/logout">Log out</a>
-                    </div>
+<div class="container-header-dosen">
+    <div class="row-dosen">
+        <div class="header-container-dosen">
+            <div class="header-content-dosen">
+                <a class="header-title">
+                    <img src="<?= BASEURL?>/img/logo_polinema.png" alt="logo polinema" width="35px">
+                    POLITEKNIK NEGERI MALANG
+                </a>
+            </div>
+            <div class="profile">
+                <a class="profile-title" onclick="toggleDropdown()">Log Out</a>
+                <div class="dropdown-content" id="myDropdown">
+                    <a href="<?=BASEURL?>/Login/logout">Log out</a>
                 </div>
             </div>
         </div>
     </div>
+</div>

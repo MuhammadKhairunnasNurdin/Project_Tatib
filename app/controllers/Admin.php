@@ -50,7 +50,7 @@ class Admin extends Controller
 					"username" => $_POST["username"],
 					"password" => $_POST["password"],
 					"level" => strtolower($userLevel)
-				],
+				]
 			];
 			unset($_POST["userLevel"]);
 			unset($_POST['username']);
@@ -78,6 +78,12 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
+	public function editDosen()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageDosen");
+	}
+
 	public function editUser(): void
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -100,16 +106,14 @@ class Admin extends Controller
 
 
 			foreach ($_POST as $column => $value) {
-					$data[$column] = $value;
+				$data[$column] = $value;
 			}
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
 			unset($data);
-			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
+			header("Location: " . BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
-
 	}
-
 
 	/*Page Mahasiswa*/
 	public function pageMahasiswa()
@@ -142,6 +146,12 @@ class Admin extends Controller
 		$this->view("admin/template/menu");
 		$this->view("admin/module/mahasiswa/edit/index", $data);
 		$this->view("admin/template/footer");
+	}
+
+	public function editMahasiswa()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageMahasiswa");
 	}
 
 	/*Page Validasi*/

@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea type="text" name="alamat" class="form-control" required></textarea>
+                        <input type="text" name="alamat" class="form-control" required>
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>

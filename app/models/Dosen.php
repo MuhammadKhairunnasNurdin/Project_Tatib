@@ -19,5 +19,6 @@ class Dosen
 	public function report()
 	{
 		// tes second push
+
 	}
 }
