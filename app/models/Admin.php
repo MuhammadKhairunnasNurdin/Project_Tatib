@@ -20,20 +20,59 @@ class Admin
 		$this->fm = new FlashMessage();
 	}
 
-	public function edit()
+	public function edit($tableName, $editData, $fkData = [])
 	{
+		$isUpdateFkSuccess = null;
+		$isUpdateSuccess = null;
+		if (isset($fkData)) {
+			/*to avoid update fk when fk data from form is empty*/
+			foreach ($fkData as $column => $value) {
+				$conditionEdit = "";
+				foreach ($value as $col => $val) {
+					if ($val === "") {
+						unset($value[$col]);
+					}
+					if ($col == "conditionEdit") {
+						$conditionEdit = $val;
+						unset($value['conditionEdit']);
+					}
+				}
+				$isUpdateFkSuccess =  $this->db->updates("$column", $value, $conditionEdit);
+			}
+		}
 
+		if ($isUpdateFkSuccess) {
+			$conditionEdit = "nama = '" . $editData['condition'] . "'";
+			unset($editData['condition']);
+			$isUpdateSuccess = $this->db->updates($tableName, $editData, $conditionEdit);
+		}
+
+		$message = null;
+		if ($isUpdateSuccess) {
+			$this->fm->message("success", "update data $tableName");
+			$message = $this->fm->getFlashData("success");
+		} else {
+			$this->fm->message("warning", "error occur in update data $tableName");
+			$message =  $this->fm->getFlashData("warning");
+		}
+		return $message;
 	}
 
 	public function add($tableName, $addData = [], $fkData = [])
 	{
+		$isInsertFkSuccess = null;
+		$isInsertSuccess = null;
 		if (isset($fkData)) {
 			foreach ($fkData as $elm => $value) {
-				$this->db->insert($elm, $value);
+				$isInsertFkSuccess =  $this->db->inserts($elm, $value);
 			}
-			$addData['user_id'] = intval($this->db->lastInsertId());
 		}
-		$isInsertSuccess = $this->db->insert($tableName, $addData);
+
+		if ($isInsertFkSuccess) {
+			$addData['user_id'] = intval($this->db->lastInsertId());
+			$isInsertSuccess = $this->db->inserts($tableName, $addData);
+		}
+
 		$message = null;
 		if ($isInsertSuccess) {
 			$this->fm->message("success", "adding data $tableName");
@@ -75,16 +114,16 @@ class Admin
 
 	public function getDosen($NIP)
 	{
-		$this->db->prepare("SELECT NIP, d.nama AS nama, tgl_lahir, alamat, no_telp, username FROM dosen d 
-    	LEFT OUTER JOIN user u ON d.user_id = u.id_user WHERE NIP=:NIP");
+		$this->db->prepare("SELECT NIP, user_id, d.nama AS nama, tgl_lahir, alamat, no_telp, username FROM dosen d 
+    LEFT OUTER JOIN [user] u ON d.user_id = u.id_user WHERE NIP=:NIP");
 		$this->db->bind(":NIP", $NIP);
 		return $this->db->resultSet();
 	}
 
 	public function getMahasiswa($NIM)
 	{
-		$this->db->prepare("SELECT NIM, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, username, id_kelas, kelas_id FROM mahasiswa m 
-	    LEFT OUTER JOIN user u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
+		$this->db->prepare("SELECT NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, username, id_kelas, kelas_id FROM mahasiswa m 
+	    LEFT OUTER JOIN [user] u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
 		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
 		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();

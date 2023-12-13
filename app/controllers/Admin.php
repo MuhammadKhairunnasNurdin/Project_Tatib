@@ -37,30 +37,32 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function addDosen(): void
+	public function addUser(): void
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$data = [
-				"NIP" => $_POST["nip"],
-				"nama" => $_POST["nama"],
-				"tgl_lahir" => $_POST["tgl_lahir"],
-				"jenis_kelamin" => $_POST["jenis_kelamin"],
-				"alamat" => $_POST["alamat"],
-				"no_telp" => $_POST["no_telp"]
-			];
+			$data = [];
 
+			/*receive data that non insertData and unset that*/
+			$userLevel = $_POST['userLevel'];
 			$fkData = [
 				"user" => [
 					"username" => $_POST["username"],
 					"password" => $_POST["password"],
-					"level" => "dosen"
+					"level" => strtolower($userLevel)
 				],
 			];
+			unset($_POST["userLevel"]);
+			unset($_POST['username']);
+			unset($_POST['password']);
 
-			$_SESSION["flashMessage"] = $this->model("Admin")->add("dosen", $data, $fkData);
-			$_SESSION["moduleName"] = "dosen";
+
+			foreach ($_POST as $column => $value) {
+				$data[$column] = $value;
+			}
+
+			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->add("$userLevel", $data, $fkData);
 			unset($data);
-			header("Location: " . BASEURL . "/Admin/pageDosen");
+			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
 	}
 
@@ -75,10 +77,36 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function editDosen()
+	public function editUser(): void
 	{
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$data = [];
 
-		header("location: " . BASEURL . "/Admin/pageDosen");
+			/*receive data that non insertData and unset that*/
+			$userLevel = $_POST['userLevel'];
+			$fkData = [
+				"user" => [
+					"username" => $_POST["username"],
+					"password" => $_POST["password"],
+					"level" => strtolower($userLevel),
+					"conditionEdit" => "id_user = " . $_POST["conditionFk"],
+				],
+			];
+			unset($_POST["userLevel"]);
+			unset($_POST['username']);
+			unset($_POST['password']);
+			unset($_POST["conditionFk"]);
+
+
+			foreach ($_POST as $column => $value) {
+					$data[$column] = $value;
+			}
+
+			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
+			unset($data);
+			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
+		}
+
 	}
 
 
@@ -103,34 +131,6 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function addMahasiswa(): void
-	{
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$data = [
-				"NIM" => $_POST["nim"],
-				"nama" => $_POST["nama"],
-				"tgl_lahir" => $_POST["tgl_lahir"],
-				"jenis_kelamin" => $_POST["jenis_kelamin"],
-				"alamat" => $_POST["alamat"],
-				"no_telp" => $_POST["no_telp"],
-				"kelas_id" => $_POST["kelas_id"]
-			];
-
-			$fkData = [
-				"user" => [
-					"username" => $_POST["username"],
-					"password" => $_POST["password"],
-					"level" => "mahasiswa"
-				],
-			];
-
-			$_SESSION["flashMessage"] = $this->model("Admin")->add("mahasiswa", $data, $fkData);
-			$_SESSION["moduleName"] = "mahasiswa";
-			unset($data);
-			header("Location: " . BASEURL . "/Admin/pageMahasiswa");
-		}
-	}
-
 	public function editMahasiswaPage()
 	{
 		$NIM = $_POST['NIM'];
@@ -141,12 +141,6 @@ class Admin extends Controller
 		$this->view("admin/template/menu");
 		$this->view("admin/module/mahasiswa/edit/index", $data);
 		$this->view("admin/template/footer");
-	}
-
-	public function editMahasiswa()
-	{
-
-		header("location: " . BASEURL . "/Admin/pageMahasiswa");
 	}
 
 	/*Page Validasi*/
