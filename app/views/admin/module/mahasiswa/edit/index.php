@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h2">Mahasiswa</h1>
     </div>                
-    <form action="<?=BASEURL?>/Admin/editMahasiswa" method="POST">
+    <form action="<?=BASEURL?>/Admin/editUser" method="POST">
 	    <?php foreach ($data['mahasiswa'] AS $mhs): ?>
         <div class="row">
             <div class="col-sm-6">
@@ -77,7 +77,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>" readonly>
+                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
@@ -87,6 +87,9 @@
                             </div>
                         </div>
                         <div class="mb-2" style="text-align: center;">
+                            <input type="hidden" name="userLevel" value="dosen">
+                            <input type="hidden" name="condition" value="<?=$mhs['nama']?>">
+                            <input type="hidden" name="conditionFk" value="<?=$mhs['user_id']?>">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>
