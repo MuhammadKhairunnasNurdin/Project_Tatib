@@ -1,5 +1,4 @@
 <style>
-    <style>
     .content-laporan {
         font-family: 'tirobangla';
     }
@@ -25,17 +24,11 @@
     }
 
     .refresh {
-        background-color: #ddd;
         border: none;
         border-radius: 4px;
         padding: 5px 10px;
         cursor: pointer;
     }
-
-    .content {
-        margin-top: 30px;
-    }
-
 
     .box-content {
         font-family: 'tirobangla';
@@ -45,6 +38,7 @@
         margin: 0 auto;
         font-size: 18px;
         width: 90%;
+        height: 0 auto;
     }
 
     form {
@@ -68,6 +62,16 @@
         border-radius: 4px;
         padding: 5px 10px;
         cursor: pointer;
+    }
+
+    .kelas {
+        margin-left: 13px;
+        width: auto;
+    }
+
+    .mahasiswa {
+        margin-left: 13px;
+        width: auto;
     }
 </style>
 
@@ -93,27 +97,40 @@
                     <form action="">
                         <div class="mb-3 row">
                             <label for="kelas" class="form-label col-md-3 text-left">Kelas  :</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="kelas" required style="width: 100%;">
-                            </div>
+                            <select name="id_kelas" class="kelas">
+                            <option value="" selected>Pilih Kelas</option>
+                            <?php foreach ($data['kelas'] AS $kls): ?>
+                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="mb-3 row">
                             <label for="nama" class="form-label col-md-3 text-left">Nama  :</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="kelas" required style="width: 100%;">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Nim  :</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="kelas" required style="width: 100%;">
-                            </div>
+                            <select name="NIM" class="mahasiswa">
+                                <option value="" selected>Pilih Mahasiswa</option>
+		                        <?php foreach ($data['mahasiswa'] AS $mhs): ?>
+                                        <option value="<?=$mhs['NIM']?>"><?=$mhs['NIM']?>/<?=$mhs['nama']?></option>
+		                        <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="mb-3 row">
                             <label for="kelas" class="form-label col-md-3 text-left">Pelanggaran  :</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="kelas" required style="width: 100%;">
-                            </div>
+                            <select name="NIM" class="mahasiswa">
+                                <option value="" selected>Pilih Tingkat Pelanggaran</option>
+		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
+                                    <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
+		                        <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="kelas" class="form-label col-md-3 text-left">Sanksi  :</label>
+                            <select name="NIM" class="mahasiswa">
+                                <option value="" selected>Pilih Tingkat Pelanggaran</option>
+		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
+                                    <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
+		                        <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="mb-3 row">
                             <label for="bukti" class="form-label col-md-3 text-left">Bukti  :</label>

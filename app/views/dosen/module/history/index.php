@@ -84,6 +84,10 @@
         justify-content: center;
     }
 
+    .text-pilihan, h1 {
+        font-size: 20px;
+    }
+
 </style>
 
 <div class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -114,23 +118,22 @@
                         </div>
                     </div>
                     <div class="box-pilihan">
+                        <div class="text-pilihan">
+                            <h1>History tata tertib Mahasiswa JTI : </h1>
+                        </div>
                         <br>
                         <div class="container-flex">
-                            <form action="<?=BASEURL?>/Dosen/pageTerlapor" method="post">
-                            <button class="box-mhs">
+                            <a href="<?=BASEURL?>/Dosen/pageTerlapor" class="box-mhs">
                                 <div class="text-mhs">
                                     <h3 class="mhs-title">Mahasiswa Terlapor</h3>
                                 </div>
-                            </button>
-                            </form>
+                            </a>
                             <br>
-                            <form action="<?=BASEURL?>/Dosen/pageMahasiswa" method="post">
-                            <button class="box-mhskelas">
+                            <a href="<?=BASEURL?>/Dosen/pageMahasiswa" class="box-mhskelas">
                                 <div class="text-mhskelas">
                                     <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
                                 </div>
-                            </button>
-                            </form>
+                            </a>
                         </div>
                     </div>
                 </div>
