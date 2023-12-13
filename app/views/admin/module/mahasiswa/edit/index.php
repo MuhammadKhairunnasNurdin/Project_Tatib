@@ -87,6 +87,9 @@
                             </div>
                         </div>
                         <div class="mb-2" style="text-align: center;">
+                            <input type="hidden" name="userLevel" value="mahasiswa">
+                            <input type="hidden" name="condition" value="<?=$dosen['nama']?>">
+                            <input type="hidden" name="conditionFk" value="<?=$dosen['user_id']?>">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>

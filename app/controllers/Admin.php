@@ -84,6 +84,36 @@ class Admin extends Controller
 		header("location: " . BASEURL . "/Admin/pageDosen");
 	}
 
+	public function editUser(): void
+	{
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$data = [];
+
+			/*receive data that non insertData and unset that*/
+			$userLevel = $_POST['userLevel'];
+			$fkData = [
+				"user" => [
+					"username" => $_POST["username"],
+					"password" => $_POST["password"],
+					"level" => strtolower($userLevel),
+					"conditionEdit" => "id_user = " . $_POST["conditionFk"],
+				],
+			];
+			unset($_POST["userLevel"]);
+			unset($_POST['username']);
+			unset($_POST['password']);
+			unset($_POST["conditionFk"]);
+
+
+			foreach ($_POST as $column => $value) {
+				$data[$column] = $value;
+			}
+
+			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
+			unset($data);
+			header("Location: " . BASEURL . "/Admin/page" . ucfirst($userLevel));
+		}
+	}
 
 	/*Page Mahasiswa*/
 	public function pageMahasiswa()
