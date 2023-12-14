@@ -12,7 +12,7 @@
 
         <?php if ($data['ovf'] == 0) {?>
             * {
-                overflow: auto;
+                overflow-y: auto;
             }
         <?php } ?>
         .profile {

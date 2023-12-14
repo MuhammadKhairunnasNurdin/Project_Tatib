@@ -1,9 +1,8 @@
 <style>
     .container-tatib {
-        width: 100%;
-        margin-left: 10%;
-        /* Hapus margin-left yang ada */
-        justify-content: flex-start;
+        width: 80%;
+        margin-left: 20%;
+        /* Ganti nilai 20% sesuai kebutuhan */
     }
 </style>
 

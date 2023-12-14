@@ -33,6 +33,7 @@ class Dosen extends Controller
 		$data['kelas'] = $this->model("Admin")->getAllKelas();
 		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
 		$data['tingkat'] = $this->model("Pelanggaran")->getAllTingkatan();
+		$data['jenis'] = $this->model("Pelanggaran")->getAllJenisTingkatan($data['tingkat']);
 		$data['sanksi'] = $this->model("Pelanggaran")->getAllSanksi();
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
@@ -56,7 +57,14 @@ class Dosen extends Controller
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST")
 		{
+			$data = [];
+			$tableName = "history_pelanggaran";
 
+			foreach ($_POST as $column => $value) {
+				$data[$column] = $value;
+			}
+			$_SESSION["flashMessage"]["$tableName"] = $this->model("Dosen")->report("$tableName", $data);
+			unset($data);
 			header("location: " . BASEURL . "/Dosen/index");
 		}
 	}
