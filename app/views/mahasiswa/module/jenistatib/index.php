@@ -29,6 +29,7 @@
          border-radius: 15px;
          background: #FFF;
          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        
 
      }
 
@@ -43,6 +44,7 @@
          line-height: normal;
          margin: auto;
          text-decoration: none;
+         cursor: pointer;
          /* Menambahkan ini untuk menghilangkan underline */
      }
 
@@ -52,6 +54,7 @@
          background-color: #0d366b;
          margin-left: 2px;
          padding: 0px 1px;
+         cursor: pointer;
      }
 
      a {
@@ -60,6 +63,7 @@
 
      .box-tatib:hover .text-tatib {
          filter: brightness(0) invert(1);
+         cursor: pointer;
      }
 
      .logo-container {
@@ -76,6 +80,7 @@
          font-size: 24px;
          margin-left: 40px;
          color: #363637;
+         
          /* Sesuaikan jarak antara logo dan teks */
      }
 

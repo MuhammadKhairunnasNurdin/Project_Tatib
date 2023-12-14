@@ -5,9 +5,12 @@
 
     .box-title {
         font-size: 12px;
-        width: 80%; /* Adjust width */
-        height: 70px; /* Adjust height */
-        margin: 0 auto; /* Center horizontally */
+        width: 80%;
+        /* Adjust width */
+        height: 70px;
+        /* Adjust height */
+        margin: 0 auto;
+        /* Center horizontally */
         font-family: 'tirobangla';
     }
 
@@ -73,6 +76,22 @@
         margin-left: 13px;
         width: auto;
     }
+
+    .box-content {
+
+        margin: auto;
+        border-radius: 12px;
+        width: 928px;
+        height: 359px;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.80);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px"
+
+    }
+    .modal-footer{
+        margin-right: 130px;
+    }
 </style>
 
 <div class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -93,49 +112,67 @@
         </div>
         <div>
             <div class="content mt-5">
-                <div class="box-content" style="width: 800px">
+                <div class="box-content">
                     <form action="">
                         <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Kelas  :</label>
+                            <label for="kelas" class="form-label col-md-3 text-left">Kelas :</label>
                             <select name="id_kelas" class="kelas">
-                            <option value="" selected>Pilih Kelas</option>
-                            <?php foreach ($data['kelas'] AS $kls): ?>
-                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
-                            <?php endforeach; ?>
+                                <option value="" selected>Pilih Kelas</option>
+                                <?php foreach ($data['kelas'] as $kls) : ?>
+                                    <option value="<?= $kls['id_kelas'] ?>"><?= $kls['nama'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="nama" class="form-label col-md-3 text-left">Nama  :</label>
+                            <label for="nama" class="form-label col-md-3 text-left">Nama :</label>
                             <select name="NIM" class="mahasiswa">
                                 <option value="" selected>Pilih Mahasiswa</option>
-		                        <?php foreach ($data['mahasiswa'] AS $mhs): ?>
-                                        <option value="<?=$mhs['NIM']?>"><?=$mhs['NIM']?>/<?=$mhs['nama']?></option>
-		                        <?php endforeach; ?>
+                                <?php foreach ($data['mahasiswa'] as $mhs) : ?>
+                                    <option value="<?= $mhs['NIM'] ?>"><?= $mhs['NIM'] ?>/<?= $mhs['nama'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Pelanggaran  :</label>
-                            <select name="NIM" class="mahasiswa">
+                            <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran :</label>
+                            <select id="tingkat" name="tingkat" class="mahasiswa">
                                 <option value="" selected>Pilih Tingkat Pelanggaran</option>
-		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
-                                    <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
-		                        <?php endforeach; ?>
+                                <?php foreach ($data['tingkat'] as $tingkat) : ?>
+                                    <option value="<?= $tingkat['tingkatan'] ?>"><?= $tingkat['tingkatan'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
 
                         <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Sanksi  :</label>
+                            <label for="kelas" class="form-label col-md-3 text-left">Sanksi :</label>
                             <select name="NIM" class="mahasiswa">
-                                <option value="" selected>Pilih Tingkat Pelanggaran</option>
-		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
-                                    <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
-		                        <?php endforeach; ?>
+                                <!--	                            --><?php
+                                                                        //	                            if (isset($_POST['tingkat']) && $_POST['tingkat']) {
+                                                                        //		                            $selectedTingkat = $_POST['tingkat'];
+                                                                        ////                                    $sanksiOptions = $data['sanksi'];
+                                                                        //		                            $sanksiOptions = [
+                                                                        //			                            "Tingkat 1" => ["Sanksi 1A", "Sanksi 1B", "Sanksi 1C"],
+                                                                        //			                            "Tingkat 2" => ["Sanksi 2A", "Sanksi 2B", "Sanksi 2C"],
+                                                                        ////			                             Tambahkan opsi untuk tingkatan pelanggaran lainnya
+                                                                        //		                            ];
+                                                                        //
+                                                                        //		                            foreach ($sanksiOptions[$selectedTingkat] as $sanksi) {
+                                                                        //			                            echo "<option value='$sanksi'>$sanksi</option>";
+                                                                        //		                            }
+                                                                        //	                            } else {
+                                                                        //		                            echo "<option value='' selected>Pilih Sanksi Pelanggaran</option>";
+                                                                        //	                            }
+                                                                        //	                            
+                                                                        ?>
+                                <option value="" selected>Pilih Sanksi Pelanggaran</option>
+                                <?php foreach ($data['tingkat'] as $tingkat) : ?>
+                                    <option value="<?= $tingkat['tingkatan'] ?>"><?= $tingkat['tingkatan'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="bukti" class="form-label col-md-3 text-left">Bukti  :</label>
+                            <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input type="file" class="form-control" id="bukti" required style="width: 100%;">
+                                <input type="file" class="form-control" id="bukti" required style="width: 80%; text-align :center">
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -9,6 +9,7 @@ class Dosen extends Controller
 	public function index()
 	{
 		$data['title'] = "Dosen";
+		$data['ovf'] = "1";
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/index");
@@ -17,34 +18,38 @@ class Dosen extends Controller
 
 	public function pageHistory()
 	{
-			$data['title'] = "Dosen";
-			$this->view("dosen/template/header", $data);
-			$this->view("dosen/template/menu");
-			$this->view("dosen/module/history/index", $data);
-			$this->view("dosen/template/footer");
+		$data['title'] = "Dosen";
+		$data['ovf'] = "1";
+		$this->view("dosen/template/header", $data);
+		$this->view("dosen/template/menu");
+		$this->view("dosen/module/history/index", $data);
+		$this->view("dosen/template/footer");
 	}
 
 	public function pageLaporan()
 	{
-			$data['title'] = "Dosen";
-			$data['kelas'] = $this->model("Admin")->getAllKelas();
-			$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
-			$data['tingkat'] = $this->model("Pelanggaran")->getAllTingkatan();
-			$this->view("dosen/template/header", $data);
-			$this->view("dosen/template/menu");
-			$this->view("dosen/module/laporan/index", $data);
-			$this->view("dosen/template/footer");
+		$data['title'] = "Dosen";
+		$data['ovf'] = "1";
+		$data['kelas'] = $this->model("Admin")->getAllKelas();
+		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+		$data['tingkat'] = $this->model("Pelanggaran")->getAllTingkatan();
+		$data['sanksi'] = $this->model("Pelanggaran")->getAllSanksi();
+		$this->view("dosen/template/header", $data);
+		$this->view("dosen/template/menu");
+		$this->view("dosen/module/laporan/index", $data);
+		$this->view("dosen/template/footer");
 	}
 
 	public function pageTatib()
 	{
-			$data['title'] = "Dosen";
-			$data['tingkat'] =  $this->model("Pelanggaran")->getAllTingkatan();
-			$data['jenis'] = $this->model("Pelanggaran")->getAllJenisFromTingkatan($data['tingkat']);
-			$this->view("dosen/template/header", $data);
-			$this->view("dosen/template/menu");
-			$this->view("dosen/module/tatib/index", $data);
-			$this->view("dosen/template/footer");
+		$data['title'] = "Dosen";
+		$data['ovf'] = "0";
+		$data['tingkat'] =  $this->model("Pelanggaran")->getAllTingkatan();
+		$data['jenis'] = $this->model("Pelanggaran")->getAllJenisFromTingkatan($data['tingkat']);
+		$this->view("dosen/template/header", $data);
+		$this->view("dosen/template/menu");
+		$this->view("dosen/module/tatib/index", $data);
+		$this->view("dosen/template/footer");
 	}
 
 	public function addLaporan()
@@ -59,6 +64,7 @@ class Dosen extends Controller
 	public function pageTerlapor()
 	{
 		$data['title'] = "Dosen";
+		$data['ovf'] = "1";
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/terlapor/index", $data);
@@ -68,6 +74,7 @@ class Dosen extends Controller
 	public function pageMahasiswa()
 	{
 		$data['title'] = "Dosen";
+		$data['ovf'] = "1";
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/mahasiswa/index", $data);

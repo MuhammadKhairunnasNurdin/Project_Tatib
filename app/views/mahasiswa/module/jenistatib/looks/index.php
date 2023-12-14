@@ -90,7 +90,7 @@
     <div class="border-tatib">
         <h1 class="text-tatib">
             <?=$data['tingkatan']?>
-        </h1>
+        </h1> 
         </a>
         <div class="pelanggaran">
 	        <?php $id = 1;
