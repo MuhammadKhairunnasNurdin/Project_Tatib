@@ -389,6 +389,55 @@ td{
     border-top: 5px solid #0D366B;
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid red;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10px;
+  }
+  
+  /* Gaya untuk latar belakang transparan */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+  }
+  
+  /* Gaya untuk tombol penutup */
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Efek hover untuk tombol penutup */
+  .popup-close:hover {
+    color: #ff0000;
+  }
+  
+  /* Gaya untuk tampilkan popup ketika overlay aktif */
+  .overlay.active + .popup {
+    display: block;
+  }
+  
+  /* Gaya untuk tampilkan overlay ketika popup aktif */
+  .popup.active + .overlay {
+    display: block;
+  }
+
 
 @media only screen and (max-width: 1024px) {
     .container-page {
