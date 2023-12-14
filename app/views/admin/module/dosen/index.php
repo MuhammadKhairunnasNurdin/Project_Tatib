@@ -1,5 +1,6 @@
 
 <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-auto">
+    
     <div class="daftar-dosen-box">
         <div class="box-title-daftar-dosen">
             <div class="title-page-daftar-dosen">
@@ -56,8 +57,9 @@
                                     </button>
                                 </form>
                                 <form action="<?= BASEURL ?>/Admin/pageDosen" method="post">
-                                    <button class="btn ms-1 delete-dosen bg-danger"
-                                            onclick="confirm('Hapus Data Dosen?');">DELETE
+                                    <button type="button" class="btn ms-1 delete-dosen bg-danger"
+                                            onclick="confirm('Hapus Data mahasiswa?');">
+                                            DELETE
                                     </button>
                                 </form>
                             </div>
@@ -68,5 +70,6 @@
             </table>
         </div>
     </div>
+    
 </main>
 
