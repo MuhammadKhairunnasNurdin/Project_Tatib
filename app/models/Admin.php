@@ -117,7 +117,7 @@ class Admin
 
 	public function getAllMahasiswa(): array
 	{
-		$this->db->prepare("SELECT m.NIM, m.nama, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
+		$this->db->prepare("SELECT m.NIM AS NIM, m.nama, kelas_id, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
 		return $this->db->resultSet();
 	}
 
