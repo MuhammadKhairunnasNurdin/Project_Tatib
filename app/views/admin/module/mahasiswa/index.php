@@ -46,8 +46,8 @@
                                             </button>
                                         </form>
                                         <form action="<?= BASEURL ?>/Admin/pageMahasiswa" method="post">
-                                            <button class="btn ms-1 delete-dosen bg-danger"
-                                                    onclick="confirm('Hapus Data mahasiswa?');">DELETE
+                                            <button type="button" class="btn ms-1 delete-dosen bg-danger"
+                                                onclick="openPopup()">DELETE
                                             </button>
                                         </form>
                                     </div>
@@ -57,7 +57,31 @@
                     </tbody>
                 </table>
             </div>
+            <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+            <span class="popup-close" onclick="closePopup()">×</span>
+            <h2>HAPUS MAHASISWA</h2>
+            <p>Apakah anda yakin ingin menghapus mahasiswa ini dari daftar?</p>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="me-2 btn btn-success">Ya</button>
+                <button class="btn btn-danger">Batal</button>
+            </div>
         </div>
-        <br>
+    <script>
+            function openPopup() {
+            document.getElementById('overlay').classList.add('active');
+            document.getElementById('popup').classList.add('active');
+            }
+
+            function closePopup() {
+            document.getElementById('overlay').classList.remove('active');
+            document.getElementById('popup').classList.remove('active');
+            }
+        </script>
+        </div>
+        
+
+
+        
     </main>
 
