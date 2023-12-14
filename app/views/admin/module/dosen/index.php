@@ -1,6 +1,6 @@
 
 <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-auto">
-    
+
     <div class="daftar-dosen-box">
         <div class="box-title-daftar-dosen">
             <div class="title-page-daftar-dosen">
@@ -58,7 +58,7 @@
                                 </form>
                                 <form action="<?= BASEURL ?>/Admin/pageDosen" method="post">
                                     <button type="button" class="btn ms-1 delete-dosen bg-danger"
-                                            onclick="confirm('Hapus Data mahasiswa?');">
+                                            onclick="openPopup()">
                                             DELETE
                                     </button>
                                 </form>
@@ -69,7 +69,32 @@
                 </tbody>
             </table>
         </div>
-    </div>
+        
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+            <span class="popup-close" onclick="closePopup()">×</span>
+            <h2>HAPUS DOSEN</h2>
+            <p>Dosen ini merupakan DPA dari kelas...</p>
+            <p>Apakah anda yakin ingin menghapus dosen ini dari daftar?</p>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="me-2 btn btn-success">Ya</button>
+                <button class="btn btn-danger">Batal</button>
+            </div>
+        </div>
+
+
+        <script>
+            function openPopup() {
+            document.getElementById('overlay').classList.add('active');
+            document.getElementById('popup').classList.add('active');
+            }
+
+            function closePopup() {
+            document.getElementById('overlay').classList.remove('active');
+            document.getElementById('popup').classList.remove('active');
+            }
+        </script>
+
     
 </main>
 
