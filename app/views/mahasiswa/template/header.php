@@ -230,7 +230,7 @@
             <button class="btn-logout"><?=$mhs['nama']?></button>
             <?php endforeach; ?>
             <div class="dropdown-content">
-                <a class="profile-title" href="<?=BASEURL?>/Login/logout">Log Out</a>
+                <a class="profile-title" href="<?=BASEURL?>/Authorization/logout">Log Out</a>
             </div>
         </div>
     </div>

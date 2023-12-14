@@ -26,6 +26,7 @@
             <div class="card sanction-report">
                 <h2>Laporan Sanksi</h2>
                 <p>Silakan cek tingkatan jenis Pelanggaran di sini:</p>
+                <br><br>
                 <a href="<?=BASEURL?>/Mahasiswa/pageJenisTatib" class="rules-button">Tata Tertib</a>
             </div>
             <div class="card student-info">
