@@ -64,7 +64,6 @@
                             </div>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -72,13 +71,20 @@
         <div class="popup" id="popup">
             <span class="popup-close" onclick="closePopup()">×</span>
             <h2>HAPUS DOSEN</h2>
-            <p>Dosen ini merupakan DPA dari kelas...</p>
+            <?php if (isset($dosen['kelas'])) { ?>
+            <p>Dosen ini merupakan DPA dari kelas <?=$dosen['kelas']?></p>
+            <?php } ?>
             <p>Apakah anda yakin ingin menghapus dosen ini dari daftar?</p>
             <div class="d-flex justify-content-end">
-                <button type="button" class="me-2 btn btn-success">Ya</button>
+                <form action="<?=BASEURL?>/Admin/deleteUser" method="post">
+                    <input type="hidden" name="userLevel" value="dosen">
+                    <input type="hidden" name="idName" value="NIP">
+                    <button type="submit" name="idData" value="<?=$dosen['NIP']?>" class="me-2 btn btn-success">Ya</button>
+                </form>
                 <button class="btn btn-danger">Batal</button>
             </div>
         </div>
+        <?php endforeach; ?>
 
 
         <script>
