@@ -53,7 +53,6 @@
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -63,10 +62,15 @@
             <h2>HAPUS MAHASISWA</h2>
             <p>Apakah anda yakin ingin menghapus mahasiswa ini dari daftar?</p>
             <div class="d-flex justify-content-end">
-                <button type="button" class="me-2 btn btn-success">Ya</button>
-                <button class="btn btn-danger">Batal</button>
+                <form action="<?=BASEURL?>/Admin/deleteUser" method="post">
+                    <input type="hidden" name="userLevel" value="mahasiswa">
+                    <input type="hidden" name="idName" value="NIM">
+                    <button type="submit" name="idData" value="<?=$mhs['NIM']?>" class="me-2 btn btn-success">Ya</button>
+                </form>
+                    <button class="btn btn-danger">Batal</button>
             </div>
         </div>
+            <?php endforeach; ?>
     <script>
             function openPopup() {
             document.getElementById('overlay').classList.add('active');

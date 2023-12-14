@@ -56,13 +56,11 @@ class Admin extends Controller
 			unset($_POST['username']);
 			unset($_POST['password']);
 
-
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->add("$userLevel", $data, $fkData);
-			unset($data);
 			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
 	}
@@ -81,12 +79,12 @@ class Admin extends Controller
 		}
 	}
 
-	public function editUser()
+	public function editUser(): void
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$data = [];
 
-			/*receive data that non insertData and unset that*/
+			/*receive data that non updateData and unset that*/
 			$userLevel = $_POST['userLevel'];
 			$fkData = [
 				"user" => [
@@ -101,13 +99,23 @@ class Admin extends Controller
 			unset($_POST['password']);
 			unset($_POST["conditionFk"]);
 
-
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
-			unset($data);
+			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
+		}
+	}
+
+	public function deleteUser(): void
+	{
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$userLevel = $_POST['userLevel'];
+			$idData = $_POST['idData'];
+			$idName = $_POST['idName'];
+
+			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->delete("$userLevel", $idName, $idData);
 			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
 	}
@@ -134,7 +142,7 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function editMahasiswaPage()
+	public function editMahasiswaPage(): void
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$NIM = $_POST['NIM'];
@@ -149,7 +157,7 @@ class Admin extends Controller
 	}
 
 	/*Page Validasi*/
-	public function pageValidasi()
+	public function pageValidasi(): void
 	{
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
@@ -158,7 +166,7 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function pageDetailValidasi()
+	public function pageDetailValidasi(): void
 	{
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
