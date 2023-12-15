@@ -56,12 +56,9 @@
                                             class="btn edit-dosen btn-dark-blue">EDIT
                                     </button>
                                 </form>
-                                <form action="<?= BASEURL ?>/Admin/pageDosen" method="post">
-                                    <button type="button" class="btn ms-1 delete-dosen bg-danger"
-                                            onclick="openPopup()">
-                                            DELETE
-                                    </button>
-                                </form>
+                                <button type="button" id="delete" class="btn ms-1 delete-dosen bg-danger"
+                                        onclick="openPopup(event)" value="<?= $dosen['NIP']?>">DELETE
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -69,24 +66,40 @@
                 </tbody>
             </table>
         </div>
-        
         <div class="overlay" id="overlay"></div>
         <div class="popup" id="popup">
             <span class="popup-close" onclick="closePopup()">×</span>
             <h2>HAPUS DOSEN</h2>
-            <p>Dosen ini merupakan DPA dari kelas...</p>
+	        <?php if (isset($dosen['kelas'])) { ?>
+                <p>Dosen ini merupakan DPA dari kelas <?=$dosen['kelas']?></p>
+	        <?php } ?>
             <p>Apakah anda yakin ingin menghapus dosen ini dari daftar?</p>
             <div class="d-flex justify-content-end">
-                <button type="button" class="me-2 btn btn-success">Ya</button>
+                <form action="<?=BASEURL?>/Admin/deleteUser" method="post">
+                    <input type="hidden" name="userLevel" value="dosen">
+                    <input type="hidden" name="idName" value="NIP">
+                    <button type="submit" id="idData" name="idData" class="me-2 btn btn-success">Ya</button>
+                </form>
                 <button class="btn btn-danger">Batal</button>
             </div>
         </div>
 
 
         <script>
-            function openPopup() {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('popup').classList.add('active');
+            var valueNIM = "";
+
+            function saveValue(button) {
+                valueNIM = button.value;
+                console.log(valueNIM);
+
+                var deleteButton = document.getElementById("idData");
+                deleteButton.value = valueNIM;
+            }
+
+            function openPopup(event) {
+                saveValue(event.target);
+                document.getElementById('overlay').classList.add('active');
+                document.getElementById('popup').classList.add('active');
             }
 
             function closePopup() {
