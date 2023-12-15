@@ -5,6 +5,9 @@ namespace models;
 use core\Database;
 use core\FlashMessage;
 
+require_once("IGetterHistory.php");
+require_once("Peraturan.php");
+
 class Mahasiswa implements IGetterHistory
 {
 	private Peraturan $object;

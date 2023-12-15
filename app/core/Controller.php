@@ -14,14 +14,7 @@ class Controller
     protected function model($model)
     {
         require_once("../app/models/" . $model . ".php");
-        $obj = new ("models\\" . $model)();
-	    $interfacesModel = (new ReflectionClass($obj))->getInterfaceNames();
-	    if (!empty($interfacesModel)) {
-		    foreach ($interfacesModel as $interface) {
-			    require_once("../app/models/" . $interface . ".php");
-		    }
-	    }
-		return $obj;
+		return new ("models\\" . $model)();
     }
 
 }

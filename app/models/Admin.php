@@ -5,6 +5,8 @@ namespace models;
 use core\Database;
 use core\FlashMessage;
 
+require_once("IGetterHistory.php");
+
 class Admin implements IGetterHistory
 {
 	private Database $db;
