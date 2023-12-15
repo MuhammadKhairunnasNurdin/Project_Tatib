@@ -5,10 +5,11 @@ namespace models;
 use core\Database;
 use core\FlashMessage;
 
-class Dosen
+class Dosen implements IGetterHistory
 {
-	private Database $db;
-	private FlashMessage $fm;
+	protected Peraturan $object;
+	protected Database $db;
+	protected FlashMessage $fm;
 
 	public function __destruct()
 	{
@@ -20,15 +21,20 @@ class Dosen
 		$this->fm = new FlashMessage();
 	}
 
-	public function showHistory()
+	public function getHistory($additionalData = null): array
 	{
-		// test push from branch anas fix
+		if (isset($additionalData)) {
+			$this->db->prepare("SELECT * FROM history_pelanggaran WHERE NIP =:NIP");
+			$additionalData = $this->db->antiDbInjection($additionalData);
+			$this->db->bind(":NIP", $additionalData);
+			return $this->db->resultSet();
+		}
+		return [];
 	}
 
-	public function classHistory()
+	public function getPelanggaran(string $funcName)
 	{
-		// tes push in branch frontend
-		// test push 2 from brach anas
+		return $this->object->$funcName();
 	}
 
 	public function report($tableName, $addData = [])

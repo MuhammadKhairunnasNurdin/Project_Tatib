@@ -5,7 +5,7 @@ namespace models;
 use core\Database;
 use core\FlashMessage;
 
-class Mahasiswa
+class Mahasiswa implements IGetterHistory
 {
 	private Database $db;
 	private FlashMessage $fm;
@@ -20,10 +20,15 @@ class Mahasiswa
 		$this->fm = new FlashMessage();
 	}
 
-
-	public function showHistory()
+	public function getHistory($additionalData = null): array
 	{
-
+		if (isset($additionalData)) {
+			$this->db->prepare("SELECT * FROM history_pelanggaran WHERE NIM =:NIM");
+			$additionalData = $this->db->antiDbInjection($additionalData);
+			$this->db->bind(":NIM", $additionalData);
+			return $this->db->resultSet();
+		}
+		return [];
 	}
 
 	public function upload()

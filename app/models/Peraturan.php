@@ -4,7 +4,7 @@ namespace models;
 
 use core\Database;
 
-class Pelanggaran
+class Peraturan
 {
 	private Database $db;
 	public function __construct()
