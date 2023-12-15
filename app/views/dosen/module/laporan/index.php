@@ -124,8 +124,8 @@
                 <div class="box-content">
                     <form action="<?=BASEURL?>/Dosen/addLaporan" method="post">
                         <div class="mb-3 row">
-                            <label for="id_kelas" class="form-label col-md-3 text-left">Kelas :</label>
-                            <select name="id_kelas" class="kelas" id="id_kelas" onchange="loadMahasiswa()">
+                            <label class="form-label col-md-3 text-left">Kelas :</label>
+                            <select class="kelas" id="id_kelas" onchange="loadMahasiswa()">
                                 <option value="" selected>Pilih Kelas</option>
 								<?php foreach ($data['kelas'] as $kls): ?>
                                     <option value="<?= $kls['id_kelas'] ?>"><?= $kls['nama'] ?></option>
@@ -135,12 +135,12 @@
                         <div class="mb-3 row">
                             <label for="nama" class="form-label col-md-3 text-left">Nama :</label>
                             <select name="NIM" class="mahasiswa" id="mahasiswa">
-                                <option value="" selected>Pilih Mahasiswa</option>
+                                <option selected>Pilih Mahasiswa</option>
                             </select>
                         </div>
                         <div class="mb-3 row">
                             <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran :</label>
-                            <select id="tingkat" name="tingkatan" class="pelanggaran" onchange="loadJenis()">
+                            <select id="tingkat" name="pelanggaran_id" class="pelanggaran" onchange="loadJenis()">
                                 <option value="" selected>Pilih Tingkat Pelanggaran</option>
 								<?php foreach ($data['tingkat'] as $tingkat): ?>
                                     <option value="<?= $tingkat['tingkatan'] ?>"><?= $tingkat['tingkatan'] ?></option>
@@ -149,14 +149,14 @@
                         </div>
                         <div class="mb-3 row">
                             <label for="jenis" class="form-label col-md-3 text-left">Jenis :</label>
-                            <select name="no_jenis" class="jenis" id="jenis">
-                                <option value="" selected>Pilih Jenis Pelanggaran</option>
+                            <select class="jenis" id="jenis">
+                                <option selected>Pilih Jenis Pelanggaran</option>
                             </select>
                         </div>
                         <div class="mb-3 row">
                             <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input type="file" class="form-control" id="bukti" required style="width: 80%; text-align: center">
+                                <input name="bukti_pelanggaran" type="file" class="form-control" id="bukti" style="width: 80%; text-align: center">
                             </div>
                         </div>
                         <div class="modal-footer">
