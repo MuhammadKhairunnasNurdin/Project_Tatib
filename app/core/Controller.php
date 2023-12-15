@@ -2,6 +2,8 @@
 
 namespace core;
 
+use ReflectionClass;
+
 class Controller
 {
     protected function view($view, $data = []): void
@@ -12,7 +14,14 @@ class Controller
     protected function model($model)
     {
         require_once("../app/models/" . $model . ".php");
-        return new ("models\\" . $model)();
+        $obj = new ("models\\" . $model)();
+	    $interfacesModel = (new ReflectionClass($obj))->getInterfaceNames();
+	    if (!empty($interfacesModel)) {
+		    foreach ($interfacesModel as $interface) {
+			    require_once("../app/models/" . $interface . ".php");
+		    }
+	    }
+		return $obj;
     }
 
 }
