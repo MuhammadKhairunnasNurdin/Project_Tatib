@@ -2,6 +2,9 @@
 
 namespace models;
 
+require_once("IGetterHistory.php");
+require_once("Peraturan.php");
+
 class Dpa extends Dosen
 {
 	public function getAllHistoryMahasiswa($NIP): array
