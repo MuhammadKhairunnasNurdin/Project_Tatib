@@ -167,7 +167,7 @@ class Admin extends Controller
 
 	public function editMahasiswa()
 	{
-
+		// tes push
 		header("location: " . BASEURL . "/Admin/pageMahasiswa");
 	}
 
