@@ -5,7 +5,7 @@ namespace models;
 use core\Database;
 use core\FlashMessage;
 
-class Admin
+class Admin implements IGetterHistory
 {
 	private Database $db;
 	private FlashMessage $fm;
@@ -147,6 +147,12 @@ class Admin
 	{
 		$this->db->prepare("SELECT * FROM admin a JOIN user u ON a.user_id = u.id_user WHERE u.username=:username");
 		$this->db->bind(":username", $username);
+		return $this->db->resultSet();
+	}
+
+	public function getHistory($additionalData = null): array
+	{
+		$this->db->prepare("SELECT * FROM history_pelanggaran WHERE tgl_validasi IS NULL");
 		return $this->db->resultSet();
 	}
 }

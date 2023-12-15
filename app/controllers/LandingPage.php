@@ -10,8 +10,8 @@ class LandingPage extends Controller
 	 {
 		 $data['title'] = "Home";
 		 $data['style'] = "firstpage";
-		 $data['tingkat'] =  $this->model("Pelanggaran")->getAllTingkatan();
-		 $data['jenis'] = $this->model("Pelanggaran")->getAllJenisFromTingkatan($data['tingkat']);
+		 $data['tingkat'] =  $this->model("Peraturan")->getAllTingkatan();
+		 $data['jenis'] = $this->model("Peraturan")->getAllJenisFromTingkatan($data['tingkat']);
 		 $this->view("templates/header", $data);
 		 $this->view("index", $data);
 		 $this->view("templates/footer");
