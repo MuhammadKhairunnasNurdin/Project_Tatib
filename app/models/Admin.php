@@ -131,8 +131,8 @@ class Admin
 
 	public function getDosen($NIP)
 	{
-		$this->db->prepare("SELECT NIP, user_id, d.nama AS nama, tgl_lahir, alamat, no_telp, jenis_kelamin, username FROM dosen d 
-    	LEFT OUTER JOIN [user] u ON d.user_id = u.id_user WHERE NIP=:NIP");
+		$this->db->prepare("SELECT d.NIP, user_id, d.nama AS nama, tgl_lahir, k.NIP as DPA, alamat, no_telp, jenis_kelamin, username FROM dosen d 
+    	LEFT OUTER JOIN [user] u ON d.user_id = u.id_user LEFT OUTER JOIN kelas k ON d.NIP = k.NIP WHERE d.NIP=:NIP");
 		$NIP = $this->db->antiDbInjection($NIP);
 		$this->db->bind(":NIP", $NIP);
 		return $this->db->resultSet();
@@ -140,9 +140,9 @@ class Admin
 
 	public function getMahasiswa($NIM)
 	{
-		$this->db->prepare("SELECT NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, jenis_kelamin, username, id_kelas, kelas_id FROM mahasiswa m 
+		$this->db->prepare("SELECT m.NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, jenis_kelamin, username, id_kelas, kelas_id FROM mahasiswa m 
 	    LEFT OUTER JOIN [user] u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
-		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
+		ON k.id_kelas = m.kelas_id WHERE m.NIM=:NIM");
 		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();
 	}
