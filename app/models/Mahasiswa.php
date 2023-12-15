@@ -7,6 +7,7 @@ use core\FlashMessage;
 
 class Mahasiswa implements IGetterHistory
 {
+	private Peraturan $object;
 	private Database $db;
 	private FlashMessage $fm;
 
@@ -18,6 +19,11 @@ class Mahasiswa implements IGetterHistory
 	{
 		$this->db = new Database();
 		$this->fm = new FlashMessage();
+	}
+
+	public function getPelanggaran(string $funcName)
+	{
+		return $this->object->$funcName();
 	}
 
 	public function getHistory($additionalData = null): array
