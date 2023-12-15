@@ -3,6 +3,7 @@
 namespace controllers;
 
 use core\Controller;
+use models\Dpa;
 
 class Authorization extends Controller
 {
@@ -47,8 +48,7 @@ class Authorization extends Controller
 
 	public function logout(): void
 	{
-		session_unset();
-		session_destroy();
-		header("Location: " . BASEURL);
+		$logoutLocation = $this->model("Authorization")->logout();
+		header("Location: $logoutLocation");
 	}
 }

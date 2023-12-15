@@ -73,9 +73,11 @@ class Authorization
 		return ["controller" => $controller, "method" => $method];
 	}
 
-	public function logout()
+	public function logout(): string
 	{
-
+		session_unset();
+		session_destroy();
+		return BASEURL;
 	}
 
 }
