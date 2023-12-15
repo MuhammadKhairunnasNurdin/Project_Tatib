@@ -1,6 +1,7 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+<<<<<<< HEAD
     <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <Languages>
 <<<<<<< HEAD
@@ -12,6 +13,8 @@
         <language minSize="11" name="HTML" />
       </Languages>
     </inspection_tool>
+=======
+>>>>>>> d514d93bf43a4364921a52d2627e896ec3d64314
     <inspection_tool class="HttpUrlsUsage" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="ignoredUrls">
         <list>
@@ -43,11 +46,14 @@
         </list>
       </option>
     </inspection_tool>
+<<<<<<< HEAD
 =======
         <language minSize="46" name="PHP" />
       </Languages>
     </inspection_tool>
 >>>>>>> 3f15f39 (add fitur delete in Admin)
 >>>>>>> fe1046b4e91109f51093d17c9d0a0c6595d22a66
+=======
+>>>>>>> d514d93bf43a4364921a52d2627e896ec3d64314
   </profile>
 </component>

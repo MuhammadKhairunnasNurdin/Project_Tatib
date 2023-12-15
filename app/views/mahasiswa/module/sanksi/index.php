@@ -118,7 +118,7 @@
         color: white;
         text-decoration: none;
         font-family: Anek Telugu;
-        font-size: 40px;
+        font-size: 20px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -133,6 +133,10 @@
 
     .box-sanksi {
         margin-bottom: 12px;
+    }
+
+    .box-sanksi:hover {
+        cursor: pointer;
     }
 
     .box-isi {
@@ -236,13 +240,7 @@
             <form action="<?= BASEURL ?>" method="POST">
                 <p class="Text-judul-sanksi">Sanksi</p>
         </div>
-
-
-
-
-
         <table>
-
             <tr>
                 <th>No</th>
                 <th>Jenis Pelanggaran</th>
@@ -250,7 +248,6 @@
                 <th>Tanggal Pelanggaran</th>
                 <th>Rincian Pelanggaran</th>
             </tr>
-
             <tr>
                 <td>1</td>
                 <td>Bermain kartu, game online</td>
@@ -258,11 +255,9 @@
                 <td>18 / Okt / 2023</td>
                 <td>
                     <button name="page" type="submit" class="box-sanksi">
-                        <p>
-                            <a class="text-sanksi">
+                            <a href="#" class="text-sanksi">
                                 Cek Disini!
                             </a>
-                        </p>
                     </button>
                 </td>
             </tr>
@@ -273,11 +268,9 @@
                 <td>18 / Okt / 2023</td>
                 <td>
                     <button class="box-sanksi">
-                        <p>
-                            <a class="text-sanksi">
+                            <a href="#" class="text-sanksi">
                                 Cek Disini!
                             </a>
-                        </p>
                     </button>
                 </td>
             </tr>
@@ -288,11 +281,9 @@
                 <td>18 / Okt / 2023</td>
                 <td>
                     <button class="box-sanksi">
-                        <p>
-                            <a class="text-sanksi">
+                            <a href="#" class="text-sanksi">
                                 Cek Disini!
                             </a>
-                        </p>
                     </button>
                 </td>
             </tr>
@@ -303,11 +294,9 @@
                 <td>18 / Okt / 2023</td>
                 <td>
                     <button class="box-sanksi">
-                        <p>
-                            <a class="text-sanksi">
+                            <a href="#" class="text-sanksi">
                                 Cek Disini!
                             </a>
-                        </p>
                     </button>
                 </td>
             </tr>
@@ -318,19 +307,12 @@
                 <td>18 / Okt / 2023</td>
                 <td>
                     <button class="box-sanksi">
-                        <p>
-                            <a class="text-sanksi">
+                            <a href="#" class="text-sanksi">
                                 Cek Disini!
                             </a>
-                        </p>
                     </button>
                 </td>
             </tr>
-
         </table>
     </div>
-
-
-
-
 </body>

@@ -41,7 +41,7 @@ class Pelanggaran
 		return $arrJenis;
 	}
 
-	public function getAllJenisTingkatan($data = []): array
+	public function getJenisTingkatan($data = []): array
 	{
 		$data = $data['tingkatan'];
 		$this->db->prepare("SELECT jenis FROM jenis_pelanggaran WHERE tingkatan =:tingkatan ");
@@ -49,11 +49,15 @@ class Pelanggaran
 		return $this->db->resultSet();
 	}
 
+	public function getAllJenisTingkatan($data = []): array
+	{
+		$this->db->prepare("SELECT * FROM jenis_pelanggaran");
+		return $this->db->resultSet();
+	}
+
 	public function getAllSanksi(): array
 	{
-//		$data = $data['tingkatan'];
-		$this->db->prepare("SELECT sanksi FROM sanksi_pelanggaran");
-//		$this->db->bind(":tingkatan", $data);
+		$this->db->prepare("SELECT * FROM sanksi_pelanggaran");
 		return $this->db->resultSet();
 	}
 }

@@ -36,7 +36,7 @@ class Authorization extends Controller
 
 			/*if some error in login occur*/
 			if (count($loginLocation) === 3) {
-				$_SESSION["flashMessage"]["login"] = $loginLocation["errorMessage"];
+				$_SESSION["flashMessage"] = $loginLocation["errorMessage"];
 				header("Location: " . BASEURL . "/$controller/$method");
 				return;
 			}
@@ -47,7 +47,8 @@ class Authorization extends Controller
 
 	public function logout(): void
 	{
-		$logoutLocation = $this->model("Authorization")->logout();
-		header("Location: " . $logoutLocation);
+		session_unset();
+		session_destroy();
+		header("Location: " . BASEURL);
 	}
 }

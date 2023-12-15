@@ -1,6 +1,7 @@
 <style>
     .content-laporan {
         font-family: 'tirobangla';
+        width: auto;
     }
 
     .box-title {
@@ -71,7 +72,33 @@
 
     .mahasiswa {
         margin-left: 13px;
-        width: auto;
+        width: 15rem;
+    }
+
+    .pelanggaran {
+        margin-left: 13px;
+        width: 15rem;
+    }
+
+    .jenis {
+        margin-left: 13px;
+        width: 30rem;
+    }
+
+    .box-content {
+
+        margin: auto;
+        border-radius: 12px;
+        width: 928px;
+        height: 359px;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.80);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px"
+
+    }
+    .modal-footer{
+        margin-right: 130px;
     }
 </style>
 
@@ -80,10 +107,11 @@
         <div class="dashboard-box">
             <div class="box-title">
                 <div class="title-page">
-                    <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dosen/lapor_dosen.png" alt="">Laporan</h1>
+                    <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dosen/lapor_dosen.png"
+                                        alt="">Laporan</h1>
                 </div>
                 <div class="button-refresh">
-                    <a href="index.php">
+                    <a href="<?= BASEURL ?>/Dosen/pageLaporan">
                         <button class="refresh" data-bs-target="laporan">
                             <img class="refresh-logo" src="<?= BASEURL ?>/img/refresh-logo.svg" alt="">
                         </button>
@@ -93,66 +121,42 @@
         </div>
         <div>
             <div class="content mt-5">
-                <div class="box-content" style="width: 800px">
-                    <form action="">
+                <div class="box-content">
+                    <form action="<?=BASEURL?>/Dosen/addLaporan" method="post">
                         <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Kelas  :</label>
-                            <select name="id_kelas" class="kelas">
-                            <option value="" selected>Pilih Kelas</option>
-                            <?php foreach ($data['kelas'] AS $kls): ?>
-                                <option value="<?=$kls['id_kelas']?>"><?=$kls['nama']?></option>
-                            <?php endforeach; ?>
+                            <label for="id_kelas" class="form-label col-md-3 text-left">Kelas :</label>
+                            <select name="id_kelas" class="kelas" id="id_kelas" onchange="loadMahasiswa()">
+                                <option value="" selected>Pilih Kelas</option>
+								<?php foreach ($data['kelas'] as $kls): ?>
+                                    <option value="<?= $kls['id_kelas'] ?>"><?= $kls['nama'] ?></option>
+								<?php endforeach; ?>
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="nama" class="form-label col-md-3 text-left">Nama  :</label>
-                            <select name="NIM" class="mahasiswa">
+                            <label for="nama" class="form-label col-md-3 text-left">Nama :</label>
+                            <select name="NIM" class="mahasiswa" id="mahasiswa">
                                 <option value="" selected>Pilih Mahasiswa</option>
-		                        <?php foreach ($data['mahasiswa'] AS $mhs): ?>
-                                        <option value="<?=$mhs['NIM']?>"><?=$mhs['NIM']?>/<?=$mhs['nama']?></option>
-		                        <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran  :</label>
-                            <select id="tingkat" name="tingkat" class="mahasiswa">
+                            <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran :</label>
+                            <select id="tingkat" name="tingkatan" class="pelanggaran" onchange="loadJenis()">
                                 <option value="" selected>Pilih Tingkat Pelanggaran</option>
-		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
-                                    <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
-		                        <?php endforeach; ?>
-                            </select>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="kelas" class="form-label col-md-3 text-left">Sanksi  :</label>
-                            <select name="NIM" class="mahasiswa">
-<!--	                            --><?php
-//	                            if (isset($_POST['tingkat']) && $_POST['tingkat']) {
-//		                            $selectedTingkat = $_POST['tingkat'];
-////                                    $sanksiOptions = $data['sanksi'];
-//		                            $sanksiOptions = [
-//			                            "Tingkat 1" => ["Sanksi 1A", "Sanksi 1B", "Sanksi 1C"],
-//			                            "Tingkat 2" => ["Sanksi 2A", "Sanksi 2B", "Sanksi 2C"],
-////			                             Tambahkan opsi untuk tingkatan pelanggaran lainnya
-//		                            ];
-//
-//		                            foreach ($sanksiOptions[$selectedTingkat] as $sanksi) {
-//			                            echo "<option value='$sanksi'>$sanksi</option>";
-//		                            }
-//	                            } else {
-//		                            echo "<option value='' selected>Pilih Sanksi Pelanggaran</option>";
-//	                            }
-//	                            ?>
-                                <option value="" selected>Pilih Sanksi Pelanggaran</option>
-		                        <?php foreach ($data['tingkat'] AS $tingkat): ?>
-                                    <option value="<?=$tingkat['tingkatan']?>"><?=$tingkat['tingkatan']?></option>
-		                        <?php endforeach; ?>
+								<?php foreach ($data['tingkat'] as $tingkat): ?>
+                                    <option value="<?= $tingkat['tingkatan'] ?>"><?= $tingkat['tingkatan'] ?></option>
+								<?php endforeach; ?>
                             </select>
                         </div>
                         <div class="mb-3 row">
-                            <label for="bukti" class="form-label col-md-3 text-left">Bukti  :</label>
+                            <label for="jenis" class="form-label col-md-3 text-left">Jenis :</label>
+                            <select name="no_jenis" class="jenis" id="jenis">
+                                <option value="" selected>Pilih Jenis Pelanggaran</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input type="file" class="form-control" id="bukti" required style="width: 100%;">
+                                <input type="file" class="form-control" id="bukti" required style="width: 80%; text-align: center">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -164,3 +168,83 @@
         </div>
     </div>
 </div>
+<script>
+    function loadMahasiswa() {
+        // Mendapatkan elemen dropdown kelas
+        var kelasDropdown = document.getElementById("id_kelas");
+
+        // Mendapatkan nilai yang dipilih dari dropdown kelas
+        var selectedKelas = kelasDropdown.value;
+
+        // Mendapatkan elemen dropdown mahasiswa
+        var mahasiswaDropdown = document.getElementById("mahasiswa");
+
+        // Menghapus opsi yang ada pada dropdown mahasiswa
+        mahasiswaDropdown.innerHTML = "";
+
+        // Simulasi data mahasiswa berdasarkan kelas (gantilah dengan data dinamis dari server)
+        var mahasiswaData = getMahasiswaData();
+
+        // Menambahkan opsi mahasiswa ke dropdown
+        mahasiswaData.forEach(function(mahasiswa) {
+            var option = document.createElement("option");
+            if (mahasiswa.kelas === selectedKelas) {
+                option.value = mahasiswa.NIM;
+                option.text = mahasiswa.nama;
+                mahasiswaDropdown.add(option);
+            }
+        });
+    }
+
+    function getMahasiswaData() {
+        let data = [];
+
+        data = [
+        <?php
+        foreach ($data['mahasiswa'] AS $mhs): ?>
+            {NIM: <?=$mhs['NIM']?>, nama: "<?=$mhs['nama']?>", kelas: "<?=$mhs['kelas_id']?>"},
+        <?php endforeach; ?>
+        ];
+        return data;
+    }
+
+    function loadJenis() {
+        // Mendapatkan elemen dropdown pelanggaran
+        var tingkatDropdown = document.getElementById("tingkat");
+
+        // Mendapatkan nilai yang dipilih dari dropdown pelanggaran
+        var selectedTingkat = tingkatDropdown.value;
+        console.log(selectedTingkat);
+
+        // Mendapatkan elemen dropdown jenis
+        var jenisDropdown = document.getElementById("jenis");
+
+        // Menghapus opsi yang ada pada dropdown jenis
+        jenisDropdown.innerHTML = "";
+
+        // Simulasi data jenis berdasarkan pelanggaran (gantilah dengan data dinamis dari server)
+        var mahasiswaData = getJenisData();
+
+        // Menambahkan opsi mahasiswa ke dropdown
+        mahasiswaData.forEach(function(jenis) {
+            var option = document.createElement("option");
+            if (jenis.tingkat === selectedTingkat) {
+                option.value = jenis.no_jenis;
+                option.text = jenis.jenis;
+                jenisDropdown.add(option);
+            }
+        });
+    }
+
+    function getJenisData() {
+        let data = [];
+
+        data = [
+        <?php
+        foreach ($data['jenis'] AS $jenis): ?>
+            {tingkat: "<?=$jenis['tingkatan']?>", no_jenis: <?=$jenis['no_jenis']?>, jenis: "<?=$jenis['jenis']?>"},
+        <?php endforeach; ?>
+        ];
+        return data;
+    }
+</script>

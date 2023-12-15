@@ -56,7 +56,6 @@ class Admin
 			$message =  $this->fm->getFlashData("warning");
 		}
 		return $message;
-
 	}
 
 	public function add($tableName, $addData = [], $fkData = [])
@@ -120,7 +119,7 @@ class Admin
 
 	public function getAllMahasiswa(): array
 	{
-		$this->db->prepare("SELECT m.NIM, m.nama, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
+		$this->db->prepare("SELECT m.NIM AS NIM, m.nama, kelas_id, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
 		return $this->db->resultSet();
 	}
 
@@ -144,7 +143,6 @@ class Admin
 		$this->db->prepare("SELECT NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, jenis_kelamin, username, id_kelas, kelas_id FROM mahasiswa m 
 	    LEFT OUTER JOIN [user] u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
 		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
-		$NIM = $this->db->antiDbInjection($NIM);
 		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();
 	}

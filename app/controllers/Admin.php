@@ -56,11 +56,13 @@ class Admin extends Controller
 			unset($_POST['username']);
 			unset($_POST['password']);
 
+
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->add("$userLevel", $data, $fkData);
+			unset($data);
 			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
 	}
@@ -77,6 +79,12 @@ class Admin extends Controller
 			$this->view("admin/module/dosen/edit/index", $data);
 			$this->view("admin/template/footer");
 		}
+	}
+
+	public function editDosen()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageDosen");
 	}
 
 	public function editUser(): void
@@ -99,12 +107,14 @@ class Admin extends Controller
 			unset($_POST['password']);
 			unset($_POST["conditionFk"]);
 
+
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
-			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
+			unset($data);
+			header("Location: " . BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
 	}
 
@@ -119,7 +129,6 @@ class Admin extends Controller
 			header("Location: " .  BASEURL . "/Admin/page" . ucfirst($userLevel));
 		}
 	}
-
 
 	/*Page Mahasiswa*/
 	public function pageMahasiswa(): void
@@ -142,7 +151,7 @@ class Admin extends Controller
 		$this->view("admin/template/footer");
 	}
 
-	public function editMahasiswaPage(): void
+	public function editMahasiswaPage()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$NIM = $_POST['NIM'];
@@ -154,6 +163,12 @@ class Admin extends Controller
 			$this->view("admin/module/mahasiswa/edit/index", $data);
 			$this->view("admin/template/footer");
 		}
+	}
+
+	public function editMahasiswa()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageMahasiswa");
 	}
 
 	/*Page Validasi*/

@@ -14,6 +14,7 @@
     .dashboard-box {
         padding: 10px;
     }
+
     .content {
         padding: 5px;
         width: 70%;
@@ -23,15 +24,6 @@
 
     .box-content {
         display: flex;
-    }
-
-    .mhs-mhskelas {
-        width: 100%;
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-family: 'tirobangla';
     }
 
     .box-pilihan {
@@ -92,10 +84,6 @@
         justify-content: center;
     }
 
-    .text-pilihan, h1 {
-        font-size: 20px;
-    }
-
 </style>
 
 <div class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -106,7 +94,7 @@
                     <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dosen/history_dosen.png" alt="">History</h1>
                 </div>
                 <div class="button-refresh">
-                    <a href="history/index.php">
+                    <a href="<?=BASEURL?>/Dosen/pageHistory">
                         <button class="refresh" data-bs-target="laporan">
                             <img class="refresh-logo" src="<?= BASEURL ?>/img/refresh-logo.svg" alt="">
                         </button>
@@ -126,22 +114,23 @@
                         </div>
                     </div>
                     <div class="box-pilihan">
-                        <div class="text-pilihan">
-                            <h1>History tata tertib Mahasiswa JTI : </h1>
-                        </div>
                         <br>
                         <div class="container-flex">
-                            <a href="<?=BASEURL?>/Dosen/pageTerlapor" class="box-mhs">
+                            <form action="<?=BASEURL?>/Dosen/pageTerlapor">
+                            <button class="box-mhs">
                                 <div class="text-mhs">
                                     <h3 class="mhs-title">Mahasiswa Terlapor</h3>
                                 </div>
-                            </a>
+                            </button>
+                            </form>
                             <br>
-                            <a href="<?=BASEURL?>/Dosen/pageMahasiswa" class="box-mhskelas">
+                            <form action="<?=BASEURL?>/Dosen/pageMahasiswa">
+                            <button class="box-mhskelas">
                                 <div class="text-mhskelas">
                                     <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
                                 </div>
-                            </a>
+                            </button>
+                            </form>
                         </div>
                     </div>
                 </div>

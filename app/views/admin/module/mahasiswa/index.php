@@ -41,51 +41,57 @@
                                 <td>
                                     <div class="button-UD d-flex">
                                         <form action="<?= BASEURL ?>/Admin/editMahasiswaPage" method="POST">
-                                            <button type="submit" name="NIM" value="<?= $mhs['NIM'] ?>"
+                                            <button type="submit" name="NIM" value="<?= $mhs['NIM']?>"
                                                     class="btn edit-mahasiswa btn-dark-blue">EDIT
                                             </button>
                                         </form>
-                                        <form action="<?= BASEURL ?>/Admin/pageMahasiswa" method="post">
-                                            <button type="button" class="btn ms-1 delete-dosen bg-danger"
-                                                onclick="openPopup()">DELETE
-                                            </button>
-                                        </form>
+                                        <button type="button" id="delete" class="btn ms-1 delete-dosen bg-danger"
+                                                onclick="openPopup(event)" value="<?= $mhs['NIM']?>">DELETE
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
             <div class="overlay" id="overlay"></div>
-        <div class="popup" id="popup">
-            <span class="popup-close" onclick="closePopup()">×</span>
-            <h2>HAPUS MAHASISWA</h2>
-            <p>Apakah anda yakin ingin menghapus mahasiswa ini dari daftar?</p>
-            <div class="d-flex justify-content-end">
-                <form action="<?=BASEURL?>/Admin/deleteUser" method="post">
-                    <input type="hidden" name="userLevel" value="mahasiswa">
-                    <input type="hidden" name="idName" value="NIM">
-                    <button type="submit" name="idData" value="<?=$mhs['NIM']?>" class="me-2 btn btn-success">Ya</button>
-                </form>
+            <div class="popup" id="popup">
+                <span class="popup-close" onclick="closePopup()">×</span>
+                <h2>HAPUS MAHASISWA</h2>
+                <p>Apakah anda yakin ingin menghapus mahasiswa ini dari daftar?</p>
+                <div class="d-flex justify-content-end">
+                    <form action="<?=BASEURL?>/Admin/deleteUser" method="post">
+                        <input type="hidden" name="userLevel" value="mahasiswa">
+                        <input type="hidden" name="idName" value="NIM">
+                        <button type="submit" id="idData" name="idData" class="me-2 btn btn-success">Ya</button>
+                    </form>
                     <button class="btn btn-danger">Batal</button>
+                </div>
             </div>
         </div>
-            <?php endforeach; ?>
-    <script>
-            function openPopup() {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('popup').classList.add('active');
+
+        <script>
+            var valueNIM = "";
+
+            function saveValue(button) {
+                valueNIM = button.value;
+                console.log(valueNIM);
+
+                var deleteButton = document.getElementById("idData");
+                deleteButton.value = valueNIM;
+            }
+
+            function openPopup(event) {
+                saveValue(event.target);
+                document.getElementById('overlay').classList.add('active');
+                document.getElementById('popup').classList.add('active');
             }
 
             function closePopup() {
-            document.getElementById('overlay').classList.remove('active');
-            document.getElementById('popup').classList.remove('active');
+                document.getElementById('overlay').classList.remove('active');
+                document.getElementById('popup').classList.remove('active');
             }
         </script>
-        </div>
-        
-
-
-        
     </main>
 
