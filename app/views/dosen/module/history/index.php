@@ -14,6 +14,7 @@
     .dashboard-box {
         padding: 10px;
     }
+
     .content {
         padding: 5px;
         width: 70%;
@@ -23,15 +24,6 @@
 
     .box-content {
         display: flex;
-    }
-
-    .mhs-mhskelas {
-        width: 100%;
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-family: 'tirobangla';
     }
 
     .box-pilihan {

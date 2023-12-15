@@ -56,7 +56,6 @@ class Admin
 			$message =  $this->fm->getFlashData("warning");
 		}
 		return $message;
-
 	}
 
 	public function add($tableName, $addData = [], $fkData = [])
@@ -129,9 +128,8 @@ class Admin
 
 	public function getDosen($NIP)
 	{
-		$this->db->prepare("SELECT NIP, user_id, d.nama AS nama, tgl_lahir, alamat, no_telp, jenis_kelamin, username FROM dosen d 
-    	LEFT OUTER JOIN user u ON d.user_id = u.id_user WHERE NIP=:NIP");
-		$NIP = $this->db->antiDbInjection($NIP);
+		$this->db->prepare("SELECT d.NIP, user_id, d.nama AS nama, k.NIP AS DPA, tgl_lahir, alamat, no_telp, jenis_kelamin, username FROM dosen d 
+    	LEFT OUTER JOIN user u ON d.user_id = u.id_user LEFT OUTER JOIN kelas k ON d.NIP = k.NIP WHERE d.NIP=:NIP");
 		$this->db->bind(":NIP", $NIP);
 		return $this->db->resultSet();
 	}
@@ -141,7 +139,6 @@ class Admin
 		$this->db->prepare("SELECT NIM, user_id, m.nama AS nama, k.nama AS kelas, tgl_lahir, alamat, no_telp, jenis_kelamin, username, id_kelas, kelas_id FROM mahasiswa m 
 	    LEFT OUTER JOIN user u ON m.user_id = u.id_user LEFT OUTER JOIN kelas k 
 		ON k.id_kelas = m.kelas_id WHERE NIM=:NIM");
-		$NIM = $this->db->antiDbInjection($NIM);
 		$this->db->bind(":NIM", $NIM);
 		return $this->db->resultSet();
 	}
@@ -149,7 +146,6 @@ class Admin
 	public function getAdmin($username)
 	{
 		$this->db->prepare("SELECT * FROM admin a JOIN user u ON a.user_id = u.id_user WHERE u.username=:username");
-		$username = $this->db->antiDbInjection($username);
 		$this->db->bind(":username", $username);
 		return $this->db->resultSet();
 	}

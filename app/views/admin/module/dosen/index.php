@@ -1,5 +1,6 @@
 
 <main class="main col-md-9 ms-sm-auto col-lg-10 px-md-auto">
+
     <div class="daftar-dosen-box">
         <div class="box-title-daftar-dosen">
             <div class="title-page-daftar-dosen">
@@ -55,15 +56,13 @@
                                             class="btn edit-dosen btn-dark-blue">EDIT
                                     </button>
                                 </form>
-                                <form action="<?= BASEURL ?>/Admin/pageDosen" method="post">
-                                    <button type="button" class="btn ms-1 delete-dosen bg-danger"
-                                            onclick="openPopup()">
-                                            DELETE
-                                    </button>
-                                </form>
+                                <button type="button" id="delete" class="btn ms-1 delete-dosen bg-danger"
+                                        onclick="openPopup(event)" value="<?= $dosen['NIP']?>">DELETE
+                                </button>
                             </div>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -71,26 +70,36 @@
         <div class="popup" id="popup">
             <span class="popup-close" onclick="closePopup()">×</span>
             <h2>HAPUS DOSEN</h2>
-            <?php if (isset($dosen['kelas'])) { ?>
-            <p>Dosen ini merupakan DPA dari kelas <?=$dosen['kelas']?></p>
-            <?php } ?>
+	        <?php if (isset($dosen['kelas'])) { ?>
+                <p>Dosen ini merupakan DPA dari kelas <?=$dosen['kelas']?></p>
+	        <?php } ?>
             <p>Apakah anda yakin ingin menghapus dosen ini dari daftar?</p>
             <div class="d-flex justify-content-end">
                 <form action="<?=BASEURL?>/Admin/deleteUser" method="post">
                     <input type="hidden" name="userLevel" value="dosen">
                     <input type="hidden" name="idName" value="NIP">
-                    <button type="submit" name="idData" value="<?=$dosen['NIP']?>" class="me-2 btn btn-success">Ya</button>
+                    <button type="submit" id="idData" name="idData" class="me-2 btn btn-success">Ya</button>
                 </form>
                 <button class="btn btn-danger">Batal</button>
             </div>
         </div>
-        <?php endforeach; ?>
 
 
         <script>
-            function openPopup() {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('popup').classList.add('active');
+            var valueNIM = "";
+
+            function saveValue(button) {
+                valueNIM = button.value;
+                console.log(valueNIM);
+
+                var deleteButton = document.getElementById("idData");
+                deleteButton.value = valueNIM;
+            }
+
+            function openPopup(event) {
+                saveValue(event.target);
+                document.getElementById('overlay').classList.add('active');
+                document.getElementById('popup').classList.add('active');
             }
 
             function closePopup() {
@@ -98,6 +107,7 @@
             document.getElementById('popup').classList.remove('active');
             }
         </script>
-    </div>
+
+    
 </main>
 

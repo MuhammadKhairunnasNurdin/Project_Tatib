@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="NIP" class="form-control" value="<?=$dosen['NIP']?>" readonly>
+                        <input type="text" name="NIP" class="form-control" value="<?=$dosen['NIP']?>" required readonly>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
@@ -53,18 +53,21 @@
                         <label for="no_telp" class="form-label">No Telepon</label>
                         <input type="number" name="no_telp" class="form-control" value="<?=$dosen['no_telp']?>">
                     </div>
+                    <?php if ($dosen['DPA'] == null) { ?>
                     <div class="mt-1">
                         <label for="dpa" class="form-label">DPA Kelas:
                             <select class="ms-2 btn btn-light dropdown-toggle border" name="kelas_id" id="kelas">
                                 <option value="" selected>Pilih Kelas</option>
                                 <?php foreach ($data['kelas'] as $kls) :?>
-                                    <?php $kelas_id = $kls['id_kelas']?>
+                                    <?php
+                                    if (!isset($kls['NIP'])) {
+                                    $kelas_id = $kls['id_kelas']?>
                                     <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
-                                <?php endforeach; ?>
+                                <?php } endforeach; ?>
                             </select>
                         </label>
-                        
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -76,7 +79,7 @@
                     <div class="card-body ">
                         <div class="mb-2">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value="<?=$dosen['username']?>">
+                            <input type="text" name="username" class="form-control" value="<?=$dosen['username']?>" >
                         </div>
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>
