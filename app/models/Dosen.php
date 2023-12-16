@@ -40,16 +40,26 @@ class Dosen implements IGetterHistory
 		return $this->object->$funcName();
 	}
 
-	public function report($tableName, $addData = [])
+	public function getDosen($username)
+	{
+		$this->db->prepare("SELECT d.nama AS nama, d.NIP AS NIP, k.NIP AS DPA, k.nama AS kelas FROM dosen d 
+    	LEFT OUTER JOIN user u ON d.user_id = u.id_user
+	     LEFT OUTER JOIN kelas k ON k.NIP = d.NIP
+	     WHERE u.username=:username");
+		$this->db->bind(":username", $username);
+		return $this->db->resultSet();
+	}
+
+	public function report($tableName, $nim, $addData = [])
 	{
 		$isInsertSuccess = null;
 
-		$addData['user_id'] = intval($this->db->lastInsertId());
+//		$addData['user_id'] = intval($this->db->lastInsertId());
 		$isInsertSuccess = $this->db->inserts($tableName, $addData);
 
 		$message = null;
 		if ($isInsertSuccess) {
-			$this->fm->message("success", "adding data $tableName");
+			$this->fm->message("success", "report $nim");
 			$message = $this->fm->getFlashData("success");
 		} else {
 			$this->fm->message("warning", "error occur in adding data $tableName");
