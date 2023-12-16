@@ -56,9 +56,9 @@
         text-align: right;
     }
 
-    #button-buku {
-        background-color: #007bff;
-        color: #fff;
+    #button-save {
+        /*background-color: #007bff;*/
+        /*color: #fff;*/
         border: none;
         border-radius: 4px;
         padding: 5px 10px;
@@ -85,17 +85,20 @@
         width: 30rem;
     }
 
-    .box-content {
+    .sanksi {
+        margin-left: 13px;
+        width: 30rem;
+    }
 
+    .box-content {
         margin: auto;
         border-radius: 12px;
         width: 928px;
-        height: 359px;
+        height: 386px;
         flex-shrink: 0;
         background: rgba(255, 255, 255, 0.80);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 25px"
-
     }
     .modal-footer{
         margin-right: 130px;
@@ -140,7 +143,7 @@
                         </div>
                         <div class="mb-3 row">
                             <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran :</label>
-                            <select id="tingkat" name="tingkatan" class="pelanggaran" onchange="loadJenis()">
+                            <select id="tingkat" name="pelanggaran_id" class="pelanggaran" onchange="loadPelanggaran()">
                                 <option value="" selected>Pilih Tingkat Pelanggaran</option>
 								<?php foreach ($data['tingkat'] as $tingkat): ?>
                                     <option value="<?= $tingkat['tingkatan'] ?>"><?= $tingkat['tingkatan'] ?></option>
@@ -149,8 +152,14 @@
                         </div>
                         <div class="mb-3 row">
                             <label for="jenis" class="form-label col-md-3 text-left">Jenis :</label>
-                            <select name="no_jenis" class="jenis" id="jenis">
+                            <select class="jenis" id="jenis" name="no_jenis">
                                 <option value="" selected>Pilih Jenis Pelanggaran</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="sanksi" class="form-label col-md-3 text-left">Sanksi :</label>
+                            <select class="sanksi" id="sanksi" name="no_sanksi">
+                                <option value="" selected>Pilih Sanksi Pelanggaran</option>
                             </select>
                         </div>
                         <div class="mb-3 row">
@@ -160,7 +169,10 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="button-buku">Simpan</button>
+                            <?php foreach ($data['dosen'] as $dosen): ?>
+                                <input type="hidden" name="NIP" value="<?=$dosen['NIP']?>">
+                            <?php endforeach; ?>
+                            <button type="submit" class="btn btn-primary" id="button-save">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -208,7 +220,7 @@
         return data;
     }
 
-    function loadJenis() {
+    function loadPelanggaran() {
         // Mendapatkan elemen dropdown pelanggaran
         var tingkatDropdown = document.getElementById("tingkat");
 
@@ -223,15 +235,30 @@
         jenisDropdown.innerHTML = "";
 
         // Simulasi data jenis berdasarkan pelanggaran (gantilah dengan data dinamis dari server)
-        var mahasiswaData = getJenisData();
+        var jenisData = getJenisData();
 
         // Menambahkan opsi mahasiswa ke dropdown
-        mahasiswaData.forEach(function(jenis) {
+        jenisData.forEach(function(jenis) {
             var option = document.createElement("option");
             if (jenis.tingkat === selectedTingkat) {
                 option.value = jenis.no_jenis;
                 option.text = jenis.jenis;
                 jenisDropdown.add(option);
+            }
+        });
+
+        var sanksiDropdown = document.getElementById("sanksi");
+
+        sanksiDropdown.innerHTML = "";
+
+        var sanksiData = getSanksiData();
+
+        sanksiData.forEach(function(sanksi) {
+            var option = document.createElement("option");
+            if (sanksi.tingkat === selectedTingkat) {
+                option.value = sanksi.no_sanksi;
+                option.text = sanksi.sanksi;
+                sanksiDropdown.add(option);
             }
         });
     }
@@ -243,6 +270,18 @@
         <?php
         foreach ($data['jenis'] AS $jenis): ?>
             {tingkat: "<?=$jenis['tingkatan']?>", no_jenis: <?=$jenis['no_jenis']?>, jenis: "<?=$jenis['jenis']?>"},
+        <?php endforeach; ?>
+        ];
+        return data;
+    }
+
+    function getSanksiData() {
+        let data = [];
+
+        data = [
+        <?php
+        foreach ($data['sanksi'] AS $sanksi): ?>
+            {tingkat: "<?=$sanksi['tingkatan']?>", no_sanksi: <?=$sanksi['no_sanksi']?>, sanksi: "<?=$sanksi['sanksi']?>"},
         <?php endforeach; ?>
         ];
         return data;
