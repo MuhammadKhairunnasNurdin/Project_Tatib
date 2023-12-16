@@ -10,7 +10,7 @@ require_once("Peraturan.php");
 
 class Dosen implements IGetterHistory
 {
-	protected Peraturan $object;
+	protected Peraturan $peraturan;
 	protected Database $db;
 	protected FlashMessage $fm;
 
@@ -22,6 +22,7 @@ class Dosen implements IGetterHistory
 	{
 		$this->db = new Database();
 		$this->fm = new FlashMessage();
+		$this->peraturan = new Peraturan();
 	}
 
 	public function getHistory($additionalData = null): array
@@ -35,9 +36,9 @@ class Dosen implements IGetterHistory
 		return [];
 	}
 
-	public function getPelanggaran(string $funcName)
+	public function getAllPeraturan(string $funcName, $param = null)
 	{
-		return $this->object->$funcName();
+		return $this->peraturan->$funcName($param);
 	}
 
 	public function getDosen($username)
