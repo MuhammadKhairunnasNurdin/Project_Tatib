@@ -40,6 +40,11 @@ class Peraturan
 		}
 		return $arrJenis;
 	}
+	public function getAllJenisTingkatan(): array
+	{
+		$this->db->prepare("SELECT * FROM jenis_pelanggaran");
+		return $this->db->resultSet();
+	}
 
 	public function getJenisTingkatan($data = []): array
 	{
