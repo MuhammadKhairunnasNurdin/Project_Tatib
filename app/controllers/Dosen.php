@@ -36,7 +36,7 @@ class Dosen extends Controller
 		$data['kelas'] = $this->model("Admin")->getAllKelas();
 		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
 		$data['tingkat'] = $this->model("Dosen")->getAllPeraturan("getAllTingkatan");
-		$data['jenis'] = $this->model("Dosen")->getAllPeraturan("getAllJenisTingkatan");
+		$data['jenis'] = $this->model("Dosen")->getAllPeraturan("getAllJenisFromTingkatan", $data['tingkat']);
 		$data['sanksi'] = $this->model("Dosen")->getAllPeraturan("getAllSanksi");
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
