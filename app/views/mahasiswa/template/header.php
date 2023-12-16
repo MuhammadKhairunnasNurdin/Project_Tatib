@@ -12,6 +12,10 @@
         align-items: center;
         }
 
+        .main {
+            overflow-y: auto;
+        }
+
         .logo-jenis-sanksi {
         width: 30px;
         height: auto;
@@ -226,9 +230,7 @@
         <a class="header-title">POLITEKNIK NEGERI MALANG</a>
       </div>
         <div class="dropdown">
-            <?php foreach ($data['mahasiswa'] as $mhs): ?>
-            <button class="btn-logout"><?=$mhs['nama']?></button>
-            <?php endforeach; ?>
+            <button class="btn-logout"><?=$data['mahasiswa']['nama']?></button>
             <div class="dropdown-content">
                 <a class="profile-title" href="<?=BASEURL?>/Authorization/logout">Log Out</a>
             </div>
