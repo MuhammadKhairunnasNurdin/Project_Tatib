@@ -29,9 +29,9 @@
                         <h5 class="small" style="margin-top: 5%; margin:auto; font-family: 'Tiro Bangla'; font-size: 15px;">Selamat datang di sistem tata tertib Politeknik<br> Negeri Malang untuk mahasiswa, civitas akademika</h5>
                     </div>
 			        <?php
-                        if (isset($_SESSION["flashMessage"])) {
-                            echo($_SESSION["flashMessage"]);
-                            unset($_SESSION["flashMessage"]);
+                        if (isset($_SESSION["flashMessage"]["login"])) {
+                            echo($_SESSION["flashMessage"]["login"]);
+                            unset($_SESSION["flashMessage"]["login"]);
                         }
 			        ?>
                     <div class="form-floating" style="width:95%; margin: auto; font-family: 'Tiro Bangla';">
