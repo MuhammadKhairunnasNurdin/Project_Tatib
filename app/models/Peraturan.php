@@ -54,12 +54,6 @@ class Peraturan
 		return $this->db->resultSet();
 	}
 
-	public function getAllJenisTingkatan($data = []): array
-	{
-		$this->db->prepare("SELECT * FROM jenis_pelanggaran");
-		return $this->db->resultSet();
-	}
-
 	public function getAllSanksi(): array
 	{
 		$this->db->prepare("SELECT * FROM sanksi_pelanggaran");
