@@ -6,6 +6,14 @@
                 <div class="title-page">
                     <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dosen/dash_dosen.png" alt="">Dashboard</h1>
                 </div>
+                <?php
+
+                if (isset($_SESSION['flashMessage']['history_pelanggaran'])) {
+                    echo $_SESSION['flashMessage']['history_pelanggaran'];
+                    unset ($_SESSION['flashMessage']['history_pelanggaran']);
+                }
+
+                ?>
                 <div class="button-refresh">
                     <a href="<?=BASEURL?>/Dosen/index">
                         <button class="refresh" data-bs-target="laporan">
@@ -18,20 +26,26 @@
         <div class="content">
             <div class="box-content">
                 <div class="">
+                    <?php foreach ($data['dosen'] as $dosen) : ?>
                     <div class="text-content">
                         <!-- Kalimat Selamat Datang Dashboard -->
-                        <h3 class="title-content">Selamat Datang, Kinata Dewa Ariandi St.Mt</h3>
+                        <h3 class="title-content">Selamat Datang, <?=$dosen['nama']?></h3>
                         <p class="desc-content">Selamat Datang di Website Tata Tertib Mahasiswa Jurusan</p>
                         <p class="jurusan">Teknologi Informasi</p>
                     </div>
 
                     <!-- Profile Dosen -->
-                    <div class="card dosen-info";">
+                    <div class="card dosen-info">
                     <img class="dosen-photo" src="<?= BASEURL?>/img/kinata.jpg" alt="">
-                    <h3>Kinata Dewa Ariandi</h3>
-                    <p class="dosen-id">2241720087</p>
-                    <p class="dosen-status">Status : <span class="status-active">Dosen DPA</span></p>
-                </div>
+                    <h3><?=$dosen['nama']?></h3>
+                    <p class="dosen-id"><?=$dosen['NIP']?></p>
+                            <?php if (isset($dosen['DPA'])) { ?>
+                    <p class="dosen-status">Status : <span class="status-active">Dosen DPA <?=$dosen['kelas']?></span></p>
+                        <?php } else { ?>
+                    <p class="dosen-status">Status : <span class="status-active">Dosen non DPA</span></p>
+	                    <?php  }?>
+
+                    </div>
 
                 <!-- Lapor -->
                 <div class="lapor-mahasiswa">
@@ -55,9 +69,10 @@
                         </div>
                     </div>
                 </div>
+	            <?php endforeach; ?>
             </div>
         </div>
     </div>
-        <br>
+    <br>
     </div>
 </main>

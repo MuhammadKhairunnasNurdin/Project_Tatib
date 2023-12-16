@@ -10,9 +10,10 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
-		$this->view("dosen/index");
+		$this->view("dosen/index", $data);
 		$this->view("dosen/template/footer");
 	}
 
@@ -20,6 +21,7 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/index", $data);
@@ -30,6 +32,7 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$data['kelas'] = $this->model("Admin")->getAllKelas();
 		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
 		$data['tingkat'] = $this->model("Peraturan")->getAllTingkatan();
@@ -45,6 +48,7 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['ovf'] = "0";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$data['tingkat'] =  $this->model("Peraturan")->getAllTingkatan();
 		$data['jenis'] = $this->model("Peraturan")->getAllJenisFromTingkatan($data['tingkat']);
 		$this->view("dosen/template/header", $data);
@@ -63,7 +67,10 @@ class Dosen extends Controller
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
-			$_SESSION["flashMessage"]["$tableName"] = $this->model("Dosen")->report("$tableName", $data);
+
+			$nim = $data['NIM'];
+
+			$_SESSION["flashMessage"]["$tableName"] = $this->model("Dosen")->report("$tableName", $nim, $data);
 			unset($data);
 			header("location: " . BASEURL . "/Dosen/index");
 		}
@@ -73,6 +80,7 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/terlapor/index", $data);
@@ -83,6 +91,7 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/mahasiswa/index", $data);
