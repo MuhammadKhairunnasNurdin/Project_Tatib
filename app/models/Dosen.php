@@ -43,7 +43,7 @@ class Dosen implements IGetterHistory
 	public function getDosen($username)
 	{
 		$this->db->prepare("SELECT d.nama AS nama, d.NIP AS NIP, k.NIP AS DPA, k.nama AS kelas FROM dosen d 
-    	LEFT OUTER JOIN user u ON d.user_id = u.id_user
+    	LEFT OUTER JOIN [user] u ON d.user_id = u.id_user
 	     LEFT OUTER JOIN kelas k ON k.NIP = d.NIP
 	     WHERE u.username=:username");
 		$this->db->bind(":username", $username);
