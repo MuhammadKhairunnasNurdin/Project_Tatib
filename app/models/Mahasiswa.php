@@ -49,6 +49,6 @@ class Mahasiswa implements IGetterHistory
 	{
 		$this->db->prepare("SELECT * FROM mahasiswa m JOIN user u ON m.user_id = u.id_user WHERE u.username=:username");
 		$this->db->bind(":username", $username);
-		return $this->db->resultSet();
+		return $this->db->single();
 	}
 }

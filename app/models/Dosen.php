@@ -47,7 +47,7 @@ class Dosen implements IGetterHistory
 	     LEFT OUTER JOIN kelas k ON k.NIP = d.NIP
 	     WHERE u.username=:username");
 		$this->db->bind(":username", $username);
-		return $this->db->resultSet();
+		return $this->db->single();
 	}
 
 	public function report($tableName, $nim, $addData = [])
