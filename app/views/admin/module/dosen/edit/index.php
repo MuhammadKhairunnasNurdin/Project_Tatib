@@ -62,7 +62,7 @@
                                     <?php
                                     if (!isset($kls['NIP'])) {
                                     $kelas_id = $kls['id_kelas']?>
-                                    <option name="kelas_id" value="<?=$kelas_id?>"><?=$kls['nama']?></option>
+                                    <option value="<?=$kelas_id?>"><?=$kls['nama']?></option>
                                 <?php } endforeach; ?>
                             </select>
                         </label>

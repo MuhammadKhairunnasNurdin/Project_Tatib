@@ -10,7 +10,7 @@ require_once("Peraturan.php");
 
 class Mahasiswa implements IGetterHistory
 {
-	private Peraturan $object;
+	private Peraturan $peraturan;
 	private Database $db;
 	private FlashMessage $fm;
 
@@ -22,11 +22,12 @@ class Mahasiswa implements IGetterHistory
 	{
 		$this->db = new Database();
 		$this->fm = new FlashMessage();
+		$this->peraturan = new Peraturan();
 	}
 
-	public function getPelanggaran(string $funcName)
+	public function getAllPeraturan(string $funcName, $param)
 	{
-		return $this->object->$funcName();
+		return $this->peraturan->$funcName($param);
 	}
 
 	public function getHistory($additionalData = null): array
@@ -49,6 +50,6 @@ class Mahasiswa implements IGetterHistory
 	{
 		$this->db->prepare("SELECT * FROM mahasiswa m JOIN user u ON m.user_id = u.id_user WHERE u.username=:username");
 		$this->db->bind(":username", $username);
-		return $this->db->resultSet();
+		return $this->db->single();
 	}
 }

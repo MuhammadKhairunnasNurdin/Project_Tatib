@@ -35,9 +35,9 @@ class Dosen extends Controller
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$data['kelas'] = $this->model("Admin")->getAllKelas();
 		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
-		$data['tingkat'] = $this->model("Peraturan")->getAllTingkatan();
-		$data['jenis'] = $this->model("Peraturan")->getAllJenisTingkatan();
-		$data['sanksi'] = $this->model("Peraturan")->getAllSanksi();
+		$data['tingkat'] = $this->model("Dosen")->getAllPeraturan("getAllTingkatan");
+		$data['jenis'] = $this->model("Dosen")->getAllPeraturan("getAllJenisTingkatan");
+		$data['sanksi'] = $this->model("Dosen")->getAllPeraturan("getAllSanksi");
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/laporan/index", $data);
@@ -49,8 +49,8 @@ class Dosen extends Controller
 		$data['title'] = "Dosen";
 		$data['ovf'] = "0";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-		$data['tingkat'] =  $this->model("Peraturan")->getAllTingkatan();
-		$data['jenis'] = $this->model("Peraturan")->getAllJenisFromTingkatan($data['tingkat']);
+		$data['tingkat'] =  $this->model("Dosen")->getAllPeraturan("getAllTingkatan");
+		$data['jenis'] = $this->model("Dosen")->getAllPeraturan("getAllJenisFromTingkatan", $data['tingkat']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/tatib/index", $data);

@@ -40,7 +40,9 @@
             <td><?=$htry['tingkat_pelanggaran']?></td>
             <td><?=$htry['tgl_pelanggaran']?></td>
             <td><?=$htry['tgl_validasi']?></td>
-            <td><a href="#"></a></td>
+            <td>
+                <img src="<?=BASEURL?>/img/check.svg" alt="" width="28" height="28" style="margin: 0 auto 0 20px">
+            </td>
         </tr>
         <?php $id++; endforeach; ?>
     </table>

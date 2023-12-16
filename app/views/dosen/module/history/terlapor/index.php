@@ -120,35 +120,39 @@
                     <div class="card dosen-info">
                         <img class="card-img-top" src="<?= BASEURL ?>/img/kinata.jpg" alt="">
                         <div class="card-body">
-                            <h3 class="card-title">Kinata Dewa Ariandi</h3>
-                            <p class="card-text">2241720087</p>
-                            <p class="card-text">Status : <span class="status-active">Dosen DPA</span></p>
+                            <h3 class="card-title"><?=$data['dosen']['nama']?></h3>
+                            <p class="card-text"><?=$data['dosen']['NIP']?></p>
+	                        <?php if (isset($data['dosen']['DPA'])) { ?>
+                                <p class="card-text">Status : <span class="status-active">Dosen DPA <?=$data['dosen']['kelas']?></span></p>
+	                        <?php } else { ?>
+                                <p class="card-text">Status : <span class="status-active">Dosen non DPA</span></p>
+	                        <?php } ?>
                         </div>
                     </div>
                     <div class="box-pilihan">
-                        <br>
                         <div class="container-flex">
                             <h3 class="mhs-title">Daftar Mahasiswa Terlapor</h3>
                         </div>
-                        </a>
                         <br>
-                        <a href="<?= BASEURL ?>/Dosen/pageKinata" class="box-mhs">
+                        <?php foreach ($data['lapor'] as $lapor) : ?>
+                        <a href="<?= BASEURL ?>/Dosen/pageDetailTerlapor" class="box-mhs">
                             <div class="text-mhs">
                                 <h3 class="mhs-title">TI 3E/Kinata Dewa Ariandi</h3>
                             </div>
                         </a>
                         <br>
-                        <a href="<?= BASEURL ?>/Dosen/pageMahasiswa" class="box-mhs">
-                            <div class="text-mhs">
-                                <h3 class="mhs-title">TI 1E/Aunnur Rofig</h3>
-                            </div>
-                        </a>
-                        <br>
-                        <a href="<?= BASEURL ?>/Dosen/pageTerlapor" class="box-mhs">
-                            <div class="text-mhs">
-                                <h3 class="mhs-title">TI 2A/Andy Nugraha Putra</h3>
-                            </div>
-                        </a>
+                        <?php endforeach; ?>
+<!--                        <a href="--><?//= BASEURL ?><!--/Dosen/pageMahasiswa" class="box-mhs">-->
+<!--                            <div class="text-mhs">-->
+<!--                                <h3 class="mhs-title">TI 1E/Aunnur Rofig</h3>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <br>-->
+<!--                        <a href="--><?//= BASEURL ?><!--/Dosen/pageTerlapor" class="box-mhs">-->
+<!--                            <div class="text-mhs">-->
+<!--                                <h3 class="mhs-title">TI 2A/Andy Nugraha Putra</h3>-->
+<!--                            </div>-->
+<!--                        </a>-->
                     </div>
                 </div>
             </div>
