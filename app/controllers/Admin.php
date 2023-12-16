@@ -81,6 +81,12 @@ class Admin extends Controller
 		}
 	}
 
+	public function editDosen()
+	{
+
+		header("location: " . BASEURL . "/Admin/pageDosen");
+	}
+
 	public function editUser(): void
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -157,6 +163,12 @@ class Admin extends Controller
 			$this->view("admin/module/mahasiswa/edit/index", $data);
 			$this->view("admin/template/footer");
 		}
+	}
+
+	public function editMahasiswa()
+	{
+		// tes push
+		header("location: " . BASEURL . "/Admin/pageMahasiswa");
 	}
 
 	/*Page Validasi*/

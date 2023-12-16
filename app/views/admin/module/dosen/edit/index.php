@@ -57,7 +57,7 @@
                     <div class="mt-1">
                         <label for="dpa" class="form-label">DPA Kelas:
                             <select class="ms-2 btn btn-light dropdown-toggle border" name="kelas_id" id="kelas">
-                                <option value="" selected>Pilih Kelas</option>
+                                <option selected>Pilih Kelas</option>
                                 <?php foreach ($data['kelas'] as $kls) :?>
                                     <?php
                                     if (!isset($kls['NIP'])) {

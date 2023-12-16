@@ -127,8 +127,8 @@
                 <div class="box-content">
                     <form action="<?=BASEURL?>/Dosen/addLaporan" method="post">
                         <div class="mb-3 row">
-                            <label for="id_kelas" class="form-label col-md-3 text-left">Kelas :</label>
-                            <select name="id_kelas" class="kelas" id="id_kelas" onchange="loadMahasiswa()">
+                            <label class="form-label col-md-3 text-left">Kelas :</label>
+                            <select class="kelas" id="id_kelas" onchange='loadMahasiswa(<?=json_encode($data['mahasiswa'])?>)'>
                                 <option value="" selected>Pilih Kelas</option>
 								<?php foreach ($data['kelas'] as $kls): ?>
                                     <option value="<?= $kls['id_kelas'] ?>"><?= $kls['nama'] ?></option>
@@ -138,12 +138,13 @@
                         <div class="mb-3 row">
                             <label for="nama" class="form-label col-md-3 text-left">Nama :</label>
                             <select name="NIM" class="mahasiswa" id="mahasiswa">
-                                <option value="" selected>Pilih Mahasiswa</option>
+                                <option selected>Pilih Mahasiswa</option>
                             </select>
                         </div>
                         <div class="mb-3 row">
                             <label for="tingkat" class="form-label col-md-3 text-left">Pelanggaran :</label>
-                            <select id="tingkat" name="pelanggaran_id" class="pelanggaran" onchange="loadPelanggaran()">
+                            <select id="tingkat" name="pelanggaran_id" class="pelanggaran"
+                                    onchange='loadPelanggaran(<?=json_encode($data['jenis'])?>, <?=json_encode($data['sanksi'])?>)'>
                                 <option value="" selected>Pilih Tingkat Pelanggaran</option>
 								<?php foreach ($data['tingkat'] as $tingkat): ?>
                                     <option value="<?= $tingkat['tingkatan'] ?>"><?= $tingkat['tingkatan'] ?></option>
@@ -165,13 +166,11 @@
                         <div class="mb-3 row">
                             <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input type="file" class="form-control" id="bukti" required style="width: 80%; text-align: center">
+                                <input name="bukti_pelanggaran" type="file" class="form-control" id="bukti" style="width: 80%; text-align: center">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <?php foreach ($data['dosen'] as $dosen): ?>
-                                <input type="hidden" name="NIP" value="<?=$dosen['NIP']?>">
-                            <?php endforeach; ?>
+                                <input type="hidden" name="NIP" value="<?=$data['dosen']['NIP']?>">
                             <button type="submit" class="btn btn-primary" id="button-save">Simpan</button>
                         </div>
                     </form>
@@ -181,12 +180,12 @@
     </div>
 </div>
 <script>
-    function loadMahasiswa() {
+    function loadMahasiswa(mahasiswa) {
         // Mendapatkan elemen dropdown kelas
         var kelasDropdown = document.getElementById("id_kelas");
 
         // Mendapatkan nilai yang dipilih dari dropdown kelas
-        var selectedKelas = kelasDropdown.value;
+        var selectedKelas = Number(kelasDropdown.value);
 
         // Mendapatkan elemen dropdown mahasiswa
         var mahasiswaDropdown = document.getElementById("mahasiswa");
@@ -195,38 +194,26 @@
         mahasiswaDropdown.innerHTML = "";
 
         // Simulasi data mahasiswa berdasarkan kelas (gantilah dengan data dinamis dari server)
-        var mahasiswaData = getMahasiswaData();
+        var mahasiswaData = "";
+        mahasiswaData = mahasiswa;
 
         // Menambahkan opsi mahasiswa ke dropdown
-        mahasiswaData.forEach(function(mahasiswa) {
+        mahasiswaData.forEach(function(mhs) {
             var option = document.createElement("option");
-            if (mahasiswa.kelas === selectedKelas) {
-                option.value = mahasiswa.NIM;
-                option.text = mahasiswa.nama;
+            if (mhs.kelas_id === selectedKelas) {
+                option.value = mhs.NIM;
+                option.text = mhs.nama;
                 mahasiswaDropdown.add(option);
             }
         });
     }
 
-    function getMahasiswaData() {
-        let data = [];
-
-        data = [
-        <?php
-        foreach ($data['mahasiswa'] AS $mhs): ?>
-            {NIM: <?=$mhs['NIM']?>, nama: "<?=$mhs['nama']?>", kelas: "<?=$mhs['kelas_id']?>"},
-        <?php endforeach; ?>
-        ];
-        return data;
-    }
-
-    function loadPelanggaran() {
+    function loadPelanggaran(jenis, sanksi) {
         // Mendapatkan elemen dropdown pelanggaran
         var tingkatDropdown = document.getElementById("tingkat");
 
         // Mendapatkan nilai yang dipilih dari dropdown pelanggaran
         var selectedTingkat = tingkatDropdown.value;
-        console.log(selectedTingkat);
 
         // Mendapatkan elemen dropdown jenis
         var jenisDropdown = document.getElementById("jenis");
@@ -235,12 +222,13 @@
         jenisDropdown.innerHTML = "";
 
         // Simulasi data jenis berdasarkan pelanggaran (gantilah dengan data dinamis dari server)
-        var jenisData = getJenisData();
+        var jenisData = "";
+        jenisData = jenis;
 
         // Menambahkan opsi mahasiswa ke dropdown
         jenisData.forEach(function(jenis) {
             var option = document.createElement("option");
-            if (jenis.tingkat === selectedTingkat) {
+            if (jenis.tingkatan === selectedTingkat) {
                 option.value = jenis.no_jenis;
                 option.text = jenis.jenis;
                 jenisDropdown.add(option);
@@ -251,39 +239,16 @@
 
         sanksiDropdown.innerHTML = "";
 
-        var sanksiData = getSanksiData();
+        var sanksiData = "";
+        sanksiData = sanksi;
 
         sanksiData.forEach(function(sanksi) {
             var option = document.createElement("option");
-            if (sanksi.tingkat === selectedTingkat) {
+            if (sanksi.tingkatan === selectedTingkat) {
                 option.value = sanksi.no_sanksi;
                 option.text = sanksi.sanksi;
                 sanksiDropdown.add(option);
             }
         });
-    }
-
-    function getJenisData() {
-        let data = [];
-
-        data = [
-        <?php
-        foreach ($data['jenis'] AS $jenis): ?>
-            {tingkat: "<?=$jenis['tingkatan']?>", no_jenis: <?=$jenis['no_jenis']?>, jenis: "<?=$jenis['jenis']?>"},
-        <?php endforeach; ?>
-        ];
-        return data;
-    }
-
-    function getSanksiData() {
-        let data = [];
-
-        data = [
-        <?php
-        foreach ($data['sanksi'] AS $sanksi): ?>
-            {tingkat: "<?=$sanksi['tingkatan']?>", no_sanksi: <?=$sanksi['no_sanksi']?>, sanksi: "<?=$sanksi['sanksi']?>"},
-        <?php endforeach; ?>
-        ];
-        return data;
     }
 </script>

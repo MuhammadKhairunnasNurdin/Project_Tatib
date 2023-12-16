@@ -2,8 +2,6 @@
 
 namespace core;
 
-use ReflectionClass;
-
 class Controller
 {
     protected function view($view, $data = []): void
@@ -14,7 +12,7 @@ class Controller
     protected function model($model)
     {
         require_once("../app/models/" . $model . ".php");
-		return new ("models\\" . $model)();
+        return new ("models\\" . $model)();
     }
 
 }

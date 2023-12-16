@@ -228,7 +228,6 @@
         background: #0B2950;
         box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
         cursor: pointer;
-
     }
 </style>
 
@@ -248,71 +247,42 @@
                 <th>Tanggal Pelanggaran</th>
                 <th>Rincian Pelanggaran</th>
             </tr>
+            <?php $id = 1;
+            $data = [
+	            "sanksi" => [
+		            [
+			            'jenis_pelanggaran' => 'Bermain Kartu',
+			            'tingkat_pelanggaran' => 'Tingkat 3',
+			            'tgl_pelanggaran' => '2023-12-12',
+			            'tgl_validasi' => '2023-12-15',
+		            ],
+		            [
+			            'jenis_pelanggaran' => 'Mencuri',
+			            'tingkat_pelanggaran' => 'Tingkat 5',
+			            'tgl_pelanggaran' => '2023-12-10',
+                        'tgl_validasi' => 'NULL',
+		            ]
+	            ]
+            ];
+            foreach ($data['sanksi'] as $sanksi):
+                if ($sanksi['tgl_validasi'] != 'NULL') {
+                    continue;
+                }
+                ?>
             <tr>
-                <td>1</td>
-                <td>Bermain kartu, game online</td>
-                <td>Tingkat 1</td>
-                <td>18 / Okt / 2023</td>
+                <td><?=$id?></td>
+                <td><?=$sanksi['jenis_pelanggaran']?></td>
+                <td><?=$sanksi['tingkat_pelanggaran']?></td>
+                <td><?=$sanksi['tgl_pelanggaran']?></td>
                 <td>
                     <button name="page" type="submit" class="box-sanksi">
-                            <a href="#" class="text-sanksi">
+                            <a href="<?=BASEURL?>/Mahasiswa/rincian" class="text-sanksi">
                                 Cek Disini!
                             </a>
                     </button>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Bermain kartu, game online</td>
-                <td>Tingkat 2</td>
-                <td>18 / Okt / 2023</td>
-                <td>
-                    <button class="box-sanksi">
-                            <a href="#" class="text-sanksi">
-                                Cek Disini!
-                            </a>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Bermain kartu, game online</td>
-                <td>Tingkat 3</td>
-                <td>18 / Okt / 2023</td>
-                <td>
-                    <button class="box-sanksi">
-                            <a href="#" class="text-sanksi">
-                                Cek Disini!
-                            </a>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Bermain kartu, game online</td>
-                <td>Tingkat 4</td>
-                <td>18 / Okt / 2023</td>
-                <td>
-                    <button class="box-sanksi">
-                            <a href="#" class="text-sanksi">
-                                Cek Disini!
-                            </a>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Bermain kartu, game online</td>
-                <td>Tingkat 5</td>
-                <td>18 / Okt / 2023</td>
-                <td>
-                    <button class="box-sanksi">
-                            <a href="#" class="text-sanksi">
-                                Cek Disini!
-                            </a>
-                    </button>
-                </td>
-            </tr>
+            <?php $id++; endforeach; ?>
         </table>
     </div>
 </body>
