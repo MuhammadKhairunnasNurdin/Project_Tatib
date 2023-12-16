@@ -10,8 +10,6 @@ class Database
     private PDO $databaseHandler;
     private mixed $statement;
 
-	public string $dbType;
-
 	public function __construct()
     {
         $option = [
