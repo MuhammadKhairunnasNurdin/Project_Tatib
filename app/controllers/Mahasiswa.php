@@ -49,8 +49,8 @@ class Mahasiswa extends Controller
 	public function tingkat(): void
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$data['tingkatan'] =  $this->model("Peraturan")->getTingkatan($_POST['page']);
-			$data['jenis'] = $this->model("Peraturan")->getJenisTingkatan($data['tingkatan']);
+			$data['tingkatan'] =  $this->model("Mahasiswa")->getAllPeraturan("getTingkatan", $_POST['page']);
+			$data['jenis'] = $this->model("Mahasiswa")->getAllPeraturan("getJenisTingkatan", $data['tingkatan']);
 			$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
 			$data['title'] = "Mahasiswa";
 			$data['tingkatan'] = "Tingkatan " . $_POST['page'];
