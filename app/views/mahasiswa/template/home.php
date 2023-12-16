@@ -16,9 +16,8 @@
             </a>
         </div>
     </div>
-	<?php foreach ($data['mahasiswa'] AS $mhs): ?>
         <div class="welcome-box">
-            <h1 class="welcome-title">Selamat Datang, <?=$mhs['nama']?></h1>
+            <h1 class="welcome-title">Selamat Datang, <?=$data['mahasiswa']['nama']?></h1>
             <p class="welcome-subtitle">Selamat Datang di Website Tata Tertib Mahasiswa Jurusan</p>
             <p style="color: #3D55AB"><b>Teknologi Informasi</b></p>
         </div>
@@ -31,13 +30,12 @@
             </div>
             <div class="card student-info">
                 <img src="<?= BASEURL ?>/img/Andy_Nugraha.jpeg" alt="User" class="student-photo">
-                <h3><?=$mhs['nama']?></h3>
-                <p class="student-id"><?=$mhs['NIM']?></p>
-                <p class="student-location"><?=$mhs['alamat']?></p>
+                <h3><?=$data['mahasiswa']['nama']?></h3>
+                <p class="student-id"><?=$data['mahasiswa']['NIM']?></p>
+                <p class="student-location"><?=$data['mahasiswa']['alamat']?></p>
                 <p class="student-status">Status Anda: <span class="status-active">Mahasiswa Aktif</span></p>
             </div>
         </div>
-	<?php endforeach; ?>
 </main>
 </div>
 </div>
