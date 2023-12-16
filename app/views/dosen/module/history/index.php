@@ -108,24 +108,28 @@
                     <div class="card dosen-info">
                         <img class="card-img-top" src="<?= BASEURL ?>/img/kinata.jpg" alt="">
                         <div class="card-body">
-                            <h3 class="card-title">Kinata Dewa Ariandi</h3>
-                            <p class="card-text">2241720087</p>
-                            <p class="card-text">Status : <span class="status-active">Dosen DPA</span></p>
+                            <h3 class="card-title"><?=$data['dosen']['nama']?></h3>
+                            <p class="card-text"><?=$data['dosen']['NIP']?></p>
+                            <?php if (isset($data['dosen']['DPA'])) { ?>
+                            <p class="card-text">Status : <span class="status-active">Dosen DPA <?=$data['dosen']['kelas']?></span></p>
+                            <?php } else { ?>
+                            <p class="card-text">Status : <span class="status-active">Dosen non DPA</span></p>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="box-pilihan">
                         <br>
                         <div class="container-flex">
-                            <form action="<?=BASEURL?>/Dosen/pageTerlapor">
-                            <button class="box-mhs">
+                            <form action="<?=BASEURL?>/Dosen/pageTerlapor" method="post">
+                            <button class="box-mhs" type="submit" name="NIP" value="<?=$data['dosen']['NIP']?>">
                                 <div class="text-mhs">
                                     <h3 class="mhs-title">Mahasiswa Terlapor</h3>
                                 </div>
                             </button>
                             </form>
                             <br>
-                            <form action="<?=BASEURL?>/Dosen/pageMahasiswa">
-                            <button class="box-mhskelas">
+                            <form action="<?=BASEURL?>/Dosen/pageMahasiswa" method="post">
+                            <button class="box-mhskelas" type="submit" name="kelas" value="<?=$data['dosen']['kelas']?>">
                                 <div class="text-mhskelas">
                                     <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
                                 </div>

@@ -18,32 +18,45 @@
                         </thead>
                         <tbody class="" >
                             <?php
-                            $no = 1;
-                            // query....
-                            // connection database
-                            // $query = "SELECT * FROM jabatan order by id desc";
-                            // $result = mysqli_query($koneksi, $query);
-                            // while ($row = mysqli_fetch_assoc($result)) {
+                            $data = [
+                                    "validasi" => [
+                                        [
+                                            'nama' => 'Lukman Eka Septiawan',
+                                            'kelas' => 'TI 2E',
+                                            'tingkat_pelanggaran' => 'Tingkat 3',
+                                            'tgl_pelanggaran' => '2023-12-02',
+                                        ],
+                                        [
+                                            'nama' => 'Halur Muhammad Abiyyu',
+                                            'kelas' => 'TI 2E',
+                                            'tingkat_pelanggaran' => 'Tingkat 4',
+                                            'tgl_pelanggaran' => '2023-12-12',
+                                        ]
+                                    ]
+                                ];
+                            $id = 1;
+                            foreach ($data['validasi'] AS $vld):
                             ?>
                             <tr class="p-1 inline align-middle" >
-                                <td class="col-1"><?= $no++;?></td>
+                                <td class="col-1"><?= $id++;?></td>
                                 <!-- nama -->
-                                <td class="col-3" >Halur Muhammad Abiyyu 
-                                    <!-- <?=$row ['nama']?> -->
+                                <td class="col-3" >
+                                     <?=$vld['nama']?>
                                 </td>
                                 <!-- kelas -->
-                                <td class="col-1" >TI 2E
-                                    <!-- <?=$row ['kelas']?> -->
+                                <td class="col-1" >
+                                     <?=$vld['kelas']?>
                                 </td>
-                                <td class="col-3" >Tingkat 5
-                                    <!-- <?=$row ['tingkat_pelanggaran']?> -->
+                                <td class="col-3" >
+                                     <?=$vld['tingkat_pelanggaran']?>
                                 </td>
-                                <td class="col-2" >2023-12-01
-                                    <!-- <?=$row ['tanggal']?> -->
+                                <td class="col-2" >
+                                     <?=$vld['tgl_pelanggaran']?>
                                 </td>
                                 <td class="col-2">
                                     <a href="<?=BASEURL?>/Admin/pageDetailValidasi" class="btn btn-dark-blue" name="page" value="validasi/detail-validasi">CEK DETAIL</a>
                                 </td>
+                                <?php $id++; endforeach; ?>
                             </tr>
                         </tbody>
                     </table>
