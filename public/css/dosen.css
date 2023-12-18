@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-    /* header style */
+/* header style */
 
 .container-header-dosen {
     width: 100%;
@@ -318,6 +318,7 @@ body {
     background-color: white;
     padding: 10px;
     justify-content: space-between;
+    height: 60px;
 }
 
 .refresh-logo {
@@ -344,7 +345,6 @@ body {
 }
 
 .content {
-    padding: 5px;
     width: 80%;
     margin: auto;
     height: 50%;
@@ -352,6 +352,7 @@ body {
 }
 
 .box-content {
+    width: 100%;
     border-top: 3px solid #0D3278;
     margin: 0;
     border-radius: 5px;
@@ -576,6 +577,76 @@ body {
 */
 
 
+.box-content-daftar-dosen,
+.box-content-daftar-mhs {
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+}
+
+.table-dosen,
+.table-mhs {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.thead {
+    width: 100%;
+    background-color: white;
+    color: #0D366B;
+    display: flex;
+    border-top: 5px solid #0D366B;
+    border-bottom: 5px solid #0D366B;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.tbody {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    border-bottom: 5px solid #0D366B;
+    border-radius: 0px 0px 5px 5px;
+}
+
+tbody {
+    width: 100%;
+}
+
+th {
+    border-color: #D9D9D9;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+}
+
+td {
+    border-color: #D9D9D9;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+}
+
+.nip {
+    border-left: 0px;
+}
+
+.btn-dark-blue {
+    background-color: #0D366B !important;
+    color: white !important;
+}
+
+.bg-dark-blue {
+    background-color: #0D366B !important;
+    color: white !important;
+}
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;

@@ -163,7 +163,7 @@
       
         <div class="main">
             <div class="logo-container">
-                <img class="logo-jenis-sanksi" src="img\sanksi.svg" alt="Jenis Logo">
+                <img class="logo-jenis-sanksi" src="<?=BASEURL?>/img/sanksi.svg" alt="Jenis Logo">
                 <p class="Text-judul-sanksi">Sanksi</p>
             </div>
 
@@ -174,48 +174,52 @@
             <div class="box-isi">
                 <p>
                 <h1 class="text-sanksi" style="margin-bottom: 15px;">
-                    <b style="color: black">Pelanggaran Tingkat 3,4,5</b>
+                    <b style="color: black">Pelanggaran <?=$data['history']['pelanggaran_id']?></b>
                 </h1>
             </div>
             <div class="box-isi">
                 <a class="bold" style="margin-right: 60px;">Jenis Pelanggaran</a>:
-                <a class="text">Bermain kartu dan game online di area kampus</a>
+                <a class="text"><?=$data['history']['jenis']?></a>
 
             </div>
             <div class="box-isi">
                 <a class="bold" style="margin-right: 40px;">Tingkat Pelanggaran </a>:
-                <a>Tingkat 3</a>
+                <a><?=$data['history']['pelanggaran_id']?></a>
 
             </div>
             <div class="box-isi">
                 <a class="bold" style="margin-right: 49px;">Sanksi Pelanggaran</a>:
-                <a>Kayang 100x</a>
+                <a><?=$data['history']['sanksi']?></a>
             </div>
 
             <div class="box-isi">
                 <a class="bold" style="margin-right: 40px;">Tanggal Pelanggaran</a>:
-                <a>18 / Okt / 2023</a>
+                <a><?=$data['history']['tgl_pelanggaran']?></a>
             </div>
 
             <div class="box-isi">
                 <a class="bold" style="margin-right: 45px; ">Bukti Pelanggaran * </a>:
                 <div class="box-pelanggaran">
+                    <img src="" alt="<?=$data['history']['bukti_pelanggaran']?>">
                 </div>
             </div>
 
-            <div class="box-isi">
-                <a class="bold" style="margin-right: 45px; ">Bukti Kompensasi * </a>:
-                <div class="box-pelanggaran">
+            <form action="<?=BASEURL?>/Mahasiswa/uploadKompensasi" method="post" enctype="multipart/form-data">
+                <div class="box-isi">
+                    <a class="bold" style="margin-right: 45px; ">Bukti Kompensasi * </a>:
+                    <div class="box-pelanggaran">
+                        <input type="file" name="kompensasi" accept=".jpg, .jpeg">
+                    </div>
                 </div>
-            </div>
 
-            <div class="posisi-bukti">
-                <button class="kirim-bukti">
-                    <h1 class="text-bukti">
-                        Kirim Bukti
-                    </h1>
-                </button>
-            </div>
+                <div class="posisi-bukti">
+                    <button type="submit" class="kirim-bukti" name="id_hp" value="<?=$data['history']['id_hp']?>">
+                        <h1 class="text-bukti">
+                            Kirim Bukti
+                        </h1>
+                    </button>
+                </div>
+            </form>
 
             <div class="box-isi">
                 <a class="bold-file" style="margin-right: 45px; ">File Surat Pernyataan </a>
@@ -228,4 +232,3 @@
             </p>
         </div>
     </div>
-<!--</body> -->

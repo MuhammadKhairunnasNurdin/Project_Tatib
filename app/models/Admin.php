@@ -108,9 +108,40 @@ class Admin implements IGetterHistory
 		return $message;
 	}
 
-	public function verification()
+	public function validation($id_hp)
 	{
+		$this->db->prepare("UPDATE history_pelanggaran SET tgl_validasi= CURRENT_DATE WHERE id_hp=:id_hp");
+		$id_hp = $this->db->antiDbInjection($id_hp);
+		$this->db->bind(":id_hp", $id_hp);
+		$isVerificationSuccess = $this->db->execute();
 
+		$message = null;
+		if ($isVerificationSuccess) {
+			$this->fm->message("success", "Validate Complete");
+			$message = $this->fm->getFlashData("success");
+		} else {
+			$this->fm->message("warning", "Validate Error");
+			$message =  $this->fm->getFlashData("warning");
+		}
+		return $message;
+	}
+
+	public function reject($id_hp)
+	{
+		$this->db->prepare("UPDATE history_pelanggaran SET tgl_kompensasi= NULL WHERE id_hp=:id_hp");
+		$id_hp = $this->db->antiDbInjection($id_hp);
+		$this->db->bind(":id_hp", $id_hp);
+		$isVerificationSuccess = $this->db->execute();
+
+		$message = null;
+		if ($isVerificationSuccess) {
+			$this->fm->message("success", "Reject Validate Complete");
+			$message = $this->fm->getFlashData("success");
+		} else {
+			$this->fm->message("warning", "Reject Validate Error");
+			$message =  $this->fm->getFlashData("warning");
+		}
+		return $message;
 	}
 
 	public function getAllDosen(): array
@@ -121,7 +152,7 @@ class Admin implements IGetterHistory
 
 	public function getAllMahasiswa(): array
 	{
-		$this->db->prepare("SELECT m.NIM AS NIM, m.nama, kelas_id, k.nama AS kelas, m.no_telp, m.jenis_kelamin FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
+		$this->db->prepare("SELECT m.NIM AS NIM, m.nama, kelas_id, k.nama AS kelas, m.no_telp, m.jenis_kelamin, id_kelas FROM mahasiswa m INNER JOIN kelas k on k.id_kelas = m.kelas_id");
 		return $this->db->resultSet();
 	}
 
@@ -159,7 +190,23 @@ class Admin implements IGetterHistory
 
 	public function getHistory($additionalData = null): array
 	{
-		$this->db->prepare("SELECT * FROM history_pelanggaran WHERE tgl_validasi IS NULL");
+		$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
+        LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
+        LEFT OUTER JOIN kelas k ON k.id_kelas = m.kelas_id WHERE tgl_validasi IS NULL");
 		return $this->db->resultSet();
+	}
+
+	public function getHistorybyId($additionalData = null): array
+	{
+		$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
+        LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
+        LEFT OUTER JOIN kelas k ON k.id_kelas = m.kelas_id 
+		LEFT OUTER JOIN pelanggaran p ON hp.pelanggaran_id = p.tingkatan
+		LEFT OUTER JOIN jenis_pelanggaran jp ON p.tingkatan = jp.tingkatan
+		LEFT OUTER JOIN sanksi_pelanggaran sp ON p.tingkatan = sp.tingkatan 
+		WHERE id_hp=:id_hp AND hp.no_jenis = jp.no_jenis AND hp.no_sanksi = sp.no_sanksi");
+		$id_hp = $this->db->antiDbInjection($additionalData);
+		$this->db->bind(":id_hp", $id_hp);
+		return $this->db->single();
 	}
 }

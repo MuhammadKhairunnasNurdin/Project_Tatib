@@ -25,11 +25,11 @@
             <div class="card sanction-report">
                 <h2>Laporan Sanksi</h2>
                 <p>Silakan cek tingkatan jenis Pelanggaran di sini:</p>
-                <br><br>
+                <br>
                 <a href="<?=BASEURL?>/Mahasiswa/pageJenisTatib" class="rules-button">Tata Tertib</a>
             </div>
             <div class="card student-info">
-                <img src="<?= BASEURL ?>/img/Andy_Nugraha.jpeg" alt="User" class="student-photo">
+<!--                <img src="--><?//= BASEURL ?><!--/img/Andy_Nugraha.jpeg" alt="User" class="student-photo">-->
                 <h3><?=$data['mahasiswa']['nama']?></h3>
                 <p class="student-id"><?=$data['mahasiswa']['NIM']?></p>
                 <p class="student-location"><?=$data['mahasiswa']['alamat']?></p>

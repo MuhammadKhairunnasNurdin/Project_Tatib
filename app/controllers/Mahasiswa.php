@@ -20,6 +20,7 @@ class Mahasiswa extends Controller
 	{
 		$data['title'] = "Mahasiswa";
 		$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
+		$data['history'] = $this->model("Mahasiswa")->getHistory($data['mahasiswa']['NIM']);
 		$this->view("mahasiswa/template/header", $data);
 		$this->view("mahasiswa/template/menu");
 		$this->view("mahasiswa/module/history/index", $data);
@@ -40,6 +41,7 @@ class Mahasiswa extends Controller
 	{
 		$data['title'] = "Mahasiswa";
 		$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
+		$data['history'] = $this->model("Mahasiswa")->getHistory($data['mahasiswa']['NIM']);
 		$this->view("mahasiswa/template/header", $data);
 		$this->view("mahasiswa/template/menu");
 		$this->view("mahasiswa/module/sanksi/index", $data);
@@ -58,6 +60,36 @@ class Mahasiswa extends Controller
 			$this->view("mahasiswa/template/menu");
 			$this->view("mahasiswa/module/jenistatib/looks/index", $data);
 			$this->view("mahasiswa/template/footer");
+		}
+	}
+
+	public function rincian()
+	{
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$data['title'] = "Mahasiswa";
+			$page = "";
+			if ($_POST['pelanggaran_id'] === "Tingkat 1") {
+				$page = '1';
+			} elseif ($_POST['pelanggaran_id'] === "Tingkat 2") {
+				$page = '2';
+			} else {
+				$page = 'bersama';
+			}
+
+			$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
+			$data['history'] = $this->model("Mahasiswa")->getHistorybyId($_POST['id_hp']);
+			$this->view("mahasiswa/template/header", $data);
+			$this->view("mahasiswa/template/menu");
+			$this->view("mahasiswa/module/sanksi/input/sanksi-" . $page, $data);
+			$this->view("mahasiswa/template/footer");
+		}
+	}
+
+	public function uploadKompensasi()
+	{
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$_SESSION['flashMessage']['upload'] = $this->model("Mahasiswa")->upload($_POST['id_hp']);
+			header("location: " . BASEURL . "/Mahasiswa/pageSanksi");
 		}
 	}
 }

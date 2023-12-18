@@ -2,6 +2,10 @@
                 <div class="validasi-box d-flex bg-white rounded my-2">
                         <img class="ms-2 ps-2" src="<?= BASEURL?>/img/validasi_logo.svg" alt="">    
                         <h1 class="h3 mx-3 my-3" style="color:#0D366B">Validasi</h1>
+                    <?php if (isset($_SESSION['flashMessage']['validate'])) {
+                        echo $_SESSION['flashMessage']['validate'];
+                        unset($_SESSION['flashMessage']['validate']);
+                    }?>
                 </div>
                 <br>
                 <div class="daftar-validasi table-responsive medium bdr-dark-blue rounded border-top border-bottom border-3 mb-1">
@@ -18,27 +22,15 @@
                         </thead>
                         <tbody class="" >
                             <?php
-                            $data = [
-                                    "validasi" => [
-                                        [
-                                            'nama' => 'Lukman Eka Septiawan',
-                                            'kelas' => 'TI 2E',
-                                            'tingkat_pelanggaran' => 'Tingkat 3',
-                                            'tgl_pelanggaran' => '2023-12-02',
-                                        ],
-                                        [
-                                            'nama' => 'Halur Muhammad Abiyyu',
-                                            'kelas' => 'TI 2E',
-                                            'tingkat_pelanggaran' => 'Tingkat 4',
-                                            'tgl_pelanggaran' => '2023-12-12',
-                                        ]
-                                    ]
-                                ];
                             $id = 1;
                             foreach ($data['validasi'] AS $vld):
+                            if (!isset($vld['tgl_kompensasi'])) {
+                                continue;
+                            }
+
                             ?>
                             <tr class="p-1 inline align-middle" >
-                                <td class="col-1"><?= $id++;?></td>
+                                <td class="col-1"><?=$id?></td>
                                 <!-- nama -->
                                 <td class="col-3" >
                                      <?=$vld['nama']?>
@@ -48,13 +40,15 @@
                                      <?=$vld['kelas']?>
                                 </td>
                                 <td class="col-3" >
-                                     <?=$vld['tingkat_pelanggaran']?>
+                                     <?=$vld['pelanggaran_id']?>
                                 </td>
                                 <td class="col-2" >
-                                     <?=$vld['tgl_pelanggaran']?>
+                                     <?=$vld['tgl_kompensasi']?>
                                 </td>
                                 <td class="col-2">
-                                    <a href="<?=BASEURL?>/Admin/pageDetailValidasi" class="btn btn-dark-blue" name="page" value="validasi/detail-validasi">CEK DETAIL</a>
+                                    <form action="<?=BASEURL?>/Admin/pageDetailValidasi" method="post">
+                                        <button class="btn btn-dark-blue" name="id_hp" value="<?=$vld['id_hp']?>">CEK DETAIL</button>
+                                    </form>
                                 </td>
                                 <?php $id++; endforeach; ?>
                             </tr>
