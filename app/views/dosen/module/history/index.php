@@ -22,38 +22,14 @@
         height: 70%;
     }
 
-    .box-content {
-        display: flex;
-    }
 
     .box-pilihan {
-        padding: 20px;
-        margin-right: 20px;
-        width: 60%;
+        width: 80%;
+        margin: 0 auto; /* This line centers the box horizontally */
+        align-items: center;
+        justify-content: center;
     }
 
-    .card.dosen-info {
-        width: 30%;
-        background-color: #0D3278;
-        color: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        font-family: 'Tiro Bangla';
-        font-size: 14px;
-        text-align: center;
-        /* Untuk menengahkan teks di dalam kartu */
-    }
-    .dosen-photo {
-        width: 10%;
-        /* Ukuran gambar dengan lebar 50% dari container */
-        height: auto;
-        object-fit: cover;
-        display: block;
-        /* Membuat gambar menjadi blok untuk mengatur margin secara vertikal */
-        margin: 0 auto;
-        /* Menengahkan gambar secara horizontal */
-        border-radius: 10%;
-    }
 
     .box-mhskelas,
     .box-mhs {
@@ -62,9 +38,7 @@
         background-color: #0D3278;
         color: white;
         border-radius: 20px;
-        padding: 30px;
         padding-top: 5px;
-        align-items: flex-start;
         justify-content: center;
         transition: all 0.3s ease-in-out;
     }
@@ -82,6 +56,13 @@
         font-family: 'tirobangla';
         font-size: 30px;
         justify-content: center;
+    }
+
+    .box-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
 </style>
@@ -105,17 +86,12 @@
         <div>
             <div class="content">
                 <div class="box-content">
-                    <div class="card dosen-info">
-                        <img class="card-img-top" src="<?= BASEURL ?>/img/kinata.jpg" alt="">
-                        <div class="card-body">
-                            <h3 class="card-title"><?=$data['dosen']['nama']?></h3>
-                            <p class="card-text"><?=$data['dosen']['NIP']?></p>
-                            <?php if (isset($data['dosen']['DPA'])) { ?>
-                            <p class="card-text">Status : <span class="status-active">Dosen DPA <?=$data['dosen']['kelas']?></span></p>
-                            <?php } else { ?>
-                            <p class="card-text">Status : <span class="status-active">Dosen non DPA</span></p>
-                            <?php } ?>
-                        </div>
+                    <div class="text-content">
+                        <!-- Kalimat Selamat Datang Dashboard -->
+                        <h3 class="title-content">Selamat Datang, <?= $data['dosen']['nama'] ?>
+                        </h3>
+                        <p class="desc-content">Silahkan Pilih Daftar Mahasiswa</p>
+                        <p class="jurusan">Teknologi Informasi</p>
                     </div>
                     <div class="box-pilihan">
                         <br>
@@ -128,6 +104,7 @@
                             </button>
                             </form>
                             <br>
+                            <?php if ($data['dosen']['DPA'] == $data['dosen']['NIP']) {?>
                             <form action="<?=BASEURL?>/Dosen/pageMahasiswa" method="post">
                             <button class="box-mhskelas" type="submit" name="kelas" value="<?=$data['dosen']['kelas']?>">
                                 <div class="text-mhskelas">
@@ -135,6 +112,7 @@
                                 </div>
                             </button>
                             </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

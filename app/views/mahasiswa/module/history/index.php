@@ -13,35 +13,39 @@
             <th>Validasi</th>
         </tr>
         <?php $id = 1;
-        $data = [
-	        "history" => [
-		        [
-			        'jenis_pelanggaran' => 'Bermain Game',
-			        'tingkat_pelanggaran' => 'Tingkat 3',
-			        'tgl_pelanggaran' => '2023-12-02',
-			        'tgl_validasi' => '2023-12-05',
-		        ],
-		        [
-			        'jenis_pelanggaran' => 'Menggunakan Narkoba',
-			        'tingkat_pelanggaran' => 'Tingkat 1',
-			        'tgl_pelanggaran' => '2023-12-12',
-			        'tgl_validasi' => 'NULL',
-		        ]
-	        ]
-        ];
-        foreach ($data['history'] as $htry):
-            if ($htry['tgl_validasi'] == 'NULL'){
+//        $data = [
+//	        "history" => [
+//		        [
+//			        'jenis_pelanggaran' => 'Bermain Game',
+//			        'tingkat_pelanggaran' => 'Tingkat 3',
+//			        'tgl_pelanggaran' => '2023-12-02',
+//			        'tgl_validasi' => '2023-12-05',
+//		        ],
+//		        [
+//			        'jenis_pelanggaran' => 'Menggunakan Narkoba',
+//			        'tingkat_pelanggaran' => 'Tingkat 1',
+//			        'tgl_pelanggaran' => '2023-12-12',
+//			        'tgl_validasi' => 'NULL',
+//		        ]
+//	        ]
+//        ];
+        foreach ($data['history'] as $hstr):
+            if (!isset($hstr['tgl_kompensasi'])){
                 continue;
             }
             ?>
         <tr>
             <td><?=$id?></td>
-            <td><?=$htry['jenis_pelanggaran']?></td>
-            <td><?=$htry['tingkat_pelanggaran']?></td>
-            <td><?=$htry['tgl_pelanggaran']?></td>
-            <td><?=$htry['tgl_validasi']?></td>
+            <td><?=$hstr['jenis']?></td>
+            <td><?=$hstr['pelanggaran_id']?></td>
+            <td><?=$hstr['tgl_pelanggaran']?></td>
+            <td><?=$hstr['tgl_kompensasi']?></td>
             <td>
-                <img src="<?=BASEURL?>/img/check.svg" alt="" width="28" height="28" style="margin: 0 auto 0 20px">
+                <?php if (isset($hstr['tgl_validasi'])) { ?>
+                    <input type="checkbox" checked disabled>
+                <?php } else { ?>
+                    <input type="checkbox" disabled>
+                <?php } ?>
             </td>
         </tr>
         <?php $id++; endforeach; ?>

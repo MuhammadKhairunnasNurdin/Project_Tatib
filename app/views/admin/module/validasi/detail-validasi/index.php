@@ -27,23 +27,21 @@
                             <h1 class="h6">:</h1>
                         </div>
                         <div class="col-8 text-align-start">
-                            <h1 class="h6">Halur Muhammad Abiyyu</h1>
-                            <h1 class="h6">2341720072</h1>
-                            <h1 class="h6">TI 2E</h1>
-                            <h1 class="h6">TINGKAT 5</h1>
-                            <h1 class="h6">Mengotori atau mencoret-coret meja, kursi, tembok, dll</h1>
-                            <h1 class="h6">Membersihkan meja, kursi, tembok yang telah dikotori</h1>
-                            <h1 class="h6">21 Oktober 2023</h1>
+                            <h1 class="h6"><?=$data['validasi']['nama']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['NIM']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['kelas']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['pelanggaran_id']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['jenis']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['sanksi']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['tgl_pelanggaran']?></h1>
                             <a href="">Bukti Kompen</a>
-                            <div class="d-flex col mt-3">
-                                <div class="d-flex row justify-content-center">
-                                    <div class="col">
-                                        <button class="btn btn-success">Validasi</button>
-                                    </div>
-                                    <div class="col">
-                                        <button class="btn btn-danger">Tolak</button>
-                                    </div>
-                                </div>
+                            <div class="" style="display: flex; gap: 10px">
+                                <form action="<?=BASEURL?>/Admin/validate" method="post">
+                                    <button type="submit" name="id_hp" value="<?=$data['validasi']['id_hp']?>" class="btn btn-success">Validasi</button>
+                                </form>
+                                <form action="<?=BASEURL?>/Admin/rejectValidation" method="post">
+                                    <button type="submit" name="id_hp" value="<?=$data['validasi']['id_hp']?>" class="btn btn-danger">Tolak</button>
+                                </form>
                             </div>
                         </div>
                     </div>

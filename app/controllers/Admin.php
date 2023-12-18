@@ -81,11 +81,6 @@ class Admin extends Controller
 		}
 	}
 
-	public function editDosen()
-	{
-
-		header("location: " . BASEURL . "/Admin/pageDosen");
-	}
 
 	public function editUser(): void
 	{
@@ -165,16 +160,12 @@ class Admin extends Controller
 		}
 	}
 
-	public function editMahasiswa()
-	{
-		// tes push
-		header("location: " . BASEURL . "/Admin/pageMahasiswa");
-	}
 
 	/*Page Validasi*/
 	public function pageValidasi(): void
 	{
 		$data['title'] = "Admin";
+		$data['validasi'] = $this->model("Admin")->getHistory();
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
 		$this->view("admin/module/validasi/index", $data);
@@ -183,10 +174,29 @@ class Admin extends Controller
 
 	public function pageDetailValidasi(): void
 	{
-		$data['title'] = "Admin";
-		$this->view("admin/template/header", $data);
-		$this->view("admin/template/menu");
-		$this->view("admin/module/validasi/detail-validasi/index", $data);
-		$this->view("admin/template/footer");
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$data['title'] = "Admin";
+			$data['validasi'] = $this->model("Admin")->getHistorybyId($_POST['id_hp']);
+			$this->view("admin/template/header", $data);
+			$this->view("admin/template/menu");
+			$this->view("admin/module/validasi/detail-validasi/index", $data);
+			$this->view("admin/template/footer");
+		}
+	}
+
+	public function validate()
+	{
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->validation($_POST['id_hp']);
+			header("location: " . BASEURL . "/Admin/pageValidasi");
+		}
+	}
+
+	public function rejectValidation()
+	{
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->reject($_POST['id_hp']);
+			header("location: " . BASEURL . "/Admin/pageValidasi");
+		}
 	}
 }

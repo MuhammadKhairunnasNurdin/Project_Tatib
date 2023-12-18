@@ -81,6 +81,7 @@ class Dosen extends Controller
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+		$data['lapor'] = $this->model("Dosen")->getHistory($data['dosen']['NIP']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/terlapor/index", $data);
@@ -92,9 +93,37 @@ class Dosen extends Controller
 		$data['title'] = "Dosen";
 		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+		$data['history'] = $this->model("Dosen")->getHistory($data['dosen']['NIP']);
+		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/mahasiswa/index", $data);
 		$this->view("dosen/template/footer");
+	}
+
+	public function pageDetailMahasiswa()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$data['title'] = "Dosen";
+			$data['ovf'] = "1";
+			$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+			$this->view("dosen/template/header", $data);
+			$this->view("dosen/template/menu");
+			$this->view("dosen/module/history/mahasiswa/detail", $data);
+			$this->view("dosen/template/footer");
+		};
+	}
+
+	public function pageDetailTerlapor()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$data['title'] = "Dosen";
+			$data['ovf'] = "1";
+			$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+			$this->view("dosen/template/header", $data);
+			$this->view("dosen/template/menu");
+			$this->view("dosen/module/history/terlapor/detail", $data);
+			$this->view("dosen/template/footer");
+		}
 	}
 }

@@ -133,6 +133,8 @@
 
     .box-sanksi {
         margin-bottom: 12px;
+        color: white;
+        font-size: 20px;
     }
 
     .box-sanksi:hover {
@@ -236,8 +238,11 @@
     <div class="main">
         <div class="logo-container">
             <img class="logo-jenis-sanksi" src="<?= BASEURL ?>/img/sanksi.svg" alt="Jenis Logo">
-            <form action="<?= BASEURL ?>" method="POST">
                 <p class="Text-judul-sanksi">Sanksi</p>
+            <?php if (isset($_SESSION['flashMessage']['upload'])) {
+                echo $_SESSION['flashMessage']['upload'];
+                unset($_SESSION['flashMessage']['upload']);
+            } ?>
         </div>
         <table>
             <tr>
@@ -248,41 +253,23 @@
                 <th>Rincian Pelanggaran</th>
             </tr>
             <?php $id = 1;
-            $data = [
-	            "sanksi" => [
-		            [
-			            'jenis_pelanggaran' => 'Bermain Kartu',
-			            'tingkat_pelanggaran' => 'Tingkat 3',
-			            'tgl_pelanggaran' => '2023-12-12',
-			            'tgl_validasi' => '2023-12-15',
-		            ],
-		            [
-			            'jenis_pelanggaran' => 'Mencuri',
-			            'tingkat_pelanggaran' => 'Tingkat 5',
-			            'tgl_pelanggaran' => '2023-12-10',
-                        'tgl_validasi' => 'NULL',
-		            ]
-	            ]
-            ];
-            foreach ($data['sanksi'] as $sanksi):
-                if ($sanksi['tgl_validasi'] != 'NULL') {
-                    continue;
-                }
-                ?>
-            <tr>
-                <td><?=$id?></td>
-                <td><?=$sanksi['jenis_pelanggaran']?></td>
-                <td><?=$sanksi['tingkat_pelanggaran']?></td>
-                <td><?=$sanksi['tgl_pelanggaran']?></td>
-                <td>
-                    <button name="page" type="submit" class="box-sanksi">
-                            <a href="<?=BASEURL?>/Mahasiswa/rincian" class="text-sanksi">
-                                Cek Disini!
-                            </a>
-                    </button>
-                </td>
-            </tr>
-            <?php $id++; endforeach; ?>
+            foreach ($data['history'] as $sanksi):
+                if ($sanksi['tgl_kompensasi'] === null) {?>
+                    <tr>
+                        <td><?=$id?></td>
+                        <td><?=$sanksi['jenis']?></td>
+                        <td><?=$sanksi['pelanggaran_id']?></td>
+                        <td><?=$sanksi['tgl_pelanggaran']?></td>
+                        <td>
+                            <form action="<?= BASEURL ?>/Mahasiswa/rincian" method="POST">
+                                <input type="hidden" name="pelanggaran_id" value="<?=$sanksi['pelanggaran_id']?>">
+                                <button name="id_hp" type="submit" class="box-sanksi" value="<?=$sanksi['id_hp']?>">
+                                    Cek Disini!
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+            <?php $id++; } endforeach; ?>
         </table>
     </div>
 </body>

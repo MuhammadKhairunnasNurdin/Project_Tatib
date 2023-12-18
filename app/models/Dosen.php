@@ -28,7 +28,8 @@ class Dosen implements IGetterHistory
 	public function getHistory($additionalData = null): array
 	{
 		if (isset($additionalData)) {
-			$this->db->prepare("SELECT * FROM history_pelanggaran WHERE NIP =:NIP");
+			$this->db->prepare("SELECT *, k.nama as kelas, m.nama as nama, k.NIP as DPA FROM history_pelanggaran hp LEFT OUTER JOIN mahasiswa m
+         	ON hp.NIM = m.NIM LEFT OUTER JOIN kelas k ON m.kelas_id = k.id_kelas WHERE hp.NIP =:NIP");
 			$additionalData = $this->db->antiDbInjection($additionalData);
 			$this->db->bind(":NIP", $additionalData);
 			return $this->db->resultSet();
@@ -43,7 +44,7 @@ class Dosen implements IGetterHistory
 
 	public function getDosen($username)
 	{
-		$this->db->prepare("SELECT d.nama AS nama, d.NIP AS NIP, k.NIP AS DPA, k.nama AS kelas FROM dosen d 
+		$this->db->prepare("SELECT d.nama AS nama, d.NIP AS NIP, k.NIP AS DPA, k.nama AS kelas, id_kelas FROM dosen d
     	LEFT OUTER JOIN user u ON d.user_id = u.id_user
 	     LEFT OUTER JOIN kelas k ON k.NIP = d.NIP
 	     WHERE u.username=:username");

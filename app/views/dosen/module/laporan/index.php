@@ -166,11 +166,11 @@
                         <div class="mb-3 row">
                             <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input name="bukti_pelanggaran" type="file" class="form-control" id="bukti" style="width: 80%; text-align: center">
+                                <input name="bukti_pelanggaran" type="file" accept=".jpg, .jpeg, .png" class="form-control" id="bukti" style="width: 80%; text-align: center">
                             </div>
                         </div>
                         <div class="modal-footer">
-                                <input type="hidden" name="NIP" value="<?=$data['dosen']['NIP']?>">
+                            <input type="hidden" name="NIP" value="<?=$data['dosen']['NIP']?>">
                             <button type="submit" class="btn btn-primary" id="button-save">Simpan</button>
                         </div>
                     </form>
