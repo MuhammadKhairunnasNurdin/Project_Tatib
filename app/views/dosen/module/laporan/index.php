@@ -170,7 +170,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                                <input type="hidden" name="NIP" value="<?=$data['dosen']['NIP']?>">
+                            <input type="hidden" name="NIP" value="<?=$data['dosen']['NIP']?>">
                             <button type="submit" class="btn btn-primary" id="button-save">Simpan</button>
                         </div>
                     </form>
