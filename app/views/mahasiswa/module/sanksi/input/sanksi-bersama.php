@@ -1,5 +1,3 @@
-<!--<div class="container-page">-->
-<!--    <div class="row">-->
         <style>
             .logo-container {
                 display: flex;

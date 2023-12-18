@@ -68,7 +68,6 @@
 			<div class="content">
 				<div class="box-content">
 					<div class="card dosen-info">
-<!--						<img class="card-img-top" src="--><?//= BASEURL ?><!--/img/kinata.jpg" alt="">-->
 						<div class="card-body">
 							<h3 class="card-title">Kinata Dewa Ariandi</h3>
 							<p class="card-text">2241720087</p>

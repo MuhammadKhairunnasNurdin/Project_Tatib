@@ -78,41 +78,7 @@
 			            <?php } endforeach; ?>
                     </form>
                 </div>
-<!--                <div class="box-content">-->
-<!--                    <div class="card dosen-info">-->
-<!--                        <img class="card-img-top" src="--><?////= BASEURL ?><!--/img/kinata.jpg" alt="">-->
-<!--                        <div class="card-body">-->
-<!--                            <h3 class="card-title">--><?//=$data['dosen']['nama']?><!--</h3>-->
-<!--                            <p class="card-text">--><?//=$data['dosen']['NIP']?><!--</p>-->
-<!--	                        --><?php //if (isset($data['dosen']['DPA'])) { ?>
-<!--                                <p class="card-text">Status : <span class="status-active">Dosen DPA --><?//=$data['dosen']['kelas']?><!--</span></p>-->
-<!--	                        --><?php //} else { ?>
-<!--                                <p class="card-text">Status : <span class="status-active">Dosen non DPA</span></p>-->
-<!--	                        --><?php //} ?>
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="box-pilihan">-->
-<!--                        <br>-->
-<!--                        <div class="container-flex">-->
-<!--                            <h3 class="mhs-title">Daftar Mahasiswa Kelas</h3>-->
-<!--                        </div>-->
-<!--                        <br>-->
-<!--                        --><?php //foreach ($data['mahasiswa'] as $mhs):
-//                            if ($mhs['id_kelas'] == $data['dosen']['id_kelas']) {
-//                            ?>
-<!--                                <form action="--><?//= BASEURL ?><!--/Dosen/pageDetailMahasiswa" method="post">-->
-<!--                                    <button type="submit" name="id_hp" value="--><?//=$mhs['NIM']?><!--" class="box-mhs">-->
-<!--                                        <div class="text-mhs">-->
-<!--                                            <h3 class="mhs-title">--><?//=$mhs['kelas']?><!--/--><?//=$mhs['nama']?><!--</h3>-->
-<!--                                        </div>-->
-<!--                                    </button>-->
-<!--                                </form>-->
-<!--                        <br>-->
-<!--                        --><?php //} endforeach; ?>
-<!--                    </div>-->
-<!--                </div>-->
             </div>
         </div>
     </div>
-</div>
 </div>

@@ -13,8 +13,8 @@ class HistoryPelanggaran extends Controller
 		if ($_SERVER['REQUEST_METHOD' === 'POST']) {
 			$implementor = $_POST['implementor'];
 
-			$fileName = "../app/models/$implementor.php";
-			require_once("$fileName");
+//			$fileName = "../app/models/$implementor.php";
+//			require_once("$fileName");
 			$this->history =  $this->model($implementor);
 			$_SESSION['history'][$implementor]= $this->history->getHistory();
 			header("Location: " . BASEURL . "/$implementor/pageHistory");
