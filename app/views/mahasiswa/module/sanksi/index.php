@@ -254,7 +254,7 @@
             </tr>
             <?php $id = 1;
             foreach ($data['history'] as $sanksi):
-                if ($sanksi['tgl_kompensasi'] === null) {?>
+                if ($sanksi['tgl_penyelesaian'] === null) {?>
                     <tr>
                         <td><?=$id?></td>
                         <td><?=$sanksi['jenis']?></td>
