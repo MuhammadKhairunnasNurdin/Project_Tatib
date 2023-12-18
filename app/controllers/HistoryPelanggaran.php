@@ -16,7 +16,7 @@ class HistoryPelanggaran extends Controller
 //			$fileName = "../app/models/$implementor.php";
 //			require_once("$fileName");
 			$this->history =  $this->model($implementor);
-			$_SESSION['history'][$implementor]= $this->history->getHistory();
+			$_SESSION['history'][$implementor]= $this->history->getAllHistory();
 			header("Location: " . BASEURL . "/$implementor/pageHistory");
 		}
 	}

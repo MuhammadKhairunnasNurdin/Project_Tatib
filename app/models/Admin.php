@@ -183,7 +183,7 @@ class Admin implements IGetterHistory
 		return $this->db->resultSet();
 	}
 
-	public function getHistory($additionalData = null): array
+	public function getAllHistory($additionalData = null): array
 	{
 		$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
         LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
@@ -191,7 +191,7 @@ class Admin implements IGetterHistory
 		return $this->db->resultSet();
 	}
 
-	public function getHistorybyId($additionalData = null): array
+	public function getHistoryById($additionalData = null): array
 	{
 		$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
         LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM

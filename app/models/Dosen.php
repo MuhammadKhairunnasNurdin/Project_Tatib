@@ -25,7 +25,7 @@ class Dosen implements IGetterHistory
 		$this->peraturan = new Peraturan();
 	}
 
-	public function getHistory($additionalData = null): array
+	public function getAllHistory($additionalData = null): array
 	{
 		if (isset($additionalData)) {
 			$this->db->prepare("SELECT *, k.nama as kelas, m.nama as nama, k.NIP as DPA FROM history_pelanggaran hp LEFT OUTER JOIN mahasiswa m
@@ -33,6 +33,21 @@ class Dosen implements IGetterHistory
 			$additionalData = $this->db->antiDbInjection($additionalData);
 			$this->db->bind(":NIP", $additionalData);
 			return $this->db->resultSet();
+		}
+		return [];
+	}
+
+	public function getHistoryById($additionalData = null): array
+	{
+		if (isset($additionalData)) {
+			$this->db->prepare("SELECT * FROM history_pelanggaran hp 
+    		LEFT OUTER JOIN pelanggaran p ON hp.pelanggaran_id = p.tingkatan
+         	LEFT OUTER JOIN jenis_pelanggaran jp ON p.tingkatan = jp.tingkatan 
+         	LEFT OUTER JOIN sanksi_pelanggaran sp ON sp.tingkatan = jp.tingkatan 
+         	WHERE id_hp =:id_hp AND hp.no_jenis = jp.no_jenis AND hp.no_sanksi = sp.no_sanksi");
+			$additionalData = $this->db->antiDbInjection($additionalData);
+			$this->db->bind(":id_hp", $additionalData);
+			return $this->db->single();
 		}
 		return [];
 	}
