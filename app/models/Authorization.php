@@ -50,9 +50,10 @@ class Authorization
 		$inputPassword = $password . $salt;
 		/*checking with hash() method wit algorithm sha256, cause in our
 		database, password is hashed with sha2_256, and to check that we
-		can't use password verify() method with default hash algorithm*/
+		can't use password verify() method with default hash algorithm,
+		and we use hash_equal method so comparing string hash will be safe*/
 		$inputPassword = hash("sha256", $inputPassword, true);
-		if (!($userPassword === $inputPassword)){
+		if (!(hash_equals($userPassword, $inputPassword))){
 			$this->fm->message("danger", "Password is Wrong");
 			$controller = "Authorization";
 			$method = "index";

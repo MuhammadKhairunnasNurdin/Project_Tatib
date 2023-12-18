@@ -153,4 +153,24 @@ class Database
 		}
 		return $this->execute();
 	}
+
+	public function storeImage($imageData): string
+	{
+		$fileName = $imageData['name'];
+		$tempFileName = $imageData['tmp_name'];
+		$newFileName = uniqid();
+
+		$isExtensionValid = ['jpg', 'jpeg', '.png', '.gif'];
+		$userImageExtension = explode('.', $fileName);
+		$userImageExtension = strtolower(end($userImageExtension));
+
+		if (in_array($userImageExtension, $isExtensionValid)) {
+			$newFileName = uniqid();
+			$newFileName = $newFileName . "." .  $userImageExtension;
+			$targetUpload = $_SERVER['DOCUMENT_ROOT'] . "/Project_Tatib/public/img/storeImgUser/" . $newFileName;
+
+			move_uploaded_file($tempFileName, $targetUpload);
+		}
+		return $newFileName;
+	}
 }
