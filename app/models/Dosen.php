@@ -54,8 +54,9 @@ class Dosen implements IGetterHistory
 	public function report($tableName, $nim, $addData = [])
 	{
 		$isInsertSuccess = null;
+		$buktiData = $addData['bukti_pelanggaran'];
+		$addData['bukti_pelanggaran'] =  $this->db->storeImage($buktiData);
 
-//		$addData['user_id'] = intval($this->db->lastInsertId());
 		$isInsertSuccess = $this->db->inserts($tableName, $addData);
 
 		$message = null;

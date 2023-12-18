@@ -125,7 +125,7 @@
         <div>
             <div class="content mt-5">
                 <div class="box-content">
-                    <form action="<?=BASEURL?>/Dosen/addLaporan" method="post">
+                    <form action="<?=BASEURL?>/Dosen/addLaporan" method="post" enctype="multipart/form-data">
                         <div class="mb-3 row">
                             <label class="form-label col-md-3 text-left">Kelas :</label>
                             <select class="kelas" id="id_kelas" onchange='loadMahasiswa(<?=json_encode($data['mahasiswa'])?>)'>
@@ -166,7 +166,7 @@
                         <div class="mb-3 row">
                             <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input name="bukti_pelanggaran" type="file" class="form-control" id="bukti" style="width: 80%; text-align: center">
+                                <input name="bukti_pelanggaran" type="file" accept=".jpeg, .jpg, .png, .gif" class="form-control" id="bukti" style="width: 80%; text-align: center">
                             </div>
                         </div>
                         <div class="modal-footer">

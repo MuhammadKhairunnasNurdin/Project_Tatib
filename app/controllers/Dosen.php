@@ -64,6 +64,14 @@ class Dosen extends Controller
 			$data = [];
 			$tableName = "history_pelanggaran";
 
+			if (isset($_FILES['bukti_pelanggaran'])) {
+				$imageData = [
+					'name' => $_FILES['bukti_pelanggaran']['name'],
+					'tmp_name' => $_FILES['bukti_pelanggaran']['tmp_name']
+				];
+				$data['bukti_pelanggaran'] = $imageData;
+			}
+
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
