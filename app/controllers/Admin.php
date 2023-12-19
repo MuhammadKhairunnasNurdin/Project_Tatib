@@ -70,7 +70,10 @@ class Admin extends Controller
 	public function editDosenPage(): void
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
-			$NIP = $_POST['NIP'];
+			$_SESSION['editDosen']['NIP'] = $_POST['NIP'];
+			header("location: " . BASEURL . "/Admin/editDosenPage");
+		} else {
+			$NIP = $_SESSION['editDosen']['NIP'];
 			$data['dosen'] = $this->model("Admin")->getDosen($NIP);
 			$data['kelas'] = $this->model("Admin")->getAllKelas();
 			$data['title'] = "Admin";
@@ -86,6 +89,7 @@ class Admin extends Controller
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$data = [];
+			$dataKelas = [];
 
 			/*receive data that non updateData and unset that*/
 			$userLevel = $_POST['userLevel'];
@@ -102,6 +106,16 @@ class Admin extends Controller
 			unset($_POST['password']);
 			unset($_POST["conditionFk"]);
 
+			if (isset($_POST["NIP"]) AND isset($_POST["kelas_id"])) {
+				$dataKelas = [
+					'NIP' => $_POST["NIP"],
+					'id_kelas' => $_POST["kelas_id"]
+				];
+
+				$this->model("Admin")->editKelas("kelas", $dataKelas);
+				unset($_POST["NIP"]);
+				unset($_POST["kelas_id"]);
+			}
 
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
@@ -149,7 +163,10 @@ class Admin extends Controller
 	public function editMahasiswaPage()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
-			$NIM = $_POST['NIM'];
+			$_SESSION['editMahasiswa']['NIM'] = $_POST['NIM'];
+			header("location: " . BASEURL . "/Admin/editMahasiswaPage");
+		} else {
+			$NIM = $_SESSION['editMahasiswa']['NIM'];
 			$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
 			$data['kelas'] = $this->model("Admin")->getAllKelas();
 			$data['title'] = "Admin";
@@ -165,7 +182,7 @@ class Admin extends Controller
 	public function pageValidasi(): void
 	{
 		$data['title'] = "Admin";
-		$data['validasi'] = $this->model("Admin")->getHistory();
+		$data['validasi'] = $this->model("Admin")->getAllHistory();
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
 		$this->view("admin/module/validasi/index", $data);
@@ -176,7 +193,12 @@ class Admin extends Controller
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$data['title'] = "Admin";
+			$_SESSION['pageValidasi']['id_hp'] = $_POST['id_hp'];
 			$data['validasi'] = $this->model("Admin")->getHistorybyId($_POST['id_hp']);
+			header("location: " . BASEURL . "/Admin/pageDetailValidasi");
+		} else {
+			$data['title'] = "Admin";
+			$data['validasi'] = $this->model("Admin")->getHistorybyId($_SESSION['pageValidasi']['id_hp']);
 			$this->view("admin/template/header", $data);
 			$this->view("admin/template/menu");
 			$this->view("admin/module/validasi/detail-validasi/index", $data);

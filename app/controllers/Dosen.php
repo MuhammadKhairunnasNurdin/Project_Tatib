@@ -9,7 +9,6 @@ class Dosen extends Controller
 	public function index()
 	{
 		$data['title'] = "Dosen";
-		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
@@ -20,7 +19,6 @@ class Dosen extends Controller
 	public function pageHistory()
 	{
 		$data['title'] = "Dosen";
-		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
@@ -31,7 +29,6 @@ class Dosen extends Controller
 	public function pageLaporan()
 	{
 		$data['title'] = "Dosen";
-		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$data['kelas'] = $this->model("Admin")->getAllKelas();
 		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
@@ -47,7 +44,6 @@ class Dosen extends Controller
 	public function pageTatib()
 	{
 		$data['title'] = "Dosen";
-		$data['ovf'] = "0";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
 		$data['tingkat'] =  $this->model("Dosen")->getAllPeraturan("getAllTingkatan");
 		$data['jenis'] = $this->model("Dosen")->getAllPeraturan("getAllJenisFromTingkatan", $data['tingkat']);
@@ -87,9 +83,8 @@ class Dosen extends Controller
 	public function pageTerlapor()
 	{
 		$data['title'] = "Dosen";
-		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-		$data['lapor'] = $this->model("Dosen")->getHistory($data['dosen']['NIP']);
+		$data['lapor'] = $this->model("Dosen")->getAllHistory($data['dosen']['NIP']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/terlapor/index", $data);
@@ -99,9 +94,8 @@ class Dosen extends Controller
 	public function pageMahasiswa()
 	{
 		$data['title'] = "Dosen";
-		$data['ovf'] = "1";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-		$data['history'] = $this->model("Dosen")->getHistory($data['dosen']['NIP']);
+		$data['history'] = $this->model("Dosen")->getAllHistory($data['dosen']['NIP']);
 		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
@@ -112,22 +106,30 @@ class Dosen extends Controller
 	public function pageDetailMahasiswa()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$_SESSION['pageMhs']['NIM'] = $_POST['NIM'];
+			header("location: " . BASEURL . "/Dosen/pageDetailMahasiswa");
+		} else {
 			$data['title'] = "Dosen";
-			$data['ovf'] = "1";
+			$NIM = $_SESSION['pageMhs']['NIM'];
 			$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+			$data['mahasiswa'] = $this->model("Mahasiswa")->getAllHistory($NIM);
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");
 			$this->view("dosen/module/history/mahasiswa/detail", $data);
 			$this->view("dosen/template/footer");
-		};
+		}
 	}
 
 	public function pageDetailTerlapor()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$_SESSION['pageTerlapor']['NIM'] = $_POST['NIM'];
+			header("location: " . BASEURL . "/Dosen/pageDetailTerlapor");
+		} else {
 			$data['title'] = "Dosen";
-			$data['ovf'] = "1";
+			$NIM = $_SESSION['pageTerlapor']['NIM'];
 			$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+			$data['mahasiswa'] = $this->model("Mahasiswa")->getAllHistory($NIM);
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");
 			$this->view("dosen/module/history/terlapor/detail", $data);
