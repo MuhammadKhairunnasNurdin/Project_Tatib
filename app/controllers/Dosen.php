@@ -80,11 +80,11 @@ class Dosen extends Controller
 		}
 	}
 
-	public function pageTerlapor()
+	public function pageDosenHistory()
 	{
 		$data['title'] = "Dosen";
-		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-		$data['lapor'] = $this->model("Dosen")->getAllHistory($data['dosen']['NIP']);
+		$data['lapor'] = $_SESSION['history']['Dosen'];
+		unset($_SESSION['history']['Dosen']);
 		$this->view("dosen/template/header", $data);
 		$this->view("dosen/template/menu");
 		$this->view("dosen/module/history/terlapor/index", $data);

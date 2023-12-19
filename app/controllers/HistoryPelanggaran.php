@@ -4,20 +4,21 @@ namespace controllers;
 
 use core\Controller;
 
+//require_once("../app/models/IGetterHistory.php");
+
 class HistoryPelanggaran extends Controller
 {
 	private \models\IGetterHistory $history;
 
-	public function history(): void
+	public function allHistory(): void
 	{
-		if ($_SERVER['REQUEST_METHOD' === 'POST']) {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$implementor = $_POST['implementor'];
+			$data = $_POST['data'];
 
-//			$fileName = "../app/models/$implementor.php";
-//			require_once("$fileName");
 			$this->history =  $this->model($implementor);
-			$_SESSION['history'][$implementor]= $this->history->getAllHistory();
-			header("Location: " . BASEURL . "/$implementor/pageHistory");
+			$_SESSION['history'][$implementor]= $this->history->getAllHistory($data);
+			header("Location: " . BASEURL . "/$implementor/page" . $implementor . "History");
 		}
 	}
 }
