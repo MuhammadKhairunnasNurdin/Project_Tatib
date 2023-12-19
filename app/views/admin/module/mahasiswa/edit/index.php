@@ -77,7 +77,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>" readonly>
+                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
