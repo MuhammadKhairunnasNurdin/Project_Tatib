@@ -1,22 +1,30 @@
 <style>
+    .content-laporan {
+        font-family: 'tirobangla';
+    }
+
+    .box-title {
+        font-size: 12px;
+        width: 80%;
+        /* Adjust width */
+        height: 70px;
+        /* Adjust height */
+        margin: 0 auto;
+        /* Center horizontally */
+        font-family: 'tirobangla';
+    }
+
+    .dashboard-box {
+        padding: 10px;
+    }
+
     .content {
-        width: 100%;
+        padding: 5px;
+        width: 80%;
         margin: auto;
-        height: auto;
-        margin-left: 100px;
-
-    }
-
-    .box-content {
-        display: flex;
-        width: 950px;
-    }
-
-    .box-pilihan {
-        width: 100%;
-        /* Menggunakan 100% untuk mengisi seluruh lebar box-content */
-        padding: 20px;
-        margin-right: 20px;
+        height: 100%;
+        height: 500px;
+        overflow-y: auto;
     }
 
     .box-mhs {
@@ -39,6 +47,25 @@
         font-family: 'tirobangla';
         font-size: 20px;
         /* Mengurangi ukuran font agar sesuai dengan box-mhs */
+    }
+
+    .no {
+        width: 3%;
+    }
+    .jenis {
+        width: 45%;
+    }
+    .tingkat {
+        width: 7%;
+    }
+    .tanggal {
+        width: 8%;
+    }
+    .dosen {
+        width: 15%;
+    }
+    .rincian {
+        width: 5%;
     }
 
     #example thead th {
@@ -67,14 +94,6 @@
 		<div>
 			<div class="content">
 				<div class="box-content">
-					<div class="card dosen-info">
-<!--						<img class="card-img-top" src="--><?//= BASEURL ?><!--/img/kinata.jpg" alt="">-->
-						<div class="card-body">
-							<h3 class="card-title">Kinata Dewa Ariandi</h3>
-							<p class="card-text">2241720087</p>
-							<p class="card-text">Status : <span class="status-active">Dosen DPA</span></p>
-						</div>
-					</div>
 					<div class="box-pilihan">
 						<div class="container-flex">
 							<div class="box-mhs">
@@ -87,32 +106,31 @@
 						       style="width:100%; font-family:tirobangla">
 							<thead>
 							<tr>
-								<th>No</th>
-								<th>Jenis Pelanggaran</th>
-								<th>Tingkat</th>
-								<th>Tanggal</th>
-								<th>Dosen Pelapor</th>
-								<th>Rincian</th>
+								<th class="no">No</th>
+								<th class="jenis">Jenis Pelanggaran</th>
+								<th class="tingkat">Tingkat</th>
+								<th class="tanggal">Tanggal</th>
+								<th class="tanggal">Dosen Pelapor</th>
+								<th class="rincian">Rincian</th>
 							</tr>
 							</thead>
 							<tbody>
+                            <?php $id=1; foreach ($data['mahasiswa'] as $mhs): ?>
 							<tr>
-								<td>1</td>
-								<td>Mengotori atau mencoret-coret meja, kursi, tembok, dan lain-lain di lingkungan
-									Polinema</td>
-								<td>4</td>
-								<td>25 Oktober 2024</td>
-								<td>Sri Rahayu St.Mt</td>
-								<td class="verifikasi-button">Verifikasi</td>
+								<td class="no"><?=$id?></td>
+								<td class="jenis"><?=$mhs['jenis']?></td>
+								<td class="tingkat"><?=$mhs['pelanggaran_id']?></td>
+								<td class="tanggal"><?=$mhs['tgl_pelanggaran']?></td>
+								<td class="dosen"><?=$mhs['dosen']?></td>
+                                <td class="rincian">
+	                                <?php if (isset($mhs['tgl_validasi'])) { ?>
+                                        <input type="checkbox" checked disabled>
+	                                <?php } else { ?>
+                                        <input type="checkbox" disabled>
+	                                <?php } ?>
+                                </td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Bermain kartu, game online di area kampus</td>
-								<td>3</td>
-								<td>Joko st.Mt</td>
-								<td>02 November 2024</td>
-								<td>Sanksi</td>
-							</tr>
+                            <?php $id++; endforeach; ?>
 							</tbody>
 						</table>
 					</div>

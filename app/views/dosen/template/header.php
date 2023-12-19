@@ -10,11 +10,13 @@
     <style>
         /* CSS untuk styling */
 
-        <?php if ($data['ovf'] == 0) {?>
-            * {
+        * {
+            overflow: hidden;
+        }
+
+        .row {
                 overflow-y: auto;
             }
-        <?php } ?>
         .profile {
             position: relative;
             display: inline-block;

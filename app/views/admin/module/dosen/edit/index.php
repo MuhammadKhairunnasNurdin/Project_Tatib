@@ -92,6 +92,7 @@
                             <input type="hidden" name="userLevel" value="dosen">
                             <input type="hidden" name="condition" value="<?=$dosen['nama']?>">
                             <input type="hidden" name="conditionFk" value="<?=$dosen['user_id']?>">
+                            <input type="hidden" name="NIP" value="<?=$dosen['NIP']?>">
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>

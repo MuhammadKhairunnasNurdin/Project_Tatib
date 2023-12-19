@@ -30,7 +30,7 @@
 //	        ]
 //        ];
         foreach ($data['history'] as $hstr):
-            if (!isset($hstr['tgl_kompensasi'])){
+            if (!isset($hstr['tgl_penyelesaian'])){
                 continue;
             }
             ?>
@@ -39,7 +39,7 @@
             <td><?=$hstr['jenis']?></td>
             <td><?=$hstr['pelanggaran_id']?></td>
             <td><?=$hstr['tgl_pelanggaran']?></td>
-            <td><?=$hstr['tgl_kompensasi']?></td>
+            <td><?=$hstr['tgl_penyelesaian']?></td>
             <td>
                 <?php if (isset($hstr['tgl_validasi'])) { ?>
                     <input type="checkbox" checked disabled>

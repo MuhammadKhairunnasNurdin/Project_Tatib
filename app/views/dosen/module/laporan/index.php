@@ -123,7 +123,7 @@
             </div>
         </div>
         <div>
-            <div class="content mt-5">
+            <div class="content mt-5" style="background-color: rgba(0, 0, 0, 0)">
                 <div class="box-content">
                     <form action="<?=BASEURL?>/Dosen/addLaporan" method="post" enctype="multipart/form-data">
                         <div class="mb-3 row">
