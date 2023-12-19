@@ -4,5 +4,7 @@ namespace models;
 
 interface IGetterHistory
 {
-	public function getHistory($additionalData= null): array;
+	public function getAllHistory($additionalData= null): array;
+
+	public function getHistoryById($additionalData = null): array;
 }

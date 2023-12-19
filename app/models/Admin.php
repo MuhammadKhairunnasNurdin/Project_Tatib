@@ -60,6 +60,27 @@ class Admin implements IGetterHistory
 		return $message;
 	}
 
+	public function editKelas($tableName, $editData)
+	{
+		$isUpdateSuccess = null;
+		$value = [
+			'NIP' => $editData['NIP']
+		];
+
+		$conditionEdit = "id_kelas = '" . $editData['id_kelas'] . "'";
+
+		$isUpdateSuccess = $this->db->updates("kelas", $value, $conditionEdit);
+		$message = null;
+		if ($isUpdateSuccess) {
+			$this->fm->message("success", "update data kelas");
+			$message = $this->fm->getFlashData("success");
+		} else {
+			$this->fm->message("warning", "error occur in update data kelas");
+			$message =  $this->fm->getFlashData("warning");
+		}
+		return $message;
+	}
+
 	public function add($tableName, $addData = [], $fkData = [])
 	{
 		$isInsertFkSuccess = null;
@@ -183,7 +204,7 @@ class Admin implements IGetterHistory
 		return $this->db->resultSet();
 	}
 
-	public function getHistory($additionalData = null): array
+	public function getAllHistory($additionalData = null): array
 	{
 		$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
         LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
@@ -191,7 +212,7 @@ class Admin implements IGetterHistory
 		return $this->db->resultSet();
 	}
 
-	public function getHistorybyId($additionalData = null): array
+	public function getHistoryById($additionalData = null): array
 	{
 		$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
         LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
