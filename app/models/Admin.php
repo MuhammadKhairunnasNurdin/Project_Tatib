@@ -60,6 +60,27 @@ class Admin implements IGetterHistory
 		return $message;
 	}
 
+	public function editKelas($tableName, $editData)
+	{
+		$isUpdateSuccess = null;
+		$value = [
+			'NIP' => $editData['NIP']
+		];
+
+		$conditionEdit = "id_kelas = '" . $editData['id_kelas'] . "'";
+
+		$isUpdateSuccess = $this->db->updates("kelas", $value, $conditionEdit);
+		$message = null;
+		if ($isUpdateSuccess) {
+			$this->fm->message("success", "update data kelas");
+			$message = $this->fm->getFlashData("success");
+		} else {
+			$this->fm->message("warning", "error occur in update data kelas");
+			$message =  $this->fm->getFlashData("warning");
+		}
+		return $message;
+	}
+
 	public function add($tableName, $addData = [], $fkData = [])
 	{
 		$isInsertFkSuccess = null;

@@ -70,7 +70,7 @@
                 <div class="list-group list-group-light">
 	                <?php foreach ($data['lapor'] as $lapor) : ?>
                         <form action="<?= BASEURL ?>/Dosen/pageDetailTerlapor" method="post">
-                            <button class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2">
+                            <button type="submit" class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2" name="NIM" value="<?=$lapor['NIM']?>">
                                 <?=$lapor['kelas']?>/<?=$lapor['nama']?>
                             </button>
                         </form>

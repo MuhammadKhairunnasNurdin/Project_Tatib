@@ -1,22 +1,30 @@
 <style>
+    .content-laporan {
+        font-family: 'tirobangla';
+    }
+
+    .box-title {
+        font-size: 12px;
+        width: 80%;
+        /* Adjust width */
+        height: 70px;
+        /* Adjust height */
+        margin: 0 auto;
+        /* Center horizontally */
+        font-family: 'tirobangla';
+    }
+
+    .dashboard-box {
+        padding: 10px;
+    }
+
     .content {
-        width: 100%;
+        padding: 5px;
+        width: 80%;
         margin: auto;
-        height: auto;
-        margin-left: 100px;
-
-    }
-
-    .box-content {
-        display: flex;
-        width: 950px;
-    }
-
-    .box-pilihan {
-        width: 100%;
-        /* Menggunakan 100% untuk mengisi seluruh lebar box-content */
-        padding: 20px;
-        margin-right: 20px;
+        height: 100%;
+        height: 500px;
+        overflow-y: auto;
     }
 
     .box-mhs {
@@ -40,14 +48,41 @@
         font-size: 20px;
         /* Mengurangi ukuran font agar sesuai dengan box-mhs */
     }
+    .table-container {
+        max-height: 400px; /* Set the desired height for the scrollable area */
+        overflow-y: auto;
+    }
+
+    .no {
+        width: 3%;
+    }
+    .jenis {
+        width: 45%;
+    }
+    .tingkat {
+        width: 7%;
+    }
+    .tanggal {
+        width: 8%;
+    }
+    .rincian {
+        width: 5%;
+    }
 
     #example thead th {
         background-color: #0D3278;
         color: white;
+        font-family: 'tirobangla';
+        width: fit-content;
     }
+
+    table {
+        font-family: 'tirobangla';
+    }
+
 </style>
 
-<div class="main col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<div class="main col-md-6 ms-sm-auto col-lg-10 px-md-4">
     <div class="content-laporan">
         <div class="dashboard-box">
             <div class="box-title">
@@ -75,35 +110,37 @@
                                 </div>
                             </div>
                         </div>
-                        <table id="example" class="table table-striped table-bordered"
-                               style="width:100%; font-family:tirobangla">
-                            <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Jenis Pelanggaran</th>
-                                <th>Tingkat</th>
-                                <th>Tanggal</th>
-                                <th>Rincian</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mengotori atau mencoret-coret meja, kursi, tembok, dan lain-lain di lingkungan
-                                    Polinema</td>
-                                <td>4</td>
-                                <td>25 Oktober 2024</td>
-                                <td class="verifikasi-button">Verifikasi</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Bermain kartu, game online di area kampus</td>
-                                <td>3</td>
-                                <td>02 November 2024</td>
-                                <td>Sanksi</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <br>
+                        <div class="table-container">
+                            <table id="example" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="no">No.</th>
+                                    <th class="jenis">Jenis Pelanggaran</th>
+                                    <th class="tingkat">Tingkat</th>
+                                    <th class="tanggal">Tanggal</th>
+                                    <th class="rincian">Rincian</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php $id=1; foreach ($data['mahasiswa'] as $mhs): ?>
+                                <tr>
+                                    <td class="no"><?=$id?></td>
+                                    <td class="jenis"><?=$mhs['jenis']?></td>
+                                    <td class="tingkat"><?=$mhs['pelanggaran_id']?></td>
+                                    <td class="tanggal"><?=$mhs['tgl_pelanggaran']?></td>
+                                    <td class="rincian">
+		                                <?php if (isset($mhs['tgl_validasi'])) { ?>
+                                            <input type="checkbox" checked disabled>
+		                                <?php } else { ?>
+                                            <input type="checkbox" disabled>
+		                                <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php $id++; endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

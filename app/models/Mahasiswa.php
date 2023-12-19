@@ -33,7 +33,11 @@ class Mahasiswa implements IGetterHistory
 	public function getAllHistory($additionalData = null): array
 	{
 		if (isset($additionalData)) {
-			$this->db->prepare("SELECT * FROM history_pelanggaran WHERE NIM =:NIM");
+			$this->db->prepare("SELECT *, d.nama as dosen FROM history_pelanggaran hp 
+    		LEFT OUTER JOIN pelanggaran p ON hp.pelanggaran_id = p.tingkatan
+         	LEFT OUTER JOIN jenis_pelanggaran jp ON p.tingkatan = jp.tingkatan
+         	LEFT OUTER JOIN dosen d ON hp.NIP = d.NIP 
+         	WHERE NIM =:NIM AND hp.no_jenis = jp.no_jenis");
 			$additionalData = $this->db->antiDbInjection($additionalData);
 			$this->db->bind(":NIM", $additionalData);
 			return $this->db->resultSet();
