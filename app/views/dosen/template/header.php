@@ -10,9 +10,9 @@
     <style>
         /* CSS untuk styling */
 
-        * {
-            overflow: hidden;
-        }
+        /** {*/
+        /*    overflow: hidden;*/
+        /*}*/
 
         .row {
                 overflow-y: auto;
