@@ -22,12 +22,11 @@
                         </thead>
                         <tbody class="" >
                             <?php
-                            $id = 1;
-                            foreach ($data['validasi'] AS $vld):
-                            if (!isset($vld['tgl_kompensasi'])) {
-                                continue;
-                            }
-
+                                $id = 1;
+                                foreach ($data['validasi'] AS $vld):
+                                if (!isset($vld['tgl_penyelesaian'])) {
+                                    continue;
+                                }
                             ?>
                             <tr class="p-1 inline align-middle" >
                                 <td class="col-1"><?=$id?></td>
@@ -43,15 +42,15 @@
                                      <?=$vld['pelanggaran_id']?>
                                 </td>
                                 <td class="col-2" >
-                                     <?=$vld['tgl_kompensasi']?>
+                                     <?=$vld['tgl_penyelesaian']?>
                                 </td>
                                 <td class="col-2">
                                     <form action="<?=BASEURL?>/Admin/pageDetailValidasi" method="post">
                                         <button class="btn btn-dark-blue" name="id_hp" value="<?=$vld['id_hp']?>">CEK DETAIL</button>
                                     </form>
                                 </td>
-                                <?php $id++; endforeach; ?>
                             </tr>
+                            <?php $id++; endforeach; ?>
                         </tbody>
                     </table>
                 </div>

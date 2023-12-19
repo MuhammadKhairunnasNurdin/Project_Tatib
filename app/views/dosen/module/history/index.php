@@ -96,22 +96,18 @@
                     <div class="box-pilihan">
                         <br>
                         <div class="container-flex">
-                            <form action="<?=BASEURL?>/Dosen/pageTerlapor" method="post">
-                            <button class="box-mhs" type="submit" name="NIP" value="<?=$data['dosen']['NIP']?>">
+                            <a href="<?=BASEURL?>/Dosen/pageTerlapor" class="box-mhs" style="text-decoration-line: none">
                                 <div class="text-mhs">
                                     <h3 class="mhs-title">Mahasiswa Terlapor</h3>
                                 </div>
-                            </button>
-                            </form>
+                            </a>
                             <br>
                             <?php if ($data['dosen']['DPA'] == $data['dosen']['NIP']) {?>
-                            <form action="<?=BASEURL?>/Dosen/pageMahasiswa" method="post">
-                            <button class="box-mhskelas" type="submit" name="kelas" value="<?=$data['dosen']['kelas']?>">
+                            <a href="<?=BASEURL?>/Dosen/pageMahasiswa" class="box-mhskelas" style="text-decoration-line: none">
                                 <div class="text-mhskelas">
                                     <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
                                 </div>
-                            </button>
-                            </form>
+                            </a>
                             <?php } ?>
                         </div>
                     </div>

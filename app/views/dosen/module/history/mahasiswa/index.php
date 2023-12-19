@@ -72,7 +72,7 @@
 		            if ($mhs['id_kelas'] == $data['dosen']['id_kelas']) {
 		            ?>
                     <form action="<?= BASEURL ?>/Dosen/pageDetailMahasiswa" method="post">
-                        <button class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2">
+                        <button type="submit" class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2" name="NIM" value="<?=$mhs['NIM']?>">
 	                        <?=$mhs['kelas']?>/<?=$mhs['nama']?>
                         </button>
 			            <?php } endforeach; ?>

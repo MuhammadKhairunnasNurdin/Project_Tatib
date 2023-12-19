@@ -198,7 +198,7 @@
             <div class="box-isi">
                 <a class="bold" style="margin-right: 45px; ">Bukti Pelanggaran * </a>:
                 <div class="box-pelanggaran">
-                    <img src="" alt="<?=$data['history']['bukti_pelanggaran']?>">
+                    <a href="<?=BASEURL?>/img/logo_jti_baru.png">Bukti Pelanggaran</a>
                 </div>
             </div>
 
@@ -206,7 +206,7 @@
                 <div class="box-isi">
                     <a class="bold" style="margin-right: 45px; ">Bukti Kompensasi * </a>:
                     <div class="box-pelanggaran">
-                        <input type="file" name="kompensasi" accept=".jpg, .jpeg">
+                        <input type="file" name="kompensasi" accept=".jpg, .jpeg, png" required>
                     </div>
                 </div>
 
@@ -220,7 +220,7 @@
             </form>
 
             <div class="box-isi">
-                <a class="bold-file" style="margin-right: 45px; ">File Surat Pernyataan </a>
+                <a href="" class="bold-file" style="margin-right: 45px; ">File Surat Pernyataan </a>
                 <button class="kirim-file">
                     <h1 class="download-bukti">
                         Download File
