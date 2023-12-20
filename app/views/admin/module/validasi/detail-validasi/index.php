@@ -33,14 +33,14 @@
                             <h1 class="h6"><?=$data['validasi']['pelanggaran_id']?></h1>
                             <h1 class="h6"><?=$data['validasi']['jenis']?></h1>
                             <h1 class="h6"><?=$data['validasi']['sanksi']?></h1>
-                            <h1 class="h6"><?=$data['validasi']['tgl_pelanggaran']?></h1>
+                            <h1 class="h6"><?=$data['validasi']['tgl_kompensasi']?></h1>
                             <a href="">Bukti Kompen</a>
                             <div class="" style="display: flex; gap: 10px">
                                 <form action="<?=BASEURL?>/Admin/validate" method="post">
-                                    <button type="submit" name="id_hp" value="<?=$data['validasi']['id_hp']?>" class="btn btn-success">Validasi</button>
+                                    <button type="submit" name="id_HP" value="<?=$data['validasi']['id_HP']?>" class="btn btn-success">Validasi</button>
                                 </form>
                                 <form action="<?=BASEURL?>/Admin/rejectValidation" method="post">
-                                    <button type="submit" name="id_hp" value="<?=$data['validasi']['id_hp']?>" class="btn btn-danger">Tolak</button>
+                                    <button type="submit" name="id_HP" value="<?=$data['validasi']['id_HP']?>" class="btn btn-danger">Tolak</button>
                                 </form>
                             </div>
                         </div>

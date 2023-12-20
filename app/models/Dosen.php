@@ -28,8 +28,12 @@ class Dosen implements IGetterHistory
 	public function getAllHistory($additionalData = null): array
 	{
 		if (isset($additionalData)) {
-			$this->db->prepare("SELECT *, k.nama as kelas, m.nama as nama, k.NIP as DPA FROM history_pelanggaran hp LEFT OUTER JOIN mahasiswa m
-         	ON hp.NIM = m.NIM LEFT OUTER JOIN kelas k ON m.kelas_id = k.id_kelas WHERE hp.NIP =:NIP GROUP BY m.NIM");
+			$this->db->prepare("SELECT *, k.nama as kelas, m.nama as nama, k.NIP as DPA 
+			FROM history_pelanggaran hp 
+			    LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM 
+			    LEFT OUTER JOIN kelas k ON m.kelas_id = k.id_kelas 
+			WHERE hp.NIP =:NIP GROUP BY m.NIM");
+
 			$additionalData = $this->db->antiDbInjection($additionalData);
 			$this->db->bind(":NIP", $additionalData);
 			return $this->db->resultSet();
@@ -40,12 +44,13 @@ class Dosen implements IGetterHistory
 	public function getHistoryById($additionalData = null): array
 	{
 		if (isset($additionalData)) {
-			$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas FROM history_pelanggaran hp 
-	        LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
-	        LEFT OUTER JOIN kelas k ON k.id_kelas = m.kelas_id 
-			LEFT OUTER JOIN pelanggaran p ON hp.pelanggaran_id = p.tingkatan
-			LEFT OUTER JOIN jenis_pelanggaran jp ON p.tingkatan = jp.tingkatan
-			LEFT OUTER JOIN sanksi_pelanggaran sp ON p.tingkatan = sp.tingkatan 
+			$this->db->prepare("SELECT *, m.nama as nama, k.nama as kelas 
+			FROM history_pelanggaran hp 
+		        LEFT OUTER JOIN mahasiswa m ON hp.NIM = m.NIM
+		        LEFT OUTER JOIN kelas k ON k.id_kelas = m.kelas_id 
+				LEFT OUTER JOIN pelanggaran p ON hp.pelanggaran_id = p.tingkatan
+				LEFT OUTER JOIN jenis_pelanggaran jp ON p.tingkatan = jp.tingkatan
+				LEFT OUTER JOIN sanksi_pelanggaran sp ON p.tingkatan = sp.tingkatan 
 			WHERE id_HP=:id_HP AND hp.no_jenis = jp.no_jenis AND hp.no_sanksi = sp.no_sanksi");
 			$additionalData = $this->db->antiDbInjection($additionalData);
 			$this->db->bind(":id_HP", $additionalData);
@@ -61,10 +66,12 @@ class Dosen implements IGetterHistory
 
 	public function getDosen($username)
 	{
-		$this->db->prepare("SELECT d.nama AS nama, d.NIP AS NIP, k.NIP AS DPA, k.nama AS kelas, id_kelas FROM dosen d
-    	LEFT OUTER JOIN user u ON d.user_id = u.id_user
-	     LEFT OUTER JOIN kelas k ON k.NIP = d.NIP
-	     WHERE u.username=:username");
+		$this->db->prepare("SELECT d.nama AS nama, d.NIP AS NIP, k.NIP AS DPA, k.nama AS kelas, id_kelas 
+		FROM dosen d
+	        LEFT OUTER JOIN user u ON d.user_id = u.id_user
+		    LEFT OUTER JOIN kelas k ON k.NIP = d.NIP
+	    WHERE u.username=:username");
+
 		$this->db->bind(":username", $username);
 		return $this->db->single();
 	}

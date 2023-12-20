@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIP:</label>
-                        <input type="text" name="NIP" class="form-control" value="<?=$dosen['NIP']?>" required readonly>
+                        <input type="text" name="NIP" class="form-control" value="<?=$dosen['NIP']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
@@ -79,7 +79,7 @@
                     <div class="card-body ">
                         <div class="mb-2">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value="<?=$dosen['username']?>" >
+                            <input type="text" name="username" class="form-control" value="<?=$dosen['username']?>" required>
                         </div>
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>

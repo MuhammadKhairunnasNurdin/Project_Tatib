@@ -8,8 +8,8 @@ class Admin extends Controller
 {
 	public function index(): void
 	{
-		$data['totalDosen'] = count($this->model("Admin")->getAllDosen());
-		$data['totalMahasiswa'] = count($this->model("Admin")->getAllMahasiswa());
+		$data['totalDosen'] = count($this->model("HelperData")->getAllDosen());
+		$data['totalMahasiswa'] = count($this->model("HelperData")->getAllMahasiswa());
 		$data['admin'] = $this->model("Admin")->getAdmin($_SESSION['username']);
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
@@ -21,7 +21,7 @@ class Admin extends Controller
 	/*Page Dosen*/
 	public function pageDosen(): void
 	{
-		$data['dosen'] = $this->model("Admin")->getAllDosen();
+		$data['dosen'] = $this->model("HelperData")->getAllDosen();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -74,8 +74,8 @@ class Admin extends Controller
 			header("location: " . BASEURL . "/Admin/editDosenPage");
 		} else {
 			$NIP = $_SESSION['editDosen']['NIP'];
-			$data['dosen'] = $this->model("Admin")->getDosen($NIP);
-			$data['kelas'] = $this->model("Admin")->getAllKelas();
+			$data['dosen'] = $this->model("HelperData")->getDosen($NIP);
+			$data['kelas'] = $this->model("HelperData")->getAllKelas();
 			$data['title'] = "Admin";
 			$this->view("admin/template/header", $data);
 			$this->view("admin/template/menu");
@@ -142,7 +142,7 @@ class Admin extends Controller
 	/*Page Mahasiswa*/
 	public function pageMahasiswa()
 	{
-		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+		$data['mahasiswa'] = $this->model("HelperData")->getAllMahasiswa();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -152,7 +152,7 @@ class Admin extends Controller
 
 	public function pageAddMahasiswa()
 	{
-		$data['kelas'] = $this->model("Admin")->getAllKelas();
+		$data['kelas'] = $this->model("HelperData")->getAllKelas();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -167,8 +167,8 @@ class Admin extends Controller
 			header("location: " . BASEURL . "/Admin/editMahasiswaPage");
 		} else {
 			$NIM = $_SESSION['editMahasiswa']['NIM'];
-			$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
-			$data['kelas'] = $this->model("Admin")->getAllKelas();
+			$data['mahasiswa'] = $this->model("HelperData")->getMahasiswa($NIM);
+			$data['kelas'] = $this->model("HelperData")->getAllKelas();
 			$data['title'] = "Admin";
 			$this->view("admin/template/header", $data);
 			$this->view("admin/template/menu");
@@ -182,7 +182,6 @@ class Admin extends Controller
 	public function pageAdminValidasi(): void
 	{
 		$data['title'] = "Admin";
-//		$data['validasi'] = $this->model("Admin")->getAllHistory();
 		$data['validasi'] = $_SESSION['history']['Admin'];
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -192,34 +191,27 @@ class Admin extends Controller
 
 	public function pageDetailValidasi(): void
 	{
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$data['title'] = "Admin";
-			$_SESSION['pageValidasi']['id_hp'] = $_POST['id_hp'];
-			$data['validasi'] = $this->model("Admin")->getHistorybyId($_POST['id_hp']);
-			header("location: " . BASEURL . "/Admin/pageDetailValidasi");
-		} else {
-			$data['title'] = "Admin";
-			$data['validasi'] = $this->model("Admin")->getHistorybyId($_SESSION['pageValidasi']['id_hp']);
+			$data['validasi'] = $_SESSION['detailHistory']['Admin'];
 			$this->view("admin/template/header", $data);
 			$this->view("admin/template/menu");
 			$this->view("admin/module/validasi/detail-validasi/index", $data);
 			$this->view("admin/template/footer");
-		}
 	}
 
 	public function validate()
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->validation($_POST['id_hp']);
-			header("location: " . BASEURL . "/Admin/pageValidasi");
+			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->validation($_POST['id_HP']);
+			header("location: " . BASEURL . "/Admin/pageAdminValidasi");
 		}
 	}
 
 	public function rejectValidation()
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->reject($_POST['id_hp']);
-			header("location: " . BASEURL . "/Admin/pageValidasi");
+			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->reject($_POST['id_HP']);
+			header("location: " . BASEURL . "/Admin/pageAdminValidasi");
 		}
 	}
 }

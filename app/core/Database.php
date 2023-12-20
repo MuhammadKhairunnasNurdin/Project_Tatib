@@ -94,7 +94,7 @@ class Database
         $this->statement->bindValue($param, $value, $type);
     }
 
-    public function execute()
+    public function execute(): bool
     {
         return $this->statement->execute();
     }
@@ -116,7 +116,7 @@ class Database
 		return $this->databaseHandler->lastInsertId();
 	}
 
-	public function inserts($tableName, $insertData = [])
+	public function inserts($tableName, $insertData = []): bool|string
 	{
 		$columns = implode(', ', array_keys($insertData));
 		$placeholder = ':' . implode(', :', array_keys($insertData));
@@ -127,26 +127,45 @@ class Database
 			$val = $this->antiDbInjection($val);
 			$this->bind(":$column", $val);
 		}
+
+		$isError = null;
 		try {
-			return $this->execute();
+			$isError = $this->execute();
 		} catch (PDOException $message) {
-			return false;
+			$isError =  $message->getMessage();
+			$pos = strpos($isError, 'Duplicate');
+			if ($pos !== false) {
+				$isError = substr($isError, $pos);
+			}
 		}
+		return $isError;
 	}
 
-	public function updates($tableName, array $updateData, $condition)
+	public function updates($tableName, array $updateData, $condition): bool|string
 	{
 		$setClause = '';
 		foreach ($updateData as $column => $value) {
 			$setClause .= "$column = :$column, ";
 		}
+
 		$setClause = rtrim($setClause, ', ');
 		$this->prepare("UPDATE $tableName SET $setClause WHERE $condition");
 		foreach ($updateData as $column => $value) {
 			$value = $this->antiDbInjection($value);
 			$this->bind(":$column", $value);
 		}
-		return $this->execute();
+
+		$isError = null;
+		try {
+			$isError = $this->execute();
+		} catch (PDOException $message) {
+			$isError =  $message->getMessage();
+			$pos = strpos($isError, 'Duplicate');
+			if ($pos !== false) {
+				$isError = substr($isError, $pos);
+			}
+		}
+		return $isError;
 	}
 
 	public function storeImage($imageData): string

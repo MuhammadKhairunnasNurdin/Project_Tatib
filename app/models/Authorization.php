@@ -53,10 +53,10 @@ class Authorization
 		can't use password verify() method with default hash algorithm*/
 		$inputPassword = hash("sha256", $inputPassword, true);
 		if (!(hash_equals($userPassword, $inputPassword))){
-			$this->fm->message("danger", "Password is Wrong");
+			$this->fm->message("warning", "Password is Wrong");
 			$controller = "Authorization";
 			$method = "index";
-			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("danger")];
+			return ["controller" => $controller, "method" => $method, "errorMessage" => $this->fm->getFlashData("warning")];
 		}
 
 		$_SESSION["username"] = $row["username"];

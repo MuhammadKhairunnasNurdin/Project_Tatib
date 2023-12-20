@@ -16,10 +16,21 @@ class HistoryPelanggaran extends Controller
 			$implementor = $_POST['implementor'];
 			$data = $_POST['data'];
 			$pageName = $_POST['pageName'];
-
 			$this->history =  $this->model($implementor);
 			$_SESSION['history'][$implementor]= $this->history->getAllHistory($data);
 			header("Location: " . BASEURL . "/$implementor/page" . $implementor . $pageName);
+		}
+	}
+
+	public function historyById()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$implementor = $_POST['implementor'];
+			$data = $_POST['data'];
+			$pageName = $_POST['pageName'];
+			$this->history =  $this->model($implementor);
+			$_SESSION['detailHistory'][$implementor]= $this->history->getHistoryById($data);
+			header("Location: " . BASEURL . "/$implementor/page" . $pageName);
 		}
 	}
 }
