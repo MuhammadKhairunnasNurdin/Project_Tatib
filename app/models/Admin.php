@@ -43,21 +43,21 @@ class Admin implements IGetterHistory
 			}
 		}
 
-		if ($isUpdateFkSuccess) {
-			$conditionEdit = "nama = '" . $editData['condition'] . "'";
-			unset($editData['condition']);
-			$isUpdateSuccess = $this->db->updates($tableName, $editData, $conditionEdit);
+		if ($isUpdateFkSuccess !== true) {
+			$this->fm->message("danger", "$isUpdateFkSuccess in update data $tableName");
+			return $this->fm->getFlashData("danger");
 		}
 
-		$message = null;
-		if ($isUpdateSuccess) {
-			$this->fm->message("success", "update data $tableName");
-			$message = $this->fm->getFlashData("success");
-		} else {
-			$this->fm->message("warning", "error occur in update data $tableName");
-			$message =  $this->fm->getFlashData("warning");
+		$conditionEdit = "nama = '" . $editData['condition'] . "'";
+		unset($editData['condition']);
+		$isUpdateSuccess = $this->db->updates($tableName, $editData, $conditionEdit);
+
+		if ($isUpdateSuccess !== true) {
+			$this->fm->message("danger", "$isUpdateSuccess in update data $tableName");
+			return $this->fm->getFlashData("danger");
 		}
-		return $message;
+		$this->fm->message("success", "update data $tableName");
+		return $this->fm->getFlashData("success");
 	}
 
 	public function editKelas($tableName, $editData)
@@ -75,8 +75,8 @@ class Admin implements IGetterHistory
 			$this->fm->message("success", "update data kelas");
 			$message = $this->fm->getFlashData("success");
 		} else {
-			$this->fm->message("warning", "error occur in update data kelas");
-			$message =  $this->fm->getFlashData("warning");
+			$this->fm->message("danger", "error occur in update data kelas");
+			$message =  $this->fm->getFlashData("danger");
 		}
 		return $message;
 	}
@@ -84,28 +84,32 @@ class Admin implements IGetterHistory
 	public function add($tableName, $addData = [], $fkData = [])
 	{
 		$isInsertFkSuccess = null;
-		$isInsertSuccess = null;
+		$isInsertSuccess = false;
 		if (isset($fkData)) {
 			foreach ($fkData as $elm => $value) {
 				$isInsertFkSuccess =  $this->db->inserts($elm, $value);
 			}
 		}
 
-
-		if ($isInsertFkSuccess) {
-			$addData['user_id'] = intval($this->db->lastInsertId());
-			$isInsertSuccess = $this->db->inserts($tableName, $addData);
+		$lastInsertId = intval($this->db->lastInsertId());
+		if ($isInsertFkSuccess !== true) {
+			$this->fm->message("danger", "$isInsertFkSuccess in adding data $tableName");
+			return $this->fm->getFlashData("danger");
 		}
 
-		$message = null;
-		if ($isInsertSuccess) {
-			$this->fm->message("success", "adding data $tableName");
-			$message = $this->fm->getFlashData("success");
-		} else {
-			$this->fm->message("warning", "error occur in adding data $tableName");
-			$message =  $this->fm->getFlashData("warning");
+		$addData['user_id'] = $lastInsertId;
+		$isInsertSuccess = $this->db->inserts($tableName, $addData);
+
+		if ($isInsertSuccess !== true) {
+			$this->db->prepare("DELETE FROM user WHERE id_user =:id");
+			$this->db->bind(":id", $lastInsertId);
+			$this->db->execute();
+			$this->fm->message("danger", "$isInsertSuccess in adding data $tableName");
+			return $this->fm->getFlashData("danger");
 		}
-		return $message;
+
+		$this->fm->message("success", "adding data $tableName");
+		return $this->fm->getFlashData("success");
 	}
 
 	public function delete($tableName, $idName, $idData)
@@ -120,8 +124,8 @@ class Admin implements IGetterHistory
 			$this->fm->message("success", "delete data $tableName");
 			$message = $this->fm->getFlashData("success");
 		} else {
-			$this->fm->message("warning", "error occur in delete data $tableName");
-			$message =  $this->fm->getFlashData("warning");
+			$this->fm->message("danger", "error occur in delete data $tableName");
+			$message =  $this->fm->getFlashData("danger");
 		}
 		return $message;
 	}
@@ -138,8 +142,8 @@ class Admin implements IGetterHistory
 			$this->fm->message("success", "Validate Complete");
 			$message = $this->fm->getFlashData("success");
 		} else {
-			$this->fm->message("warning", "Validate Error");
-			$message =  $this->fm->getFlashData("warning");
+			$this->fm->message("danger", "Validate Error");
+			$message =  $this->fm->getFlashData("danger");
 		}
 		return $message;
 	}
@@ -156,8 +160,8 @@ class Admin implements IGetterHistory
 			$this->fm->message("success", "Reject Validate Complete");
 			$message = $this->fm->getFlashData("success");
 		} else {
-			$this->fm->message("warning", "Reject Validate Error");
-			$message =  $this->fm->getFlashData("warning");
+			$this->fm->message("danger", "Reject Validate Error");
+			$message =  $this->fm->getFlashData("danger");
 		}
 		return $message;
 	}

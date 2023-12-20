@@ -36,7 +36,7 @@ class  FlashMessage
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
 				break;
 			case "danger":
-				$this->setFlashData("danger", "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+				$this->setFlashData("danger", "<div class='alert alert-danger alert-dismissible fade show' role='alert' style='width: 45%'>
             <strong>Failed!</strong> {$message}
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
 				break;

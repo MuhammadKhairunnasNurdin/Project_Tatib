@@ -13,11 +13,11 @@
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIM:</label>
-                        <input type="text" name="NIM" class="form-control" value="<?=$mhs['NIM']?>" readonly>
+                        <input type="text" name="NIM" class="form-control" value="<?=$mhs['NIM']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
-                        <input type="text" name="nama" class="form-control" value="<?=$mhs['nama']?>">
+                        <input type="text" name="nama" class="form-control" value="<?=$mhs['nama']?>" required>
                     </div>
                     <div class="mb-2 dropdown-menu">
                         <label for="kelas" class="form-label">Kelas:</label>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="tgl_lahir" class="form-label">Tanggal Lahir:</label>
-                        <input type="date" name="tgl_lahir" class="form-control" value="<?=$mhs['tgl_lahir']?>">
+                        <input type="date" name="tgl_lahir" class="form-control" value="<?=$mhs['tgl_lahir']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
@@ -77,7 +77,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>">
+                            <input type="text" name="username" class="form-control" value="<?=$mhs['username']?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
