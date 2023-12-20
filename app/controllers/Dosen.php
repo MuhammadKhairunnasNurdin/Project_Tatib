@@ -30,8 +30,8 @@ class Dosen extends Controller
 	{
 		$data['title'] = "Dosen";
 		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-		$data['kelas'] = $this->model("Admin")->getAllKelas();
-		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+		$data['kelas'] = $this->model("HelperData")->getAllKelas();
+		$data['mahasiswa'] = $this->model("HelperData")->getAllMahasiswa();
 		$data['tingkat'] = $this->model("Dosen")->getAllPeraturan("getAllTingkatan");
 		$data['jenis'] = $this->model("Dosen")->getAllPeraturan("getAllJenisTingkatan");
 		$data['sanksi'] = $this->model("Dosen")->getAllPeraturan("getAllSanksi");

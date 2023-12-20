@@ -8,8 +8,8 @@ class Admin extends Controller
 {
 	public function index(): void
 	{
-		$data['totalDosen'] = count($this->model("Admin")->getAllDosen());
-		$data['totalMahasiswa'] = count($this->model("Admin")->getAllMahasiswa());
+		$data['totalDosen'] = count($this->model("HelperData")->getAllDosen());
+		$data['totalMahasiswa'] = count($this->model("HelperData")->getAllMahasiswa());
 		$data['admin'] = $this->model("Admin")->getAdmin($_SESSION['username']);
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
@@ -21,7 +21,7 @@ class Admin extends Controller
 	/*Page Dosen*/
 	public function pageDosen(): void
 	{
-		$data['dosen'] = $this->model("Admin")->getAllDosen();
+		$data['dosen'] = $this->model("HelperData")->getAllDosen();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -74,8 +74,8 @@ class Admin extends Controller
 			header("location: " . BASEURL . "/Admin/editDosenPage");
 		} else {
 			$NIP = $_SESSION['editDosen']['NIP'];
-			$data['dosen'] = $this->model("Admin")->getDosen($NIP);
-			$data['kelas'] = $this->model("Admin")->getAllKelas();
+			$data['dosen'] = $this->model("HelperData")->getDosen($NIP);
+			$data['kelas'] = $this->model("HelperData")->getAllKelas();
 			$data['title'] = "Admin";
 			$this->view("admin/template/header", $data);
 			$this->view("admin/template/menu");
@@ -142,7 +142,7 @@ class Admin extends Controller
 	/*Page Mahasiswa*/
 	public function pageMahasiswa()
 	{
-		$data['mahasiswa'] = $this->model("Admin")->getAllMahasiswa();
+		$data['mahasiswa'] = $this->model("HelperData")->getAllMahasiswa();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -152,7 +152,7 @@ class Admin extends Controller
 
 	public function pageAddMahasiswa()
 	{
-		$data['kelas'] = $this->model("Admin")->getAllKelas();
+		$data['kelas'] = $this->model("HelperData")->getAllKelas();
 		$data['title'] = "Admin";
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
@@ -167,8 +167,8 @@ class Admin extends Controller
 			header("location: " . BASEURL . "/Admin/editMahasiswaPage");
 		} else {
 			$NIM = $_SESSION['editMahasiswa']['NIM'];
-			$data['mahasiswa'] = $this->model("Admin")->getMahasiswa($NIM);
-			$data['kelas'] = $this->model("Admin")->getAllKelas();
+			$data['mahasiswa'] = $this->model("HelperData")->getMahasiswa($NIM);
+			$data['kelas'] = $this->model("HelperData")->getAllKelas();
 			$data['title'] = "Admin";
 			$this->view("admin/template/header", $data);
 			$this->view("admin/template/menu");
