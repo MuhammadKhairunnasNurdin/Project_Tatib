@@ -20,20 +20,28 @@
                 </a>
             </li>
             <li class="nav-history">
-                <a href="<?=BASEURL?>/Mahasiswa/pageHistory" class="link-history">
-                    <img class="logo-history" src="<?=BASEURL?>/img/history.svg" alt="History Logo">
-                    <p class="logo-text-menu">
-                        History
-                    </p>
-                </a>
+                <form action="<?= BASEURL ?>/HistoryPelanggaran/allHistory" method="post">
+                    <input type="hidden" name="implementor" value="Mahasiswa">
+                    <input type="hidden" name="pageName" value="History">
+                    <button type="submit" class="link-history" name="data" value="<?=$data['mahasiswa']['NIM']?>">
+                        <img class="logo-history" src="<?= BASEURL ?>/img/history.svg" alt="History Logo">
+                        <p class="logo-text-menu">
+                            History
+                        </p>
+                    </button>
+                </form>
             </li>
             <li class="nav-sanksi">
-                <a href="<?=BASEURL?>/Mahasiswa/pageSanksi" class="link-sanksi">
-                    <img class="logo-sanksi" src="<?=BASEURL?>/img/sanksi.svg" alt="Sanksi Logo">
-                    <p class="logo-text-menu">
-                        Sanksi
-                    </p>
-                </a>
+                <form action="<?= BASEURL ?>/HistoryPelanggaran/allHistory" method="post">
+                    <input type="hidden" name="implementor" value="Mahasiswa">
+                    <input type="hidden" name="pageName" value="Sanksi">
+                    <button type="submit" class="link-sanksi" name="data" value="<?=$data['mahasiswa']['NIM']?>">
+                        <img class="logo-sanksi" src="<?= BASEURL ?>/img/sanksi.svg" alt="Sanksi Logo">
+                        <p class="logo-text-menu">
+                            Sanksi
+                        </p>
+                    </button>
+                </form>
             </li>
             <li class="nav-jenis">
                 <a href="<?=BASEURL?>/Mahasiswa/pageJenisTatib" class="link-jenis">

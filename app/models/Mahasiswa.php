@@ -52,9 +52,9 @@ class Mahasiswa implements IGetterHistory
     		LEFT OUTER JOIN pelanggaran p ON hp.pelanggaran_id = p.tingkatan
          	LEFT OUTER JOIN jenis_pelanggaran jp ON p.tingkatan = jp.tingkatan 
          	LEFT OUTER JOIN sanksi_pelanggaran sp ON sp.tingkatan = jp.tingkatan 
-         	WHERE id_hp =:id_hp AND hp.no_jenis = jp.no_jenis AND hp.no_sanksi = sp.no_sanksi");
+         	WHERE id_HP=:id_HP AND hp.no_jenis = jp.no_jenis AND hp.no_sanksi = sp.no_sanksi");
 			$additionalData = $this->db->antiDbInjection($additionalData);
-			$this->db->bind(":id_hp", $additionalData);
+			$this->db->bind(":id_HP", $additionalData);
 			return $this->db->single();
 		}
 		return [];
