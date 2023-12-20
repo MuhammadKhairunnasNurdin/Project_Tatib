@@ -24,9 +24,7 @@
                             <?php
                                 $id = 1;
                                 foreach ($data['validasi'] AS $vld):
-                                if (!isset($vld['tgl_penyelesaian'])) {
-                                    continue;
-                                }
+                                if ($vld['status'] === "proses validasi") {
                             ?>
                             <tr class="p-1 inline align-middle" >
                                 <td class="col-1"><?=$id?></td>
@@ -50,7 +48,7 @@
                                     </form>
                                 </td>
                             </tr>
-                            <?php $id++; endforeach; ?>
+                            <?php $id++; } endforeach; ?>
                         </tbody>
                     </table>
                 </div>

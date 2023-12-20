@@ -11,18 +11,18 @@ class Mahasiswa extends Controller
 		$data['title'] = "Mahasiswa";
 		$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
 		$this->view("mahasiswa/template/header", $data);
-		$this->view("mahasiswa/template/menu");
+		$this->view("mahasiswa/template/menu", $data);
 		$this->view("mahasiswa/index", $data);
 		$this->view("mahasiswa/template/footer");
 	}
 
-	public function pageHistory()
+	public function pageMahasiswaHistory()
 	{
 		$data['title'] = "Mahasiswa";
 		$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
-		$data['history'] = $this->model("Mahasiswa")->getAllHistory($data['mahasiswa']['NIM']);
+		$data['history'] = $_SESSION['history']['Mahasiswa'];
 		$this->view("mahasiswa/template/header", $data);
-		$this->view("mahasiswa/template/menu");
+		$this->view("mahasiswa/template/menu", $data);
 		$this->view("mahasiswa/module/history/index", $data);
 		$this->view("mahasiswa/template/footer");
 	}
@@ -32,18 +32,18 @@ class Mahasiswa extends Controller
 		$data['title'] = "Mahasiswa";
 		$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
 		$this->view("mahasiswa/template/header", $data);
-		$this->view("mahasiswa/template/menu");
+		$this->view("mahasiswa/template/menu", $data);
 		$this->view("mahasiswa/module/jenistatib/index", $data);
 		$this->view("mahasiswa/template/footer");
 	}
 
-	public function pageSanksi()
+	public function pageMahasiswaSanksi()
 	{
 		$data['title'] = "Mahasiswa";
 		$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
-		$data['history'] = $this->model("Mahasiswa")->getAllHistory($data['mahasiswa']['NIM']);
+		$data['history'] = $_SESSION['history']['Mahasiswa'];
 		$this->view("mahasiswa/template/header", $data);
-		$this->view("mahasiswa/template/menu");
+		$this->view("mahasiswa/template/menu", $data);
 		$this->view("mahasiswa/module/sanksi/index", $data);
 		$this->view("mahasiswa/template/footer");
 	}
@@ -68,7 +68,7 @@ class Mahasiswa extends Controller
 			}
 
 			$this->view("mahasiswa/template/header", $data);
-			$this->view("mahasiswa/template/menu");
+			$this->view("mahasiswa/template/menu", $data);
 			$this->view("mahasiswa/module/jenistatib/looks/index", $data);
 			$this->view("mahasiswa/template/footer");
 
@@ -98,7 +98,7 @@ class Mahasiswa extends Controller
 			$page = $_SESSION['rincian']['page'];
 			$data['history'] = $this->model("Mahasiswa")->getHistorybyId($id_hp);
 			$this->view("mahasiswa/template/header", $data);
-			$this->view("mahasiswa/template/menu");
+			$this->view("mahasiswa/template/menu", $data);
 			$this->view("mahasiswa/module/sanksi/input/sanksi-" . $page, $data);
 			$this->view("mahasiswa/template/footer");
 		}

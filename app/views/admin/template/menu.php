@@ -27,10 +27,14 @@
                             </a>
                         </li>
                         <li class="nav-validasi nav-item">
-                            <a href="<?=BASEURL?>/Admin/pageValidasi" class="link-validasi nav-link d-flex align-items-center gap2 active" name="page" value="validasi" type="submit">
-                                <img class="logo-validasi" src="<?= BASEURL?>/img/validasi_logo.svg" alt="">
-                                <p class="text-validasi" >Validasi</p>
-                            </a>
+                            <form action="<?= BASEURL ?>/HistoryPelanggaran/allHistory" method="post">
+                                <input type="hidden" name="implementor" value="Admin">
+                                <input type="hidden" name="pageName" value="Validasi">
+                                <button type="submit" class="link-validasi nav-link d-flex align-items-center gap2 active">
+                                    <img class="logo-validasi" src="<?= BASEURL?>/img/validasi_logo.svg" alt="">
+                                    <p class="text-validasi" >Validasi</p>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>
