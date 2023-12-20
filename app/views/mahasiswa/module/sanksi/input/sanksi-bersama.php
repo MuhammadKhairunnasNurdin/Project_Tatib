@@ -208,7 +208,7 @@
                 <div class="box-isi">
                     <a class="bold" style="margin-right: 45px; ">Bukti Kompensasi * </a>:
                     <div class="box-pelanggaran">
-                        <input type="file" name="kompensasi" accept=".jpg, .jpeg, png" required>
+                        <input type="file" name="kompensasi" accept=".jpg, .jpeg, .png, .gif" required>
                     </div>
                 </div>
 

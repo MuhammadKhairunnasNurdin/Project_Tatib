@@ -40,11 +40,13 @@
                                      <?=$vld['pelanggaran_id']?>
                                 </td>
                                 <td class="col-2" >
-                                     <?=$vld['tgl_penyelesaian']?>
+                                     <?=$vld['tgl_kompensasi']?>
                                 </td>
                                 <td class="col-2">
-                                    <form action="<?=BASEURL?>/Admin/pageDetailValidasi" method="post">
-                                        <button class="btn btn-dark-blue" name="id_hp" value="<?=$vld['id_hp']?>">CEK DETAIL</button>
+                                    <form action="<?=BASEURL?>/HistoryPelanggaran/historyById" method="post">
+                                        <input type="hidden" name="implementor" value="Admin">
+                                        <input type="hidden" name="pageName" value="DetailValidasi">
+                                        <button class="btn btn-dark-blue" name="data" value="<?=$vld['id_HP']?>">CEK DETAIL</button>
                                     </form>
                                 </td>
                             </tr>

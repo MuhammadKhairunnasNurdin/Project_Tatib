@@ -27,7 +27,7 @@
         var kelasDropdown = document.getElementById("id_kelas");
 
         // Mendapatkan nilai yang dipilih dari dropdown kelas
-        var selectedKelas = (kelasDropdown.value);
+        var selectedKelas = Number(kelasDropdown.value);
 
         // Mendapatkan elemen dropdown mahasiswa
         var mahasiswaDropdown = document.getElementById("mahasiswa");

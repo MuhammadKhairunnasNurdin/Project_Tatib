@@ -137,7 +137,7 @@
                         </div>
                         <div class="mb-3 row">
                             <label for="nama" class="form-label col-md-3 text-left">Nama :</label>
-                            <select name="NIM" class="mahasiswa" id="mahasiswa">
+                            <select name="NIM" class="mahasiswa" id="mahasiswa" required>
                                 <option selected>Pilih Mahasiswa</option>
                             </select>
                         </div>
@@ -166,7 +166,7 @@
                         <div class="mb-3 row">
                             <label for="bukti" class="form-label col-md-3 text-left">Bukti :</label>
                             <div class="col-md-9">
-                                <input name="bukti_pelanggaran" type="file" accept=".jpeg, .jpg, .png, .gif" class="form-control" id="bukti" style="width: 80%; text-align: center">
+                                <input name="bukti_pelanggaran" type="file" accept=".jpeg, .jpg, .png, .gif" class="form-control" id="bukti"  required style="width: 80%; text-align: center">
                             </div>
                         </div>
                         <div class="modal-footer">
