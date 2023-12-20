@@ -179,10 +179,11 @@ class Admin extends Controller
 
 
 	/*Page Validasi*/
-	public function pageValidasi(): void
+	public function pageAdminValidasi(): void
 	{
 		$data['title'] = "Admin";
-		$data['validasi'] = $this->model("Admin")->getAllHistory();
+//		$data['validasi'] = $this->model("Admin")->getAllHistory();
+		$data['validasi'] = $_SESSION['history']['Admin'];
 		$this->view("admin/template/header", $data);
 		$this->view("admin/template/menu");
 		$this->view("admin/module/validasi/index", $data);

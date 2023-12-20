@@ -71,12 +71,14 @@
 		            <?php foreach ($data['mahasiswa'] as $mhs):
 		            if ($mhs['id_kelas'] == $data['dosen']['id_kelas']) {
 		            ?>
-                    <form action="<?= BASEURL ?>/Dosen/pageDetailMahasiswa" method="post">
-                        <button type="submit" class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2" name="NIM" value="<?=$mhs['NIM']?>">
-	                        <?=$mhs['kelas']?>/<?=$mhs['nama']?>
-                        </button>
-			            <?php } endforeach; ?>
-                    </form>
+                        <form action="<?= BASEURL ?>/HistoryPelanggaran/allHistory" method="post">
+                            <input type="hidden" name="implementor" value="Dpa">
+                            <input type="hidden" name="pageName" value="Detail">
+                            <button type="submit" class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2" name="NIM" value="<?=$mhs['NIM']?>">
+                                <?=$mhs['kelas']?>/<?=$mhs['nama']?>
+                            </button>
+                        </form>
+                    <?php } endforeach; ?>
                 </div>
 <!--                <div class="box-content">-->
 <!--                    <div class="card dosen-info">-->

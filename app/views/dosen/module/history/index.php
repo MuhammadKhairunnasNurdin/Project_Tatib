@@ -98,6 +98,7 @@
                         <div class="container-flex">
                             <form action="<?=BASEURL?>/HistoryPelanggaran/allHistory" method="post">
                                 <input type="hidden" name="implementor" value="Dosen">
+                                <input type="hidden" name="pageName" value="History">
                                 <button type="submit" class="box-mhs" name="data" value="<?=$data['dosen']['NIP']?>" style="text-decoration-line: none">
                                 <div class="text-mhs">
                                     <h3 class="mhs-title">Mahasiswa Terlapor</h3>
@@ -107,11 +108,15 @@
 <!--                            </a>-->
                             <br>
                             <?php if ($data['dosen']['DPA'] == $data['dosen']['NIP']) {?>
-                            <a href="<?=BASEURL?>/Dosen/pageMahasiswa" class="box-mhskelas" style="text-decoration-line: none">
-                                <div class="text-mhskelas">
-                                    <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
-                                </div>
-                            </a>
+                                <form action="<?=BASEURL?>/HistoryPelanggaran/allHistory" method="post"">
+                                    <input type="hidden" name="implementor" value="Dpa">
+                                    <input type="hidden" name="pageName" value="Mahasiswa">
+                                    <button type="submit" class="box-mhskelas" name="data" value="" style="text-decoration-line: none">
+                                        <div class="text-mhskelas">
+                                            <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
+                                        </div>
+                                    </button>
+                                </form>
                             <?php } ?>
                         </div>
                     </div>

@@ -127,8 +127,11 @@ class Database
 			$val = $this->antiDbInjection($val);
 			$this->bind(":$column", $val);
 		}
-
-		return $this->execute();
+		try {
+			return $this->execute();
+		} catch (PDOException $message) {
+			return false;
+		}
 	}
 
 	public function updates($tableName, array $updateData, $condition)

@@ -254,16 +254,16 @@
             </tr>
             <?php $id = 1;
             foreach ($data['history'] as $sanksi):
-                if ($sanksi['tgl_penyelesaian'] === null) {?>
+                if ($sanksi['status'] === "belum kompensasi") {?>
                     <tr>
                         <td><?=$id?></td>
                         <td><?=$sanksi['jenis']?></td>
                         <td><?=$sanksi['pelanggaran_id']?></td>
-                        <td><?=$sanksi['tgl_pelanggaran']?></td>
+                        <td><?=$sanksi['tgl_kompensasi']?></td>
                         <td>
                             <form action="<?= BASEURL ?>/Mahasiswa/rincian" method="POST">
                                 <input type="hidden" name="pelanggaran_id" value="<?=$sanksi['pelanggaran_id']?>">
-                                <button name="id_hp" type="submit" class="box-sanksi" value="<?=$sanksi['id_hp']?>">
+                                <button name="id_hp" type="submit" class="box-sanksi" value="<?=$sanksi['id_HP']?>">
                                     Cek Disini!
                                 </button>
                             </form>
