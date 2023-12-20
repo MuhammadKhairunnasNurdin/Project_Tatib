@@ -24,8 +24,8 @@ class Admin implements IGetterHistory
 
 	public function edit($tableName, $editData, $fkData = [])
 	{
-		$isUpdateFkSuccess = null;
-		$isUpdateSuccess = null;
+		/*code for if admin edit in user authentication in mahasiswa or dosen, we must update user too*/
+		$isUpdateFkSuccess = true;
 		if (isset($fkData)) {
 			/*to avoid update fk when fk data from form is empty*/
 			foreach ($fkData as $column => $value) {
@@ -42,13 +42,12 @@ class Admin implements IGetterHistory
 				$isUpdateFkSuccess =  $this->db->updates("$column", $value, $conditionEdit);
 			}
 		}
-
 		if ($isUpdateFkSuccess !== true) {
 			$this->fm->message("danger", "$isUpdateFkSuccess in update data $tableName");
 			return $this->fm->getFlashData("danger");
 		}
 
-		$conditionEdit = "nama = '" . $editData['condition'] . "'";
+		$conditionEdit = $editData['condition'];
 		unset($editData['condition']);
 		$isUpdateSuccess = $this->db->updates($tableName, $editData, $conditionEdit);
 
@@ -60,31 +59,10 @@ class Admin implements IGetterHistory
 		return $this->fm->getFlashData("success");
 	}
 
-	public function editKelas($tableName, $editData)
-	{
-		$isUpdateSuccess = null;
-		$value = [
-			'NIP' => $editData['NIP']
-		];
-
-		$conditionEdit = "id_kelas = '" . $editData['id_kelas'] . "'";
-
-		$isUpdateSuccess = $this->db->updates("kelas", $value, $conditionEdit);
-		$message = null;
-		if ($isUpdateSuccess) {
-			$this->fm->message("success", "update data kelas");
-			$message = $this->fm->getFlashData("success");
-		} else {
-			$this->fm->message("danger", "error occur in update data kelas");
-			$message =  $this->fm->getFlashData("danger");
-		}
-		return $message;
-	}
-
 	public function add($tableName, $addData = [], $fkData = [])
 	{
-		$isInsertFkSuccess = null;
-		$isInsertSuccess = false;
+		/*before insert in our mahasiswa or dosen, we must create user first*/
+		$isInsertFkSuccess = true;
 		if (isset($fkData)) {
 			foreach ($fkData as $elm => $value) {
 				$isInsertFkSuccess =  $this->db->inserts($elm, $value);
@@ -99,7 +77,6 @@ class Admin implements IGetterHistory
 
 		$addData['user_id'] = $lastInsertId;
 		$isInsertSuccess = $this->db->inserts($tableName, $addData);
-
 		if ($isInsertSuccess !== true) {
 			$this->db->prepare("DELETE FROM user WHERE id_user =:id");
 			$this->db->bind(":id", $lastInsertId);

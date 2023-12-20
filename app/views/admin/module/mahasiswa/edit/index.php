@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="nip" class="form-label">NIM:</label>
-                        <input type="text" name="NIM" class="form-control" value="<?=$mhs['NIM']?>" required>
+                        <input type="text" name="NIM" class="form-control" value="<?=$mhs['NIM']?>" required readonly>
                     </div>
                     <div class="mb-2">
                         <label for="nama" class="form-label">Nama:</label>
