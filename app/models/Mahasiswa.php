@@ -63,9 +63,22 @@ class Mahasiswa implements IGetterHistory
 		return [];
 	}
 
-	public function upload()
+	public function upload($buktiData, $id)
 	{
+		$kompensasi =  $this->db->storeImage($buktiData);
 
+		$this->db->prepare("UPDATE history_pelanggaran SET kompensasi = '$kompensasi', tgl_kompensasi = CURDATE(), status = 'proses validasi' WHERE id_HP =:id");
+		$id = $this->db->antiDbInjection($id);
+		$this->db->bind(":id", $id);
+		$isInsertSuccess = $this->db->execute();
+
+		if ($isInsertSuccess !== true) {
+			$this->fm->message("warning", "$isInsertSuccess in adding data bukti");
+			return $this->fm->getFlashData("warning");
+		}
+
+		$this->fm->message("success", "report ");
+		return $this->fm->getFlashData("success");
 	}
 
 	public function getMahasiswa($username)

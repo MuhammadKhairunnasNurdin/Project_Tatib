@@ -66,7 +66,7 @@
                         <input type="hidden" name="idName" value="NIM">
                         <button type="submit" id="idData" name="idData" class="me-2 btn btn-success">Ya</button>
                     </form>
-                    <button class="btn btn-danger">Batal</button>
+                    <button class="btn btn-danger" onclick="closePopup()">Batal</button>
                 </div>
             </div>
         </div>

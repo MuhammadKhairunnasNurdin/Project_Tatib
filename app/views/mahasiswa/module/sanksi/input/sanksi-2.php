@@ -258,7 +258,7 @@
         <div class="box-isi">
             <a class="bold" style="margin-right: 45px; ">Bukti Pelanggaran * </a>:
             <div class="box-pelanggaran">
-                <a href="<?=BASEURL?>/img/logo_jti_baru.png">Bukti Pelanggaran</a>
+                <a href="<?=BASEURL?>/img/storeImgUser/<?=$data['history']['bukti_pelanggaran']?>">Bukti Pelanggaran</a>
             </div>
         </div>
 
@@ -271,7 +271,7 @@
             </div>
 
             <div class="posisi-bukti">
-                <button type="submit" class="kirim-bukti" name="id_hp" value="<?=$data['history']['id_hp']?>">
+                <button type="submit" class="kirim-bukti" name="id_HP" value="<?=$data['history']['id_hp']?>">
                     <h1 class="text-bukti">
                         Kirim Bukti
                     </h1>

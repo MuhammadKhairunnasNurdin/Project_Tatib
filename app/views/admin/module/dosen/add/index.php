@@ -25,7 +25,7 @@
                     <div class="mb-2">
                         <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin:</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L">
+                            <input type="radio" class="form-check-input" name="jenis_kelamin" value="L" required>
                             <label for="inlineRadio1" class="form-check-label">Laki-laki</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" required>
+                            <input type="password" name="password" minlength="8" class="form-control" required>
                         </div>
                         <div class="mb-3" style="text-align: center;">
                                 <input type="hidden" name="userLevel" value="dosen">

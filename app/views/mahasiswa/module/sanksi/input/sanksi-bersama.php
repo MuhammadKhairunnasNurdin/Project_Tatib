@@ -115,10 +115,18 @@
             }
 
             .box-pelanggaran {
-
+            background-color: white;
                 text-align: center;
-                margin-left: 220px;
+                width: 245px;
+                height: 60px;
+            margin-left:210px;
                 margin-top: -30px;
+                border-radius: 12px;
+
+            }
+            .buktii{
+                margin-top:21px ;
+                margin-left:19px;
             }
 
             /* Tingkat 2 */
@@ -197,8 +205,8 @@
 
             <div class="box-isi">
                 <a class="bold" style="margin-right: 45px; ">Bukti Pelanggaran * </a>:
-                <div class="box-pelanggaran">
-                    <a href="<?=BASEURL?>/img/storeImgUser/<?=$data['history']['bukti_pelanggaran']?>">Bukti Pelanggaran</a>
+                <div class="box-pelanggaran" >
+                    <a  href="<?=BASEURL?>/img/storeImgUser/<?=$data['history']['bukti_pelanggaran']?>"><br>Bukti Pelanggaran</a>
                 </div>
             </div>
 
@@ -206,12 +214,12 @@
                 <div class="box-isi">
                     <a class="bold" style="margin-right: 45px; ">Bukti Kompensasi * </a>:
                     <div class="box-pelanggaran">
-                        <input type="file" name="kompensasi" accept=".jpg, .jpeg, .png, .gif" required>
+                        <input type="file" name="kompensasi" accept=".jpg, .jpeg, .png, .gif" required class = buktii>
                     </div>
                 </div>
 
                 <div class="posisi-bukti">
-                    <button type="submit" class="kirim-bukti" name="id_hp" value="<?=$data['history']['id_HP']?>">
+                    <button type="submit" class="kirim-bukti" name="id_HP" value="<?=$data['history']['id_HP']?>">
                         <h1 class="text-bukti">
                             Kirim Bukti
                         </h1>

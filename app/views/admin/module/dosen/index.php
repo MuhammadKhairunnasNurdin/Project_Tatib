@@ -71,7 +71,7 @@
             <span class="popup-close" onclick="closePopup()">×</span>
             <h2>HAPUS DOSEN</h2>
 	        <?php if (isset($dosen['kelas'])) { ?>
-                <p>Dosen ini merupakan DPA dari kelas <?=$dosen['kelas']?></p>
+                <p>Dosen ini merupakan DPA</p>
 	        <?php } ?>
             <p>Apakah anda yakin ingin menghapus dosen ini dari daftar?</p>
             <div class="d-flex justify-content-end">
@@ -80,7 +80,7 @@
                     <input type="hidden" name="idName" value="NIP">
                     <button type="submit" id="idData" name="idData" class="me-2 btn btn-success">Ya</button>
                 </form>
-                <button class="btn btn-danger">Batal</button>
+                <button class="btn btn-danger" onclick="closePopup()">Batal</button>
             </div>
         </div>
 

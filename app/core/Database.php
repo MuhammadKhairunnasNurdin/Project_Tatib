@@ -174,7 +174,7 @@ class Database
 		$tempFileName = $imageData['tmp_name'];
 		$newFileName = uniqid();
 
-		$isExtensionValid = ['jpg', 'jpeg', '.png', '.gif'];
+		$isExtensionValid = ['jpg', 'jpeg', 'png', 'gif'];
 		$userImageExtension = explode('.', $fileName);
 		$userImageExtension = strtolower(end($userImageExtension));
 

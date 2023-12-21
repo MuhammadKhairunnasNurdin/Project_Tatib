@@ -88,11 +88,29 @@ class Admin extends Controller
 	public function editUser(): void
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
-			$data = [];
-			$dataKelas = [];
-
-			/*receive data that non updateData and unset that*/
 			$userLevel = $_POST['userLevel'];
+			$data = [];
+
+			/*to update kelas data that hadn't DPA*/
+			if (isset($_POST["NIP"]) AND !empty($_POST["kelas_id"])) {
+				$dataKelas = [
+					'NIP' => $_POST["NIP"],
+					'condition' => "id_kelas = '" . $_POST["kelas_id"] . "'"
+				];
+
+				unset($_POST["kelas_id"]);
+				unset($data);
+
+				$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("kelas", $dataKelas);
+				header("Location: " . BASEURL . "/Admin/page" . ucfirst($userLevel));
+				return;
+			} else {
+				unset($_POST['kelas_id']);
+			}
+
+
+			/*this code for our user edit data other than kelas table*/
+			/*receive data that non updateData in user and unset that*/
 			$fkData = [
 				"user" => [
 					"username" => $_POST["username"],
@@ -106,21 +124,8 @@ class Admin extends Controller
 			unset($_POST['password']);
 			unset($_POST["conditionFk"]);
 
-			if (isset($_POST["id_dosen"]) AND isset($_POST["kelas_id"])) {
-				setcookie("kelas_id", $_POST['kelas_id'], time() + 5, "/");
-				setcookie("NIP", $_POST['id_dosen'], time() + 5, "/");
-				$dataKelas = [
-					'NIP' => $_POST["id_dosen"],
-					'id_kelas' => $_POST["kelas_id"]
-				];
-
-				$this->model("Admin")->editKelas("kelas", $dataKelas);
-				unset($_POST["id_dosen"]);
-				unset($_POST["kelas_id"]);
-			} else{
-				unset($_POST['kelas_id']);
-			}
-
+			$data['condition'] = "nama = '" . $_POST['condition'] . "'";
+			unset($_POST['condition']);
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}

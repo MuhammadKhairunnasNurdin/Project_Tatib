@@ -257,7 +257,7 @@
             <div class="box-isi">
                 <a class="bold" style="margin-right: 45px; ">Bukti Pelanggaran * </a>:
                 <div class="box-pelanggaran" >
-                    <a href=<?=BASEURL?>/img/storeImgUser/<?=$data['history']['bukti_pelanggaran']?>>Bukti Pelanggaran</a>
+                    <a href="<?=BASEURL?>/img/storeImgUser/<?=$data['history']['bukti_pelanggaran']?>">Bukti Pelanggaran</a>
                 </div>
             </div>
         </div>
