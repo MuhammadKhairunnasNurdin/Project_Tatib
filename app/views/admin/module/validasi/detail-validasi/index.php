@@ -34,7 +34,7 @@
                             <h1 class="h6"><?=$data['validasi']['jenis']?></h1>
                             <h1 class="h6"><?=$data['validasi']['sanksi']?></h1>
                             <h1 class="h6"><?=$data['validasi']['tgl_kompensasi']?></h1>
-                            <a href="">Bukti Kompen</a>
+                            <a href="<?=BASEURL?>/img/storeImgUser/<?=$data['validasi']['bukti_pelanggaran']?>">Bukti Kompen</a>
                             <div class="" style="display: flex; gap: 10px">
                                 <form action="<?=BASEURL?>/Admin/validate" method="post">
                                     <button type="submit" name="id_HP" value="<?=$data['validasi']['id_HP']?>" class="btn btn-success">Validasi</button>

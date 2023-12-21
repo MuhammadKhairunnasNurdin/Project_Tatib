@@ -109,7 +109,7 @@ class Admin implements IGetterHistory
 
 	public function validation($id_hp)
 	{
-		$this->db->prepare("UPDATE history_pelanggaran SET tgl_validasi= CURRENT_DATE WHERE id_HP=:id_HP");
+		$this->db->prepare("UPDATE history_pelanggaran SET tgl_validasi= CURRENT_DATE, status = 'tervalidasi' WHERE id_HP=:id_HP");
 		$id_hp = $this->db->antiDbInjection($id_hp);
 		$this->db->bind(":id_HP", $id_hp);
 		$isVerificationSuccess = $this->db->execute();
@@ -127,7 +127,7 @@ class Admin implements IGetterHistory
 
 	public function reject($id_hp)
 	{
-		$this->db->prepare("UPDATE history_pelanggaran SET tgl_kompensasi= NULL WHERE id_HP=:id_HP");
+		$this->db->prepare("UPDATE history_pelanggaran SET tgl_kompensasi= NULL, kompensasi = NULL, status = 'ditolak' WHERE id_HP=:id_HP");
 		$id_hp = $this->db->antiDbInjection($id_hp);
 		$this->db->bind(":id_HP", $id_hp);
 		$isVerificationSuccess = $this->db->execute();
