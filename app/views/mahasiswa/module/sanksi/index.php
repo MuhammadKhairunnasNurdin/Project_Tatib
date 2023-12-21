@@ -264,8 +264,6 @@
                             <form action="<?= BASEURL ?>/HistoryPelanggaran/historyById" method="POST">
                                 <input type="hidden" name="implementor" value="Mahasiswa">
                                 <input type="hidden" name="pageName" value="Rincian">
-<!--                                <input type="hidden" name="pelanggaran_id" value="--><?php //=$sanksi['pelanggaran_id']?><!--">-->
-                                <?php $_SESSION['rincian']['page'] = $sanksi['pelanggaran_id']?>
                                 <button name="data" type="submit" class="box-sanksi" value="<?=$sanksi['id_HP']?>">
                                     Cek Disini!
                                 </button>

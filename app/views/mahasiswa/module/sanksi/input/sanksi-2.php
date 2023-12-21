@@ -271,7 +271,7 @@
             </div>
 
             <div class="posisi-bukti">
-                <button type="submit" class="kirim-bukti" name="id_HP" value="<?=$data['history']['id_hp']?>">
+                <button type="submit" class="kirim-bukti" name="id_HP" value="<?=$data['history']['id_HP']?>">
                     <h1 class="text-bukti">
                         Kirim Bukti
                     </h1>

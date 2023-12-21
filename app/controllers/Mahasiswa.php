@@ -77,7 +77,7 @@ class Mahasiswa extends Controller
 
 	public function pageRincian()
 	{
-			$page = $_SESSION['rincian']['page'];
+			$page = $_SESSION['detailHistory']['Mahasiswa']['pelanggaran_id'];
 			if ($page === "Tingkat 1") {
 				$page = '1';
 			} elseif ($page === "Tingkat 2") {
@@ -85,6 +85,8 @@ class Mahasiswa extends Controller
 			} else {
 				$page = 'bersama';
 			}
+
+			setcookie("page", $page, time() + 10, "/");
 
 			$data['title'] = "Mahasiswa";
 			$data['mahasiswa'] = $this->model("Mahasiswa")->getMahasiswa($_SESSION['username']);
@@ -108,7 +110,7 @@ class Mahasiswa extends Controller
 			}
 			$id = $_POST["id_HP"];
 			$_SESSION['flashMessage']['upload'] = $this->model("Mahasiswa")->upload($data, $id);
-			header("location: " . BASEURL . "/Mahasiswa/pageMahasiswaSanksi");
+			header("location: " . BASEURL . "/HistoryPelanggaran/allHistory");
 		}
 	}
 }

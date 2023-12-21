@@ -6,6 +6,10 @@
             <div class="title-page">
                 <h1 class="h2"><img class="logo-dashboard-page" src="<?= BASEURL ?>/img/dash.svg" alt="">Dashboard</h1>
             </div>
+            <?php if (isset($_SESSION['flashMessage']['upload'])) {
+                echo $_SESSION['flashMessage']['upload'];
+                unset($_SESSION['flashMessage']['upload']);
+            } ?>
             <a href="<?=BASEURL?>/Mahasiswa/index" class="link-dashboard-2">
                 <div class="refresh">
                     <img class="logo-refresh" src="<?= BASEURL ?>/img/reload_.svg" alt="Refresh">

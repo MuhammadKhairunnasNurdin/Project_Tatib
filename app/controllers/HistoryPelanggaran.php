@@ -16,8 +16,20 @@ class HistoryPelanggaran extends Controller
 			$implementor = $_POST['implementor'];
 			$data = $_POST['data'];
 			$pageName = $_POST['pageName'];
+
+			$_SESSION['pageName'] = $pageName;
+			$_SESSION['data'] = $data;
+			$_SESSION['implementator'] = $implementor;
+
 			$this->history =  $this->model($implementor);
 			$_SESSION['history'][$implementor]= $this->history->getAllHistory($data);
+			header("Location: " . BASEURL . "/$implementor/page" . $implementor . $pageName);
+		} else {
+			$implementor = $_SESSION['implementator'];
+			$data = $_SESSION['data'];
+			$pageName = $_SESSION['pageName'];
+			$this->history = $this->model($implementor);
+			$_SESSION['history'][$implementor] = $this->history->getAllHistory($data);
 			header("Location: " . BASEURL . "/$implementor/page" . $implementor . $pageName);
 		}
 	}

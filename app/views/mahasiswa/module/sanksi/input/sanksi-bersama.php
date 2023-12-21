@@ -229,7 +229,7 @@
 
             <div class="box-isi">
                 <a class="bold-file" style="margin-right: 45px; text-decoration-line: none" >File Surat Pernyataan </a>
-                    <a href="<?=BASEURL?>/img/admin.pdf">
+                    <a href="<?=BASEURL?>/img/SURAT_PERNYATAAN.pdf">
                         <button class="kirim-file">
                             <h1 class="download-bukti">
                                 Download File

@@ -216,7 +216,7 @@ class Admin extends Controller
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->validation($_POST['id_HP']);
-			header("location: " . BASEURL . "/Admin/pageAdminValidasi");
+			header("location: " . BASEURL . "/HistoryPelanggaran/allHistory");
 		}
 	}
 
@@ -224,7 +224,7 @@ class Admin extends Controller
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['flashMessage']['validate'] = $this->model("Admin")->reject($_POST['id_HP']);
-			header("location: " . BASEURL . "/Admin/pageAdminValidasi");
+			header("location: " . BASEURL . "/HistoryPelanggaran/allHistory");
 		}
 	}
 }

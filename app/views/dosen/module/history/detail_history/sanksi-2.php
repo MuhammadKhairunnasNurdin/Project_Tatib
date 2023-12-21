@@ -89,7 +89,11 @@
 			<div class="box-isi">
 				<a class="bold" style="margin-right: 45px; ">Bukti Kompensasi * </a>:
 				<div class="box-pelanggaran">
+                    <?php if (empty($data['history']['kompensasi'])) { ?>
+                    <a>Belum ada Bukti Kompensasi</a>
+                    <?php } else { ?>
                     <a href=<?=BASEURL?>/img/storeImgUser/<?=$data['history']['kompensasi']?>>Bukti Kompensasi</a>
+                    <?php } ?>
                 </div>
 			</div>
 		</form>
