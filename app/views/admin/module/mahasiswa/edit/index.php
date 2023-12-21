@@ -60,11 +60,11 @@
                     </div>
                     <div class="mb-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>">
+                        <input type="text" name="alamat" class="form-control" value="<?=$mhs['alamat']?>" required>
                     </div>
                     <div class="mb-2">
                         <label for="no_telp" class="form-label">No Telepon</label>
-                        <input type="number" name="no_telp" class="form-control" value="<?=$mhs['no_telp']?>">
+                        <input type="number" name="no_telp" class="form-control" value="<?=$mhs['no_telp']?>" required>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" minlength="8" class="form-control">
                             <div class="form-text">
                                 Kosongi password, jika tidak ingin menggantinya
                             </div>
