@@ -57,7 +57,7 @@
                     <div class="mt-1">
                         <label for="dpa" class="form-label">DPA Kelas:
                             <select class="ms-2 btn btn-light dropdown-toggle border" name="kelas_id" id="kelas">
-                                <option selected>Pilih Kelas</option>
+                                <option value="" selected>Pilih Kelas</option>
                                 <?php foreach ($data['kelas'] as $kls) :?>
                                     <?php
                                     if (!isset($kls['NIP'])) {
@@ -92,7 +92,7 @@
                             <input type="hidden" name="userLevel" value="dosen">
                             <input type="hidden" name="condition" value="<?=$dosen['nama']?>">
                             <input type="hidden" name="conditionFk" value="<?=$dosen['user_id']?>">
-                            <input type="hidden" name="NIP" value="<?=$dosen['NIP']?>">
+<!--                            <input type="hidden" name="id_dosen" value="--><?//=$dosen['NIP']?><!--">-->
                             <button class="btn btn-dark-blue" type="submit"><i class="fa fa-floppy-o" aria-hidden= 'true'></i>
                                 Ubah
                             </button>

@@ -11,7 +11,7 @@ class Dpa extends Dosen
 	public function getAllHistory($additionalData = null): array
 	{
 		if (isset($additionalData)) {
-			$this->db->prepare("SELECT m.nama, hp.pelanggaran_id, hp.bukti_pelanggaran, hp.tgl_pelanggaran
+			$this->db->prepare("SELECT *, m.nama, hp.pelanggaran_id, hp.bukti_pelanggaran, hp.tgl_pelanggaran
 	        FROM history_pelanggaran hp 
 		        INNER JOIN mahasiswa m ON hp.NIM = m.NIM
 		        INNER JOIN kelas k ON m.kelas_id = k.id_kelas

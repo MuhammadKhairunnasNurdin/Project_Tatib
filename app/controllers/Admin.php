@@ -106,20 +106,28 @@ class Admin extends Controller
 			unset($_POST['password']);
 			unset($_POST["conditionFk"]);
 
-			if (isset($_POST["NIP"]) AND isset($_POST["kelas_id"])) {
+			if (isset($_POST["id_dosen"]) AND isset($_POST["kelas_id"])) {
+				setcookie("kelas_id", $_POST['kelas_id'], time() + 5, "/");
+				setcookie("NIP", $_POST['id_dosen'], time() + 5, "/");
 				$dataKelas = [
-					'NIP' => $_POST["NIP"],
+					'NIP' => $_POST["id_dosen"],
 					'id_kelas' => $_POST["kelas_id"]
 				];
 
 				$this->model("Admin")->editKelas("kelas", $dataKelas);
-				unset($_POST["NIP"]);
+				unset($_POST["id_dosen"]);
 				unset($_POST["kelas_id"]);
+			} else{
+				unset($_POST['kelas_id']);
 			}
 
 			foreach ($_POST as $column => $value) {
 				$data[$column] = $value;
 			}
+
+			var_dump($data);
+			setcookie("userlevel", $userLevel, time() + 1, "/");
+			setcookie("dosen", $data["NIP"], time() + 1, "/");
 
 			$_SESSION["flashMessage"]["$userLevel"] = $this->model("Admin")->edit("$userLevel", $data, $fkData);
 			unset($data);

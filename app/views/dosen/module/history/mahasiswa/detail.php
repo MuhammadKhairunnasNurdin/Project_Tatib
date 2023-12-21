@@ -115,19 +115,22 @@
 							</tr>
 							</thead>
 							<tbody>
-                            <?php $id=1; foreach ($data['mahasiswa'] as $mhs): ?>
+                            <?php $id=1; foreach ($data['history'] as $mhs):
+                                ?>
 							<tr>
 								<td class="no"><?=$id?></td>
 								<td class="jenis"><?=$mhs['jenis']?></td>
 								<td class="tingkat"><?=$mhs['pelanggaran_id']?></td>
 								<td class="tanggal"><?=$mhs['tgl_pelanggaran']?></td>
 								<td class="dosen"><?=$mhs['dosen']?></td>
-                                <td class="rincian">
-	                                <?php if (isset($mhs['tgl_validasi'])) { ?>
-                                        <input type="checkbox" checked disabled>
-	                                <?php } else { ?>
-                                        <input type="checkbox" disabled>
-	                                <?php } ?>
+                                <td class="rincian" style="text-align: center">
+                                    <form action="<?=BASEURL?>/HistoryPelanggaran/historyById" method="post">
+                                        <input type="hidden" name="implementor" value="Dpa">
+                                        <input type="hidden" name="pageName" value="Detail">
+                                        <button class="btn btn-primary" name="data" value="<?=$mhs['id_HP']?>"
+                                                style="border-radius: 50px; width: 100%">Detail
+                                        </button>
+                                    </form>
                                 </td>
 							</tr>
                             <?php $id++; endforeach; ?>

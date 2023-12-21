@@ -106,4 +106,25 @@ class Dosen extends Controller
 			$this->view("dosen/template/footer");
 		}
 	}
+
+	public function pageDetail()
+	{
+		$data['title'] = "Dosen";
+		$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
+		$data['history'] = $_SESSION['detailHistory']['Dosen'];
+		$page = "";
+
+		if ($data['history']['tingkatan'] === "Tingkat 1") {
+			$page = "1";
+		} else if ($data['history']['tingkatan'] === "Tingkat 2") {
+			$page = "2";
+		} else {
+			$page = "3";
+		}
+
+		$this->view("dosen/template/header", $data);
+		$this->view("dosen/template/menu");
+		$this->view("dosen/module/history/detail_history/sanksi-$page", $data);
+		$this->view("dosen/template/footer");
+	}
 }

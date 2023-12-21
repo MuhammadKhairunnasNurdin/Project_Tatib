@@ -110,7 +110,7 @@
                                 <form action="<?=BASEURL?>/HistoryPelanggaran/allHistory" method="post"">
                                     <input type="hidden" name="implementor" value="Dpa">
                                     <input type="hidden" name="pageName" value="Mahasiswa">
-                                    <button type="submit" class="box-mhskelas" name="data" value="" style="text-decoration-line: none">
+                                    <button type="submit" class="box-mhskelas" name="data" value="<?=$data['dosen']['NIP']?>" style="text-decoration-line: none">
                                         <div class="text-mhskelas">
                                             <h3 class="mhskelas-title">Mahasiswa Kelas</h3>
                                         </div>
