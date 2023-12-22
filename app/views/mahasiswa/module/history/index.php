@@ -10,7 +10,7 @@
             <th>Tingkat Pelanggaran</th>
             <th>Tanggal Kejadian</th>
             <th>Tanggal Penyelesaian Sanksi</th>
-            <th>Validasi</th>
+            <th style="width: 13px">Validasi</th>
         </tr>
         <?php $id = 1;
         foreach ($data['history'] as $hstr):
@@ -24,11 +24,9 @@
                 <td><?=$hstr['pelanggaran_id']?></td>
                 <td><?=$hstr['tgl_pelanggaran']?></td>
                 <td><?=$hstr['tgl_kompensasi']?></td>
-                <td>
-                    <?php if (isset($hstr['tgl_validasi'])) { ?>
-                        <input type="checkbox" checked disabled>
-                    <?php } else { ?>
-                        <input type="checkbox" disabled>
+                <td style="margin: 5rem">
+                    <?php if (!isset($hstr['tgl_validasi'])) { ?>
+                        <img src="<?=BASEURL?>/img/validate.png" style="width: 55%; height: 55%; margin: 0 2px 0 12px" alt="">
                     <?php } ?>
                 </td>
             </tr>

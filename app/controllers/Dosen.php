@@ -99,7 +99,8 @@ class Dosen extends Controller
 			$data['title'] = "Dosen";
 			$NIM = $_SESSION['pageTerlapor']['NIM'];
 			$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-			$data['mahasiswa'] = $this->model("Mahasiswa")->getAllHistory($NIM);
+			$data['mahasiswa'] = $this->model("HelperData")->getMahasiswa($NIM);
+			$data['history'] = $this->model("Mahasiswa")->getAllHistory($NIM);
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");
 			$this->view("dosen/module/history/terlapor/detail", $data);

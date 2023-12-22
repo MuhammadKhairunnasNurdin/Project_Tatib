@@ -106,7 +106,9 @@
                         <div class="container-flex">
                             <div class="box-mhs">
                                 <div class="text-mhs">
-                                    <h3 class="mhs-title">Kinata Dewa Ariandi</h3>
+	                                <?php foreach ($data['mahasiswa'] as $mhs) : ?>
+                                        <h3 class="mhs-title"><?=$mhs['nama']?></h3>
+	                                <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +125,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $id=1; foreach ($data['mahasiswa'] as $mhs): ?>
+                                <?php $id=1; foreach ($data['history'] as $mhs):
+                                    if ($data['dosen']['NIP'] !== $mhs['NIP'])
+                                    ?>
                                 <tr>
                                     <td class="no"><?=$id?></td>
                                     <td class="jenis"><?=$mhs['jenis']?></td>

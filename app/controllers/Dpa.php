@@ -27,7 +27,7 @@ class Dpa extends Controller
 			$data['title'] = "Dosen";
 			$NIM = $_SESSION['pageMhs']['NIM'];
 			$data['dosen'] = $this->model("Dosen")->getDosen($_SESSION['username']);
-			$data['mahasiswa'] = $this->model("HelperData")->getAllMahasiswa();
+			$data['mahasiswa'] = $this->model("HelperData")->getMahasiswa($NIM);
 			$data['history'] = $this->model("Mahasiswa")->getAllHistory($NIM);
 			$this->view("dosen/template/header", $data);
 			$this->view("dosen/template/menu");

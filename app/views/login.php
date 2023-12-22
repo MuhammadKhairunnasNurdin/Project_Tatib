@@ -25,7 +25,7 @@
                 <form action="<?= BASEURL?>/Authorization/loginVerify" id="loginForm" class="d-flex flex-column gap-2 w-10 px-1 py-1 bg-white rounded-3" style="height:auto; width:35%;" method="post">
                     <div class="text-center logo-text-container">
                         <img src="<?= BASEURL?>/img/logo_jti_baru.png" style="width: 20%;" class="logo" alt="">
-                        <h1 class="h5 mb-3 fw-bolder" style="font-family: 'Tiro Bangla'; font-size: 25px;">Sistem Tata Tertib JTI</h1>
+                        <h1 class="h5 mb-3 fw-bolder" style="font-family: 'Tiro Bangla'; font-size: 25px;">JTI Rule</h1>
                         <h5 class="small" style="margin-top: 5%; margin:auto; font-family: 'Tiro Bangla'; font-size: 15px;">Selamat datang di sistem tata tertib Politeknik<br> Negeri Malang untuk mahasiswa, civitas akademika</h5>
                     </div>
 			        <?php
